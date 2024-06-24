@@ -1,0 +1,5 @@
+- [ ] Spring boot
+- [ ] Angular
+- [ ] Patrones de diseño 
+- [ ] Principios Solid 
+- [ ] UML Patrones Craig Larman
