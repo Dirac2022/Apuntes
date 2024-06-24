@@ -1,0 +1,10 @@
+- [x] Laboratorio 15 🔺 📅 2024-06-06 ✅ 2024-06-06
+- [ ] Proyecto BD ⏫ 🛫 2024-06-07 ⏳ 2024-06-07
+- [ ] Normalización - Silberschatz
+- [x] Revisar ppt de Vistas ✅ 2024-06-20
+- [x] Revisar labo de Vistas ✅ 2024-06-20
+- [ ] Revisar subconsultas
+- [ ] Revisar Añadir constraints a una base de datos
+- [ ] Todo sobre Índices
+- [ ] Todo sobre Funciones
+
