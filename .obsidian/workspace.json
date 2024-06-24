@@ -1,0 +1,201 @@
+{
+  "main": {
+    "id": "eeec17d0155be824",
+    "type": "split",
+    "children": [
+      {
+        "id": "4e1d13bc8f843756",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "70639d82152dd5ae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Analisis y Diseño de Algoritmos/paper/Conceptos previos.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1b8d3ecd31f73bf2",
+    "type": "split",
+    "children": [
+      {
+        "id": "205434abf5cd953b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "195ff7188b541e75",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c8f28610b1f86ea2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "da356bf0a3f0057c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 321.5
+  },
+  "right": {
+    "id": "718557b829c5a8b8",
+    "type": "split",
+    "children": [
+      {
+        "id": "0ad3c695c29f1a0d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b8d97b8e8f007885",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Analisis y Diseño de Algoritmos/paper/Conceptos previos.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3fc0c936fdd86975",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Analisis y Diseño de Algoritmos/paper/Conceptos previos.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f605bd2cf7ba8225",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "a4f92e9678ed2cd9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Analisis y Diseño de Algoritmos/paper/Conceptos previos.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian42-brat:BRAT": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "70639d82152dd5ae",
+  "lastOpenFiles": [
+    "Analisis y Diseño de Algoritmos/paper/Clustering with local density peaks-based minimum spanning tree.md",
+    "Analisis y Diseño de Algoritmos/paper/Conceptos previos.md",
+    "Analisis y Diseño de Algoritmos/paper/tabla10.png",
+    "Analisis y Diseño de Algoritmos/paper/tabla9.png",
+    "Analisis y Diseño de Algoritmos/paper/tabla6.png",
+    "Analisis y Diseño de Algoritmos/paper/tabla5.png",
+    "Analisis y Diseño de Algoritmos/paper/tabla11.png",
+    "Analisis y Diseño de Algoritmos/paper/tabla8.png",
+    "Analisis y Diseño de Algoritmos/paper/tabla7.png",
+    "Analisis y Diseño de Algoritmos/paper/tabla4.png",
+    "Analisis y Diseño de Algoritmos/paper/tabla3.png",
+    "Pasted image 20240622235318.png",
+    "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
+    "Analisis y Modelamiento Numerico/Solución de ecuaciones no lineales.md",
+    "Analisis y Diseño de Algoritmos/paper",
+    "Ingenieria de Software/Task.md",
+    "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
+    "Ingenieria de Software",
+    "Analisis y Modelamiento Numerico/Interpolación.md",
+    "Introduccion a la Electricidad y Magnetismo/Imágenes ópticas.md",
+    "Bases de Datos/MongoDB.md",
+    "Bases de Datos/Tasks.md",
+    "Bases de Datos/Vistas y autorización de acceso.md",
+    "Bases de Datos/Bases de Datos NoSQL.md",
+    "Bases de Datos/Lenguaje SQL (Structured Query Language).md",
+    "Bases de Datos/Normalización.md",
+    "Redes/AWS.md",
+    "Teoría de Automatas/Links.md",
+    "Data Science/imgs",
+    "Data Science/Data Science 1 - Sesión 01.md",
+    "Data Science/Maths.md",
+    "Data Science/Data Science 1 - Sesión 04.md",
+    "Data Science/Data Science 1 - Sesión 03.md",
+    "Data Science/Data Science 1 - Sesión 02.md",
+    "Data Science/Data Science 1 - Sesión 1.md",
+    "Python/Estructuras de datos.md",
+    "Data Science",
+    "Python/Tipos de datos.md",
+    "2024-06-19.md",
+    "Analisis y Diseño de Algoritmos/Caminos mínimos.md",
+    "IA/imgs",
+    "IA",
+    "C++",
+    "My tasks",
+    "Python",
+    "Estadistica",
+    "Algebra Lineal/Untitled.canvas"
+  ]
+}
