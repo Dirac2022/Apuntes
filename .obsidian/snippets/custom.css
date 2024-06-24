@@ -1,0 +1,9 @@
+/* Cambiar el color del texto para encabezados H2 */
+.markdown-preview-view h2 {
+    color: #00FF00; /* Cambia #00FF00 por el color que desees para H2 */
+}
+
+/* Cambiar el color del texto para encabezados H3 */
+.markdown-preview-view h3 {
+    color: ##248C8D; /* Cambia #0000FF por el color que desees para H3 */
+}
