@@ -37,13 +37,38 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Analisis y Modelamiento Numerico/Resolviendo sistemas de ecuaciones lineales.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ce34df2f43e3e014",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Analisis y Modelamiento Numerico/Tópicos Selectos de Algebra Lineal.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "7e16c593e2af5625",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -93,8 +118,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 321.5,
-    "collapsed": true
+    "width": 321.5
   },
   "right": {
     "id": "718557b829c5a8b8",
@@ -110,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Interpolación.md",
+                "file": "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Interpolación.md",
+                "file": "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,12 +174,11 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Interpolación.md"
+                "file": "Analisis y Modelamiento Numerico/Calculo de valores propios.md"
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -173,12 +196,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "339ecda0295885b0",
+  "active": "7e16c593e2af5625",
   "lastOpenFiles": [
-    "Calculo/Calculo de una variable.md",
-    "Analisis y Modelamiento Numerico/Interpolación.md",
-    "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
     "Analisis y Modelamiento Numerico/Tópicos Selectos de Algebra Lineal.md",
+    "Analisis y Modelamiento Numerico/Resolviendo sistemas de ecuaciones lineales.md",
+    "Analisis y Modelamiento Numerico/Interpolación.md",
+    "Calculo/Calculo de una variable.md",
+    "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
     "Bases de Datos/MongoDB.md",
     "Calculo/Tasks.md",
     "Bases de Datos/Procedimientos almacenados.md",
@@ -213,7 +237,6 @@
     "Ingenieria de Software",
     "Introduccion a la Electricidad y Magnetismo/Imágenes ópticas.md",
     "Bases de Datos/Bases de Datos NoSQL.md",
-    "Bases de Datos/Lenguaje SQL (Structured Query Language).md",
     "Data Science/imgs",
     "Data Science",
     "IA/imgs",
