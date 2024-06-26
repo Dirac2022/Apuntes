@@ -377,12 +377,15 @@ p(x) = \sum_{i=1}^{n} f[x_0, \ldots, x_i] \prod_{j=0}^{i-1} (x - x_j) - \sum_{i=
 $$
 
 
+$p(x) = \dfrac{1}{x_n - x_0} \left(f[x_1](x-x_0) + f[x_1, x_2](x-x_0)(x-x_1) + \dots + f[x_1, \dots, x_n] (x-x_0)(x-x_1)\dots (x-x_{n-1})\right.$$- \left.f[x_0](x-x_0) + f[x_0, x_1](x-x_0)(x-x_1) + \dots + f[x_0, \dots, x_{n-1}] (x-x_0)(x-x_1)\dots (x-x_{n-1}) \right)$
+Los últimos términos son de grado $n$ por tanto el coeficiente que acompaña a $x^n$ es de la forma
+
 $$
-\begin{aligned}
-p(x) &= f[x_1](x-x_0) + f[x_1, x_2](x-x_0)(x-x_1) + \dots + f[x_1, \dots, x_n] \overbrace{(x-x_0)(x-x_1)\dots (x-x_{n-1})}{grado n} \\ \\
-&- f[x_0](x-x_0) + f[x_0, x_1](x-x_0)(x-x_1) + \dots + f[x_0, \dots, x_{n-1}] \underbrace{(x-x_0)(x-x_1)\dots (x-x_{n-1})}{grado n}
-\end{aligned}
-$$f[x_0, x_1, \ldots, x_n] = \frac{f[x_1, \ldots, x_n] - f[x_0, \ldots, x_{n-1}]}{x_n - x_0}$$
+\frac{f[x_1, \dots, x_n] - f[x_0, \dots, x_{n-1}]}{x_n - x_0}
+$$
+Por tanto:
+$$
+f[x_0, x_1, \ldots, x_n] = \frac{f[x_1, \ldots, x_n] - f[x_0, \ldots, x_{n-1}]}{x_n - x_0}$$
 
 ### Cuadro de diferencias divididas
 Se acostumbra construir un cuadro sinóptico para el cálculo de las diferencias divididas:
@@ -398,8 +401,84 @@ $$
 
 Los coeficientes que resultan en la primera fila son los que forman el polinomio de interpolación de Newton:
 
-$$P_3(x) = f[x_0] + f[x_0, x_1](x - x_0) + f[x_0, x_1, x_2](x - x_0)(x - x_1) + f[x_0, x_1, x_2, x_3](x - x_0)(x - x_1)(x - x_2)$$
+$P_3(x) = f[x_0] + f[x_0, x_1](x - x_0) + f[x_0, x_1, x_2](x - x_0)(x - x_1) + f[x_0, x_1, x_2, x_3](x - x_0)(x - x_1)(x - x_2)$
 
----
+### Teorema
+La diferencia dividida es una **función simétrica** de sus argumentos. Es decir si $(z_0, z_1, \ldots, z_n)$ es una permutación de $(x_0, x_1, \ldots, x_n)$ entonces
+$$
+f[z_0, z_1, \ldots, z_n] = f[x_0, x_1, \ldots, x_n]
+$$
+#### Demostración:
+$f[z_0, z_1, \ldots, z_n]$ es el coeficiente de $x^n$ en el polinomio que interpola $f$ en $\{z_0, z_1, \ldots, z_n\}$, y $f[x_0, x_1, \ldots, x_n]$ es el coeficiente de $x^n$ en el polinomio que interpola $f$ en $\{x_0, x_1, \ldots, x_n\}$, como dicho polinomio es único entonces esas cantidades son iguales.
 
-Este es el texto con las partes matemáticas correctamente formateadas.
+### Teorema
+Sea $p$ el polinomio interpolante de $f$ en $\{x_0, x_1, \ldots, x_n\}$. Si $t$ es distinto de los nodos entonces
+
+$$
+f(t) - p(t) = f[x_0, x_1, \ldots, x_n, t] \prod_{j=0}^{n} (t - x_j)
+$$
+#### Demostración
+Sea $q$ el polinomio interpolante de $f$ en $\{x_0, x_1, \ldots, x_n, t\}$ entonces
+
+$$
+q(x) = p(x) + f[x_0, x_1, \ldots, x_n, t] \prod_{j=0}^{n} (x - x_j)
+$$
+
+si $x = t$, $f(t) = q(t)$, luego
+
+$$
+f(t) = p(t) + f[x_0, x_1, \ldots, x_n, t] \prod_{j=0}^{n} (t - x_j)
+$$
+### Teorema
+
+Si $f$ es $n$ veces derivable y $f^{(n)}$ es continua en $[a, b]$ entonces existe $c$ en $\langle a, b \rangle$ tal que
+
+$$
+f[x_0, x_1, \ldots, x_n] = \frac{1}{n!} f^{(n)}(c)
+$$
+
+#### Demostración
+Sea $p$ el polinomio interpolante de $f$ en $\{x_0, x_1, \ldots, x_{n-1}\}$ entonces el error cometido en la interpolación es
+
+$$
+f(x_n) - p(x_n) = \frac{1}{n!} f^{(n)}(c) \prod_{j=0}^{n-1} (x_n - x_j)
+$$
+por el teorema anterior
+
+$$
+f(x_n) - p(x_n) = f[x_0, x_1, \ldots, x_{n-1}, x_n] \prod_{j=0}^{n-1} (x_n - x_j)
+$$
+
+## Forma de Newton Progresiva
+Si suponemos que los nodos igualmente espaciados, $h = x_{i+1} - x_i$ y usamos la notación $\Delta$ para diferencia progresiva $\Delta f(x) = f(x + h) - f(x)$ entonces
+
+$$
+f[x_0, x_1] = \frac{f(x_1) - f(x_0)}{x_1 - x_0} = \frac{1}{h} \Delta f(x_0)
+$$
+
+$$
+f[x_0, x_1, x_2] = \frac{\Delta f(x_1) - \Delta f(x_0)}{2h} = \frac{1}{2h^2} \Delta^2 f(x_0)
+$$
+
+y en general
+
+$$
+f[x_0, x_1, x_2, \ldots, x_k] = \frac{1}{k! h^k} \Delta^k f(x_0)
+$$
+
+Para $x = x_0 + sh$ el polinomio interpolante tiene la forma
+
+$$
+\begin{align*}
+p(x) &= p(x_0 + sh) = f[x_0] + sh f[x_0, x_1] + s(s - 1)h^2 f[x_0, x_1, x_2] \\
+&\quad + \ldots + s(s - 1) \cdots (s - n + 1)h^n f[x_0, x_1, \ldots, x_n] \\
+&= f[x_0] + \sum_{k=1}^{n} s(s - 1) \cdots (s - k + 1)h^k f[x_0, x_1, \ldots, x_k] \\
+&= f[x_0] + \sum_{k=1}^{n} \binom{s}{k} k! h^k f[x_0, x_1, \ldots, x_k]
+\end{align*}
+$$
+
+#### Fórmula de Newton progresiva
+
+$$
+p(x) = f[x_0] + \sum_{k=1}^{n} \binom{s}{k} \Delta^k f(x_0)
+$$
