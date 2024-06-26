@@ -3,6 +3,7 @@
 - [ ] Normalización - Silberschatz
 - [x] Revisar ppt de Vistas ✅ 2024-06-20
 - [x] Revisar labo de Vistas ✅ 2024-06-20
+- [ ] Labo de NoSQL MongoDB
 - [ ] Revisar subconsultas
 - [ ] Revisar Añadir constraints a una base de datos
 - [ ] Todo sobre Índices
