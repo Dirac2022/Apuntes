@@ -197,3 +197,158 @@ $$ (I-A)^{-1} = \sum_{k=0}^{\infty} A^k $$
 
 
 
+
+# Método de Parlett y Reid
+Claro, aquí tienes el texto con cada elemento matemático encerrado en `$`:
+
+---
+
+### 1.5.4.1 El método de Parlett y Reid
+
+Este método —Parlett y Reid [1970]— se basa en la utilización de transformaciones de Gauss. Para analizar su mecánica, apliquémoslo a una matriz $A^{5 \times 5}$, suponiendo que estamos en la etapa $k = 2$.
+
+Al comienzo de esta etapa, la matriz $A$ tiene la forma
+
+$$
+A^{(1)} = M_1 P_1 A P_1^T M_1^T = 
+\begin{bmatrix}
+\alpha_1 & \beta_1 & 0 & 0 & 0 \\
+\beta_1 & \alpha_2 & v_3 & v_4 & v_5 \\
+0 & v_3 & \times & \times & \times \\
+0 & v_4 & \times & \times & \times \\
+0 & v_5 & \times & \times & \times
+\end{bmatrix},
+$$
+
+donde $P$ representa una permutación tal que los módulos de los elementos de la transformación o eliminación de Gauss $M_1$ están acotados superiormente por la unidad. En esta etapa $k = 2$ se busca el elemento del vector $[v_3, v_4, v_5]^T$ de mayor valor absoluto y se determina una permutación, que representamos por $P_2$, tal que
+
+$$
+\tilde{v_3} = \max(|v_3|, |v_4|, |v_5|).
+$$
+
+Si $\tilde{v_3} = 0$, se hace $M_2 = P_2 = I$ y se pasa a la etapa $k = 3$. Si no, se hace $P_2 = \text{diag}(I_2, \tilde{P_2})$, es decir una matriz diagonal en dos bloques (el primero $I_2$ y el segundo $\tilde{P_2}$), y $M_2 = I_5 - \alpha_2 e_3 \tilde{e_3}^T$, donde,
+
+$$
+\alpha_2 = 
+\begin{bmatrix}
+0 \\
+0 \\
+1 \\
+0 \\
+0
+\end{bmatrix} \cdot \frac{\tilde{v_3}}{v_3}.
+$$
+
+El resultado de esta etapa $k = 2$ será una matriz $A^{(2)}$ de la forma
+
+$$
+A^{(2)} = M_2 P_2 A^{(1)} P_2^T M_2^T = 
+\begin{bmatrix}
+\alpha_1 & \beta_1 & 0 & 0 & 0 \\
+\beta_1 & \alpha_2 & 0 & 0 & 0 \\
+0 & 0 & \tilde{v_3} & \times & \times \\
+0 & 0 & \times & \times & \times \\
+0 & 0 & \times & \times & \times
+\end{bmatrix}.
+$$
+
+Este proceso se completa en $n-2$ etapas al final de las cuales se obtiene la matriz tridiagonal que se deseaba:
+
+$$
+T = A^{(n-2)} = (M_{n-2} P_{n-2} \cdots M_1 P_1) A (M_{n-2} P_{n-2} \cdots M_1 P_1)^T.
+$$
+
+Si se hace $P = P_{n-2} \cdots P_1$ y $L = (M_{n-2} P_{n-2} \cdots M_1 P_1 P^T)^{-1}$, mediante un razonamiento similar al del apartado 1.4, se puede comprobar que
+
+$$
+P A P^T = L T L^T.
+$$
+
+La primera columna de $L$ es $e_1$; las restantes $k$ $(k > 1)$ las forman los multiplicadores de $M_{k-1}$.
+
+### Ejemplo 1.2 Aplicar el método de Parlett y Reid a
+
+$$
+A = 
+\begin{bmatrix}
+0 & 1 & 2 & 3 \\
+1 & 2 & 2 & 2 \\
+2 & 2 & 3 & 4 \\
+3 & 2 & 3 & 4
+\end{bmatrix}.
+$$
+
+En la primera etapa se tiene que:
+
+$$
+P_1 = [e_1, e_4, e_3, e_2], \quad M_1 = I_4 - 
+\begin{bmatrix}
+0 & 0 & 1/3 \\
+0 & 1 & 0 \\
+2/3 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+A^{(1)} = M_1 P_1 A P_1^T M_1^T = 
+\begin{bmatrix}
+3 & 4 & 3 & 0 \\
+4 & 7/9 & 5/9 & 0 \\
+3 & 5/9 & 10/9 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}.
+$$
+
+En la segunda:
+
+$$
+P_2 = [e_1, e_2, e_4, e_3], \quad M_2 = I_4 - 
+\begin{bmatrix}
+0 & 0 & 1/2 \\
+0 & 0 & 1/2
+\end{bmatrix}
+$$
+
+$$
+A^{(2)} = M_2 P_2 A^{(1)} P_2^T M_2^T = 
+\begin{bmatrix}
+3 & 4 & 2/3 & 0 \\
+4 & 7/9 & 5/9 & 0 \\
+2/3 & 5/9 & 10/9 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}.
+$$
+
+En resumen, $P A P^T = L T L^T$, donde:
+
+$$
+P = P_2 P_1 = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix},
+$$
+
+$$
+L = (M_2 P_2 M_1 P_1 P^T)^{-1} = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+1/3 & 0 & 1 & 0 \\
+0 & 1/2 & 0 & 1
+\end{bmatrix},
+$$
+
+y
+
+$$
+T = 
+\begin{bmatrix}
+3 & 4 & 0 & 0 \\
+4 & 7/9 & 0 & 0 \\
+2/3 & 5/9 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}.
+$$
