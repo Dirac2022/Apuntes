@@ -187,7 +187,6 @@ db.socios.find({numSocio : {$nin : [300, 3001]}})
 db.socios.find({$and : [{nombre: "Juan"}, {apellido1: "Galindo"}]})
 ```
 
-
 #### Alguna de las condiciones ha de cumplirse ($or)
 ```mongodb
 db.socios.find({$or: [{nombre: "Juan"}, {apellido1: "Galindo"}]})
@@ -266,6 +265,269 @@ db.socios.update({numSocio:300}, {$set: {nombre:"Pablo"}} {multi:true})
 La opción `multi:true` en la operación *update* indica que se pueden modificar varios documentos simultáneamente.
 
 ### Remove
+Para eliminar un documento de una colección
+```mongodb
+db.NombreColeccion.remove(condicion)
+```
+
 ```mongodb
 db.socios.remove({numSocio: 300})
 ```
+
+
+# Laboratorio
+
+## Instalación
+En Ubuntu, para MongoDB Community Edition:
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+
+Una vez instalado, siguiendo los pasos de link anterior.
+Para iniciar:
+```bash
+sudo systemctl start mongod
+```
+
+Para empezar a usar MongoDB
+```bash
+mongosh
+```
+
+### Adicionales
+Para detener el proceso `mongod`
+```bash
+sudo systemctl stop mongod
+```
+
+Para reiniciar el proceso `mongod`
+```bash
+sudo systemctl restart mongod
+```
+
+Para verificar que MongoDB se ha iniciado exitosamente:
+```bash
+sudo systemctl status mongod
+```
+
+A su vez, para asegurarse que MongoDB comience después de reiniciar el sistema:
+```bash
+sudo systemctl enable mongod
+```
+
+>[!info]
+>MongoDB es case-sensitive
+## Laboratorio
+
+1. Iniciar MongoDB desde shell. 
+Instalación normal:
+```bash
+mongo
+```
+Community Edition:
+```
+mongosh
+```
+
+2. Una vez que se haya conectado a mongoDB desde shell, proceda a crear la base de datos `mibd`. 
+```mongodb
+use mibd
+```
+¿Cuál es el comando para abandonar la sesión actual en el shell?
+```bash
+exit
+```
+Tambien usando Ctrl + c
+
+3. Muestre la base de datos actualmente en uso.
+```mongodb
+db
+```
+
+
+4. Ahora procesa a listar todas las bases de datos disponibles.
+```mongodb
+show dbs
+```
+
+> [!info]
+> La base de datos recién creada no se mostrará en la lista de base de datos hasta que realmente se inserte algún dato en ella.
+
+
+5. Escriba el comando para eliminar la base de datos seleccionada actualmente.
+```mongodb
+db.dropDatabase()
+```
+
+>[!info]
+>Para eliminar una base de datos debemos estar en ella.
+
+
+6. Crear la base de datos `ventas`.
+```mongodb
+use ventas
+```
+
+7. Proceda a crear la colección `Productos`.
+```mongodb
+db.createCollection("Productos")
+```
+
+8. Ahora utilice el método `insert` para crear la colección `Pedidos`.
+```mongodb
+db.Pedidos.insert({numped: 001, total:150})
+```
+
+>[!warning]
+> El uso de `Collection.insert()` es obsoleto. Es preferible usar `insertOne` o `insertMany` 
+
+
+9. Escriba el comando para mostrar todas las colecciones creadas hasta el momento.
+
+```mongodb
+show collections
+```
+
+10. Procesa a eliminar la colección `Productos`
+```mongodb
+db.Productos.drop()
+```
+
+11. Inserte los siguientes documentos en la colección `Clientes`.
+
+| idcliente | nombre    | apellido | edad |
+| --------- | --------- | -------- | ---- |
+| C001      | RICK      | TAPIA    | 21   |
+| C002      | THALIA    | ARELLANO | 22   |
+| C003      | ANTONIO   | QUINTANA | 25   |
+| C004      | GUILLERMO | SANCHEZ  | 39   |
+| C005      | JACKY     | SANCHEZ  | 43   |
+
+Insertar un documento (registro):
+```mongodb
+db.NombreColeccion.insertOne({datos clave:valor})
+```
+
+```mongodb
+db.Clientes.insertOne({
+	idcliente: "C001", 
+	nombre: "RICK", 
+	apellido: "TAPIA", 
+	edad: 21 })
+```
+
+Insertar varios documentos
+```mongodb
+db.NombreColeccion.insertMany([{datos1 clave:valor}, ... , {datosn clave:valor}])
+```
+
+```mongodb
+db.Clientes.insertMany([
+{"idcliente" : "C001", "nombre" : "RICK", "apellido" : "TAPIA", "edad" : 21}, 
+{"idcliente" : "C002", "nombre" : "THALIA", "apellido" : "ARELLANO", "edad" : 22}, 
+{"idcliente" : "C003", "nombre" : "ANTONIO", "apellido" : "QUINTANA", "edad" : 25}, 
+{"idcliente" : "C004", "nombre" : "GUILLERMO", "apellido" : "SANCHEZ", "edad" : 39}, 
+{"idcliente" : "C005", "nombre" : "JACKY", "apellido" : "SANCHEZ", "edad" : 43} 
+])
+```
+
+12. Obtener todos los documentos de la colección `Clientes`.
+```mongodb
+db.Clientes.find()
+```
+
+```mongodb
+db.Clientes.find().pretty()
+
+```
+
+14. Obtenga el primer documento de la colección `Clientes`.
+```mongodb
+db.Clientes.findOne()
+```
+
+
+>[!info]
+```
+$gt: greater than
+$gte: greater than or equal
+$lt: less than
+$lte: less than or equal
+$eq: equal
+$ne: not equal
+```
+
+15. Recupere  los documentos que corresponde a todos los clientes de edad mayor de 22.
+```mongodb
+db.Clientes.find({edad: {$gt:22}})
+```
+
+
+16. Recupere los documentos que corresponden a todos los clientes de edad mayor o igual a 25.
+```mongodb
+db.Clientes.find({"edad": {$gte:25}})
+```
+
+
+17. Recupere los documentos que corresponden a todos los clientes menores de 22 años.
+```mongodb
+db.Clientes.find({edad: {$lt:22}})
+```
+
+
+18. Recupere los documentos que corresponden a los clientes que no tengan 39 años.
+```mongodb
+db.Clientes.find({edad: {$ne: 39}})
+```
+
+
+19. Recupere los documentos que corresponden a los clientes de apellido SANCHEZ y edad 39 años
+
+Tenemos tres formas
+```mongodb
+db.Clientes.find({edad: {$eq: 39}, apellido: {$eq: "SANCHEZ"}})
+```
+
+```mongodb
+db.Clientes.find({$and : [{apellido: "SANCHEZ"}, {edad: 39 }]})
+```
+
+```mongodb
+db.Clientes.find({apellido: "SANCHEZ", edad: 39})
+```
+En realidad, puede haber más formas para expresar la consulta.
+
+
+20. Recupere los documentos que corresponden a todos los clientes cuyo apellido es SANCHEZ o que tengan una edad de 25 años.
+```mongodb
+db.Clientes.find({$or : [{apellido: "SANCHEZ"}, {edad: 25}]})
+```
+
+21. Realice la búsqueda del quinto cliente mediante su clave `_id` y modifique su apellido por GARCIA.
+En general:
+```mongodb
+db.Clientes.update( {"_id":ObjectId("...")} , {$set:{"apellido":"GARCIA"}} )
+```
+
+```mongodb
+db.Clientes.update({ "_id": ObjectId('667a134a0cc7d6f44ba26a21') }, { $set: { apellido: "GARCIA" } })
+```
+
+>[!tip]
+>`ObjectId` es un valor por defecto, se genera automáticamente cuando creamos un documento
+
+
+22. Actualice al cliente que tiene 21 años modificando su nombre por STING.
+```mongodb
+db.Clientes.update({edad:21}, {$set:{nombre: "STING"}})
+```
+
+23. Elimine al cliente que tiene 25 años de edad.
+```mongodb
+db.Clientes.remove({edad:25})
+```
+
+
+>[!Tip]
+> Se recomienda tambien usar los comandos:
+ > Cuando queremos eliminar muchos documentos: ` db.NombreColeccion.deleteMany(condicion)`
+> Si queremos eliminar un elemento: 
+> `db.NombreColeccion.deleteOne(condicion)`
