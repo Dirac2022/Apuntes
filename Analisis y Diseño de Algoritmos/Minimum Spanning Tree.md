@@ -13,6 +13,13 @@ Mientras $T$ no sea un árbol generador
 FinMientras
 **fin_algoritmoBoruvka**
 
+
+
+**Otro enfoque**
+1. Loop through every node and select the minimum weighted edge.
+2. Loop though every segment and select the minimum weighted edge.
+
+https://www.youtube.com/watch?v=t92xyTDvl_c
 ### Algoritmo Boruvka
 ```
 mapa parent // vertice : vertice
@@ -39,12 +46,14 @@ Mientras n > 1
 				
 	Para cada entrada en minAristas
 		set1 <- padre de vertice 1 de arista
-		set2 <- padre de vertice 2  de arista
+		set2 <- padre de vertice 2 de arista
 		si set1 != set2
 			Agrega arista a mst
 			une set1 y set2
 			n --
 ```
+
+
 
 
 ## Algoritmo de Kruskal
@@ -61,10 +70,10 @@ Otra forma de ver el algoritmos de Kruskal
 
 
 **algoritmoKruskal(G)**
-	T $\leftarrow$  $\varnothing$
+	$T$ $\leftarrow$  $\varnothing$
 	mientras exista una arista permitida
 		si e es una arista permitida de costo mínimo
-			T $\leftarrow$ T  + e
+			$T$ $\leftarrow$ $T$  + e
 	FinMientras
 	Devuelva T
 **finalgoritmoKruskal**
