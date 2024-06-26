@@ -233,6 +233,80 @@ print(f"La distancia de Manhattan entre {punto1} y {punto2} es {distancia}")
 
 La distancia de Manhattan es una métrica simple pero poderosa que mide la distancia entre dos puntos sumando las diferencias absolutas de sus coordenadas. Es especialmente útil en situaciones donde solo se permiten movimientos horizontales y verticales, como en cuadrículas urbanas o ciertos tipos de análisis de datos y algoritmos de clustering.
 
+# Dcore en el Contexto de Clustering
+
+**Dcore** es un algoritmo de clustering basado en la densidad que se centra en identificar "núcleos de densidad" dentro de los datos. Estos núcleos de densidad son regiones donde los puntos de datos están densamente agrupados. El concepto principal detrás de Dcore es que cada clúster tiene un núcleo de densidad que retiene la forma del clúster y los bordes y valores atípicos se distribuyen alrededor de estos núcleos en una estructura jerárquica.
+
+#### Características Clave de Dcore
+
+1. **Núcleos de Densidad**: Dcore asume que cada clúster tiene un núcleo de densidad, que es una región donde los puntos de datos están más densamente agrupados que en otras regiones del espacio de datos.
+2. **Jerarquía de Bordes y Valores Atípicos**: Los puntos de datos que no pertenecen a los núcleos de densidad se consideran bordes o valores atípicos y se distribuyen alrededor de estos núcleos en una estructura jerárquica.
+3. **Múltiples Parámetros**: Dcore requiere la configuración de varios parámetros, como radios esféricos y umbrales de densidad, para identificar correctamente los núcleos de densidad y distinguir entre núcleos, bordes y valores atípicos.
+
+#### Parámetros de Dcore
+
+- **Radio Esférico \( r_1 \) y \( r_2 \)**: Definen el alcance de los núcleos de densidad.
+- **Umbral de Densidad \( t_1 \) y \( t_2 \)**: Determinan la densidad mínima requerida para que un conjunto de puntos se considere un núcleo de densidad.
+- **Radio de Escaneo \( r \)**: Utilizado para escanear el espacio de datos y encontrar puntos que pertenecen a los núcleos de densidad.
+
+#### Proceso del Algoritmo Dcore
+
+1. **Cálculo de la Densidad Local**: Se calcula la densidad local de cada punto en el conjunto de datos, similar a otros métodos basados en densidad.
+2. **Identificación de Núcleos de Densidad**: Utilizando los parámetros \( r_1 \), \( r_2 \), \( t_1 \) y \( t_2 \), se identifican los núcleos de densidad. Estos son puntos donde la densidad local excede los umbrales especificados.
+3. **Clasificación de Puntos**: Los puntos se clasifican en núcleos, bordes y valores atípicos basándose en su densidad local y su proximidad a los núcleos de densidad.
+4. **Formación de Clústeres**: Los núcleos de densidad forman el corazón de los clústeres, y los puntos de borde se asignan a los clústeres basados en su proximidad a los núcleos.
+
+#### Ejemplo en Python
+
+A continuación se muestra un pseudocódigo simplificado para ilustrar el funcionamiento básico del algoritmo Dcore:
+
+```python
+import numpy as np
+
+# Función para calcular la densidad local
+def calcular_densidad_local(data, radio):
+    densidad = []
+    for i in range(len(data)):
+        vecinos = 0
+        for j in range(len(data)):
+            if np.linalg.norm(data[i] - data[j]) <= radio:
+                vecinos += 1
+        densidad.append(vecinos)
+    return np.array(densidad)
+
+# Función para identificar núcleos de densidad
+def identificar_nucleos(densidad, umbral):
+    nucleos = np.where(densidad >= umbral)[0]
+    return nucleos
+
+# Datos de ejemplo
+data = np.array([[1, 2], [1.5, 1.8], [5, 8], [8, 8], [1, 0.6], [9, 11]])
+
+# Parámetros de Dcore
+radio = 2
+umbral = 2
+
+# Calcular densidad local
+densidad_local = calcular_densidad_local(data, radio)
+
+# Identificar núcleos de densidad
+nucleos = identificar_nucleos(densidad_local, umbral)
+print("Núcleos de densidad:", nucleos)
+
+# Visualizar los resultados
+import matplotlib.pyplot as plt
+plt.scatter(data[:, 0], data[:, 1], c='blue')
+plt.scatter(data[nucleos, 0], data[nucleos, 1], c='red')
+plt.show()
+```
+
+Este pseudocódigo calcula la densidad local para cada punto en un conjunto de datos bidimensional y luego identifica los núcleos de densidad basándose en un umbral de densidad. Los puntos que se identifican como núcleos de densidad se visualizan en rojo.
+
+### Conclusión
+
+Dcore es un algoritmo de clustering basado en densidad que identifica núcleos de densidad dentro de los datos. Utilizando varios parámetros, Dcore puede distinguir entre núcleos, bordes y valores atípicos, permitiendo una clasificación jerárquica de los puntos de datos. Este enfoque es particularmente útil para descubrir clústeres con formas arbitrarias y manejar datos con variaciones de densidad.
+
+
 # DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 
 **DBSCAN** es un algoritmo de clustering basado en la densidad que es especialmente útil para identificar clústeres de forma arbitraria y manejar ruido (puntos de datos atípicos). Fue propuesto por Martin Ester, Hans-Peter Kriegel, Jörg Sander y Xiaowei Xu en 1996.
