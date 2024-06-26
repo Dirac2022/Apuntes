@@ -177,8 +177,8 @@ Primero, determinamos $v \in \mathbb{C}^m$ para que $I - vv^*$ sea unitario y de
 
 El algoritmo para obtener la matriz $U$ en este primer paso es el siguiente:
 
-1. $\beta \leftarrow - (a_{11}/|a_{11}|)\|A_1\|_2$\\
-2. $y \leftarrow A_1 - \beta e^{(1)}$\\
+1. $\beta \leftarrow - (a_{11}/|a_{11}|)\|A_1\|_2$   ($A_1$ es la primera columna de $A$)
+2. $y \leftarrow A_1 - \beta e^{(1)}$   ($e^{(1)}$ es el primer vector canónico)
 3. $\alpha \leftarrow \sqrt{2}/\|y\|_2$\\
 4. $v \leftarrow \alpha y$\\
 5. $U \leftarrow I - vv^*$
@@ -193,7 +193,7 @@ J & H \\
 0 & W
 \end{bmatrix}$$
 
-donde $J$ es una matriz triangular superior de $k \times k$, $0$ es una matriz nula de $m \times k$, $H$ es de $k \times (n - k)$, y $W$ es de $m - k \times (n - k)$. Por el análisis anterior, existe un vector $v \in \mathbb{C}^{m - k}$ tal que $I - vv^*$ es una matriz unitaria de orden $m - k$ y tal que $(I - vv^*)W$ tiene ceros debajo del elemento inicial en su primera columna. Ahora observe que
+donde $J$ es una matriz triangular superior de $k \times k$,  $0$ es una matriz nula de $m \times k$, $H$ es de $k \times (n - k)$, y $W$ es de $m - k \times (n - k)$. Por el análisis anterior, existe un vector $v \in \mathbb{C}^{m - k}$ tal que $I - vv^*$ es una matriz unitaria de orden $m - k$ y tal que $(I - vv^*)W$ tiene ceros debajo del elemento inicial en su primera columna. Ahora observe que
 
 $$\begin{bmatrix}
 I & 0 \\
