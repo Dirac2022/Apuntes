@@ -92,6 +92,36 @@ $$
 </div>
 
 
+
+# Polinomio de Taylor
+Sea $I \subset \mathbb{R}$ un intervalo abierto y $f : I \rightarrow \mathbb{R}$ una función tal que existen $f', f'', \dots, f^{(n)}$ para algún entero positivo $n$. Definimos el polinomio de Taylor de la función $f$ alrededor del punto $x_0 \in I$ del modo siguiente:
+$$
+P_{n, x_0}(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x - x_0)^k
+$$
+
+$$
+P_{n, x_0}(x) = f(x_0) + f'(x_0) (x - x_0) + \ldots + \frac{f^{(n)}(x_0)}{n!} (x - x_0)^n \quad (1)
+$$
+
+Dados $x, x_0 \in I$, existe $s$ entre $x$ y $x_0$ tal que
+
+$$
+f(t) = P_{n, x_0}(t) + R_{n+1, x_0}(t) \quad (2)
+$$
+## Teorema
+Sea $I$ un intervalo, $x_0 \in I$, $f : I \rightarrow \mathbb{R}$ y dado $n \in \mathbb{N}$ existen $f$, $f'$, $f''$, ..., $f^{(n)}$, $f^{(n+1)}$ en $I^\circ$ (el interior del intervalo $I$). Entonces, para cualquier $x \in I$ con $x \neq x_0$ existe un punto $\xi$ en el intervalo abierto de extremos $x_0$ y $x$ tal que:
+
+$$
+f(x) - P_{n, x_0}(x) = f(x) - \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x - x_0)^k = \frac{f^{(n+1)}(\xi)}{(n+1)!} (x - x_0)^{n+1}
+$$
+
+La expresión:
+$$
+R_{n+1, x_0}(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!} (x - x_0)^{n+1}
+$$
+
+es conocida como **Resto en la forma de Lagrange**.
+
 # Serie de Taylor
 Si una función $f$ posee una derivada continua de orden $(n+1)$ en un intervalo $(c-\delta, c + \delta)$, entonces
 $$
