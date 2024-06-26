@@ -69,7 +69,7 @@ El Teorema sobre los discos indica que cuando una matriz $A$ es perturbada, sus 
 
 
 ## Autovalor dominante
-Sea $A \in mathbb{C}^{n \times n}$ una matriz con autovalores $\lambda_1, \lambda_2, \dots, \lambda_n$. $\lambda_1$ es llamado **autovalor dominante** de $A$ si
+Sea $A \in \mathbb{C}^{n \times n}$ una matriz con autovalores $\lambda_1, \lambda_2, \dots, \lambda_n$. $\lambda_1$ es llamado **autovalor dominante** de $A$ si
 $$
 |\lambda_1| > |\lambda_i|,  \quad \quad i = 2, \dots ,  n
 $$
@@ -206,7 +206,7 @@ Esto se puede hacer eficientemente usando el método de eliminación Gaussiana. 
 Dada una matriz $A \in \mathbb{K}^{n \times n}$, se pretende encontrar una sucesión de matrices $(A_n)_{n \in \mathbb{N}}$ convergente a la matriz triangular de Schur (en cuya diagonal aparecen los autovalores de la matriz A). La construcción de dicha sucesión se hace de la manera siguiente:
 
 $A = A_0$. Usando factorización $QR$ , donde $Q$ es una matriz unitaria y $R$ es una matriz triangular superior con diagonal no negativa, tenemos que $A_0 = Q_0R_0$.
-Además $Q_0R_0$ es semejante a $R_0Q_0$. Elijamos a $A_1 = R_0Q_0$, entonces $A_0$ tendrá los mismos valores propios que $A_1$. En general, supuesta encontrada $A_n$ se realiza la factorización $Q_nR_n$ mediante matrices de Householder y $A_{n+1} = R_nQ_n$. Es decir:
+Además $Q_0R_0$ es semejante a $R_0Q_0$. Elijamos a $A_1 = R_0Q_0$, entonces $A_0$ tendrá los mismos valores propios que $A_1$. En general, supuesta encontrada $A_n$ se realiza la factorización $Q_nR_n$ mediante matrices de Householder [[Tópicos Selectos de Algebra Lineal#Factorización QR de Householder|(factorizacion QR de Householder)]] y $A_{n+1} = R_nQ_n$. Es decir:
 
 $$
 \begin{aligned}
