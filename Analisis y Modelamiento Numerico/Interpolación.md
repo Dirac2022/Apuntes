@@ -1,7 +1,8 @@
+Para repasar polinomio de Taylor: [[Calculo de una variable#Polinomio de Taylor|Polinomio de Taylor]].
+
 # Interpolación y el polinomio de Lagrange
 ## Introducción
 Una de las clases de funciones más útiles y conocidas que mapean el conjunto de números reales en sí mismo son los **polinomios algebraicos**, el conjunto de funciones de la forma:
-
 $$
 P_n(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0,
 $$
@@ -16,6 +17,71 @@ $$
 $$
 
 Los polinomios de Taylor concuerdan lo más posible con una función dada en un punto específico, pero concentran su precisión cerca de ese punto. Un buen polinomio de aproximación necesita proporcionar una precisión relativa en todo un intervalo, y los polinomios de Taylor generalmente no lo hacen. Para los polinomios de Taylor, toda la información utilizada en la aproximación se concentra en el número único $x_0$, por lo que estos polinomios generalmente dan aproximaciones inexactas a medida que nos alejamos de $x_0$. Esto limita la aproximación del polinomio de Taylor a la situación en la que las aproximaciones son necesarias solo en números cercanos a $x_0$. Para fines computacionales ordinarios, es más eficiente usar métodos que incluyan información en varios puntos.
+
+## Método de los coeficientes indeterminados
+Considere un conjunto de $n + 1$ puntos de la forma $(x_i, y_i)$ para $i = 0, 1, \ldots, n$. El objetivo de este capítulo es encontrar un polinomio $P_n$ de grado menor o igual a $n$ tal que cumpla la siguiente condición de interpolación:
+
+$$
+P_n(x_i) = y_i, \quad i = 0, 1, 2, \ldots, n. \quad (7)
+$$
+
+El primer paso es garantizar la existencia del polinomio $P_n$, el cual, en forma general tiene la forma:
+
+$$
+P_n(x) = a_0 + a_1 x + a_2 x^2 + \ldots + a_n x^n. \quad (8)
+$$
+
+Como $P_n$ debe de satisfacer $(7)$, entonces:
+
+$$
+a_0 + a_1 x_i + a_2 x_i^2 + \ldots + a_n x_i^n = y_i, \quad i = 0, 1, 2, \ldots, n. \quad (9)
+$$
+
+El conjunto de ecuaciones dado por $(9)$ al ser escrito de forma matricial queda como sigue:
+
+$$
+\begin{pmatrix}
+1 & x_0 & x_0^2 & x_0^3 & \ldots & x_0^n \\
+1 & x_1 & x_1^2 & x_1^3 & \ldots & x_1^n \\
+1 & x_2 & x_2^2 & x_2^3 & \ldots & x_2^n \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & x_n & x_n^2 & x_n^3 & \ldots & x_n^n
+\end{pmatrix}
+\begin{pmatrix}
+a_0 \\
+a_1 \\
+a_2 \\
+\vdots \\
+a_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+y_0 \\
+y_1 \\
+y_2 \\
+\vdots \\
+y_n
+\end{pmatrix} \quad (10)
+$$
+
+donde observamos que la matriz asociada al sistema lineal $(10)$ es conocida como **matriz de Vandermonde** de orden $n + 1$.
+
+El determinante de la matriz de Vandermonde se calcula como:
+
+$$
+\begin{vmatrix}
+1 & x_0 & x_0^2 & x_0^3 & \ldots & x_0^n \\
+1 & x_1 & x_1^2 & x_1^3 & \ldots & x_1^n \\
+1 & x_2 & x_2^2 & x_2^3 & \ldots & x_2^n \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & x_n & x_n^2 & x_n^3 & \ldots & x_n^n
+\end{vmatrix}
+=
+\prod_{1 \leq i < j \leq n+1} (x_j - x_i). \quad (11)
+$$
+
+Podemos observar que para garantizar la existencia y unicidad del polinomio $P_n$ es necesario y suficiente que los $n + 1$ puntos $x_i \, (i = 0, 1, 2, \ldots, n)$ sean todos **distintos**, lo cual será considerado de ahora en adelante salvo se mencione explícitamente lo contrario. Una vez garantizada la existencia y unicidad del polinomio $P_n$, ahora llamado **Polinomio de interpolación**, procedemos a estudiar algunos métodos que nos permiten calcularlo.
+
 
 ## Polinomios Interpoladores de Lagrange
 
@@ -60,7 +126,17 @@ $$
 (x_0, f(x_0)), \quad (x_1, f(x_1)), \quad \ldots, \quad (x_n, f(x_n)).
 $$
 
-En este caso, primero construimos, para cada $k = 0, 1, \ldots, n$, una función $L_{n,k}(x)$ con la propiedad de que $L_{n,k}(x_i) = 0$ cuando $i \neq k$ y $L_{n,k}(x_k) = 1$. Para satisfacer $L_{n,k}(x_i) = 0$ para cada $i \neq k$ se requiere que el numerador de $L_{n,k}(x)$ contenga el término
+En este caso, primero construimos, para cada $k = 0, 1, \ldots, n$, una función $L_{n,k}(x)$ con la propiedad de que $L_{n,k}(x_i) = 0$ cuando $i \neq k$ y $L_{n,k}(x_k) = 1$.
+$$
+L_{n, k}(x_i) = 
+\begin{cases} 
+0 \, \quad i \neq k \\
+1 \, \quad i = k
+\end{cases}
+$$
+
+ 
+Para satisfacer $L_{n,k}(x_i) = 0$ para cada $i \neq k$ se requiere que el numerador de $L_{n,k}(x)$ contenga el término
 
 $$
 (x - x_0)(x - x_1) \cdots (x - x_{k-1})(x - x_{k+1}) \cdots (x - x_n).
@@ -85,12 +161,11 @@ Este polinomio está dado por
 $$
 P(x) = f(x_0)L_{n,0}(x) + \cdots + f(x_n)L_{n,n}(x) = \sum_{k=0}^n f(x_k)L_{n,k}(x),
 $$
-
 donde, para cada $k = 0, 1, \ldots, n$,
 $$
 \begin{aligned}
 L_{n,k}(x) &= \frac{(x - x_0)(x - x_1) \cdots (x - x_{k-1})(x - x_{k+1}) \cdots (x - x_n)}{(x_k - x_0)(x_k - x_1) \cdots (x_k - x_{k-1})(x_k - x_{k+1}) \cdots (x_k - x_n)} \\ \\
-&= \prod_{i=0, \ i \neq k}^n \frac{(x - x_i)}{(x_k - x_i)}.
+L_{n,k}(x) &= \prod_{i=0, \ i \neq k}^n \frac{(x - x_i)}{(x_k - x_i)}.
 \end{aligned}
 $$
 
@@ -104,7 +179,12 @@ $$
 f(x) = P(x) + \frac{f^{(n+1)}(\xi(x))}{(n+1)!}(x - x_0)(x - x_1) \cdots (x - x_n),
 $$
 
-donde $P(x)$ es el polinomio interpolador dado en la ecuación (3.1).
+donde $P(x)$ es el polinomio interpolador.
+Esto nos da una expresión para el error $E(x)$ que se comete en algún punto $x \in (a, b)$.
+
+$$
+E(x) = \frac{f^{(n+1)}(\xi(x))}{(n+1)!}(x - x_0)(x - x_1) \cdots (x - x_n)
+$$
 
 ### Demostración
 
@@ -165,6 +245,14 @@ f(x) = P(x) + \frac{f^{(n+1)}(\xi(x))}{(n+1)!} \prod_{i=0}^n (x - x_i).
 $$
 
 
+## Observación
+Dados los puntos $(x_0, y_0), \ldots, (x_n, y_n)$ es relativamente fácil calcular $P_n$ en la forma de Lagrange, pero, ¿qué sucede si agregamos a los puntos iniciales el punto $(x_{n+1}, y_{n+1})$? Ante esta situación, los métodos vistos de coeficientes indeterminados y el método de Lagrange no son muy útiles, porque tenemos que rehacer todos los cálculos para obtener el polinomio $P_{n+1}$, es decir, no aprovechan el trabajo de haber calculado $P_n$. **El método de Newton resuelve este problema.**
+
+## Fenómeno Runge
+Tal vez, podemos caer en el error de suponer que una mejor aproximación se logra aumentando el número de puntos a interpolar. Esta suposición es errada. En general, se puede demostrar que
+$$
+\lim_{n \to \infty} \ \left( \underset{-1 \leq x \leq 1}{\text{max}} \left|f(x) - P_n(x)\right| \right) = \infty
+$$
 # Aproximación de datos y Teorema de Neville
 
 ## Método de Neville
@@ -239,3 +327,79 @@ $$
 | $x_3 \quad \quad P_3 = Q_{3,0} \quad \quad P_{2,3} = Q_{3,1} \quad \quad P_{1,2,3} = Q_{3,2} \quad \quad P_{0,1,2,3} = Q_{3,3}$                                     |
 | $x_4 \quad \quad P_4 = Q_{4,0} \quad \quad P_{3,4} = Q_{4,1} \quad \quad P_{2,3,4} = Q_{4,2} \quad \quad P_{1,2,3,4} = Q_{4,3} \quad \quad P_{0,1,2,3,4} = Q_{4,4}$ |
 
+
+
+# Polinomio de Newton
+Sea $f$ una función cuyos valores son conocidos en un conjunto $\{x_0, x_1, \ldots, x_n\}$, de nodos distintos entre sí no necesariamente ordenados. Sabemos que existe un único polinomio $p_n$ que interpola $f$ en $n+1$ nodos
+
+$$p(x_i) = f(x_i), \ \forall \, i = 0, \ldots, n$$
+
+## Teorema
+Los polinomios $q_i$ forman una base para el espacio de polinomio de grado $\leq n$, donde
+$$q_0(x) = 1$$
+$$q_i(x) = (x - x_0)(x - x_1) \ldots (x - x_{i-1}), \quad 0 < i \leq n$$
+
+### Demostración
+En efecto, si $a_0 q_0(x) + a_1 q_1(x) + a_2 q_2(x) + \ldots + a_n q_n(x) = 0, \forall x \in \mathbb{R}$ entonces para $x = x_i$
+
+$$a_0 = a_1 = \ldots = a_n = 0$$
+## Forma de Newton
+La forma de Newton del polinomio de interpolación es
+
+$$p(x) = \sum_{j=0}^{n} c_j q_j(x)$$
+
+Nos queda por determinar los coeficientes $c_0, c_1, \dots, c_n$.
+## Diferencias divididas
+Los coeficientes $c_i$ que acompañan a $q_i$ cuando $\sum_{i=0}^{n} c_i q_i$ interpola $f$ en $x_0, x_1, \ldots, x_n$ toman el nombre de diferencias divididas y se escriben como
+ 
+$$c_i = f[x_0, x_1, \ldots, x_i]$$
+de inmediato vemos que
+$$f[x_0] = f(x_0); \quad f[x_0, x_1] = \frac{f(x_1) - f(x_0)}{x_1 - x_0}; \quad f[x_0, x_1, x_2] = \frac{f[x_1, x_2] - f[x_0, x_1]}{x_2 - x_0}$$
+
+Así el polinomio de interpolación de Newton es
+$$p(x) = \sum_{i=0}^{n} f[x_0, \ldots, x_i] \prod_{j=0}^{i-1} (x - x_j)$$
+### Teorema
+Las diferencias divididas se pueden hallar recursivamente
+$$f[x_0, x_1, \ldots, x_n] = \frac{f[x_1, \ldots, x_n] - f[x_0, \ldots, x_{n-1}]}{x_n - x_0}$$
+#### Demostración:
+Sea $q(x)$ el polinomio de grado $n - 1$ que interpola a $f$ en $x_1, x_2, \ldots, x_n$ entonces
+
+$$p(x) = q(x) + \frac{x - x_n}{x_n - x_0} [q(x) - p_{n-1}(x)]$$
+
+interpola a $f$ en $x_0, x_1, x_2, \ldots, x_n$.
+
+Además
+$$
+p(x) = \frac{q(x)(x-x_0) - p_{n-1}(x)(x-x_n)}{x_n-x_0}
+$$
+$$
+p(x) = \sum_{i=1}^{n} f[x_0, \ldots, x_i] \prod_{j=0}^{i-1} (x - x_j) - \sum_{i=0}^{n-1} f[x_0, \ldots, x_i] \prod_{j=0}^{i-1} (x - x_j)
+$$
+
+
+$$
+\begin{aligned}
+p(x) &= f[x_1](x-x_0) + f[x_1, x_2](x-x_0)(x-x_1) + \dots + f[x_1, \dots, x_n] \overbrace{(x-x_0)(x-x_1)\dots (x-x_{n-1})}{grado n} \\ \\
+&- f[x_0](x-x_0) + f[x_0, x_1](x-x_0)(x-x_1) + \dots + f[x_0, \dots, x_{n-1}] \underbrace{(x-x_0)(x-x_1)\dots (x-x_{n-1})}{grado n}
+\end{aligned}
+$$f[x_0, x_1, \ldots, x_n] = \frac{f[x_1, \ldots, x_n] - f[x_0, \ldots, x_{n-1}]}{x_n - x_0}$$
+
+### Cuadro de diferencias divididas
+Se acostumbra construir un cuadro sinóptico para el cálculo de las diferencias divididas:
+
+$$
+\begin{array}{c|c|c|c|c}
+x_0 & f[x_0] & f[x_0, x_1] & f[x_0, x_1, x_2] & f[x_0, x_1, x_2, x_3] \\
+x_1 & f[x_1] & f[x_1, x_2] & f[x_1, x_2, x_3] \\
+x_2 & f[x_2] & f[x_2, x_3] \\
+x_3 & f[x_3]
+\end{array}
+$$
+
+Los coeficientes que resultan en la primera fila son los que forman el polinomio de interpolación de Newton:
+
+$$P_3(x) = f[x_0] + f[x_0, x_1](x - x_0) + f[x_0, x_1, x_2](x - x_0)(x - x_1) + f[x_0, x_1, x_2, x_3](x - x_0)(x - x_1)(x - x_2)$$
+
+---
+
+Este es el texto con las partes matemáticas correctamente formateadas.
