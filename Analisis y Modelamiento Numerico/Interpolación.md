@@ -429,6 +429,7 @@ si $x = t$, $f(t) = q(t)$, luego
 $$
 f(t) = p(t) + f[x_0, x_1, \ldots, x_n, t] \prod_{j=0}^{n} (t - x_j)
 $$
+
 ### Teorema
 
 Si $f$ es $n$ veces derivable y $f^{(n)}$ es continua en $[a, b]$ entonces existe $c$ en $\langle a, b \rangle$ tal que
