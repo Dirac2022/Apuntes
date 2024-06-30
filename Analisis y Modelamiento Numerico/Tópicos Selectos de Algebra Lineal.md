@@ -144,7 +144,7 @@ $$
 Donde $A_{m\times n}$ ,  $x_{n\times 1}$ y $b_{m\times 1}$. Supondremos que el rango de $A$ es $n$, por tanto $m\geq n$. Por lo general, el sistema $Ax=b$ no tiene solución debido a que $b$ no pertenece al subespacio de $\mathbb{C}^m$ de dimensión $n$, generado por las columnas de $A$. Es frecuente en tales casos que se requiera encontrar una $x$ que minimice la norma del vector residual $b-Ax$. La *solución* en mínimos cuadrados de $Ax=b$ es el vector $x$ que hace $\|b-Ax\|_2$ un mínimo. (Según lo que hemos supuesto acerca del rango de $A$, esta $x$ será única).
 
 ### Lema sobre el problema de los mínimos cuadrados
-Si $x$ es un punto tal que $A*(Ax-b)=0$, entonces $x$ es una solución del problema de los mínimos cuadrados.
+Si $x$ es un punto tal que $A^*(Ax-b)=0$, entonces $x$ es una solución del problema de los mínimos cuadrados.
 
 ![[Pasted image 20240601111806.png]]
 
