@@ -207,6 +207,49 @@ Algunas características importantes de RPC son:
 RPC ha sido ampliamente utilizado en el desarrollo de aplicaciones distribuidas y sistemas cliente-servidor durante décadas. Ejemplos de implementaciones de RPC incluyen Microsoft RPC (utilizado en sistemas Windows), ONC RPC (utilizado en sistemas Unix/Linux) y gRPC (un protocolo RPC moderno desarrollado por Google).
 
 
+## SCP (Secure Copy Protocol)
+El protocolo SCP (Secure Copy Protocol) se utiliza para transferir archivos entre hosts en una red de manera segura. SCP se basa en el protocolo SSH (Secure Shell) para proporcionar autenticación y cifrado durante la transferencia de datos, asegurando que los archivos se copien de manera confidencial y sin alteraciones.
+
+### Características del Protocolo SCP:
+
+1. **Seguridad**:
+   - Utiliza SSH para cifrar tanto el control de la conexión como los datos transferidos. Esto garantiza que los archivos no puedan ser interceptados ni modificados por terceros durante el proceso de transferencia.
+
+2. **Autenticación**:
+   - SCP emplea los mismos métodos de autenticación que SSH, como contraseñas, claves públicas y privadas, y autenticación basada en certificados. Esto asegura que solo los usuarios autorizados puedan realizar transferencias de archivos.
+
+3. **Transferencia de Archivos**:
+   - Permite copiar archivos y directorios entre sistemas locales y remotos. La sintaxis básica de SCP es similar a la de la utilidad `cp` en Unix, pero incluye un prefijo para especificar el host remoto.
+
+
+
+## SAP (Session Announcement Protocol)
+Este protocolo es utilizado principalmente para anunciar y descubrir sesiones multimedia en redes.
+
+**1. **Propósito**:
+   - SAP se utiliza para anunciar sesiones multimedia disponibles en una red IP multicast. Las aplicaciones típicas incluyen la transmisión de audio y video en conferencias, seminarios web, y otras formas de difusión multimedia.
+
+**2. **Funcionamiento**:
+   - Los anuncios SAP son enviados periódicamente por los servidores que ofrecen sesiones multimedia.
+   - Estos anuncios contienen descripciones de las sesiones, como el nombre de la sesión, la hora de inicio y finalización, y la información sobre cómo unirse a la sesión.
+   - Las descripciones de las sesiones se codifican utilizando el **Session Description Protocol (SDP)**, que es un protocolo complementario a SAP.
+
+**3. **Formato del Paquete SAP**:
+   - Un anuncio SAP incluye la dirección multicast a la que pertenece, el identificador de la sesión, la información de la sesión codificada en SDP, y otros posibles campos de metadatos.
+   - Los paquetes SAP se transmiten utilizando UDP, generalmente a la dirección multicast `224.2.127.254` y el puerto `9875`.
+
+**4. **Ventajas**:
+   - SAP permite a los clientes de red descubrir de manera eficiente las sesiones multimedia disponibles sin necesidad de una intervención manual o configuración previa.
+   - Facilita la gestión y la distribución de contenido multimedia en redes grandes y complejas.
+
+**5. **Desventajas**:
+   - Los anuncios SAP pueden generar un tráfico adicional en la red, especialmente en redes grandes con muchas sesiones anunciadas.
+   - La seguridad puede ser una preocupación, ya que los anuncios SAP no están cifrados por defecto, lo que podría permitir a actores maliciosos obtener información sobre las sesiones disponibles.
+### Resumen
+
+El **Session Announcement Protocol (SAP)** es un protocolo utilizado en la capa de sesión del modelo OSI para anunciar y descubrir sesiones multimedia en redes IP multicast. Utiliza UDP para la transmisión de anuncios y trabaja en conjunto con el **Session Description Protocol (SDP)** para proporcionar detalles sobre las sesiones disponibles. SAP es esencial para la gestión eficiente de transmisiones multimedia en redes de gran escala.
+
+
 # Protocolos en la capa de transporte
 
 ## TCP (Transmission Control Protocol)
