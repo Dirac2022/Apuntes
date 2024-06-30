@@ -61,7 +61,6 @@ El mismo esquema se puede aplicar a diferentes instancias de una base de datos.
 
 ## Clave
 Es un conjunto de uno o más atributos de una relación.
-
 ### Clave primaria (Primary Key PK)
 Esta formada por un conjunto de atributos cuyos valores **identifican de manera única** una tupla en una relación (Una fila o registro en una tabla). Los valores de los atributos que componen la clave son únicos.
 ![[Pasted image 20240418103428.png]]
