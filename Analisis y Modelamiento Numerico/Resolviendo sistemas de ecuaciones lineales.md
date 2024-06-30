@@ -195,13 +195,47 @@ $$ (I-A)^{-1} = \sum_{k=0}^{\infty} A^k $$
 ![[Pasted image 20240507150715.png]]
 
 
-
-
-
-# Método de Parlett y Reid
 Claro, aquí tienes el texto con cada elemento matemático encerrado en `$`:
 
 ---
+
+La idea de los dos métodos que estudiaremos a continuación consiste en tener también en cuenta los elementos de la matriz a factorizar que no están en la diagonal principal y a la vez conservar la simetría, no penalizando así la velocidad obtenible $O(n^3 / 6)$.
+
+Los dos métodos calculan una factorización
+
+$$
+P A P^T = L T L^T,
+$$
+
+donde $L$, de coeficientes $l_{ij}$, es una matriz triangular inferior con $l_{ii} = 1$, $P$ representa una permutación tal que $|l_{ij}| \leq 1$ y $T$ es una matriz tridiagonal de la forma
+
+$$
+T = 
+\begin{bmatrix}
+\alpha_1 & \beta_1 & 0 & 0 & \cdots & 0 \\
+\beta_1 & \alpha_2 & \beta_2 & 0 & \cdots & 0 \\
+0 & \beta_2 & \alpha_3 & \beta_3 & \cdots & 0 \\
+0 & 0 & \beta_3 & \ddots & \ddots & \vdots \\
+\vdots & \vdots & \vdots & \ddots & \alpha_{n-1} & \beta_{n-1} \\
+0 & 0 & 0 & \cdots & \beta_{n-1} & \alpha_n
+\end{bmatrix}.
+$$
+
+Mediante una factorización como esta, la resolución del sistema $A x = b$ constaría de las siguientes etapas:
+
+1. $L z = P b;$
+2. $T w = z;$
+3. $L^T y = w$ y
+4. $x = P^T y.$
+
+Para resolver $T w = z$ se utiliza la eliminación de Gauss en su variante para matrices tridiagonales, proceso que requiere $n$ operaciones de multiplicación/división y suma/resta.
+
+---
+
+Este es el texto con las partes matemáticas correctamente formateadas.
+
+
+# Método de Parlett y Reid
 
 ### 1.5.4.1 El método de Parlett y Reid
 
