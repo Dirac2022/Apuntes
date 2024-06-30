@@ -4,71 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "49493acac5e24ca2",
+        "id": "fa6ae29418386f98",
         "type": "tabs",
         "children": [
           {
-            "id": "339ecda0295885b0",
+            "id": "d2a4de32ac642b5b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Interpolación.md",
+                "file": "Redes/Llamada a procedimientos remotos y objetos distribuidos.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "d1278d97e807c136",
+            "id": "bf5141a5135c4a61",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Calculo/Calculo de una variable.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "621374468f23d8a9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Analisis y Modelamiento Numerico/Resolviendo sistemas de ecuaciones lineales.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ce34df2f43e3e014",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Analisis y Modelamiento Numerico/Tópicos Selectos de Algebra Lineal.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7e16c593e2af5625",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
+                "file": "Redes/Capa de aplicación TCP-IP.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -97,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "\" URL \"",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -134,8 +97,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
-                "collapseAll": false,
+                "file": "Redes/Llamada a procedimientos remotos y objetos distribuidos.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -151,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
+                "file": "Redes/Llamada a procedimientos remotos y objetos distribuidos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,11 +137,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Calculo de valores propios.md"
+                "file": "Redes/Llamada a procedimientos remotos y objetos distribuidos.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -196,54 +160,54 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7e16c593e2af5625",
+  "active": "d2a4de32ac642b5b",
   "lastOpenFiles": [
-    "Analisis y Modelamiento Numerico/Tópicos Selectos de Algebra Lineal.md",
-    "Analisis y Modelamiento Numerico/Resolviendo sistemas de ecuaciones lineales.md",
-    "Analisis y Modelamiento Numerico/Interpolación.md",
-    "Calculo/Calculo de una variable.md",
-    "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
-    "Bases de Datos/MongoDB.md",
-    "Calculo/Tasks.md",
-    "Bases de Datos/Procedimientos almacenados.md",
-    "Bases de Datos/Conexión de PostgreSQL con Python.md",
-    "Bases de Datos/Tasks.md",
-    "Redes/Modelos transformers aplicados a Cyberseguridad/MalBERT Uso de Transformadores para Ciberseguridad y Detección de Software Malicioso.md",
-    "Introduccion a la Electricidad y Magnetismo/Dipolo eléctrico.md",
-    "Calculo/Integrales de línea.md",
-    "Algebra Lineal/Espacios con producto interno.md",
-    "Algebra Lineal/Determinate.md",
-    "Redes/Modelos transformers aplicados a Cyberseguridad/Conceptos previos.md",
-    "IA/Redes neuronales.md",
-    "Bases de Datos/Vistas y autorización de acceso.md",
-    "Redes/Modelos transformers aplicados a Cyberseguridad",
-    "Analisis y Diseño de Algoritmos/paper/Conceptos previos.md",
-    "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
-    "Pasted image 20240624145400.png",
+    "Redes/imgs/rpc rep grafica 2.png",
+    "Redes/Llamada a procedimientos remotos y objetos distribuidos.md",
+    "Redes/Capa de aplicación TCP-IP.md",
+    "Z-Tasks/Tasks.md",
+    "Redes/Arquitectura Cliente-Servidor.md",
+    "Redes/Tasks.md",
+    "Redes/Capa de transporte.md",
+    "Pasted image 20240630162941.png",
+    "Pasted image 20240630162758.png",
+    "Pasted image 20240630162741.png",
+    "Redes/Protocolos.md",
+    "Redes/Conceptos en Redes.md",
+    "Redes/Modelo OSI (Open Systems Interconnection).md",
+    "Redes/Topología de red.md",
+    "Pasted image 20240629232948.png",
+    "Pasted image 20240629231319.png",
+    "Redes/imgs/Pasted image 20240527171506.png",
+    "Redes/imgs/Pasted image 20240527171458.png",
+    "Redes/imgs/Pasted image 20240527170444.png",
+    "Redes/imgs/Pasted image 20240527165352.png",
+    "Redes/imgs/Pasted image 20240527165055.png",
     "URL_de_la_miniatura.md",
-    "Analisis y Diseño de Algoritmos/paper/Clustering with local density peaks-based minimum spanning tree.md",
-    "Analisis y Diseño de Algoritmos/paper/tabla10.png",
-    "Analisis y Diseño de Algoritmos/paper/tabla9.png",
-    "Analisis y Diseño de Algoritmos/paper/tabla6.png",
-    "Analisis y Diseño de Algoritmos/paper/tabla5.png",
-    "Analisis y Diseño de Algoritmos/paper/tabla11.png",
-    "Analisis y Diseño de Algoritmos/paper/tabla8.png",
-    "Analisis y Diseño de Algoritmos/paper/tabla7.png",
-    "Analisis y Diseño de Algoritmos/paper/tabla4.png",
-    "Analisis y Diseño de Algoritmos/paper/tabla3.png",
-    "Analisis y Modelamiento Numerico/Solución de ecuaciones no lineales.md",
+    "Bases de Datos/Tasks.md",
+    "Bases de Datos/Indice.md",
+    "Algebra Lineal/Sistemas de ecuaciones lineales.md",
+    "Analisis y Modelamiento Numerico/Resolviendo sistemas de ecuaciones lineales.md",
+    "Tips Coding/Memory.md",
+    "Tips Coding",
+    "Bases de Datos/Vistas y autorización de acceso.md",
+    "Python/Estructuras de datos.md",
+    "Python/Tipos de datos.md",
+    "Analisis y Modelamiento Numerico/Tópicos Selectos de Algebra Lineal.md",
+    "Bases de Datos/Fase 3.md",
+    "Bases de Datos/Restricciones de integridad.md",
+    "Bases de Datos/Conexión de PostgreSQL con Python.md",
+    "Bases de Datos/Dominios.md",
+    "Bases de Datos/Procedimientos almacenados.md",
+    "Redes/Modelos transformers aplicados a Cyberseguridad",
     "Analisis y Diseño de Algoritmos/paper",
-    "Ingenieria de Software/Task.md",
     "Ingenieria de Software",
-    "Introduccion a la Electricidad y Magnetismo/Imágenes ópticas.md",
-    "Bases de Datos/Bases de Datos NoSQL.md",
     "Data Science/imgs",
     "Data Science",
     "IA/imgs",
     "IA",
     "C++",
-    "My tasks",
-    "Python",
+    "Z-Tasks",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
