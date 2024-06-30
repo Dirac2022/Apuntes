@@ -67,7 +67,6 @@ El Teorema sobre los discos indica que cuando una matriz $A$ es perturbada, sus 
 
 # Método de la potencia
 
-
 ## Autovalor dominante
 Sea $A \in \mathbb{C}^{n \times n}$ una matriz con autovalores $\lambda_1, \lambda_2, \dots, \lambda_n$. $\lambda_1$ es llamado **autovalor dominante** de $A$ si
 $$
@@ -75,7 +74,7 @@ $$
 $$
 Los autovectores correspondientes a $\lambda_i$ son llamados **autovectores dominantes** de $A$.
 
-## Método de la pontencia
+## Método de la potencia
 Este procedimiento está diseñado para computar el valor propio dominante y un vector propio correspondiente al valor propio dominante. Para que la teoría proceda sin problemas, es necesario asumir que $A$ tiene las siguientes dos propiedades:
 
 1. Hay un único valor propio de módulo máximo (autovalor dominante).
