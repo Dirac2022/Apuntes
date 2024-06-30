@@ -34,6 +34,3 @@ Todo **subcamino** de un camino mínimo es mínimo.
 			$T \gets T + w$
 	finMientras
 **finAlgoritmoDijkstra**
-
-
-![[Pasted image 20240618165406.png]]
