@@ -8,10 +8,20 @@ Es una forma de comunicación en [[Conceptos en Redes#Sistemas distribuidos|sist
 - Un proceso **X** en una máquina **A** (cliente), puede llamar un procedimiento localizado en una máquina B (servidor)
 
 ![[rpc rep grafica 1.png]]
-![[rpc rep grafica 2.png]]
 
 
+La llamada a procedimiento remoto, o RPC, es un protocolo utilizado por un programa para solicitar un servicio de otro programa que podría estar ubicado en otra computadora o red. El programa no necesita entender los detalles de la red al usar RPC. Una llamada a procedimiento también se conoce como llamada a función o llamada a subrutina.
 
+### ¿Cómo funciona RPC?
+Cuando se realiza una llamada remota, el entorno de llamada o entorno del cliente se suspende. Los parámetros del procedimiento se transfieren al entorno en el que se ejecutará el procedimiento. El procedimiento se ejecuta entonces en ese entorno.
+Una vez que el procedimiento se completa, los resultados se envían de vuelta al entorno de llamada.
+
+<div style="text-align: center;">
+	<figure>
+    <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*1xog-vJ7bpdEoKYnz1fVUA.jpeg" width=600>
+    <figcaption></figcaption>
+    </figure>
+</div>
 
 ## Características de RPC
 - **Bases del paradigma cliente/servidor**. Es una técnica para el desarrollo de aplicaciones distribuidas basadas en el paradigma cliente/servidor.
@@ -26,6 +36,7 @@ Un sistema basado en RPC tiene tres componentes.
 - El cliente
 - El servidor
 - El middleware
+
 
 ![[componentes rpc.png]]
 
@@ -57,25 +68,30 @@ La funcionalidad del stub del cliente es la siguiente:
 - Enviar el mensaje al servidor.
 - Esperar la respuesta - Desempaquetar (proceso de deserialización de datos) la respuesta cuando llega (*unmarshalling*).
 
-
 ## Stub del servidor
 Es un programa o código auxiliar que actúa como reemplazo del cliente en el servidor. Permite que el servidor pueda ejecutar la información enviada por el cliente como si fuera local, mientras oculta los detalles de la comunicación de red subyacente.
 
 La funcionalidad del stub del servidor es la siguiente:
-
 - Análogas funcionalidades del stub de cliente.
 - **Creación de hilos**. En caso de servidor con múltiples hilos, crea un hilo para gestionar cada invocación.
 - **Dispatching**: seleccionar el procedimiento remoto solicitado (si hay varios) e invocarlo, actuando como hilo representante del cliente.
 
-```
-El dispatching es el proceso mediante el cual es sistema RPC determina y ejecuta el procedimiento adecuado en el servidor en respuesta a una solicitud de procedimiento remoto (RPC) del cliente. Esto incluye la identificación del método solicitado, la deserialización de los parámetros, la ejecución del método y el envió de la respuesta de vuelta al cliente.
-```
+>[!info]
+>El dispatching es el proceso mediante el cual es sistema RPC determina y ejecuta el procedimiento adecuado en el servidor en respuesta a una solicitud de procedimiento remoto (RPC) del cliente. Esto incluye la identificación del método solicitado, la deserialización de los parámetros, la ejecución del método y el envió de la respuesta de vuelta al cliente.
 
 ![[Pasted image 20240617120633.png]]
 
+<div style="text-align: center;">
+	<figure>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
+    <figcaption></figcaption>
+    </figure>
+</div>
 
 
 
+
+	
 <div style="text-align: center;">
 	<figure>
     <img src="C:\Users\mitch\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Mi unidad\My Notes\My Notes\Redes\imgs\arquitectura RPC.png">
@@ -84,7 +100,23 @@ El dispatching es el proceso mediante el cual es sistema RPC determina y ejecuta
 </div>
 
 
+<div style="text-align: center;">
+	<figure>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
+    <figcaption></figcaption>
+    </figure>
+</div>
+
+
+
 ![[Pasted image 20240617120706.png]]
+
+<div style="text-align: center;">
+	<figure>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
+    <figcaption></figcaption>
+    </figure>
+</div>
 
 ## Servicio Binding
 
@@ -100,6 +132,15 @@ El binding es el mecanismo mediante el cual un servidor registra una implementac
 - Realiza la búsqueda del stub servidor de la implementación concreta del procedimiento remoto llamado por un cliente. El servicio de binding es responsable de encontrar el stub del servidor correspondiente a la implementación concreta del procedimiento remoto solicitado por el cliente.
 
 - **Selecciona stub servidor + servidor que atiende a la llamada remota**: el servicio de binding no solo identifica el stub del servidor adecuado, sino que también selecciona el servidor que estará disponible para atender la llamada remota del cliente.
+
+
+<div style="text-align: center;">
+	<figure>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
+    <figcaption></figcaption>
+    </figure>
+</div>
+
 
 ![[Pasted image 20240617131958.png]]
 
@@ -143,6 +184,13 @@ Generación automática de elementos complementarios a partir de la definición 
 - Como argumento que se pasa en una invocación a otro objeto.
 
 ![[Pasted image 20240617134519.png]]
+
+<div style="text-align: center;">
+	<figure>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
+    <figcaption></figcaption>
+    </figure>
+</div>
 
 ## Invocación a métodos remotos
 
