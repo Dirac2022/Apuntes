@@ -20,7 +20,7 @@ Dos objetivos principales de las vistas:
 ```sql
 create view nombreDeVista <expresion de consulta>
 ```
-Donde < expresion de consulta > es cualquier expresión de consulta válida en SQL.
+Donde < expresion de consulta> es cualquier expresión de consulta válida en SQL.
 
 - Proyecto (codProy, tipo, descripcion)
 - ProyectoEmpleado (codProy, codEmp, fechaInicial, fechaFinal)
@@ -34,6 +34,13 @@ where salario > 10000
 ```
 
 Esta vista tendrá los atributos especificados en la consulta.
+
+Para ver todas las vistas creadas
+```sql
+select viewname
+from pg_views
+where schemaname = 'public';
+```
 
 ## Vistas sobre una relación
 ### Otra forma
@@ -86,12 +93,10 @@ where descripcion="Proyecto A"
 - Los resultados no se aprecian cuando se crea la vista, sino cuando ejecutamos una consulta sobre esta.
 
 ### Eliminación de vistas
-Cuando una vista no se necesita más la podemos eliminar usando el comando *drop view*:
+Cuando una vista no se necesita más la podemos eliminar usando el comando `drop view`:
 ```sql
 drop view nombreDeLaVista;
 ```
-
-
 
 # Laboratorio 15
 
