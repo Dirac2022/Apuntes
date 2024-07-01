@@ -1,5 +1,3 @@
-https://uniedupe93141-my.sharepoint.com/personal/eduardo_yauri_uni_edu_pe/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Feduardo%5Fyauri%5Funi%5Fedu%5Fpe%2FDocuments%2Fdictado%20de%20cursos%2Fcc311%2D2024%2D1%2FMaterial%20Clase%2F3%2E2%20Llamada%20a%20procedimientos%20remotos%20y%20objetos%20distribuidos%5Fm%2Epdf&parent=%2Fpersonal%2Feduardo%5Fyauri%5Funi%5Fedu%5Fpe%2FDocuments%2Fdictado%20de%20cursos%2Fcc311%2D2024%2D1%2FMaterial%20Clase&ga=1
-
 
 # Remote Procedure Call (RPC)
 
@@ -40,7 +38,6 @@ Un sistema basado en RPC tiene tres componentes.
 
 ![[componentes rpc.png]]
 
-
 ### Cliente
 Es el proceso que realiza la **llamada** a una función.
 1. Envía los parámetros de la petición.
@@ -61,7 +58,7 @@ Algunos paquetes RPC ya manejan el middleware de manera transparente.
 
 
 ## Stub de cliente
-Es un programa o código auxiliar que actúa como reemplazo temporal o representante de un servicio u objeto remoto del servidor. Permite que la aplicación cliente acceda a un servicio como si fuera local, mientras oculta los detalles de la comunicación de red subyacente.
+**Es un programa o código auxiliar que actúa como reemplazo temporal o representante de un servicio u objeto remoto del servidor**. Permite que la aplicación cliente acceda a un servicio como si fuera local, mientras oculta los detalles de la comunicación de red subyacente.
 
 La funcionalidad del stub del cliente es la siguiente:
 - Empaquetar los parámetros (proceso de serialización de datos) en un mensaje (*parameter marshalling*). 
@@ -69,7 +66,7 @@ La funcionalidad del stub del cliente es la siguiente:
 - Esperar la respuesta - Desempaquetar (proceso de deserialización de datos) la respuesta cuando llega (*unmarshalling*).
 
 ## Stub del servidor
-Es un programa o código auxiliar que actúa como reemplazo del cliente en el servidor. Permite que el servidor pueda ejecutar la información enviada por el cliente como si fuera local, mientras oculta los detalles de la comunicación de red subyacente.
+**Es un programa o código auxiliar que actúa como reemplazo del cliente en el servidor**. Permite que el servidor pueda ejecutar la información enviada por el cliente como si fuera local, mientras oculta los detalles de la comunicación de red subyacente.
 
 La funcionalidad del stub del servidor es la siguiente:
 - Análogas funcionalidades del stub de cliente.
@@ -77,21 +74,12 @@ La funcionalidad del stub del servidor es la siguiente:
 - **Dispatching**: seleccionar el procedimiento remoto solicitado (si hay varios) e invocarlo, actuando como hilo representante del cliente.
 
 >[!info]
->El dispatching es el proceso mediante el cual es sistema RPC determina y ejecuta el procedimiento adecuado en el servidor en respuesta a una solicitud de procedimiento remoto (RPC) del cliente. Esto incluye la identificación del método solicitado, la deserialización de los parámetros, la ejecución del método y el envió de la respuesta de vuelta al cliente.
-
-![[Pasted image 20240617120633.png]]
-
-<div style="text-align: center;">
-	<figure>
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
-    <figcaption></figcaption>
-    </figure>
-</div>
+>El dispatching es el proceso mediante el cual el sistema RPC determina y ejecuta el procedimiento adecuado en el servidor en respuesta a una solicitud de procedimiento remoto (RPC) del cliente. Esto incluye la identificación del método solicitado, la deserialización de los parámetros, la ejecución del método y el envió de la respuesta de vuelta al cliente.
 
 
+![[stub-cliente stub-servidor.png]]
 
 
-	
 <div style="text-align: center;">
 	<figure>
     <img src="C:\Users\mitch\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Mi unidad\My Notes\My Notes\Redes\imgs\arquitectura RPC.png">
@@ -100,30 +88,14 @@ La funcionalidad del stub del servidor es la siguiente:
 </div>
 
 
-<div style="text-align: center;">
-	<figure>
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
-    <figcaption></figcaption>
-    </figure>
-</div>
-
-
-
-![[Pasted image 20240617120706.png]]
-
-<div style="text-align: center;">
-	<figure>
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
-    <figcaption></figcaption>
-    </figure>
-</div>
+![[ejemplo arquitectura rpc.png]]
 
 ## Servicio Binding
 
 El binding es el mecanismo mediante el cual un servidor registra una implementación de un servicio remoto en un directorio o registro, y los clientes utilizan este directorio para localizar y acceder al servicio remoto. Este proceso es crucial para permitir que los clientes encuentren los servicios de manera dinámica y eficiente.
 
 
-- **Responsable de la transparencia de localización**: el servicio de binding permite que los clientes invoquen procedimientos remotos sin tener que preocuparse por la ubicación física del servidor. Esto se conoce como **transparencia de localización.
+- **Responsable de la transparencia de localización**: el servicio de binding permite que los clientes invoquen procedimientos remotos sin tener que preocuparse por la ubicación física del servidor. Esto se conoce como **transparencia de localización**.
 
 - **Servicio auxiliar que complementa a stub cliente y servidor**: el servicio de binding actúa como un intermediario adicional que facilita la interacción entre los stubs del cliente y del servidor.
 
@@ -132,14 +104,6 @@ El binding es el mecanismo mediante el cual un servidor registra una implementac
 - Realiza la búsqueda del stub servidor de la implementación concreta del procedimiento remoto llamado por un cliente. El servicio de binding es responsable de encontrar el stub del servidor correspondiente a la implementación concreta del procedimiento remoto solicitado por el cliente.
 
 - **Selecciona stub servidor + servidor que atiende a la llamada remota**: el servicio de binding no solo identifica el stub del servidor adecuado, sino que también selecciona el servidor que estará disponible para atender la llamada remota del cliente.
-
-
-<div style="text-align: center;">
-	<figure>
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
-    <figcaption></figcaption>
-    </figure>
-</div>
 
 
 ![[Pasted image 20240617131958.png]]
@@ -183,14 +147,13 @@ Generación automática de elementos complementarios a partir de la definición 
 - En la invocación remota de los métodos exportados por el objeto remoto.
 - Como argumento que se pasa en una invocación a otro objeto.
 
-![[Pasted image 20240617134519.png]]
+**Utilización de las referencias a objetos**: si "X" es una referencia a un objeto remoto, entonces se pueden utilizar de los siguientes modos:
+- Invocación estática de métodos remotos: `X.method1(arg1, arg2, ...)`;
+- Pasar la referencia a otro objeto: `Y.method3(X);`
 
-<div style="text-align: center;">
-	<figure>
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX0KUUFmryoGe7j_Y_PZD6htuEwKe0aF701QG9TyQrnetTO8WsqoatCax62WcD0XHvYhBLf4tRPYzhPplGyDPjiC6NH250p4PIEugnd-3iqIwZ4usPTy1FY39lACwQbsS590t57cbWqTiB/s1600/Capa+de+aplicaci%25C3%25B3n.jpg" width=700>
-    <figcaption></figcaption>
-    </figure>
-</div>
+
+![[referencia a objetos remotos.png]]
+
 
 ## Invocación a métodos remotos
 
@@ -210,7 +173,7 @@ Generación automática de elementos complementarios a partir de la definición 
 - **Para objetos remotos**: paso de referencias remotas.
 
 ### Ubicación de objetos remotos (binding)
-- **Necesidad de mecanismos para obtener referencias remotas.
+- **Necesidad de mecanismos para obtener referencias remotas**.
 	- *Binding* estático: en tiempo de compilación.
 		- La ubicación del objeto remoto es fija y conocida a priori.
 		- El compilador genera directamente la referencia remota.
