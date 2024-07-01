@@ -90,7 +90,7 @@ El servidor de nombres autoritativo es la última parada en la consulta del serv
     </figure>
 </div>
 
-![[Pasted image 20240629231319.png]]
+![[funcionamiento DNS.png]]
 
 
 ### Simple Mail Transfer Protocol (SMTP)
@@ -150,7 +150,7 @@ $mail->send();
 
 
 **Configuración correo Moodle**
-![[Pasted image 20240629232948.png]]
+![[configuracion correo moodle.png]]
 
 
 ### Post Office Protocol (POP3)
