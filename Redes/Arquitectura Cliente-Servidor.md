@@ -96,9 +96,6 @@ El modelo cliente-servidor es la base de cómo funciona la web hoy en día, perm
     </figure>
 </div>
 
-![[Pasted image 20240630162941.png]]
-
-
 
 # Framework
 - Un framework incluye compiladores, programas de soporte, conjuntos de herramientas, bibliotecas de código y API que facilitan el desarrollo de un proyecto, proporcionando una estructura estándar y reutilizable.
