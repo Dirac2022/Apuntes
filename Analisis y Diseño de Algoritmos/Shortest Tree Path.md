@@ -36,6 +36,28 @@ Todo **subcamino** de un camino mínimo es mínimo.
 **finAlgoritmoDijkstra**
 
 
+```
+n : cantidad de vertices
+conjunto visited
+cola
+v_0 : vertice inicial
+v = v_0
+
+Mientras visited.size < n :
+	Para cada vertice w vecino de v (v-w)
+		Si dist(v_0 - v) + costo(v - w) < dist(v_0 - w):
+			cola.push(v-w)
+			dist[v_0 - w] = dist[v_0 - v] + costo(v- w)
+
+	// Elige siguiente vertice v que no haya sido visitado de la cola
+	v = pq.pop // este vertice tiene que ser valido, puede que ya haya sido 
+			   // visitado
+	Agrega v a visited 
+FinMientras		 
+
+```
+
+
 ## Algoritmo Floyd-Warshall
 
 
