@@ -1,4 +1,5 @@
 
+
 # Corriente y movimiento de cargas
 ![[Pasted image 20240510105212.png]]
 
