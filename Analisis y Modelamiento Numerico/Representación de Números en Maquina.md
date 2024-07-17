@@ -1,4 +1,4 @@
-	
+
 # El Sistema Posicional
 
 Sea una base $\beta \in \mathbb{N}$ fija con $\beta \geq 2$, y sea $x$ un número real con un número finito de dígitos $x_k$ con $0 \leq x_k < \beta$ para $k = -m, ..., n$. 
@@ -56,9 +56,14 @@ $N=32$ bits *(single precision)*
 
 $N=64$ bits *(double precision*
 
+
 <div style="text-align: center;">
-    <img src="https://media.geeksforgeeks.org/wp-content/uploads/Double-Precision-IEEE-754-Floating-Point-Standard-1024x266.jpg" alt="Texto alternativo de la imagen">
+	<figure>
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/Double-Precision-IEEE-754-Floating-Point-Standard-1024x266.jpg" width=650>
+    <figcaption></figcaption>
+    </figure>
 </div>
+
 
 Denotemos por
 $$ \mathbb{F}(\beta, t, L, U) = {0} \: \cup \left\{ x \in \mathbb{R} : x = (-1)^s \beta^e \sum_{i=1}^{t}a_i\beta^{-i} \right\}$$
@@ -99,10 +104,23 @@ $$ card ( \mathbb{F} ) = 2(\beta - 1)\beta^{t-1} (U - L + 1) + 1 $$
 Resulta que no es posible representar cualquier número (a parte del $0$) cuyo valor absoluto sea menor que $x_{min}$, Esta ultima limitación se puede superar completando $\mathbb{F}$ con el conjunto $\mathbb{F}_D$ de los números en *punto-flotante denormalizados* obtenidos removiendo el supuesto que $a_1$ no es nulo, solo para los números que se refieren al exponente mínimo $L$. De esta manera la unicidad en la representación no se pierde y es posible generar números que tengan la mantisa entre $1$ y $\beta^{t-1} - 1$ y pertenezcan al intervalo $(-\beta^{L-1} , \, \beta^{L-1})$. El valor más pequeño en este conjunto tiene un valor absoluto igual a $\beta^{L-t}$.
 
 
-![[Pasted image 20240329212656.png]]
-En este caso se representan los números del conjunto $\mathbb{F}$ normalizados. Cuando consideramos también los números positivos *denormalizados* debemos completar el conjunto agregando los siguientes números:
-![[Pasted image 20240329212958.png]]
+#### Ejemplo
+Los números positivos en el conjunto $\mathbb{F} (2, 3, -1, 2)$ son
 
+| 0.111                                  | 0.110                                 | 0.101                                  | 0.100                                 |
+| -------------------------------------- | ------------------------------------- | -------------------------------------- | ------------------------------------- |
+| $(0.111) \cdot 2^{2} = \dfrac{7}{2}$   | $(0.110) \cdot 2^{2} = 3$             | $(0.101) \cdot 2^{2} = \dfrac{5}{2}$   | $(0.100) \cdot 2^{2} = 2$             |
+| $(0.111) \cdot 2^{1} = \dfrac{7}{4}$   | $(0.110) \cdot 2^{1} = \dfrac{3}{2}$  | $(0.101) \cdot 2^{1} = \dfrac{5}{4}$   | $(0.100) \cdot 2^{1} = 1$             |
+| $(0.111) \cdot 2^{0} = \dfrac{7}{8}$   | $(0.110) \cdot 2^{0} = \dfrac{3}{4}$  | $(0.101) \cdot 2^{0} = \dfrac{5}{8}$   | $(0.100) \cdot 2^{0} = \dfrac{1}{2}$  |
+| $(0.111) \cdot 2^{-1} = \dfrac{7}{16}$ | $(0.110) \cdot 2^{-1} = \dfrac{3}{8}$ | $(0.101) \cdot 2^{-1} = \dfrac{5}{16}$ | $(0.100) \cdot 2^{-1} = \dfrac{1}{4}$ |
+
+En este caso se representan los números del conjunto $\mathbb{F}$ normalizados. Cuando consideramos también los números positivos *denormalizados* debemos completar el conjunto agregando los siguientes números:
+
+$$
+(.011)_2 \ \cdot 2^{-1} =  \frac{3}{16} , \  (.010)_2 \ \cdot 2^{-1} =  \frac{1}{8} , \ (.001)_2 \ \cdot 2^{-1} =  \frac{1}{16}
+$$
+
+De acuerdo con lo establecido anteriormente, el número más pequeño denormalizado es $\beta^{L-t} = 2^{-1-3} = 1/16$
 
 # Distribución de números en punto-flotante
 
@@ -121,7 +139,13 @@ $$\frac{\Delta x}{x} = \frac{(-1)^s\beta^{e-t}}{(-1)^s m(x) \beta^{e-t}} = \frac
 
 Dentro del intervalo $[\beta^e , \, \beta^{e+1}]$, la razón esta disminuyendo a medida que $x$ aumenta, ya que la representación normalizada de la mantisa varía dentro de $[\beta^{t-1} , \, \beta^t - 1 )$. Sin embargo, tan pronto como $x = \beta^{e+1}$, la distancia relativa regresa al valor $\beta^{1-t}$  y empieza a decrecer en los intervalos sucesivos. Este fenómeno oscilatorio se llama ***precision titubeante (wobbling precision)*** y cuanto mayor sea la base $\beta$, más pronunciado será el efecto. **Esta es otra razón por la que se prefieren emplear bases pequeñas en las computadoras**.
 
-![[Pasted image 20240329223825.png]]
+
+<div style="text-align: center;">
+	<figure>
+    <img src="C:\Users\mitch\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Mi unidad\My Notes\My Notes\Analisis y Modelamiento Numerico\imgs\ejemplo variacion distancia relativa.png">
+    <figcaption></figcaption>
+    </figure>
+</div>
 
 ## Exceptional values
 
@@ -161,9 +185,13 @@ Se pueden diferenciar 5 regiones en $F$:
 4. Los números positivos menores que $x_{min}$, región denominada *underflow positivo*.
 5. Los números positivos mayores que $x_{max}$, región denominada *overflow positivo*.
 
-![[Pasted image 20240402171237.png]]
 
-
+<div style="text-align: center;">
+	<figure>
+    <img src="C:\Users\mitch\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Mi unidad\My Notes\My Notes\Analisis y Modelamiento Numerico\imgs\overflow y underflow.png">
+    <figcaption></figcaption>
+    </figure>
+</div>
 
 ## Absolute and relative error
 Podemos cuantificar el error, absoluto o relativo, que se comete al sustituir $fl(x)$ por $x$. El resultado siguiente puede ser demostrado
@@ -326,18 +354,19 @@ underflow & & \text{subnormal numbers} \\ \hline
 ## Round digits
 Mencionamos que no todos los sistemas de punto flotante satisfacen la [[#^ca8000|expresión]] líneas arriba. Una de las principales razones es la ausencia del dígito de redondeo en la resta, es decir, un bit adicional que entra en acción a nivel de la mantisa cuando se realiza la resta entre dos números de punto flotante. Para demostrar la importancia del dígito de redondeo, consideremos el siguiente ejemplo con un sistema $\mathbb{F}$ que tiene $\beta = 10$ y $t = 2$. Restemos $1$ y $0.99$. Tenemos
 
-![[Pasted image 20240331143936.png]]
+
+<div style="text-align: center;">
+	<figure>
+    <img src="C:\Users\mitch\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Mi unidad\My Notes\My Notes\Analisis y Modelamiento Numerico\imgs\ejemplo redondeo digitos.png">
+    <figcaption></figcaption>
+    </figure>
+</div>
+
 
 $$ fl(x \pm y) = (x \pm y) (1 + \delta) \quad \text{con} \quad |\delta| \leq u \, ,$$
 pero si la siguiente
 $$ fl(x \pm y) = x(1 + \alpha) \pm y(1 + \beta) \quad \text{con} \quad |\alpha| + |\beta| \leq u \, .$$
 Una aritmética en la que ocurre este último evento se denomina aberrante. En algunas computadoras, el dígito de redondeo no existe, y la mayor parte del cuidado se dedica a la velocidad en la computación. Sin embargo, hoy en día la tendencia es usar incluso dos dígitos de redondeo
-
-
-
-
-
-
 
 
 # Notación científica normalizada
@@ -375,12 +404,23 @@ Observe que $x\_$ se encuentra a la izquierda de $x$ en la recta real. Otro núm
 $$ x_+ = ((1.a_1a_2 ... a_{23})_2 + 2^{-23}) \times 2^m$$
 
 
-
-
-# Apuntes
-
-## Diferencia cancelativa
+# Diferencia cancelativa
 Sean dos números de 6 dígitos de precisión, $x = 0.467546$, e $y = 0.462301$, que podemos representar solo con cuatro dígitos como $fl(x) = 0.4675$, y $fl(y) = 0.4623$, y que al ser restados nos dan $fl(x − y) = 0.0052$. Como vemos aunque el resultado es exacto para la suma de los números flotantes, de cuatro dígitos de precisión, no así con respecto a los números originales, que tenían seis dígitos. De hecho el resultado ha perdido dígitos, sólo tiene dos dígitos de precisión, cuando los operandos tenían cuatro. Este fenómeno de pérdida de dígitos de precisión se denomina cancelación, o **diferencia cancelativa**, y puede ser peligroso (*cancelación catastrófica*) si el resultado de la resta es utilizado posteriormente en otras operaciones, pues para ellas, uno de los operandos tiene solo dos dígitos de precisión.
 
+
+# Error absoluto y relatico y pérdida de significancia
+Cuando un número real $X$ es aproximado por otro $\hat{x}$, el error es $x-\hat{x}$.
+- El **error absoluto es** $$|x - \hat{x}|$$
+- el **error relativo es** $$|\frac{x - \hat{x}}{x}|$$ 
+**Error relativo en la representación de un número $x$ por un número en punto flotante cercano**
+ $$|\frac{x - fl(x)}{x}| \leq \varepsilon $$
+
+# Loss of Precision
+
+## Teorema de la perdida de precision
+Si $x$ y $y$ son números de maquina binarios en punto flotante normalizados positivos tal que $x > y$ y 
+$$ 2^{-q} \leq 1 - \frac{y}{x} \leq 2^{-p}$$
+
+entonces a lo más $q$ y al menos $p$ bits binarios significativos se pierden en la substracción $x-y$
 
 
