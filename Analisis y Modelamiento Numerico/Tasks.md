@@ -30,6 +30,6 @@
 
 - [x] Interpolation and the Lagrange Polynomial ⏳ 2024-06-16 ✅ 2024-06-16
 - [ ] Data Approximation and Neville's Method ⏳ 2024-06-16  
-- [ ] Divided Differences ⏳ 2024-06-16  
+- [x] Divided Differences ⏳ 2024-06-16 ✅ 2024-07-10
 - [ ] Hermite Interpolation ⏳ 2024-06-16 
 - [ ] Ejercicios del capitulo 3 Burden ⏳ 2024-06-17 📅 2024-06-18 ⏫ 
