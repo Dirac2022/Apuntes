@@ -60,6 +60,46 @@ FinMientras
 
 ## Algoritmo Floyd-Warshall
 
+```
+n <- cantidad de vertices del grafo
+maxDist <- Numero muy grande
+
+matriz de caminos cam de nxnv // Entradas maxDist
+matriz de distancias dist de nxn // Entradas maxDist
+
+
+// // Inicializamos la matriz dist, de distancias originales entre vertices
+Para cada arista en aristas de grafo {
+	// v1 y v2 los los vertices de la arista
+	dist[v1][v2] = peso de la arista
+}
+
+// Inicializamos la matriz cam, las entradas tomaran como valor el indice de
+// la columna 
+for(row = 0; row < n; row ++) {
+	for(col = 0; col < n; col ++) {
+		if (dist[row][col] < maxDist)
+			cam[row][col] = col
+	}
+}
+
+for(int k = 0; k < n; k ++){
+	for(int i = 0; i < n; i ++){
+		for(int j = 0; j < n; j ++){	
+			d = dist[i][k] + dist[k][j]
+			// Si pasar por el vertice k produce un menor costo, actualizamos
+			// las matrices de caminos y distancias, ahora, para ir del vertice i al j,             // debemos primero pasar por k
+ 			if(d < dist[i][j]) {
+	 			cam[i][j] = cam[i][k];
+	 			dist[i][j] = d;
+ 			}
+		}
+	}
+}
+
+// Imprimamos los caminos
+
+```
 
 
 
