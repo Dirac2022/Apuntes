@@ -1,5 +1,35 @@
 
 
+# Punto fijo
+Una función $G$ de $D \subseteq \mathbb{R}^n$ en $\mathbb{R}^n$ tiene un punto fijo en $p \in D$ si $G(p)=p$.
+
+## Teorema
+Sea
+$$
+D = \{ (x_1, x_2, \ldots, x_n)^T \mid a_i \leq x_i \leq b_i, \text{ para cada } i = 1, 2, \ldots, n \}
+$$
+
+para alguna colección de constantes $a_1, a_2, \ldots, a_n$ y $b_1, b_2, \ldots, b_n$. Supongamos que $G$ es una función continua de $D \subseteq \mathbb{R}^n$ en $\mathbb{R}^n$ con la propiedad de que $G(x) \in D$ siempre que $x \in D$. Entonces $G$ tiene un punto fijo en $D$.
+
+Además, supongamos que todas las funciones componentes de $G$ tienen derivadas parciales continuas y que existe una constante $\lambda <1$ tal que
+
+$$
+\left| \frac{\partial g_i(x)}{\partial x_j} \right| \leq \frac{\lambda}{n}, \text{ siempre que } x \in D,
+$$
+
+para cada $j=1, 2, \ldots, n$ y cada función componente $g_i$. 
+O también, si $\|JG(x)\| \leq \lambda < 1$. Entonces la secuencia de puntos fijos $\{ x^{(k)} \}_{k=0}^\infty$ definida por un $x^{(0)}$ arbitrariamente seleccionado en $D$ y generada por
+
+$$
+x^{(k)} = G(x^{(k-1)}), \text{ para cada } k \geq 1
+$$
+
+converge al único punto fijo $p \in D$ y
+
+$$
+\| x^{(k)} - p \|_\infty \leq \frac{\lambda^k}{1 - \lambda} \| x^{(1)} - x^{(0)} \|_\infty
+$$
+
 # Métodos de Homotopía y Continuación
 Los métodos de homotopía, o de continuación, para sistemas no lineales incrustan el problema a resolver dentro de una colección de problemas. Específicamente, para resolver un problema de la forma:
 
@@ -299,11 +329,11 @@ $$
 $$
 
 $$
-\mathbf{k_2} = h \left[ -J \left( w_i + \frac{1}{2} \mathbf{k_1} \right) \right]^{-1} F(x(0)),
+\mathbf{k_2} = h \left[ -J \left( w_j + \frac{1}{2} \mathbf{k_1} \right) \right]^{-1} F(x(0)),
 $$
 
 $$
-\mathbf{k_3} = h \left[ -J \left( w_i + \frac{1}{2} \mathbf{k_2} \right) \right]^{-1} F(x(0)),
+\mathbf{k_3} = h \left[ -J \left( w_j + \frac{1}{2} \mathbf{k_2} \right) \right]^{-1} F(x(0)),
 $$
 
 $$
