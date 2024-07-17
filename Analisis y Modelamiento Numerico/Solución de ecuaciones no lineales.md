@@ -82,6 +82,18 @@ Si $[a_0, b_0], [a_1, b_1], \ldots, [a_n, b_n], \ldots$ denotan los intervalos e
 
 $$|r - c_n| \leq 2^{-(n+1)}\,(b_0 - a_0)$$
 
+
+### Prueba
+En efecto $\left| r - c_i \right| \le \frac{b_i - a_i}{2}$ y como $b_i - a_i = \frac{b_{i-1} - a_{i-1}}{2}$ entonces
+
+$$
+\left| r - c_i \right| \le \frac{b_i - a_i}{2} = \frac{b_{i-1} - a_{i-1}}{2^2}
+$$
+después de $n$ iteraciones
+$$
+\left| r - c_n \right| \le \frac{b - a}{2^{n+1}}
+$$
+
 ![[Pasted image 20240604225018.png]]
 
 
@@ -231,4 +243,139 @@ $$
 x_{n+1} = x_{n} - f(x_n)\left[\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}\right] \quad \quad (n \geq 1)
 $$
 
+# Método del punto fijo
 
+## Iteración Funcional
+El método de Newton y el método de Steffensen son ejemplos de procedimientos mediante los cuales se calcula una secuencia de puntos mediante una fórmula de la forma
+
+$$
+x_{n+1} = F(x_n) \quad (n \geq 0) \tag{1}
+$$
+
+El algoritmo definido por tal ecuación se llama **iteración funcional**. En el método de Newton, la función $F$ está dada por
+
+$$
+F(x) = x - \frac{f(x)}{f'(x)}
+$$
+
+Muchos otros ejemplos del procedimiento general de iteración funcional podrían ser citados, y estudiaremos el tema brevemente.
+
+Nuestro interés reside principalmente en aquellos casos donde $\lim_{n \to \infty} x_n$ existe. Supongamos entonces que
+
+$$
+\lim_{n \to \infty} x_n = s
+$$
+
+¿Cuál es la relación entre $s$ y $F$? Si $F$ es continua, entonces
+
+$$
+F(s) = F\left( \lim_{n \to \infty} x_n \right) = \lim_{n \to \infty} F(x_n) = \lim_{n \to \infty} x_{n+1} = s
+$$
+
+Así, $F(s) = s$, y llamamos a $s$ un **punto fijo** de la función $F$. Podríamos pensar en un punto fijo como un valor al cual la función "se adhiere" en el proceso iterativo.
+
+## Función contractiva
+A menudo, un problema matemático puede ser reducido al problema de encontrar un punto fijo de una función. Tenemos la intención de analizar el caso más simple cuando $F$ mapea algún conjunto cerrado $C \subseteq \mathbb{R}$ en sí mismo. El teorema a probar concierne a **mapeos contractivos**. Un mapeo (o función) $F$ se dice que es **contractivo** si existe un número $\lambda$ menor que 1 tal que
+
+$$
+|F(x) - F(y)| \leq \lambda |x - y| \tag{2}
+$$
+
+para todos los puntos $x$ y $y$ en el dominio de $F$. Como se ilustra en la Figura 3.7, la distancia entre $x$ e $y$ se mapea en una distancia más pequeña entre $F(x)$ y $F(y)$ mediante la función contractiva $F$.
+
+![[funcion contractiva.png]]
+
+## Teorema del Mapeo Contractivo
+Sea $C$ un subconjunto cerrado de la recta real. Si $F$ es un mapeo contractivo de $C$ en $C$, entonces $F$ tiene un único punto fijo. Además, este punto fijo es el límite de cada secuencia obtenida de la Ecuación (1) con un punto inicial $x_0 \in C$.
+
+Usamos la propiedad contractiva (2) junto con la Ecuación (1) para escribir
+
+$$
+|x_n - x_{n-1}| = |F(x_{n-1}) - F(x_{n-2})| \leq \lambda |x_{n-1} - x_{n-2}| \tag{3}
+$$
+
+Este argumento puede repetirse para obtener
+
+$$
+|x_n - x_{n-1}| \leq \lambda |x_{n-1} - x_{n-2}| \leq \lambda^2 |x_{n-2} - x_{n-3}| \leq \cdots \leq \lambda^{n-1} |x_1 - x_0|
+$$
+
+Dado que $x_n$ se puede escribir en la forma
+
+$$
+x_n = x_0 + (x_1 - x_0) + (x_2 - x_1) + \cdots + (x_n - x_{n-1})
+$$
+
+vemos que la secuencia $\{ x_n \}$ converge si y solo si la serie
+
+$$
+\sum_{n=1}^\infty (x_n - x_{n-1})
+$$
+
+converge. Para probar que esta serie converge, basta probar que la serie
+
+$$
+\sum_{n=1}^\infty |x_n - x_{n-1}|
+$$
+
+converge. Esto es fácil porque podemos usar la prueba de comparación y el trabajo anterior:
+
+$$
+\sum_{n=1}^\infty |x_n - x_{n-1}| \leq \sum_{n=1}^\infty \lambda^{n-1} |x_1 - x_0| = \frac{1}{1 - \lambda} |x_1 - x_0|
+$$
+
+Dado que la secuencia converge, sea $s = \lim_{n \to \infty} x_n$. Entonces $F(s) = s$, como se señaló anteriormente. (Observe que la propiedad contractiva implica la continuidad de $F$.) En cuanto a la unicidad del punto fijo, si $x$ e $y$ son puntos fijos, entonces
+
+$$
+|x - y| = |F(x) - F(y)| \leq \lambda |x - y|
+$$
+
+Dado que $\lambda < 1$, $|x - y| = 0$. Finalmente, note que el punto $s$ que se obtiene pertenece a $C$ ya que es el límite de una secuencia que yace en $C$.
+
+## Análisis de Errores
+
+Ahora analicemos los errores en el proceso de iteración funcional. Supongamos que $F$ tiene un punto fijo, $s$, y que una secuencia $\{ x_n \}$ ha sido definida por la fórmula $ x_{n+1} = F(x_n) $. Definamos
+
+$$
+e_n = x_n - s
+$$
+
+Si $F'$ existe y es continua, entonces por el Teorema del Valor Medio,
+
+$$
+x_{n+1} - s = F(x_n) - F(s) = F'(\xi_n)(x_n - s)
+$$
+
+o
+$$
+e_{n+1} = F'(\xi_n)e_n
+$$
+
+donde $\xi_n$ es un punto entre $x_n$ y $s$. La condición $|F'(x)| < 1$ para todo $x$ asegura que los errores disminuyen en magnitud. Si $e_n$ es pequeño, entonces $\xi_n$ está cerca de $s$, y $F'(\xi_n) \approx F'(s)$. Se esperaría una convergencia rápida si $F'(s)$ es pequeño. Una situación ideal sería $F'(s) = 0$. En ese caso, un término adicional en la serie de Taylor será útil. Para manejar varios casos a la vez, supongamos que $q$ es un entero tal que
+
+$$
+F^{(k)}(s) = 0 \quad \text{para} \quad 1 \leq k < q \quad \text{pero} \quad F^{(q)}(s) \neq 0
+$$
+
+Por la serie de Taylor para $F(x_n)$ expandida alrededor de $s$, tenemos
+
+$$
+\begin{aligned}
+e_{n+1} &= x_{n+1} - s = F(x_n) - F(s) \\
+&= F(s + e_n) - F(s) \\
+&= \left[ F(s) + e_n F'(s) + \frac{1}{2} e_n^2 F''(s) + \cdots \right] - F(s) \\
+&= e_n F'(s) + \frac{1}{2} e_n^2 F''(s) + \cdots + \frac{1}{(q-1)!} e_n^{q-1} F^{(q-1)}(s) + \frac{1}{q!} e_n^q F^{(q)}(\xi_n)
+\end{aligned}
+$$
+
+y por lo tanto
+
+$$
+e_{n+1} = \frac{1}{q!} e_n^q F^{(q)}(\xi_n)
+$$
+
+Si sabemos que $\lim_{n \to \infty} x_n = s$, entonces la Ecuación (4) implica que
+
+$$
+\lim_{n \to \infty} \left| \frac{e_{n+1}}{e_n^q} \right| = \frac{1}{q!} F^{(q)}(s)
+$$
