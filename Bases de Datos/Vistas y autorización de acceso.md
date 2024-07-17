@@ -1,4 +1,6 @@
 
+
+
 # Vistas
 
 Dos objetivos principales de las vistas:
@@ -29,13 +31,13 @@ Donde < expresion de consulta> es cualquier expresión de consulta válida en SQ
 ```sql
 create view vSalariosAltos as
 select codEmp, nombre, salario
-from empleado  // Tabla base
+from empleado  -- Tabla base
 where salario > 10000
 ```
 
 Esta vista tendrá los atributos especificados en la consulta.
 
-Para ver todas las vistas creadas
+**Para ver todas las vistas creadas**
 ```sql
 select viewname
 from pg_views
@@ -149,7 +151,6 @@ SELECT * FROM vista_00,
 ```sql
 drop view vista_00;
 ```
-
 
 
 3. Crear vista
