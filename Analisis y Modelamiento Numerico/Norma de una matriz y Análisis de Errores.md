@@ -1,4 +1,4 @@
-		
+
 # Norma vectorial
 Dado un espacio vectorial $V$, una normal es una función $\| \cdot \|$ de $V$ en $[ 0, \infty )$, que satisface
 
@@ -17,7 +17,13 @@ Algunas normas:
 ## Bola unitaria
 Una bola unitaria en $\mathbb{R}^2$ se define como el conjunto $\{x : x \in \mathbb{R}^2 \, , \|x\| \leq 1\}$
 
-![[Pasted image 20240410171323.png]]
+<div style="text-align: center;">
+	<figure>
+    <img src="C:\Users\mitch\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Mi unidad\My Notes\My Notes\Analisis y Modelamiento Numerico\imgs\bolas unitarias.png">
+    <figcaption></figcaption>
+    </figure>
+</div>
+
 
 ## Convergencia de vectores
 Una sucesión $\{x^{(k)}\}$ de vectores en $\mathbb{R}^n$ se dice convergente a $x$ respecto a la norma $\|\cdot\|$ si para 
@@ -128,7 +134,14 @@ numéricamente, no obtenemos la solución exacta $x$ pero una aproximación $\ha
 $$ r = b - A\hat{x} $$
 La diferencia entre la solución exacta $x$ y la solución aproximada $\hat{x}$ es llamada el **vector error**
 $$ e = x - \hat{x} $$
-![[Pasted image 20240514213649.png]]
+
+La siguiente relación
+$$
+Ae = r 
+$$
+entre el vector error y el vector residual es de suma importancia.
+Note que $\hat{x}$ es la solución exacta del sistema lineal $A\hat{x} = \hat{b}$, donde $\hat{b} = b - r$. Ahora establezcamos relaciones entre los errores relativos en $x$ y $b$, es decir $\|\ x - \hat{x} \|\  / \| x \|$ y $\|\ b - \hat{b} \|\  / \| b \| = \| r \| / \| b \|$.  
+
 ### Teorema sobre límites que involucra el número de condición
 En la resolución de ecuaciones $ax=b$, el número de condición $\kappa(A)$, el vector residual $r$ y el vector error $e$ satisfacen la siguiente desigualdad
 $$ \frac{1}{\kappa (A)} \frac{\|r\|}{\|b\|} \leq \frac{\|e\|}{\|x\|} \leq \kappa(A) \frac{\|r\|}{\|b\|} $$
