@@ -1,0 +1,11 @@
+- [x] Laboratorio 15 🔺 📅 2024-06-06 ✅ 2024-06-06
+- [ ] Proyecto BD ⏫ 🛫 2024-06-07 ⏳ 2024-06-07
+- [ ] Normalización - Silberschatz
+- [x] Revisar ppt de Vistas ✅ 2024-06-20
+- [x] Revisar labo de Vistas ✅ 2024-06-20
+- [x] Labo de NoSQL MongoDB ✅ 2024-06-28
+- [ ] Revisar subconsultas
+- [ ] Revisar Añadir constraints a una base de datos
+- [x] Todo sobre Índices ✅ 2024-06-29
+- [ ] Todo sobre Funciones
+
