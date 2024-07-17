@@ -1,4 +1,4 @@
-selecPara crear un dominio en PostgreSQL para un campo de fecha, puedes definir un dominio que asegure que los valores sean válidos y, si lo deseas, agregar restricciones adicionales como límites de rango. A continuación se muestra cómo puedes hacerlo:
+Para crear un dominio en PostgreSQL para un campo de fecha, puedes definir un dominio que asegure que los valores sean válidos y, si lo deseas, agregar restricciones adicionales como límites de rango. A continuación se muestra cómo puedes hacerlo:
 
 ### Paso 1: Crear el Dominio
 
