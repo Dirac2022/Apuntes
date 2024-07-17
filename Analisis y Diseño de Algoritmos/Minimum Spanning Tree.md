@@ -22,34 +22,68 @@ FinMientras
 https://www.youtube.com/watch?v=t92xyTDvl_c
 ### Algoritmo Boruvka
 ```
-mapa parent // vertice : vertice
-mapa rank   // vertice : int
 
+// A cada vertice se le asigna su padre
+mapa parent // {vertice : vertice}
+
+// A cada vertice se le asigna su rango
+mapa rank   // {vertice : int}
+
+
+// Al inicio el padre de cada vertice será el mismo vertice
+// y su rango sera cero
 Inicializa parent y rank
 
-Define funcion parent
+//Define funcion parent
+find(map parent, vertice v) {
+	if(parent[v] != v) {
+		parent[v] = find(parent, parent[v])
+	}
+	return parent[v]
+}
+	
 Define funcion Union
+union(map parent, map rank, vertice v1, vertice v2) {
+	root1 = find(parent, v1);
+	root = find(parent, v2);
 
+	if (root1 != root2) {
+		if (rank[root1] < rank[root2])
+			parent[root1] = root2;
+		else if (rank[root1] > rank[root2])
+			parent[root2] = root1;
+		else
+			parent[root2] = root1;
+			rank[root1] ++;
+	}
+}
+
+// Al inicio tenemos n componentes
 int n <- numero de vertices
 set mst
 
+
+// El bucle continuara hasta que el numero de componentes sea 1
 Mientras n > 1
+	// Define un mapa de arista minima para cada componente
 	mapa minAristas // {vertice: arista}
-		Para cada arista en aristas // aristas del grafo G 
-		set1 <- padre de vertice 1 de arista
-		set2 <- padre de vertice 2 de arista
-		Si set1 != set2
-			Si arista < minAristas[set1]
+	Para cada arista en aristas // aristas del grafo G 
+		// v1 y v2 son los vertices de la arista
+		set1 <- find(v1)
+		set2 <- find(v2)
+		Si set1 != set2    // Si los vertices no pertenecen a un mismo componente
+			Si arista < minAristas[set1] // Actualiza la minima arista del componente
 				minAristas[set1] <- arista
 			Si arista < minAristas[set2]
 				minAristas[set2] <- arista
 				
 	Para cada entrada en minAristas
-		set1 <- padre de vertice 1 de arista
-		set2 <- padre de vertice 2 de arista
-		si set1 != set2
+		// v1 y v2 son los vertices de la arista
+		set1 <- find(v1)
+		set2 <- find(v2)
+		si set1 != set2 // Si los vertices no pertenecen a un mismo componente
 			Agrega arista a mst
-			une set1 y set2
+			union(set1, set2)
 			n --
 ```
 
@@ -91,21 +125,25 @@ Para arista en aristaSort
 	v1 <- vertice 1 de arista
 	v2 <- vertice 2 de arista
 
+	// Si ambos vertices no se encuentran en ningun componente, estos formaran uno
 	Si padre de v1 y padre de v2 no se encuentean en parent
 		parent[v1] = v1
 		parent[v2] = v1
 		rank[parent[v1]] = 0
 		Agrega arista a mst
 
-
+	// Si v1 se encuentra en una componente y v2 no o viceversa
+	// agregaremos el vertice que no se encuentra en una componente al componente del          otro componente
 	Si padre de v1 se encuentra en parent y padre de v2 no o viceversa
 		parent[v1] = find(v2)
 		Agrega arista a mst
 
+
+	// Si ambos vertices estan dentro de algun componente
 	Si ambos vertices estan dentro de algun DS
 		root1 = find(v1)
 		root2= find(v2)
-		Si root1 != root2
+		Si root1 != root2 // Si estan en componentes distintos
 			Si rank[root1] < rank[root2]
 				parent[root1] = root2
 			Si rank[root1] > rank[root2]
