@@ -108,7 +108,22 @@ En la práctica, la ecuación (7.5) se usa en el cálculo y la ecuación (7.7) p
 ## Teorema sobre la convergencia del método de Jacobi
 SI $A$ es **diagonalmente dominante** entonces la secuencia producida por la iteración de Jacobi converge a la solución de $Ax=b$ para cualquier vector inicial
 
-![[Pasted image 20240501213105.png]]
+### Prueba
+Diagonal dominante significa
+
+$$
+|a_{ii}| > \sum_{\begin{aligned} j &= 1 \\ j &\neq i\end{aligned}}^n |a_{ij}| \quad \quad (1 \leq i \leq n)
+$$
+
+Como 
+$$
+\| I - Q^{-1}A \|_{\infty} = \underset{1 \leq i \leq n}{\text{max}} \sum_{\begin{aligned} j &= 1 \\ j &\neq i\end{aligned}}^n \left| \frac{a_{ij}}{a_{ii}} \right|
+$$
+Concluimos que 
+$$
+\| I - Q^{-1} A\|_{\infty} < 1
+$$
+Por el [[#Teorema 1 Teorema sobre la convergencia de métodos iterativos|teorema sobre la convergencia]], la iteración de Jacobi converge.
 
 
 # Análisis
@@ -192,7 +207,6 @@ Los métodos que involucran la ecuación (7.17) se denominan **métodos de relaj
 
 
 ## Valores apropiados para $\omega$
-
 
 ### Teorema de Kahan
 Si $a_{ii} \neq 0$ para cada $i=1, 2, \dots, n$, entonces $\rho(T_{\omega}) \geq |\omega - 1|$. Esto implica que el método **SOR** converge si y solo si $0<\omega <2$. Donde $T_{\omega} = (D-\omega L)^{-1}[(1-\omega)D + \omega U]$
