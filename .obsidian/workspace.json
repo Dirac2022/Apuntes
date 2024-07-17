@@ -4,34 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "65c0e9a1a999fdc4",
+        "id": "4b1df636c316ec04",
         "type": "tabs",
         "children": [
           {
-            "id": "bd7844baab964b4c",
+            "id": "d62b440a2ce1d972",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Solución sistema de ecuaciones no lineales.md",
+                "file": "Teoría de Autómatas, Lenguajes y Computación/Introducción a la Teoría de la Computación.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "759d8e551045baf8",
+            "id": "b2304228e53c9fba",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Solución de ecuaciones no lineales.md",
+                "file": "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -60,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "VPN",
+                "query": "parax",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -81,8 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 321.5,
-    "collapsed": true
+    "width": 369.5
   },
   "right": {
     "id": "718557b829c5a8b8",
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Solución sistema de ecuaciones no lineales.md",
+                "file": "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Solución sistema de ecuaciones no lineales.md",
+                "file": "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Analisis y Modelamiento Numerico/Solución sistema de ecuaciones no lineales.md"
+                "file": "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md"
               }
             }
           }
@@ -161,44 +161,47 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bd7844baab964b4c",
+  "active": "b2304228e53c9fba",
   "lastOpenFiles": [
-    "Analisis y Modelamiento Numerico/Solución de ecuaciones no lineales.md",
-    "Analisis y Modelamiento Numerico/Solución sistema de ecuaciones no lineales.md",
-    "Redes/Introducción a la criptografía.md",
-    "Redes/Papers/Cloud Computing Review.md",
-    "Redes/Capa de aplicación TCP-IP.md",
-    "Redes/Conceptos de seguridad.md",
-    "Redes/Capa de transporte.md",
-    "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
     "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
-    "Analisis y Diseño de Algoritmos/Travelling Salesman Problem (TSP).md",
-    "Analisis y Diseño de Algoritmos/Greedy Algorithms.md",
-    "Analisis y Diseño de Algoritmos/Divide and Conquer.md",
+    "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
+    "Analisis y Diseño de Algoritmos/Disjoint sets.md",
     "Analisis y Diseño de Algoritmos/Backtracking.md",
-    "Analisis y Diseño de Algoritmos/Graph.md",
-    "Analisis y Diseño de Algoritmos/paper/algoritmo3.png",
-    "Analisis y Diseño de Algoritmos/paper/Clustering with local density peaks-based minimum spanning tree.md",
-    "Redes/imgs/Pasted image 20240617155116.png",
-    "Redes/imgs/Pasted image 20240617154827.png",
-    "Redes/imgs/ejemplo disco alberti.png",
-    "Redes/imgs/Pasted image 20240617154520.png",
-    "Redes/Introducción.md",
-    "Redes/Tasks.md",
-    "Redes/Red Essentials.md",
-    "Redes/imgs/Pasted image 20240617151944.png",
-    "Redes/imgs/Pasted image 20240617151612.png",
-    "Redes/Llamada a procedimientos remotos y objetos distribuidos.md",
-    "Redes/Arquitectura Cliente-Servidor.md",
-    "Redes/imgs/configuracion correo moodle.png",
-    "Pasted image 20240629204958.png",
-    "Pasted image 20240629205004.png",
-    "Z-Tasks/Tasks.md",
-    "Redes/Protocolos.md",
-    "Redes/Conceptos en Redes.md",
-    "Redes/Modelo OSI (Open Systems Interconnection).md",
-    "Redes/Topología de red.md",
-    "URL_de_la_miniatura.md",
+    "Teoría de Autómatas, Lenguajes y Computación/IA.md",
+    "Teoría de Autómatas, Lenguajes y Computación/Introducción a la Teoría de la Computación.md",
+    "Teoría de Autómatas, Lenguajes y Computación/Links.md",
+    "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
+    "Algebra Lineal/Valores y vectores propios.md",
+    "Ingenieria de Software/UML.md",
+    "Ingenieria de Software/Task.md",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507125957.png",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507123645.png",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507123159.png",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507122114.png",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507114913.png",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501224951.png",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501224937.png",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501221255.png",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501221243.png",
+    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501180612.png",
+    "Analisis y Modelamiento Numerico/Solución de un sistema de ecuaciones por métodos iterativos.md",
+    "Analisis y Modelamiento Numerico/Dirigidas/PD 04.md",
+    "Analisis y Modelamiento Numerico/Tópicos Selectos de Algebra Lineal.md",
+    "Analisis y Modelamiento Numerico/Solución de ecuaciones no lineales.md",
+    "Analisis y Modelamiento Numerico/Solución de sistemas de ecuaciones lineales.md",
+    "Analisis y Modelamiento Numerico/Tasks.md",
+    "Analisis y Modelamiento Numerico/Sistema Binario.md",
+    "Analisis y Modelamiento Numerico/Representación de Números en Maquina.md",
+    "Analisis y Modelamiento Numerico/Norma de una matriz y Análisis de Errores.md",
+    "Analisis y Modelamiento Numerico/links.md",
+    "Analisis y Modelamiento Numerico/Interpolación.md",
+    "Analisis y Modelamiento Numerico/Gradiente conjugado y gradiente descendente.md",
+    "Analisis y Modelamiento Numerico/Condicionamiento.md",
+    "Analisis y Modelamiento Numerico/Solución sistema de ecuaciones no lineales.md",
+    "Analisis y Modelamiento Numerico/Semana 02.md",
+    "Teoría de Autómatas, Lenguajes y Computación/imgs",
+    "Teoría de Autómatas, Lenguajes y Computación",
+    "Ecuaciones diferenciales",
     "Tips Coding",
     "Redes/Modelos transformers aplicados a Cyberseguridad",
     "Analisis y Diseño de Algoritmos/paper",
@@ -206,9 +209,6 @@
     "Data Science/imgs",
     "Data Science",
     "IA/imgs",
-    "IA",
-    "C++",
-    "Z-Tasks",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
