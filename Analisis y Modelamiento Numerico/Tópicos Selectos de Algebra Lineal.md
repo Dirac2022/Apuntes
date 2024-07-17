@@ -49,9 +49,9 @@ De acuerdo con la segunda propiedad, existe una base $\{ u^{(1)}, u^{(2)}, ..., 
 
 Dos matrices $A$ y $B$ son **semejantes** si existe un matriz no singular $P$ tal que 
 $$ B = PAP^{-1}$$
-## Teorema de los valores propios de matrices semejantes
-Matrices semejantes tienen los mismos valores propios
-![[Pasted image 20240423182101.png]]
+
+> [!info]
+> Recordar [[Valores y vectores propios#Teorema de los valores propios de matrices semejantes|Valores propios en matrices semejantes]]
 
 ## Factorización de Schur
 Si queremos encontrar los valores propios de una matriz $A$ semejante a $B$ una forma forma de hacerlo es calcular los valores propios de $B$ si es que esta es una matriz más simple. Específicamente, si $B$ es triangular, sus valores propios serán simplemente los elementos de su diagonal.
@@ -65,10 +65,6 @@ Toda matriz cuadrada es unitariamente similar a una matriz triangular.
 
 ## Corolario
 Toda matriz cuadrada es similar a una matriz triangular.
-
-
-
-
 
 # Factorizaciones Ortogonales y Problemas de Mínimos Cuadrados
 Un conjunto de vectores indexados $[v_1, v_2, \dots v_k]$ en $\mathbb{C}^n$ se dice que es **ortogonal** si $\langle v_i, v_j \rangle = 0$ siempre que $i\neq j$. Si $\langle v_i, v_j \rangle = \delta_{ij}$ se dice que el conjunto es **ortonormal**. Si el conjunto $[v_1, v_2, \dots v_k]$ forman las columnas de una matriz de A de $n \times k$, entonces la ortonormalidad se expresa por mediante la ecuación $A^*A=I$.
@@ -97,7 +93,7 @@ El término $\langle x, v_i \rangle v_i$ se refiere como el **componente** de $x
 ## Proceso de Gram-Schmidt
 El clásico proceso Gram-Schmidt se puede utilizar para obtener el sistema ortonormal en cualquier espacio interior del producto. Para describirlo, suponemos que una secuencia lineal independiente de vectores se da en un espacio de producto interno: $[x_1, x_2, \dots]$. (Esta secuencia puede ser finita o infinita.) Generamos una secuencia ortonormal $[u_1, u_2, \dots]$ por la fórmula
 $$
-u_k = \left\|x_k - \sum_{i<k} \langle x_k, u_i \rangle u_i  \right\|^{-1}_2 \left(x_k - \sum_{i<k} \langle x_k, u_i \rangle u_i\right)
+u_k = \left\|x_k - \sum_{i<k} \langle x_k, u_i \rangle u_i  \right\|^{-1}_2 \left(x_k - \sum_{i<k} \langle x_k, u_i \rangle u_i\right) \tag{2}
 $$
 
 ### Teorema sobre la secuencia Gram-Schmidt
@@ -116,8 +112,34 @@ El proceso Gram-Schmidt, cuando se aplica a las columnas de una matriz  $A$ de $
 $$ A=BT $$
 en la cual $B$ es una matriz $m \times n$ con columnas ortonormales y $T$ es una matriz triangular superior $n \times n$ con diagonal positiva.
 
-![[Pasted image 20240601012631.png]]
+#### Prueba
+Primero, observe que el algoritmo anterior está llevando a cabo el proceso de Gram-Schmidt encapsulado en la Ecuación $(2)$. A continuación, completamos la definición de la matriz $T$ estableciendo $t_{ij} = 0$ cuando $i > j$. Por el [[#Teorema sobre la secuencia Gram-Schmidt]] , las columnas de $B$ forman un conjunto ortonormal de $n$ vectores en $\mathbb{R}^m$, y cada $A_j$ es una combinación lineal de $B_1, B_2, \ldots, B_j$. De hecho, por la Ecuación $(1)$,
 
+$$
+A_j = \sum_{i=1}^{j} \langle A_j, B_i \rangle B_i = \sum_{i=1}^{j-1} \langle A_j, B_i \rangle B_i + \langle A_j, B_j \rangle B_j
+$$
+
+$$
+= \sum_{i=1}^{j-1} t_{ij} B_i + \langle A_j, B_j \rangle B_j \tag{5}
+$$
+
+Ahora, nos detenemos para calcular
+
+$$
+\langle A_j, B_j \rangle = \left\langle C_j + \sum_{i<j} t_{ij} B_i, B_j \right\rangle = \langle C_j, B_j \rangle
+$$
+
+$$
+= (C_j, C_j) / t_{jj} = t_{jj} \tag{6}
+$$
+
+Cuando el resultado de la Ecuación $(6)$ se usa en la Ecuación $(5)$, obtenemos
+
+$$
+A_j = \sum_{i=1}^{j} t_{ij} B_i = \sum_{i=1}^{n} t_{ij} B_i \quad (1 \le j \le n) \tag{7}
+$$
+
+Esta es otra forma de expresar la Ecuación $(4)$.
 
 ## Algoritmo de Gram-Schmidt modificado
 El algoritmo de Gram-Schmidt modificado es el siguiente
@@ -145,9 +167,16 @@ Donde $A_{m\times n}$ ,  $x_{n\times 1}$ y $b_{m\times 1}$. Supondremos que el r
 
 ### Lema sobre el problema de los mínimos cuadrados
 Si $x$ es un punto tal que $A^*(Ax-b)=0$, entonces $x$ es una solución del problema de los mínimos cuadrados.
+#### Prueba
+Sea $y$ cualquier otro punto. Dado que $A^*(Ax - b) = 0$, concluimos que $b - Ax$ es ortogonal al espacio de columnas de $A$. Además, dado que $A(x - y)$ está en el espacio de columnas de $A$, tenemos $\langle b - Ax, A(x - y) \rangle = 0$, y la regla de Pitágoras nos da
 
-![[Pasted image 20240601111806.png]]
+$$
+\| b - Ay \|_2^2 = \| b - Ax + A(x - y) \|_2^2
+$$
 
+$$
+= \| b - Ax \|_2^2 + \| A(x - y) \|_2^2 \ge \| b - Ax \|_2^2 \quad  \quad \blacksquare
+$$
 
 
 
@@ -237,8 +266,12 @@ $$ A^* A u_i = \sigma_i^2 u_i $$
 Tambien, se tiene que $r = rango(A^*A) \leq min\{m, n\}$
 Formamos la matriz $V_{n \times n}$ cuyas columnas  sean los vectores $u_i,  \cdots u_n$. Ahora definamos
 $$ v_i = \sigma_i^{-1} A u_i \quad \quad (1 \leq i \leq r) $$
-Los vectores $v_i$ forman un conjunto ortonormal, ya que para $(1 \leq i, j \leq r)$ 
-![[Pasted image 20240501165058.png]]
+Los vectores $v_i$ forman un conjunto ortonormal, ya que para $(1 \leq i, j \leq r)$
+
+$$
+v_i^*v_j = \sigma_1^{-1} \ (Au_i)^*\sigma_j^{-1}(Au_j) = (\sigma_i \ \sigma_j)^{-1} \ (u_i^* A^* A u_j) = (\sigma_i \sigma_j)^{-1} (u_i^* \ \sigma_j^2 \ u_j) = \delta_{ij}
+$$
+
 Seleccionemos vectores adicionales $v_i$ tal que $\{v_1, \cdots v_m\}$ sea una base ortonormal para $\mathbb{C}^m$. 
 
 Sea $U_{m \times m}$ la matriz cuyas columnas son $v_1, \cdots v_m$. Y sea $\Sigma_{m \times n}$ una matriz con $\sigma_1, \cdots, \sigma_r$ en su diagonal y ceros en lo demás. Entonces
