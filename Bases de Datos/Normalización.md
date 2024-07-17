@@ -48,6 +48,10 @@ Esto significa que cada atributo en cada celda de la tabla contiene un solo valo
 ![[Pasted image 20240603234828.png]]
 
 
+> [!tip] 1FN
+> No hay grupos repetidos en la tabla
+
+
 # Dependencia funcional (DF)
 Si $R$ es un esquema de relación y $A$ y $B$ son conjuntos de atributos no vacíos en $R$, se dice que $B$ es **funcionalmente dependiente** de $A$ si y solo si cada valor de $A$ en $R$ tiene asociado exactamente un valor de $B$ en $R$.
 $$
@@ -109,6 +113,9 @@ Una tabla esta en la **2FN** si y solamente si esta estuviera en la **1FN** y no
 
 ![[Pasted image 20240604002150.png]]
 
+>[!info] 2FN
+> Se encuentra en 1FN y cada atributo que no está en la clave primaria debe depender de la clave completa (compuesta)
+
 
 # Dependencia funcional transitiva
 Si un atributo *no-clave* posee **DF total** de un atributo clave y también posee **DF total** de uno o más atributos *no-clave*, entonces se dice que existe una **DF transitiva** o indirecta  de la **PK** de **T**.
@@ -122,6 +129,11 @@ Una tabla esta en la **3FN** si y solamente si esta estuviera en la **2FN** y no
 - Las tablas que poseen solo un atributo que no forma parte de la **PK** están automáticamente en la **3FN**.
 
 ![[Pasted image 20240604003027.png]]
+
+>[!info] 3FN
+>Se encuentra en 1FN, en 2FN y no se encuentran dependencias transitivas
+
+
 
 # Recomendaciones
 
