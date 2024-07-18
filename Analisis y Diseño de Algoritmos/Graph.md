@@ -3,22 +3,52 @@
 
 # DFS (Depth First Search)
 
-
 ```
-Variables globales
-n : number of nodes in the graph
-g = adjacency list representing graph
-vistited = [false, ..., false] # size n
+// variables globales
+n <- numero de nodos del grafo
+vistited = [false, ..., false] # tamaño n
 
-function dfs(at):
-	if visited[at] is true:
+
+// current es el vertice evaluado
+function dfs(int current, visited):
+
+	if visited[current] is true:
 		return
 		
-	visited[at] = true
+	visited[current] = true
 
-	neighbours = graph[at] // Los vertices vecinos del vertice actual "at"
+	neighbours = graph[current] // Los vertices vecinos o adyacentes del vertice
+							   // current
 	for next in neighbours:
-		dfs(next)
+		dfs(next, visited)
+
+// Se llama al metodo dfs(inicial, visited)
+// donde inicial es el vertice inicial para el recorrido por profundidad
 ```
 
-En nuestro caso no es necesario `n` ni `g` más si el arreglo `visited`. Podemos usar dos funciones, una principal desde donde se llamada el método y donde podemos inicializar nuestro arreglo `visited` y otro método recursivo que es el que hará el trabajo.
+Podemos usar dos funciones, una principal desde donde se llamada el método y donde podemos inicializar nuestro arreglo `visited` y otro método recursivo que es el que hará el trabajo.
+
+# BFS (Breadth First Search)
+
+```
+function bfs(initial) {
+	n <- numero de nodos del grafo
+	vistited = [false, ..., false] # tamaño n
+	queue q
+	q.enqueue(initial)
+	visited[initial] = true
+
+	While (q is not empty)
+		current = q.dequeue
+
+		neighbours = graph[current] // Los vertices vecinos o adyacentes del vertice
+								   // current
+	
+		For next in neighbours:
+			If next is not visited:
+				q.enqueue(next)
+				visited[current] = true
+
+}
+
+```
