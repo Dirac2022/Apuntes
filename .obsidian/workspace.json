@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
+                "file": "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
+                "file": "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
+                "file": "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md"
+                "file": "Analisis y Diseño de Algoritmos/Shortest Tree Path.md"
               }
             }
           }
@@ -163,8 +163,11 @@
   },
   "active": "b2304228e53c9fba",
   "lastOpenFiles": [
-    "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
+    "Analisis y Diseño de Algoritmos/Graph.md",
+    "Analisis y Diseño de Algoritmos/Travelling Salesman Problem (TSP).md",
+    "Analisis y Diseño de Algoritmos/TSP.md",
     "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
+    "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
     "Analisis y Diseño de Algoritmos/Disjoint sets.md",
     "Analisis y Diseño de Algoritmos/Backtracking.md",
     "Teoría de Autómatas, Lenguajes y Computación/IA.md",
@@ -196,9 +199,6 @@
     "Analisis y Modelamiento Numerico/links.md",
     "Analisis y Modelamiento Numerico/Interpolación.md",
     "Analisis y Modelamiento Numerico/Gradiente conjugado y gradiente descendente.md",
-    "Analisis y Modelamiento Numerico/Condicionamiento.md",
-    "Analisis y Modelamiento Numerico/Solución sistema de ecuaciones no lineales.md",
-    "Analisis y Modelamiento Numerico/Semana 02.md",
     "Teoría de Autómatas, Lenguajes y Computación/imgs",
     "Teoría de Autómatas, Lenguajes y Computación",
     "Ecuaciones diferenciales",
