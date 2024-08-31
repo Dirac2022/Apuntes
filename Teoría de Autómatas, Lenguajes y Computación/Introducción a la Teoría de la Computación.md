@@ -85,7 +85,6 @@ Recordar que si $B$ es un conjunto cualquiera entonces $\emptyset \subseteq B$.
 > Para probar que dos conjuntos $A$ y $B$ son iguales, debemos probar que $A \subseteq B$ y $B \subseteq A$.
 
 ### Complemento de un conjunto
-
 Para un conjunto $A \subseteq U$, el complemento de $A$, denotado por $\overline{A}$ es:
 
 $$ \overline{A} = \{x / x \in U \land x \notin A\} $$
@@ -181,8 +180,24 @@ Luego $D \subseteq I$
 
 $$\therefore I = D $$
 
+## Operaciones generalizadas
+1. **Union generalizada**
+$$
+\bigcup_{i \in I} A_i = \{x / \exists \, i \in I \ , \ x \in A_i \}
+$$
+2. **Intersección generalizada**
+$$
+\bigcap_{i \in I} A_i = \{x / x \in A_i \ , \ \forall i \in I \}
+$$
+1. **Producto cartesiano generalizado**
+$$
+\begin{aligned}
+\bigotimes^n_{i=1} A_i &= \{ x / x = (x_1, \dots , x_n) ,  x_i \in A_i \} \\
+A^i &= \bigotimes^n_{i=1} A
+\end{aligned}
+$$
 ## Conjuntos disjuntos
-
+	
 Dos conjuntos $A$, $B$ son disjuntos si $A \cap B = \emptyset$ (es decir, no tienen elementos en común).
 
 ## Intersecciones y uniones de varios conjuntos
@@ -1182,17 +1197,19 @@ Si $f$ también es suprayectiva, se dice que $T$ es la imagen homomorfa de $S$.
 # Teoría de Grupos
 
 ## Grupo
-Un **grupo** $(G, \ast)$ es un monoide que satisface los siguientes axiomas:
+
+### Definición de grupo
+Un **grupo** $(G, \ast)$ es un [[#Monoide|monoide]] que satisface los siguientes axiomas:
 
 1. **Asociatividad:** $(a \ast b) \ast c = a \ast (b \ast c) \quad \forall a,b, c \in G$
 2. **Existencia de elemento neutro:** Existe un elemento único $e \in G$ tal que $a \ast e = e \ast a = a \ , \quad \forall a \in G$
-3. **Existencia de elemento simétrico:** $\forall a \in G$ existe un elemento $a' \in G$ al que se le llama inverso de $a$, tal que $a \ast a' = a' \ast a = e$
+3. **Existencia de elemento inverso:** $\forall a \in G$ existe un elemento $a' \in G$ al que se le llama inverso de $a$, tal que $a \ast a' = a' \ast a = e$
 
 Si $G$ es un grupo y $\ast$ es una operación binaria, $G$ deberá ser cerrada bajo $\ast$, es decir:
 
 $$a \ast b \in G \quad \forall a,b \in G$$
 ### Grupo abeliano
-Un grupo $G$ es **abeliano** o **conmutativo** si se cumple:
+Un [[#Definición de grupo|grupo]] $G$ es **abeliano** o **conmutativo** si se cumple:
 $$a \ast b = b \ast a \quad \forall a,b \in G$$
 
 ### Ejemplos
@@ -1201,6 +1218,15 @@ $$a \ast b = b \ast a \quad \forall a,b \in G$$
 - $(\mathbb{Z}^+, \cdot)$ no es un grupo. El elemento $2 \in \mathbb{Z}^+$ no tiene inverso.
 - $(\mathbb{R} - \{0\}, \cdot)$ es un grupo. Un inverso de $a \neq 0$ es $1/a$.
 
+
+
+<div style="text-align: center;">
+	<figure>
+    <img src="C:\Users\mitch\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Mi unidad\My Notes\My Notes\Teoría de Autómatas, Lenguajes y Computación\imgs\esquema grupos.png">
+    <figcaption></figcaption>
+    </figure>
+</div>
+
 ### Teoremas
 
 Sea $G$ un grupo y sean $a$ y $b$ elementos de $G$. Entonces:
@@ -1208,25 +1234,37 @@ Sea $G$ un grupo y sean $a$ y $b$ elementos de $G$. Entonces:
 1. La ecuación $ax = b$ tiene una solución única en $G$.
 2. La ecuación $ya = b$ tiene una solución única en $G$.
 
-### Demostración de Ejemplo
 
-Sea $G$ el conjunto de los reales sin el cero y sea $a \ast b = ab^2$. Verificaremos que $(G, \ast)$ es un grupo abeliano:
+### Ejemplo
+Sea $G$ el conjunto de los reales sin el cero y sea:
 
-1. **Verificación de operación binaria:** Si $a$ y $b \in G \rightarrow a \ast b = ab^2$ está en $G$
-2. **Propiedad asociativa:**
+$$a \ast b = \frac{ab}{2}$$
 
-$$
-\begin{align*}
-(a \ast b) \ast c &= (ab^2) \ast c = (ab^2)c^2 = a(bc)^2 \\
-a \ast (b \ast c) &= a \ast (bc^2) = a(bc^2)^2 = a(bc)^2
-\end{align*}
-$$
+Demuestre que $(G, \ast)$ es un grupo abeliano.
+
+#### Demostración
+Verificaremos que $\ast$ es una operación binaria:
+Si $a$ y $b \in G \rightarrow a \ast b = \frac{ab}{2}$ está en $G$
+
+**Verificando su propiedad asociativa:**
+
+$$(a \ast b) \ast c = \left(\frac{ab}{2}\right) \ast c = \frac{(ab)c}{4}$$
+
+$$a \ast (b \ast c) = a \ast \left(\frac{bc}{2}\right) = \frac{a(bc)}{4} = \frac{(ab)c}{4}$$
 
 Así, $\ast$ es asociativa.
 
-3. **Elemento identidad en $G$:** Si $a \in G$: $a \ast 2 = a \ast 4a = (a)(4/a)^2 = 2 = (4/a)(a)^2 = 4a \ast a = a \ast b$
+**El elemento $2$ es la identidad en $G$**
 
-G es abeliano pues $a \ast b = b \ast a \quad \forall a,b \in G$.
+Si $a \in G$:
+
+$$a \ast 2 = \frac{a(2)}{2} = a = \frac{(2)a}{2} = 2 \ast a$$
+
+**Si $a \in G$, $a^0 = \frac{4}{a}$ es un inverso de $a$:**
+
+$$a \ast a^0 = a \ast \frac{4}{a} = \frac{a(4/a)}{2} = 2 = \frac{4}{a} \ast a = a^0 \ast a$$
+
+$G$ es abeliano pues $a \ast b = b \ast a \ \forall \ a, b \in G$
 
 ### Más Teoremas
 
@@ -1250,11 +1288,11 @@ $$
 $$
 
 ## Grupos Finito
-
 Si un grupo $G$ tiene un número finito de elementos, su operación binaria $\ast$ puede representarse por una tabla de multiplicación. La tabla de multiplicación de $G = \{a_1,a_2, ...,a_n\}$ bajo $\ast$ debe satisfacer:
 
 1. La fila etiquetada por $e$ deberá contener los elementos $a_1,a_2, ...,a_n$.
 2. Cada elemento $b$ en el grupo deberá aparecer exactamente una vez en cada fila y en cada columna de la tabla. Cada columna y cada fila es una permutación de los elementos $a_1,a_2, ...,a_n$ de $G$.
+3. El orden de $G$ es el número de elementos y se denota por $|G|$
 
 ### Ejemplos de Tablas de Multiplicación
 
@@ -1264,11 +1302,11 @@ Si $G$ es un grupo de orden 1, entonces $G = \{e\}$ y $e \ast e = e$.
 #### Orden 2
 Sea $G = \{e,a\}$ un grupo de orden 2 y su tabla es:
 
-|   | e | a |
-|---|---|---|
-| e | e | a |
-| a | a | e |
-
+|     | e   | a   |
+| --- | --- | --- |
+| e   | e   | a   |
+| a   | a   | e   |
+donde $a' = a$ 
 #### Orden 3
 Sea $G = \{e,a,b\}$ un grupo de orden 3 y su tabla es:
 
@@ -1335,3 +1373,7 @@ De aquí,
 $$a \ast x_1 = a \ast x_2$$
 
 Por un teorema anterior esto implica que $x_1 = x_2$.
+
+
+
+
