@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "4b1df636c316ec04",
+        "id": "b7aa466cd663e127",
         "type": "tabs",
         "children": [
           {
-            "id": "d62b440a2ce1d972",
+            "id": "a05d01877eef2962",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoría de Autómatas, Lenguajes y Computación/Introducción a la Teoría de la Computación.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b2304228e53c9fba",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
+                "file": "Algebra Lineal/Matrices.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -61,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "parax",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -82,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 369.5
+    "width": 353.5
   },
   "right": {
     "id": "718557b829c5a8b8",
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
+                "file": "Algebra Lineal/Matrices.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
+                "file": "Algebra Lineal/Matrices.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Analisis y Diseño de Algoritmos/Shortest Tree Path.md"
+                "file": "Algebra Lineal/Matrices.md"
               }
             }
           }
@@ -161,54 +148,54 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b2304228e53c9fba",
+  "active": "a05d01877eef2962",
   "lastOpenFiles": [
-    "Analisis y Diseño de Algoritmos/Graph.md",
-    "Analisis y Diseño de Algoritmos/Travelling Salesman Problem (TSP).md",
-    "Analisis y Diseño de Algoritmos/TSP.md",
-    "Analisis y Diseño de Algoritmos/Minimum Spanning Tree.md",
-    "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
-    "Analisis y Diseño de Algoritmos/Disjoint sets.md",
-    "Analisis y Diseño de Algoritmos/Backtracking.md",
-    "Teoría de Autómatas, Lenguajes y Computación/IA.md",
+    "Analisis y Modelamiento Numerico/Condicionamiento.md",
+    "Git/Git.md",
+    "Python/Introduccion al lenguaje.md",
+    "Redes/imgs/Pasted image 20240505221253.png~RF431a45b.TMP",
+    "Redes/imgs/configuracion correo moodle.png~RF4310a4d.TMP",
+    "Pattern Recognition and Machine Learning/Probabilistic Discriminative Models.md~RF430f7bf.TMP",
+    "Introduccion a la Electricidad y Magnetismo/imgs/Resumen2-Distribuciones-continuas-Gauss.png~RF430f251.TMP",
+    "Introduccion a la Electricidad y Magnetismo/imgs/potencial-eje-anillo.png~RF430e977.TMP",
+    "Introduccion a la Electricidad y Magnetismo/imgs/Pasted image 20240704220350.png~RF430dd42.TMP",
+    "Introduccion a la Electricidad y Magnetismo/imgs/Pasted image 20240510112236.png~RF430d3cc.TMP",
+    "Introduccion a la Electricidad y Magnetismo/imgs/Pasted image 20240510111402.png~RF430ce8c.TMP",
+    "Introduccion a la Electricidad y Magnetismo/imgs/imagen dos espejos planos.png~RF430b3a2.TMP",
+    "Introduccion a la Electricidad y Magnetismo/Dipolo eléctrico.md~RF4306ed8.TMP",
+    "Python/GUI.md",
+    "Untitled.md",
+    "Python/Basics.md",
+    "Python/Serializacion.md",
+    "Bases de Datos/Lenguaje SQL (Structured Query Language).md",
+    "Ingenieria de Software/Conceptos.md",
+    "Ingenieria de Software/Introduccion a la Ingenieria  de Software.md",
+    "Desarrollo en Android/Conceptos previos.md",
+    "Redes/Red Essentials.md",
+    "Redes/Subnetting.md",
+    "Redes/Protocolo IP.md",
+    "Redes/Protocolos.md",
+    "Redes/Estandares.md",
+    "Redes/Cable Estructurado.md",
+    "Redes/Conceptos en Redes.md",
+    "Redes/AWS.md",
+    "Python/matplotlib.md",
+    "Python/numpy.md",
+    "Proyecto Rover/Ruta de aprendizaje.md",
+    "Matematica Computacional/Conjunto convexo.md",
+    "Matematica Computacional/Optimizacion.md",
+    "Teoría de Autómatas, Lenguajes y Computación/Lenguajes formales.md",
     "Teoría de Autómatas, Lenguajes y Computación/Introducción a la Teoría de la Computación.md",
-    "Teoría de Autómatas, Lenguajes y Computación/Links.md",
-    "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
-    "Algebra Lineal/Valores y vectores propios.md",
-    "Ingenieria de Software/UML.md",
-    "Ingenieria de Software/Task.md",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507125957.png",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507123645.png",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507123159.png",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507122114.png",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240507114913.png",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501224951.png",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501224937.png",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501221255.png",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501221243.png",
-    "Analisis y Modelamiento Numerico/imgs/Pasted image 20240501180612.png",
-    "Analisis y Modelamiento Numerico/Solución de un sistema de ecuaciones por métodos iterativos.md",
-    "Analisis y Modelamiento Numerico/Dirigidas/PD 04.md",
-    "Analisis y Modelamiento Numerico/Tópicos Selectos de Algebra Lineal.md",
-    "Analisis y Modelamiento Numerico/Solución de ecuaciones no lineales.md",
-    "Analisis y Modelamiento Numerico/Solución de sistemas de ecuaciones lineales.md",
-    "Analisis y Modelamiento Numerico/Tasks.md",
-    "Analisis y Modelamiento Numerico/Sistema Binario.md",
-    "Analisis y Modelamiento Numerico/Representación de Números en Maquina.md",
-    "Analisis y Modelamiento Numerico/Norma de una matriz y Análisis de Errores.md",
-    "Analisis y Modelamiento Numerico/links.md",
-    "Analisis y Modelamiento Numerico/Interpolación.md",
-    "Analisis y Modelamiento Numerico/Gradiente conjugado y gradiente descendente.md",
-    "Teoría de Autómatas, Lenguajes y Computación/imgs",
-    "Teoría de Autómatas, Lenguajes y Computación",
-    "Ecuaciones diferenciales",
-    "Tips Coding",
-    "Redes/Modelos transformers aplicados a Cyberseguridad",
-    "Analisis y Diseño de Algoritmos/paper",
-    "Ingenieria de Software",
-    "Data Science/imgs",
-    "Data Science",
-    "IA/imgs",
+    "Teoría de Autómatas, Lenguajes y Computación/imgs/esquema grupos.png",
+    "Teoría de Autómatas, Lenguajes y Computación/imgs/esquema estructuras.png",
+    "Pattern Recognition and Machine Learning/imgs/figure 1.13.png",
+    "Pattern Recognition and Machine Learning/imgs/figure 1.12.png",
+    "Pattern Recognition and Machine Learning/imgs/figure 1.10.png",
+    "Pattern Recognition and Machine Learning/imgs/figure 4.9.png",
+    "Pattern Recognition and Machine Learning/imgs/figure 5.16.png",
+    "Pattern Recognition and Machine Learning/imgs/figure 5.9.png",
+    "Pattern Recognition and Machine Learning/imgs/figure 5.10.png",
+    "Pattern Recognition and Machine Learning/imgs/figure 5.11.png",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
