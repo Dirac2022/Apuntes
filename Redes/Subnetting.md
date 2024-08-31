@@ -1,4 +1,4 @@
-El *subnetting* o creación de subredes es la subdivisión de una red en segmentos más pequeños. Permite una gestión más eficiente de direcciones IP y una mejor organización de la red, lo que resulta en un rendimiento óptimo y una mayor seguridad. Se logra utilizando una máscara de subred para dividir una dirección IP en una parte de red y una parte de host, lo que permite identificar cada subred de manera única.
+	El *subnetting* o creación de subredes es la subdivisión de una red en segmentos más pequeños. Permite una gestión más eficiente de direcciones IP y una mejor organización de la red, lo que resulta en un rendimiento óptimo y una mayor seguridad. Se logra utilizando una máscara de subred para dividir una dirección IP en una parte de red y una parte de host, lo que permite identificar cada subred de manera única.
 # Ventajas
 - Permite **aislar el tráfico** entre las distintas subredes.
 - Se reduce el tráfico global.
