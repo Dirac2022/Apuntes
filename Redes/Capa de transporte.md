@@ -93,7 +93,7 @@ El cliente coloca un número de puerto  de destino en el segmento para informar 
 [[Organizaciones#IANA (Internet Assigned Numbers Authority)|IANA]] es el organismo responsable de asignar los distintos números de puerto.
 
 - **Puertos conocidos (números del 0 al 1023) :** estos números se reservan para servicios y aplicaciones. Al definir estos puertos bien conocidos para las aplicaciones de los servidores, las aplicaciones cliente se pueden programar para solicitar una conexión a ese puerto en particular y a su servicio relacionado.
-- **Puertos registrados (números del 1024 al 49151):** IANA asigna estos números de puerto a una entidad que los solicite para utilizar con procesos o aplicaciones específicos..
+- **Puertos registrados (números del 1024 al 49151):** IANA asigna estos números de puerto a una entidad que los solicite para utilizar con procesos o aplicaciones específicos.
 - **Puertos dinámicos o privados (números 49152 a 65535):** también conocidos como puertos efímeros, usualmente el SO del cliente los asigna de forma dinámica cuando se inicia una conexión a un servicio. 
 
 | Rango de números de puerto | Grupo de puertos               |
