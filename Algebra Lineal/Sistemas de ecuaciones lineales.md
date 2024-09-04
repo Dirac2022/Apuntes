@@ -4,11 +4,28 @@ Definiendo $A = (a_{ij}) \in \mathbb{R}^{m \times n}$ y $b = (b_i) \in \mathbb{R
 $$ Ax = b  \quad \quad (1) $$
 ### Matriz aumentada
 Dado el sistema lineal $(1)$, definimos la matriz aumentada $M$ asociada al sistema lineal de la siguiente forma
-$$ M = (A | b) $$
+$$ M = (A \ | \ b) $$
 
-## Teorema de Frobenius
+# Teorema de Frobenius
 Garantiza la existencia y unicidad de la solución de un sistema de ecuaciones lineales
 1. Si $rango(A) = rango(M)$ entonces el sistema tiene solución. Se subdivide en dos casos:
 	1. Si $rango(A) = rango(M) < n$, entonces el sistema **tiene infinitas soluciones**. La solución general depende de $n-rango(A)$ variables libres.
 	2. Si $rango(A) = rango(M) = n$, entonces el sistema **tiene una única solución**.
 2. Si $rango(A) \neq rango(M)$, entonces el sistema **no tiene solución**.
+
+# Eliminación Gaussiana
+Es un proceso que consiste en reducir la matriz aumentada (mediante operaciones elementales) con la finalidad de resolver un sistema de ecuaciones lineales.
+
+## Observación
+Si al reducir una matriz aumentada obtenemos una fila con pivote en la última columna eso quiere decir que el **sistema no tiene solución**. En efecto, si tuviésemos una fila de la forma
+$$
+[ 0 \dots 0 \ | \ 1]
+$$
+eso quiere decir que 
+$$
+0 \cdot x_1 + \dots + 0 \cdot x_n = 1
+$$
+Por tanto $0 = 1$. Esta contradicción nos dice que el sistema no tiene solución.
+
+# Teorema
+Cuando $A$ es cuadrada, el sistema $Ax=b$ tiene solución única si y solo si $|A| \neq 0$.
