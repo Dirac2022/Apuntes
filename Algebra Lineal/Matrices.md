@@ -100,7 +100,8 @@ Sean $A$, $B$ matrices y $k$ un escalar, entonces
 
 # Inversa de una matriz
 
-
+## Teorema
+La matriz cuadrada $A_n$ tiene inversa si y solo si $|A| \neq 0$. En este caso dicha inversa es única y se denota por $A^{-1}$. 
 ## Propiedades
 Sean $A, B  \in \mathbb{R}^{n \times n}$ matrices invertibles y $\lambda \in \mathbb{R}$, $\lambda \neq 0$ , se cumplen las siguientes propiedades.
 
@@ -110,7 +111,14 @@ Sean $A, B  \in \mathbb{R}^{n \times n}$ matrices invertibles y $\lambda \in \ma
 4. $A^T$ es invertible y $(A^T)^{-1} = (A^{-1})^{T}$
 5. $A^n$ es invertible para todo $n$ no negativo y $(A^n)^{-1} = (A^{-1})^n$
 
+## Cálculo de la inversa de una matriz
+Para calcular la inversa de una matriz $A_n$ primero construimos la matriz
+$$ [A \ | \ I_n] $$
+Usando [[Sistemas de ecuaciones lineales#Eliminación Gaussiana|eliminación gaussiana]] es posible reducir la matriz a la forma
+$$ [ I_n \ | \ A^{-1}] $$
 
+# Rango
+El rango es una función que asigna a una matriz el número de [[#^77d55a|pivotes]] de la matriz reducida obtenida al aplicar [[Sistemas de ecuaciones lineales#Eliminación Gaussiana|eliminación gaussiana]]. Denotamos este número por $rango(A)$.
 
 
 # Matriz Hermitiana
@@ -154,12 +162,14 @@ Matrices semejantes tienen los mismos valores propios
 ![[Pasted image 20240501215027.png]]
 
 
-# Menor principal de una matriz
+# Matriz Menor
+Si $A_n$ es una matriz cuadrada, la matriz menor ($i, j$) de $A$, denotada por $M_ij$ se define como la matriz de orden $(n-1) \times (n-1)$ que resulta de eliminar la $i$-ésima fila y $j$-ésima columna.
+## Menor principal de una matriz
 Un **menor principal** de una matriz es el determinante de alguna submatriz cuadrada que se obtiene seleccionando un conjunto igual de filas y columnas desde la matriz original. Lo particular de los menores principales es que siempre involucran las filas y columnas desde el primer elemento hasta un elemento en la diagonal principal de la matriz.
-## Formulación Matemática
+### Formulación Matemática
 Si tienes una matriz $A$ de tamaño $n \times n$, un menor principal de orden $k$ (con $1 \leq k \leq n$) se define como el determinante de la submatriz que se forma tomando las primeras $k$ filas y$k$ columnas de $A$. Esta submatriz es denotada como $A_k$.
 
-## Notación Matemática
+### Notación Matemática
 $$
 A_k = \begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1k} \\
@@ -173,3 +183,52 @@ El menor principal es entonces $\text{det}(A_k)$.
 
 ### Aplicación
 Una matriz es definida positiva si todos sus menores principales son positivos.
+
+# Matriz escalonada
+1. Una matriz se dice nula cuando todos sus elementos son ceros.
+2. El pivote de una fila no nula es el primer elemento no nulo de dicha fila. ^77d55a
+3. Una matriz se dice escalonada cuando cumple las siguientes condiciones:
+	- Las filas nulas están por debajo de las filas no nulas.
+	- El pivote de cada fila está a la derecha del pivote de la fila anterior.
+
+**Ejemplo**
+
+$$ A = 
+\begin{pmatrix}
+1 & 0 & 7 & 1 \\
+0 & 2 & 6 & 0 \\
+0 & 0 & 0 & 4 \\
+0 & 0 & 0 & 0
+\end{pmatrix}
+$$
+Es una matriz escalonada.
+
+
+## Matriz Reducida
+Una matriz [[#Matriz escalonada|escalonada]] es reducida cuando se cumple que 
+1. Todos los pivotes son iguales a 1.
+2. Los otros elementos de una columna que contiene un pivote son ceros.
+
+**Ejemplo**
+
+$$
+A = 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0
+\end{pmatrix}
+$$
+Es una matriz escalonada reducida.
+
+# Operaciones elementales
+
+## Teorema
+Dos matrices son **equivalentes** por filas cuando realizando operaciones elementales en una tiene como resultado la otra.
+
+## Teorema
+Toda matriz es equivalente por filas a una única [[#Matriz Reducida|matriz reducida]].
+
+
+
