@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3e9edc6d18b3c8b6",
+        "id": "27e0f70ae04b5434",
         "type": "tabs",
         "children": [
           {
-            "id": "528b488a04aafe96",
+            "id": "9fcaadad5f62be78",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Desarrollo en Android/Kotlin/Funciones.md",
+                "file": "Redes/Protocolos.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Desarrollo en Android/Kotlin/Funciones.md",
+                "file": "Redes/Protocolos.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Desarrollo en Android/Kotlin/Funciones.md",
+                "file": "Redes/Protocolos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Desarrollo en Android/Kotlin/Funciones.md"
+                "file": "Redes/Protocolos.md"
               }
             }
           }
@@ -148,12 +148,16 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "528b488a04aafe96",
+  "active": "9fcaadad5f62be78",
   "lastOpenFiles": [
+    "Matematica Computacional/Maximos y minimos de Funciones.md",
+    "Matematica Computacional/Convexidad.md",
+    "Matematica Computacional/Optimizacion.md",
+    "Desarrollo en Android/Kotlin/Varios.md",
     "Desarrollo en Android/Kotlin/Funciones.md",
     "Desarrollo en Android/Kotlin/Fundamentos.md",
+    "Untitled.md",
     "Desarrollo en Android/Conceptos previos.md",
-    "Matematica Computacional/Convexidad.md",
     "Pattern Recognition and Machine Learning/Neural Network.md",
     "Matematica Computacional/Funcion convexa.md",
     "Algebra Lineal/Formas cuadráticas.md",
@@ -172,10 +176,6 @@
     "Redes/Topología de red.md",
     "Redes/Red Essentials.md",
     "Redes/Protocolos.md",
-    "Redes/Introducción.md",
-    "Python/Funciones Lambda.md",
-    "Ingenieria de Software/Conceptos.md",
-    "Redes/Cable Estructurado.md",
     "Desarrollo en Android/Kotlin",
     "Sin nombre",
     "Redes/imgs/Pasted image 20240505221253.png~RF431a45b.TMP",
