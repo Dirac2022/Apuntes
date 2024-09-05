@@ -3,6 +3,7 @@
 
 ## Telnet
 
+
 Es un protocolo de red que permite establecer conexiones remotas a otros dispositivos a través de una red, como Internet. Permite a un usuario conectarse a un servidor remoto y ejecutar comandos como si estuviera directamente conectado a ese servidor.
 
 
@@ -319,7 +320,7 @@ A continuación, se presentan algunas características importantes de ICMP:
 
 4. **Fragmentación de Paquetes**: ICMP también se utiliza para gestionar la fragmentación de paquetes IP. Cuando un paquete IP es demasiado grande para ser transmitido a través de la red, los routers pueden fragmentarlo en paquetes más pequeños. ICMP permite a los dispositivos comunicarse sobre la fragmentación y reensamblaje de paquetes.
 
-**Es importante destacar que ICMP es un protocolo de capa de red y no está diseñado para transportar datos de aplicación como lo hace TCP o UDP. En su lugar, se utiliza para el control y la gestión de la comunicación en una red IP, proporcionando información valiosa para diagnosticar problemas de red y mantener un funcionamiento eficiente de la infraestructura de red.**
+Es importante destacar que ICMP es un protocolo de capa de red y no está diseñado para transportar datos de aplicación como lo hace TCP o UDP. En su lugar, se utiliza para el control y la gestión de la comunicación en una red IP, proporcionando información valiosa para diagnosticar problemas de red y mantener un funcionamiento eficiente de la infraestructura de red.
 
 
 ## IPSEC (Internet Protocol Security)
