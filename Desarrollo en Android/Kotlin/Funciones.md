@@ -44,3 +44,5 @@ Se puede especificar el orden de entrada de los parámetros colocando el nombre 
 Los parámetros de la función también pueden especificar argumentos predeterminados. Esto se hace en la declaración de la función, asignando un valor predeterminado: `parameter_name: typo = default`
 # El tipo unit
 El tipo `unit` es análogo a `void` en lenguajes como Java o C++ Es el tipo de datos de retorno por defecto. **Cualquier función que no muestre un valor muestra `unit` de forma implícita**. En este caso no necesitas incluir una sentencia `return`
+
+
