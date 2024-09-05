@@ -66,7 +66,7 @@ var stringConcatenada:String = "Hola, Mitchel $stringExample2"
 println(stringConcatenada)
 ```
 
-Si son varios valores debes encerrarlos entre llaves, por ejemplo si queremos referenciar la suma de dos variables numéricas:  `${variable1 + variable2
+Si son varios valores debes encerrarlos entre llaves, por ejemplo si queremos referenciar la suma de dos variables numéricas:  `${variable1 + variable2}
 
 ## Operadores de incremento y decremento
 `++` para incrementar en 1 y `--` para decrementar en 1
