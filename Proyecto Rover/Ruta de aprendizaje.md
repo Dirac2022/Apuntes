@@ -20,6 +20,16 @@ Aquí tienes una ruta de aprendizaje estructurada para adquirir los conocimiento
 ### 2.2 Aprendizaje Automático (Machine Learning)
 - **Curso:** [Machine Learning](https://www.coursera.org/learn/machine-learning) por Andrew Ng en Coursera.
 
+#### Linear Regression with One Variable
+14. Visualization examples (Lab02)
+#### Training Linear Regression
+15. Gradient Descent
+16. Implementing Gradient Descent
+17. 
+
+
+
+
 	- https://www.youtube.com/watch?v=12JrS1DeEa0&list=PLWD7QtH5pagQevEwjEOCQi1Cgqe3zKf2s
 	- https://www.youtube.com/playlist?list=PLkDaE6sCZn6FNC6YRfRQc_FbeQrF8BwGI
 	- https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification
