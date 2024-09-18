@@ -1,4 +1,7 @@
 
+# El espacio $\mathbb{R}^n$
+
+El espacio $\mathbb{R}^n$ es un [[Espacios vectoriales|espacio vectorial]] formado por todos los vectores de $n$ dimensiones cuyos componentes son números reales. Cada vector se representa como $\mathbf{x} = (x_1, x_2, \dots, x_n)$, donde $x_i \in \mathbb{R}$. Es el espacio donde se estudian la mayoría de las funciones en optimización y análisis multivariable.
 
 # Matriz Hessiana
 
