@@ -1,4 +1,8 @@
 
+
+
+
+
 # Teorema del valor intermedio
 El Teorema del Valor Intermedio establece que si $f$ es una función continua en el intervalo cerrado $[a, b]$ y $N$ es un número real tal que $f(a) \leq N \leq f(b)$ o $f(b) \leq N \leq f(a)$, entonces existe al menos un número $c$ en $(a, b)$ tal que:
 $$
@@ -58,7 +62,9 @@ Supongamos que $f \in C[a, b]$ es $n$ veces diferenciable en $(a, b)$. Si $f(x) 
 
 
 ## Punto crítico
-Sea $f : X \rightarrow \mathbb{R}$ y $x_0 \in X$. Decimos que $x_0$ es un **punto crítico** de $f$ si $f$ es diferenciable en $x_0$ y $f'(x_0)=0$.
+Sea $f : I \rightarrow \mathbb{R}$ una función continua y $x_0$ un punto que pertenece al interior de $I$. Se dice que $x_0$ es un punto crítico de $f$ si cumple una de las siguientes condiciones:
+1. $f'(x_0) = 0$.
+2. La función no es derivable en $x_0$.
 
 > No todos los valores extremos de una función se dan en puntos críticos
 
@@ -77,6 +83,16 @@ $$
     </figure>
 </div>
 
+
+### Teorema
+Sea $f : I \rightarrow \mathbb{R}$ una función definida en el intervalo $I$. Son equivalentes:
+- $f$ es convexa,
+- $f'$ es creciente,
+- $f''(x) \geq 0$, para todo $x \in \text{int}(I)$.
+
+
+>[!tip] Una función es **convexa** si su gráfica está por debajo de todas las líneas rectas que conectan dos puntos de la curva.
+
 ## Función cóncava
 Sea $I$ un intervalo y $f : I \rightarrow \mathbb{R}$ diremos que $f$ es **cóncava** en $I$ si para todo par de puntos $x_1 , x_2 \in I$ y para cualquier $0 \leq t \leq 1$ se cumple que
 
@@ -90,6 +106,22 @@ $$
     <figcaption>Funcion cóncava</figcaption>
     </figure>
 </div>
+
+### Teorema
+Sea $f : I \rightarrow \mathbb{R}$ una función definida en el intervalo $I$. Son equivalentes:
+- $f$ es cóncava (es decir, $-f$ es convexa)
+- $f'$ es decreciente,
+- $f''(x) \leq 0$, para todo $x \in \text{int}(I)$.
+
+>[!tip] Una función es **cóncava** si su gráfica está por encima de todas las líneas rectas que conectan dos puntos de la curva.
+
+
+# Punto de inflexión
+Sea $f : I \rightarrow \mathbb{R}$ derivable en el interior de $I$. Diremos que $c \in I$ es un punto de inflexión de $f$ si $f$ tiene un cambio de concavidad (o convexidad) en $c$.
+
+## Teorema
+Sea $f$ dos veces derivable. Si $c$ es un punto de inflexión de $f$, entonces $f''(c) = 0$.
+**Observación:** El recíproco del teorema anterior no se cumple.
 
 
 
