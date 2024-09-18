@@ -177,12 +177,15 @@ f(\lambda x_1 + (1 - \lambda) x_2) \leq \lambda f(x_1) + (1 - \lambda) f(x_2).
 $$
 Esto significa que la línea recta que conecta cualquier par de puntos en el gráfico de la función se encuentra por encima del gráfico de la función.
 
+![Funcion convexa](https://upload.wikimedia.org/wikipedia/commons/d/d6/Convex_function.svg)
 ## Función Cóncava
 Una función $f: \mathbb{R}^n \rightarrow \mathbb{R}$ se dice que es **cóncava** si para todos los puntos $x_1, x_2 \in \mathbb{R}^n$ y para cualquier $\lambda \in [0, 1]$, se cumple la siguiente desigualdad:
 $$
 f(\lambda x_1 + (1 - \lambda) x_2) \geq \lambda f(x_1) + (1 - \lambda) f(x_2).
 $$
 Esto significa que la línea recta que conecta cualquier par de puntos en el gráfico de la función se encuentra por debajo del gráfico de la función.
+
+
 
 ## Epígrafo
 El **epígrafo** de una función $f: \mathbb{R}^n \rightarrow \mathbb{R}$ es el conjunto de puntos en $\mathbb{R}^{n+1}$ que están por encima o sobre el gráfico de la función. Formalmente, el epígrafo se define como:
