@@ -209,7 +209,7 @@ El algoritmo para obtener la matriz $U$ en este primer paso es el siguiente:
 1. $\beta \leftarrow - (a_{11}/|a_{11}|)\|A_1\|_2$   ($A_1$ es la primera columna de $A$)
 2. $y \leftarrow A_1 - \beta e^{(1)}$   ($e^{(1)}$ es el primer vector canónico)
 3. $\alpha \leftarrow \sqrt{2}/\|y\|_2$\\
-4. $v \leftarrow \alpha y$\\
+4. $v \leftarrow \alpha y$
 5. $U \leftarrow I - vv^*$
 
 
