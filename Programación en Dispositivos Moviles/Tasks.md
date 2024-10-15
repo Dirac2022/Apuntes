@@ -1,0 +1,1 @@
+- [ ] Estudiar Algoritmos Genéticos ⏳ 2024-09-25 
