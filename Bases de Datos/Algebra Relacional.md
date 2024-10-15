@@ -1,9 +1,10 @@
-	
+
 El álgebra relacional es un *lenguaje de consultas procedural*. Consiste en un conjunto de operaciones que toman una o más relaciones como entrada y produce una nueva relación como resultado.
 
 ![[Pasted image 20240409095002.png]]
 
 # Operaciones elementales
+Las operaciones de `selección`, `proyección` y `renombramiento` son llamadas operaciones **unarias**, puesto que operan en una única relación.
 
 ## La operación de selección ($\sigma$)
 Selecciona tuplas que satisfacen un predicado dado. El predicado aparece como un subíndice de $\sigma$, el argumento de relación esta en paréntesis después del $\sigma$.
@@ -12,13 +13,15 @@ En general, se permiten comparaciones usando $=$, $\neq$, $<$, $\leq$, $>$ y $\g
 
 ### Ejemplos
 
-*Select those tuples of the instructor relation where the instructor is in the “Physics” department*.
-$$ \sigma_{dept\_name = \text{"Physics"}} \: (instructor) $$
+*Select those tuples of the instructor relation **where** the instructor is in the “Physics” department*.
+$$  \sigma_{name = \text{"Physics"}} \: (instructor) $$
 
 *Find all instructors with salary greater than $90,000*
 $$ \sigma_{salary > 90000} \: (instructor) $$
 *Find all departments whose name is the same as their building name*
 $$ \sigma_{dept\_name = building} \: (department) $$
+
+>[!tip] La operación `select` en Álgebra Relacional corresponde a `where` en **SQL**
 
 ## La operación de proyección ($\Pi$)
 El operador de proyección es un operador unario que retorna su argumento de relación con ciertos atributos omitidos. Dado que una relación es un conjunto, **filas duplicadas son eliminadas**.  Listamos los atributos que deseamos que aparezcan en el resultado como subíndices a $\Pi$. El argumento de relación se coloca en paréntesis.
@@ -32,8 +35,11 @@ $$ \Pi_{name} \: ( \sigma_{\text{dept\_name = "Physics"}} \: (instructor)) $$
 
 ## La operación de unión ($\cup$)
 Por ejemplo consideremos esta consulta: *Find the set of all courses taught in the Fall 2009 semester, the Spring 2010 semester, or both*
+
 $$ \Pi_{course\_id} \: (\sigma_{semester \, = \, \text{"Fall"} \: \land \: year \, = \, 2009} \: (section)) \: \: \cup $$
 $$ \Pi_{course\_id} \: (\sigma_{semester \, = \, \text{"Spring"} \: \land \: year \, = \, 2010} \: (section)) $$
+
+
 
 En general debemos asegurarnos que las uniones sean realizadas entre relaciones *compatibles*. Para ello requerimos que dos condiciones sean válidas:
 1. Las relaciones $r$ y $s$ deben ser de la misma *aridad*, es decir, deben tener el mismo número de atributos
@@ -49,6 +55,28 @@ $$ \Pi_{course\_id} \: ( \sigma_{\text{semester = "Sptring" } \, \land \, \text{
 **También debemos asegurarnos que las diferencias de conjuntos se tomen entre relaciones *compatibles***.
 
 ## La operación producto cartesiano ($\times$)
+
+
+
+| nombre1 | nombre2 | nombre3 |
+| ------- | ------- | ------- |
+| hola    | soy     | grege   |
+| gre     | tu      | ui      |
+
+| campo1 | campo2 |
+| ------ | ------ |
+| no     | corras |
+| tr     | bt     |
+
+
+
+| nombre1 | nombre2 | nombre3 | campo1 | campo2 |
+| ------- | ------- | ------- | ------ | ------ |
+| hola    | soy     | grege   | no     | corras |
+| gre     | tu      | ui      | no     | corras |
+|         |         |         |        |        |
+
+
 Nos permite combinar información de dos relaciones cualesquiera.
 Dado que un nombre de atributo puede aparecer en ambas relaciones, necesitamos idear un esquema de nombres para distinguir entre estos atributos. Lo hacemos aquí adjuntando al atributo el nombre de la relación de la cual proviene originalmente el atributo. Por ejemplo, el esquema de relación para $r = instructor \times teaches$ es
 $$ (\textit{ instructor.ID, instructor.name, instructor.dept\_name, instructor.salary}  $$
@@ -63,9 +91,13 @@ Esta convención de nombres requiere que las relaciones que son los argumentos d
 
 Ejemplo: *Find the names of all instructors in the Physics department together with the course id of all courses they taught*
 
+
+
+
 Si escribimos 
 $$ \sigma_{\text{dept\_name = "Physics"}} \: (instructor \times teaches) $$
 Sin embargo la columna *course_id* pueden tener información acerca de cursos que no fueron impartidos por el instructor correspondiente. Si escribimos
+
 $$ \sigma_{\text{instructor.ID = teaches.ID}} \: (\sigma_{\text{dept\_name = "Physics}} \: (instructor \times teaches)) $$
 obtenemos solo aquellas tuplas de $instructor \times teaches$ que pertenecen a *instructors* en *Physics* y los cursos que impartieron.
 Finalmente, dado que solo queremos los nombres de todos los *instructors* en el departamento de física con el *couse_id* de todos los cursos que impartieron, hacemos una proyección:
@@ -74,6 +106,7 @@ $$ \Pi_{\text{name, course\_id}} \: (\sigma_{\text{instructor.ID = teaches.ID}} 
 
 ## La operación de renombrar ($\rho$)
 Los resultados en las expresiones de álgebra relacional no tienen un nombre que podemos usar para referenciarlos. Es útil poder darles nombres. Dada una expresión de álgebra relacional $E$, la expresión
+
 $$ \rho_x \: (E) $$
 retorna el resultado de la expresión $E$ bajo el nombre $x$
 También podemos aplicar la operación de renombrar a una relación $r$ para obtener la misma relación bajo un nuevo nombre.
@@ -130,7 +163,6 @@ $$ \Pi_{\text{name, course\_id}} \: (instructor \Join teaches) $$
 
 Como los esquemas para *instructor* y *teaches* **tienen el atributo *ID* en común**, la operación de unión natural considera solo pares de tuplas que tienen el mismo valor en ID. Combina cada par de tuplas de esta manera en una sola tupla en la unión de los dos esquemas; es decir, ($ID, name, dept\_name, salary, course\_id$)
 
-
 Consideremos dos esquemas de relaciones $R$ y $S$, que son, por supuesto, listas de nombres de atributos. Si consideramos que los esquemas son conjuntos en lugar de listas, podemos denotar los nombres de atributos que aparecen en ambos $R$ y $S$ por $R \cap S$, análogamente para $R \cup S$, $R - S$. Ten en cuenta que las operaciones de unión, intersección y diferencia aquí se aplican a conjuntos de atributos, en lugar de relaciones.
 
 Ahora estamos listos para una definición formal de la unión natural. Considera dos relaciones $r \: (R)$ y $s \:  (S)$. La unión natural de $r$ y $s$, denotada por $r \Join s$, es una relación en el esquema $R ∪ S$ definida formalmente de la siguiente manera:
@@ -163,6 +195,40 @@ La operación de *outer join* funciona de manera similar a la operación de uni�
 
 ### The left outer join  (⟕)
 Toma todas las tuplas en la relación izquierda que no coinciden con ninguna tupla en la relación derecha, completa las tuplas con valores nulos para todos los demás atributos de la relación derecha, y las agrega al resultado de la unión natural. Toda la información de la relación izquierda está presente en el resultado de la *left outer join*.
+
+
+Course
+
+| course_ID | nombre        |
+| --------- | ------------- |
+| 2         | Base de datos |
+| 5         | Concurrente   |
+
+Instructor
+
+| ID  | Nombre  |
+| --- | ------- |
+| 456 | Melchor |
+| 356 | Yuri    |
+| 756 |         |
+
+
+
+| ID  | course_ID |
+| --- | --------- |
+| 456 | 2         |
+| 356 | 1         |
+|     |           |
+
+Intructor ⟕ Teaches 
+
+| Intructor.ID | Nombre  | Teaches.ID | course_ID |
+| ------------ | ------- | ---------- | --------- |
+| 456          | Melchor | 456        | 2         |
+| 456          | Melchor | 356        | 1         |
+| 356          | Yuri    | 356        | 1         |
+| 356          | Yuri    | 456        | 2         |
+
 
 
 ### The right outer join (⟖)
