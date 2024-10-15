@@ -1,4 +1,4 @@
-Aquí tienes una ruta de aprendizaje estructurada para adquirir los conocimientos necesarios en inteligencia artificial y robótica para participar en el European Rover Challenge (ERC):
+fAquí tienes una ruta de aprendizaje estructurada para adquirir los conocimientos necesarios en inteligencia artificial y robótica para participar en el European Rover Challenge (ERC):
 
 ## Fase 1: Fundamentos de Programación y Matemáticas
 
@@ -25,7 +25,10 @@ Aquí tienes una ruta de aprendizaje estructurada para adquirir los conocimiento
 #### Training Linear Regression
 15. Gradient Descent
 16. Implementing Gradient Descent
-17. 
+17. Gradient Descent Intuition
+18. Learning Rate
+19. Gradient Descent for Linear Regression
+20. Running Gradient Descent
 
 
 
