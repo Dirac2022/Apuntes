@@ -42,21 +42,40 @@ Bitacoras de sistemas informáticos
 ### Data no estructurada
 Audio, videos, etc
 
+# Tipos de datos
+## Datos categóricos
+- Datos nominales
+- Datos ordinales
 
-# Data Science LifeCycle
+## Datos numéricos
+- Datos discretos
+- Datos contínuos
+
+
+
+
+# Data Science Life Cycle
 
 ![[data science lifecycle.png]]
-1. Ask relevant questions and define objectives for the problem that needs to be tackled
-2. Gather and scrape the data necessary for the project
-3. Fix the inconsistencies within the data and handle the missing values
-4. Form hypotheses about your defined problem by visually analyzing the data
-5. Select important features and construct more meaningful ones using the raw data that you have
-6. Train machine learning models evaluate their performance, and use them to make predictions
-7. Communicate the finding with key stakeholders using plots and interactive visualizations
+1. **Business Understanding**: Ask relevant questions and define objectives for the problem that needs to be tackled
+2. **Data Mining**: Gather and scrape the data necessary for the project
+3. **Data Cleaning**: Fix the inconsistencies within the data and handle the missing values
+4. **Data Exploration**: Form hypotheses about your defined problem by visually analyzing the data
+5. **Feature Engineering**: Select important features and construct more meaningful ones using the raw data that you have
+6. **Predictive Modeling**: Train machine learning models evaluate their performance, and use them to make predictions
+7. **Data Visualization**: Communicate the finding with key stakeholders using plots and interactive visualizations
 
 # Machine learning
 
 Se tiene data con etiquetas, eso se introduce al algoritmo de machine learning, este algoritmo de alguna manera halla la relación entre los datos y las etiquetas, de modo que cuando se le proporcione data nueva, este halla la etiqueta correspondiente.
+
+
+- Es una rama de la inteligencia artificial. El termino se usa desde 1959
+- Es la capacidad de las máquinas para aprender a partir de los datos de manera automatizada.
+- Al aprender de manera automatizada, esto implica que no necesitan ser programadas para dicha tarea.
+- Esto último es una habilidad indispensable para construir sistemas capaces de identificar patrones entre los datos para hacer predicciones de manera eficiente y confiable.
+- El aprendizaje automático es excelente para resolver problemas que requieren mucho trabajo para los humanos, mucho procesamiento de datos.
+
 
 ## Aprendizaje supervisado
 
@@ -71,7 +90,15 @@ El modelo se basa en un programa de recompensas y penalizaciones, esto hace que 
 
 
 
+>[!info]
+>La ciencia de datos es esencialmente métodos computacionales y estadísticos que se aplican a los datos. Esto puede incluir al **Análisis Exploratorio de Datos**, donde los datos se examinan y se visualizan para ayudar al científico a comprender mejor los datos y hacer inferencias a partir de ellos.
 
+
+# Análisis Descriptivo
+Consiste en estudiar todo lo que tiene que ver con el pasado. Se utiliza para describir todos los eventos que han ocurrido, considerando parámetro y referencias que se reflejarán en la toma de decisiones.
+- **Estadísticas**
+- **GráficosNo**
+- **Tablas**
 
 # Ciclo de vida de la ciencia de datos
 
