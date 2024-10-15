@@ -1,8 +1,17 @@
 
+
+>[!important] 6th Semester
+>```tasks
+>scheduled after 2024-09-24
+>not done
+
+
+>[!success] Completed tasks
+>```tasks
+done after 2024-09-24
+
+
 # Today's tasks
-
-
-
 
 >[!warning] Ending today
 >```tasks
