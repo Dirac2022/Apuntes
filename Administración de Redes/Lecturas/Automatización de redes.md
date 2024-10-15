@@ -1,0 +1,6 @@
+La automatización de redes es una metodología en la que el software configura, aprovisiona, gestiona y prueba dispositivos de red automáticamente. Lo utilizan las empresas y los proveedores de servicios para mejorar la eficiencia y reducir los errores humanos y los gastos operativos.
+Las herramientas de automatización de red admiten funciones que van desde la asignación básica de redes y el descubrimiento de dispositivos a flujos de trabajo más complejos, como la administración de la configuración de red y el aprovisionamiento de recursos de red virtual. 
+La automatización de red también desempeña un papel clave en las redes definidas por software, la virtualización de redes y la orquestación de redes, lo que permite el aprovisionamiento automático de inquilinos y funciones de redes virtuales, como el equilibrio de carga virtual.
+
+# Tipos de automatización de red
+La automatización puede emplearse en cualquier tipo de red, incluidas las redes de área local  [[Redes/Introducción#Redes de área local (LAN)|LAN]], redes de área extensa [[Redes/Introducción#Redes de área amplia (WAN)|WAN]], redes de centros de datos, redes en la nube y redes inalámbricas. **En resumen, cualquier recurso de red controlado a través de la interfaz de línea de comando (CLI) o una interfaz de programación de aplicaciones (API) puede automatizarse.**
