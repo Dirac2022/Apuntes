@@ -4,15 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "72ba2f25605def2e",
+        "id": "8c7dceed78ced2cf",
         "type": "tabs",
         "children": [
           {
-            "id": "b6817a47192e15b7",
+            "id": "63a2a0c83dec2e96",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Matematica Computacional/Estudiar para el parcial.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b10418dc2f9be1ba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ingenieria de Software/Classroom.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -44,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "El espacio Rn",
+                "query": "Parle",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -81,6 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Matematica Computacional/Estudiar para el parcial.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Matematica Computacional/Estudiar para el parcial.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +136,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Matematica Computacional/Estudiar para el parcial.md"
+              }
             }
           }
         ],
@@ -126,7 +146,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -139,54 +160,54 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b6817a47192e15b7",
+  "active": "63a2a0c83dec2e96",
   "lastOpenFiles": [
-    "Analisis y Diseño de Algoritmos/Shortest Tree Path.md",
-    "Matematica Computacional/PC 2.md",
+    "Ingenieria de Software/Conceptos.md",
+    "Matematica Computacional/Estudiar para el parcial.md",
+    "Ingenieria de Software/Apuntes.md",
+    "Ingenieria de Software/Classroom.md",
+    "Ingenieria de Software/Clase 26-09.md",
+    "Ingenieria de Software/Modelo de Análisis.md",
     "Ingenieria de Software/Modelo de Casos de Uso.md",
+    "Z-Tasks/Untitled.md",
     "Analisis y Modelamiento Numerico/Tópicos Selectos de Algebra Lineal.md",
-    "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
-    "Desarrollo en Android/Android.md",
-    "Teoría de Autómatas, Lenguajes y Computación/Lenguajes formales.md",
-    "Proyecto Rover/Ruta de aprendizaje.md",
-    "Redes/Capa de aplicación TCP-IP.md",
-    "Python/matplotlib.md",
-    "Matematica Computacional/PC 01.md",
-    "Analisis y Modelamiento Numerico/Condicionamiento.md",
-    "Analisis y Modelamiento Numerico/Norma de una matriz y Análisis de Errores.md",
-    "Calculo/Calculo de una variable.md",
-    "Python/Funciones Lambda.md",
-    "Analisis y Modelamiento Numerico/Solución sistema de ecuaciones no lineales.md",
-    "Analisis y Modelamiento Numerico/Solución de ecuaciones no lineales.md",
-    "Analisis y Modelamiento Numerico/Solución de un sistema de ecuaciones por métodos iterativos.md",
     "Analisis y Modelamiento Numerico/Solución de sistemas de ecuaciones lineales.md",
-    "Desarrollo en Android/Jetpack Compose.md",
-    "Untitled.md",
-    "df69881d07b064d0.gif",
-    "Introduccion a la Electricidad y Magnetismo/Corriente alterna.md",
+    "Teoría de Autómatas, Lenguajes y Computación/Lenguajes formales.md",
+    "Teoría de Autómatas, Lenguajes y Computación/Introducción a la Teoría de la Computación.md",
+    "Ingenieria de Software/Introduccion a la Ingenieria  de Software.md",
+    "Ingenieria de Software/UML.md",
+    "Z-Tasks/Tasks.md",
+    "Java/Pílldoras Informáticas.md",
+    "Algebra Lineal/Determinate.md",
+    "Programación en Dispositivos Moviles/Librerías.md",
+    "Programación en Dispositivos Moviles/Android.md",
+    "Programación en Dispositivos Moviles/Kotlin/Funciones.md",
+    "Programación en Dispositivos Moviles/Kotlin/Fundamentos.md",
+    "Programación en Dispositivos Moviles/Kotlin/POO.md",
+    "Python/Types and Operations.md",
+    "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
+    "Proyecto Rover/Ruta de aprendizaje.md",
+    "Artificial Intelligence/Machine Learning.md",
+    "Administración de Redes/Lecturas",
+    "Untitled 2",
+    "Untitled",
+    "Administración de Redes",
+    "Ingenieria de Software/imgs/ejemplo-clase-entidad.png",
+    "Ingenieria de Software/imgs/ejemplo-clase-controladora.png",
+    "Ingenieria de Software/imgs/ejemplo-clase-interfaz.png",
+    "Ingenieria de Software/imgs/Pasted image 20240919091909.png",
+    "Ingenieria de Software/imgs",
+    "Programación en Dispositivos Moviles/imgs/verticalArrangement.gif",
+    "Programación en Dispositivos Moviles/imgs",
+    "Ingenieria de Software/imgs/Pasted image 20240919104854.png",
+    "Ingenieria de Software/imgs/Pasted image 20240919103444.png",
+    "Ingenieria de Software/imgs/Pasted image 20240919093906.png",
+    "Ingenieria de Software/imgs/Pasted image 20240919093840.png",
+    "Programación en Dispositivos Moviles",
+    "Java",
     "Pasted image 20240909154054.png",
-    "Introduccion a la Electricidad y Magnetismo/Conductores y aislantes.md",
-    "Pasted image 20240908232509.png",
-    "Calculo/Calculo Multivariable.md",
-    "Calculo/Maximos y minimos de Funciones.md",
-    "Matematica Computacional/Máximos y Mínimos de funciones.md",
-    "Pasted image 20240907223318.png",
-    "Pasted image 20240906171016.png",
-    "Pasted image 20240906170850.png",
-    "Convex_function.svg",
     "Programación Paralela",
     "Teoría de Autómatas, Lenguajes y Computación\\imgs",
-    "Pattern Recognition and Machine Learning\\imgs",
-    "Desarrollo en Android/Kotlin",
-    "Desarrollo en Android\\Kotlin",
-    "Artificial Intelligence\\imgs",
-    "Artificial Intelligence\\Supervised Machine Learning Regression and Classification",
-    "Redes/imgs/Pasted image 20240505221253.png~RF431a45b.TMP",
-    "Redes/imgs/configuracion correo moodle.png~RF4310a4d.TMP",
-    "Pattern Recognition and Machine Learning/Probabilistic Discriminative Models.md~RF430f7bf.TMP",
-    "Teoría de Autómatas, Lenguajes y Computación/imgs/esquema grupos.png",
-    "Teoría de Autómatas, Lenguajes y Computación/imgs/esquema estructuras.png",
-    "Pattern Recognition and Machine Learning/imgs/figure 1.13.png",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
