@@ -1,0 +1,8 @@
+- Agregación - rombo vacío
+- Composición - rombo en negrita
+- Nombre de las clases en singular
+- Simbolo menos para los atributos (Encapsulamiento)
+- Constructor no, ya que debe ser publico (+)
+- La notación morada representa a las entidades (Solicitud en el diagrama de secuencia detallado) esta notacion morada indica que estas entidades se convertirian en tablas en la base de datos.
+- Celeste: Controladora
+	- 
