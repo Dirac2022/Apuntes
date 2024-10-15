@@ -28,3 +28,38 @@ $$  det(AB) = det(A)det(B) \: ,  \quad \forall \: A \: ,  \: B\in M_{nn} (\mathb
 
 ## Teorema
 ![[Pasted image 20240508140610.png]]
+
+
+# Teorema
+Dada una matriz de tamaño $n \times n$ tiene unos en la diagonal principal, $i$ en las diagonales adyacentes a la principal y cero en las demás entradas, es decir
+
+$$
+\begin{pmatrix}
+1 & i & 0 & \cdots & 0 \\
+i & 1 & i & \cdots & 0 \\
+0 & i & 1 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & i \\
+0 & 0 & 0 & i & 1
+\end{pmatrix}
+$$
+
+Entonces $det(A_k) = F_k$ donde $k$ es el orden de la matriz y $F_k$ es el  $k$-ésimo número de Fibonacci.
+
+## Demostración
+
+**Casos base**
+- $det(A_1) = 1$
+- $det(A_2) = 2$
+
+**Hipótesis inductiva**
+Sean $k-1, k, k+1 \in \mathbb{N} : det(A_{k-1}) = F_{k-1} \: , \ det(A_k) = F_k$.
+
+**Inducción**
+$$
+\begin{aligned}
+det(A_{k+1}) &= -idet(idet(A_{k-1})) + det(A_k) \\ \\
+&= -i^2 det(A_{k-1}) + det(A_k) \\ \\
+&= F_{k-1} + F_{k} \\ \\
+&= F_{k+1} \quad \square
+\end{aligned}
+$$
