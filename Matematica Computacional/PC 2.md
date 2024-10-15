@@ -1,4 +1,4 @@
-Explicar en qué consiste, elaborar su pseudocódigo, un ejemplo que muestre paso a
+			Explicar en qué consiste, elaborar su pseudocódigo, un ejemplo que muestre paso a
 paso la ejecución del pseudocódigo y finalmente codificar el algoritmo.
 # Pregunta 1
 1. Bracketing (algoritmos de agrupamiento)
