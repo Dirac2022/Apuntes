@@ -120,9 +120,8 @@ Cuando todas las tareas científicas planificadas estén terminadas, el rover de
 
 | Descripción del Caso                                                                                                                                                                                                             | Puntos de Travesía Posibles | Puntos de Autonomía Posibles |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ---------------------------- |
-| 1. Retroalimentación de video utilizada                  2. No se implementa autonomía basada en análisis de imagen                                                                                                              | 50%                         | 0%                           |
+| 1. Retroalimentación de video utilizada                                  2. No se implementa autonomía basada en análisis de imagen                                                                                              | 50%                         | 0%                           |
 | 1. Retroalimentación de video utilizada                      2. Autonomía basada en análisis de imagen                                                                                                                           | 50%                         | 100%                         |
-|                                                                                                                                                                                                                                  |                             |                              |
 | 1. Retroalimentación de video utilizada                                  2. Se usa GNSS                                                                               3. No se implementa autonomía basada en análisis de imagen | 50%                         | 0%                           |
 | 1. Retroalimentación de video utilizada                            2. Se usa GNSS                                                               3. Autonomía basada en análisis de imagen                                        | 50%                         | 100%                         |
 | 1. GNSS usado                                                                 2. Retroalimentación de video no utilizada                       3. No se implementa autonomía                                                     | 80%                         | 0%                           |
@@ -144,7 +143,7 @@ Cuando todas las tareas científicas planificadas estén terminadas, el rover de
 
 Durante las actividades de travesía, también se requiere usar el dron que forma parte del rover que ha aterrizado en Marte. La tarea principal del dron es volar sobre la superficie de Marte para detectar posibles obstáculos que impidan el movimiento del rover, así como evaluar el valor del terreno en términos de futuras actividades de muestreo. El dron, que se mueve de manera autónoma, tendrá que encontrar y fotografiar dos estructuras interesantes para que el personal en la Tierra pueda tomar decisiones apropiadas. Debido a la probabilidad de una tormenta de arena, también debería ser posible aterrizar temporalmente en un lugar seguro y luego continuar la misión. El destino final del dron será el MLMOD.
 
-La Tarea de Dron se realiza con un socio externo – ONT / Mathworks. La autonomía se diseñará en MATLAB/Simulink, que estará disponible para los equipos.
+==La Tarea de Dron se realiza con un socio externo – ONT / Mathworks. La autonomía se diseñará en MATLAB/Simulink, que estará disponible para los equipos.==
 
 - Despegar desde la ubicación inicial (A)
 - Tomar la foto #1 (A)
