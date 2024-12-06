@@ -459,4 +459,83 @@ El **`AndroidManifest.xml`** es un archivo esencial que:
 
 Cada vez que añades una nueva actividad, servicio, receptor, o necesitas permisos especiales, es importante reflejar estos cambios en el `Manifest`.
 
-Si tienes más dudas sobre algún aspecto específico del `AndroidManifest.xml` o necesitas ayuda para configurar algo en particular, ¡no dudes en preguntar!
+# Ciclos de vida de una Activity
+
+Android maneja las actividades a través de un ciclo de vida que define cómo una actividad se crea, se ejecuta, se pausa y se destruye. Esto permite que las aplicaciones manejen los cambios en el estado de la actividad y optimicen los recursos.
+
+### Ciclo de vida de una Activity en Android
+
+El ciclo de vida de una actividad incluye varios métodos clave que se invocan en momentos específicos. Aquí están los métodos más importantes:
+
+| Método       | Descripción                                                                                                                                                  |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **`onCreate()`**  | Se llama cuando la actividad se crea por primera vez. Aquí se inicializan los componentes de la interfaz de usuario y otros recursos.                           |
+| **`onStart()`**   | Se invoca cuando la actividad está a punto de ser visible para el usuario, pero aún no es interactiva.                                                     |
+| **`onResume()`**  | Se llama cuando la actividad está lista para interactuar con el usuario. La actividad está en primer plano y visible.                                      |
+| **`onPause()`**   | Se invoca cuando la actividad está parcialmente oculta (por ejemplo, cuando se abre un cuadro de diálogo). Se recomienda pausar operaciones que consumen recursos. |
+| **`onStop()`**    | Se invoca cuando la actividad ya no es visible para el usuario. Aquí es donde se liberan recursos intensivos, como el acceso a la red o el almacenamiento.  |
+| **`onDestroy()`** | Se llama antes de que la actividad sea completamente destruida y liberada de la memoria. Esto sucede cuando el usuario cierra la aplicación o el sistema la finaliza. |
+
+### Explicación detallada de cada método:
+
+| Método         | Cuándo se invoca                                                                                                            | Qué hacer en este método                                                                                                |
+|----------------|----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| **`onCreate()`**   | Se invoca cuando la actividad se crea por primera vez. Esto ocurre solo una vez durante el ciclo de vida completo de la actividad.      | Aquí es donde se debe inicializar la interfaz de usuario (mediante `setContentView()`), configuraciones iniciales, etc. |
+| **`onStart()`**    | Se llama justo después de `onCreate()` y cada vez que la actividad se vuelve visible al usuario (por ejemplo, al volver de `onStop()`). | Aquí puedes inicializar procesos que no necesariamente dependen de la interacción inmediata del usuario.               |
+| **`onResume()`**   | Se invoca cuando la actividad está lista para que el usuario interactúe con ella. Aquí la actividad está en el primer plano.           | Iniciar animaciones, escuchar eventos del usuario, reanudar interacciones pausadas en `onPause()`.                     |
+| **`onPause()`**    | Se llama cuando la actividad está parcialmente oculta, por ejemplo, si se abre una nueva actividad o un cuadro de diálogo.             | Pausar operaciones que consumen recursos, como reproducción de vídeo o audio, o guardado de datos temporales.          |
+| **`onStop()`**     | Se invoca cuando la actividad ya no es visible, generalmente cuando el usuario navega fuera de la actividad o la cierra.              | Detener tareas que consumen muchos recursos, como actualizaciones de la UI o procesos intensivos.                      |
+| **`onDestroy()`**  | Se llama justo antes de que la actividad sea completamente destruida, ya sea porque el sistema la cerró o el usuario lo solicitó.      | Liberar todos los recursos, cerrar conexiones a bases de datos, cancelar tareas en segundo plano, etc.                 |
+
+### Ejemplo del ciclo de vida en una Activity:
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        // Inicializar componentes y lógica de la actividad
+        Log.d("CicloDeVida", "onCreate llamado")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // La actividad está a punto de ser visible
+        Log.d("CicloDeVida", "onStart llamado")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // La actividad es ahora interactiva
+        Log.d("CicloDeVida", "onResume llamado")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Pausar tareas que consumen recursos
+        Log.d("CicloDeVida", "onPause llamado")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        // Detener tareas que ya no son necesarias
+        Log.d("CicloDeVida", "onStop llamado")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Limpiar y liberar recursos
+        Log.d("CicloDeVida", "onDestroy llamado")
+    }
+}
+```
+
+### Explicación de los métodos clave en el ciclo de vida:
+
+1. **`onCreate()`**: Se utiliza para establecer el diseño de la interfaz de usuario y configurar componentes. Es el punto de entrada inicial.
+2. **`onStart()`**: Indica que la actividad está a punto de ser visible. Aquí se pueden iniciar elementos que no requieren interacción inmediata.
+3. **`onResume()`**: Es el lugar adecuado para reanudar las operaciones que se detuvieron cuando la actividad no estaba en primer plano, como reanudar animaciones, actualizaciones de UI en tiempo real, o volver a escuchar los eventos del sensor o del usuario.
+4. **`onPause()`**: Detiene o pausa las tareas que consumen recursos, como la reproducción de música o actualizaciones constantes de la interfaz de usuario.
+5. **`onStop()`**: Se llama cuando la actividad ya no es visible, por lo que puedes liberar recursos o detener procesos intensivos.
+6. **`onDestroy()`**: Es el último método llamado antes de que la actividad sea completamente eliminada de la memoria, por lo que es donde se deben liberar todos los recursos.
