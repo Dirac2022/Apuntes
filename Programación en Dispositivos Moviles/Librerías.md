@@ -9,10 +9,31 @@
 1. **HTTP Methods (GET, POST, PUT, DELETE)**: Retrofit soporta todos los métodos HTTP. Cada método HTTP se representa como una anotación en la interfaz que defines para tus endpoints.
    
 2. **Call**: Es una interfaz en Retrofit que representa la solicitud HTTP que se está preparando o ejecutando. Puedes usar `Call` para realizar una solicitud sincrónica o asincrónica.
+```kotlin
+/**  
+ * Esta clase se usa para definir una llamada HTTP asíncrona o sincrónica. 
+ * Permite manejar la respuesta que se recibe de la API. 
+ */
+import retrofit2.Call
+```
 
-3. **@Body**: Esta anotación se usa para enviar un cuerpo de solicitud HTTP en una petición POST, PUT, o PATCH. El cuerpo de la solicitud es generalmente un objeto serializado (como JSON).
+4. **@Body**: Esta anotación se usa para enviar un cuerpo de solicitud HTTP en una petición POST, PUT, o PATCH. El cuerpo de la solicitud es generalmente un objeto serializado (como JSON).
+```kotlin
+/**  
+ * Es una anotación que indica que el contenido del argumento proporcionado será enviado 
+ * como el cuerpo de la solicitud HTTP (normalmente en formato JSON). 
+ */
+ import retrofit2.http.Body
+```
 
-4. **@POST**: Es una anotación que indica que la función asociada es para una solicitud HTTP de tipo **POST**. Las solicitudes POST se utilizan principalmente para enviar datos al servidor.
+6. **@POST**: Es una anotación que indica que la función asociada es para una solicitud HTTP de tipo **POST**. Las solicitudes POST se utilizan principalmente para enviar datos al servidor.
+```kotlin
+/**  
+ * Indica que se va a realizar una solicitud POST, que normalmente se usa 
+ * cuando se envía información (en este caso a la URL "/predict/"). 
+*/
+import retrofit2.http.POST
+```
 
 ### Cómo usar Retrofit en Android
 
@@ -160,3 +181,80 @@ fun actualizarUsuario(@Path("id") id: Int, @Body usuario: Usuario): Call<Usuario
 - **`@GET`**, **`@POST`**, **`@PUT`**, **`@DELETE`** representan los métodos HTTP para interactuar con APIs.
 - **`@Body`** se usa para enviar datos en el cuerpo de una solicitud POST o PUT.
 - **`Call`** representa la solicitud y permite manejar la respuesta de manera sincrónica o asincrónica.
+
+
+
+# pydantic
+
+**Pydantic** es una biblioteca de Python que se utiliza para la **validación de datos** y la **gestión de tipos**. Está diseñada para trabajar con modelos de datos basados en clases, validando automáticamente los tipos de datos y garantizando que los valores sean correctos y completos antes de que sean procesados.
+
+### Características principales de Pydantic:
+
+| Característica           | Descripción                                                                                         |
+|--------------------------|-----------------------------------------------------------------------------------------------------|
+| **Modelos basados en clases** | Los modelos en Pydantic se definen como clases de Python que heredan de `BaseModel`, lo que facilita la creación de esquemas de datos. |
+| **Validación automática** | Valida automáticamente los tipos y formatos de los datos proporcionados en función de las anotaciones de tipos de Python. |
+| **Conversión de datos**   | Convierte automáticamente los datos entrantes al tipo especificado si es posible (por ejemplo, convierte cadenas a enteros). |
+| **Compatible con FastAPI** | Es la biblioteca estándar para la validación de datos en FastAPI, haciendo que la validación de los datos en las APIs sea fácil y rápida. |
+| **Mensajes de error claros** | Proporciona mensajes de error detallados cuando los datos no cumplen con las reglas especificadas en el modelo. |
+
+### Ejemplo de uso básico:
+
+```python
+from pydantic import BaseModel
+
+# Definición de un modelo con Pydantic
+class Persona(BaseModel):
+    nombre: str
+    edad: int
+
+# Crear una instancia con datos correctos
+persona = Persona(nombre="Juan", edad=30)
+print(persona)
+
+# Crear una instancia con datos incorrectos
+try:
+    persona_invalida = Persona(nombre="Ana", edad="no es un número")
+except ValueError as e:
+    print(e)
+```
+
+En este ejemplo:
+- **`BaseModel`** es la clase principal de Pydantic que se usa para definir un modelo de datos.
+- Los campos **`nombre`** y **`edad`** están anotados con tipos (`str` y `int` respectivamente). Si los datos proporcionados no coinciden con estos tipos, Pydantic lanzará una excepción.
+
+### Características avanzadas de Pydantic:
+
+| Característica                | Descripción                                                                                              |
+|-------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Campos opcionales**          | Puedes definir campos como opcionales usando `Optional` o asignando un valor por defecto.                |
+| **Validación personalizada**   | Permite definir validaciones adicionales en los campos mediante validadores personalizados.              |
+| **Anidamiento de modelos**     | Soporta modelos anidados, lo que permite estructurar datos complejos.                                    |
+| **Compatibilidad con JSON**    | Facilita la serialización y deserialización de datos a/desde JSON, útil para APIs y manejo de datos en la web. |
+
+### Ejemplo de un modelo más complejo con validación personalizada:
+
+```python
+from pydantic import BaseModel, validator
+
+class Usuario(BaseModel):
+    username: str
+    edad: int
+    
+    # Validación personalizada para asegurar que la edad sea positiva
+    @validator('edad')
+    def validar_edad(cls, v):
+        if v < 0:
+            raise ValueError('La edad debe ser un número positivo')
+        return v
+```
+
+### Usos comunes de Pydantic:
+
+| Uso                          | Descripción                                                                                           |
+|------------------------------|-------------------------------------------------------------------------------------------------------|
+| **Validación de datos en APIs** | Se utiliza para validar los datos que se reciben en peticiones HTTP (por ejemplo, en FastAPI).        |
+| **Modelado de datos**         | Facilita la creación de esquemas de datos claros y bien definidos para manejar datos estructurados.   |
+| **Conversión de datos**       | Convierte datos de forma automática al tipo especificado si los datos entrantes no coinciden.         |
+
+Pydantic es especialmente útil cuando se trata de asegurarse de que los datos que maneja tu aplicación son válidos y consistentes, lo que hace que sea una herramienta muy poderosa para aplicaciones web, APIs y cualquier proyecto que requiera validación rigurosa de datos.
