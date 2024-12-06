@@ -4,31 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "8c7dceed78ced2cf",
+        "id": "aac61fe7b5b6dd52",
         "type": "tabs",
         "children": [
           {
-            "id": "63a2a0c83dec2e96",
+            "id": "0814db2f8c80ad3a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Matematica Computacional/Estudiar para el parcial.md",
+                "file": "Artificial Intelligence/Deep Learning/CNN (Convolutional Neural Networks).md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "b10418dc2f9be1ba",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Ingenieria de Software/Classroom.md",
-                "mode": "source",
-                "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "CNN (Convolutional Neural Networks)"
             }
           }
         ]
@@ -51,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -60,13 +52,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Parle",
-                "matchingCase": false,
+                "query": "",
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -74,14 +68,16 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 353.5
+    "width": 301.5
   },
   "right": {
     "id": "718557b829c5a8b8",
@@ -97,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Matematica Computacional/Estudiar para el parcial.md",
+                "file": "Algebra Lineal/Determinate.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Determinate"
             }
           },
           {
@@ -114,10 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Matematica Computacional/Estudiar para el parcial.md",
+                "file": "Algebra Lineal/Determinate.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Determinate"
             }
           },
           {
@@ -128,7 +128,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -137,8 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Matematica Computacional/Estudiar para el parcial.md"
-              }
+                "file": "Proyecto Rover/ERC 2024 – TAREAS TEASER.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of ERC 2024 – TAREAS TEASER"
             }
           }
         ],
@@ -151,63 +155,63 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian42-brat:BRAT": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian42-brat:BRAT": false
     }
   },
-  "active": "63a2a0c83dec2e96",
+  "active": "0814db2f8c80ad3a",
   "lastOpenFiles": [
-    "Ingenieria de Software/Conceptos.md",
-    "Matematica Computacional/Estudiar para el parcial.md",
-    "Ingenieria de Software/Apuntes.md",
-    "Ingenieria de Software/Classroom.md",
-    "Ingenieria de Software/Clase 26-09.md",
-    "Ingenieria de Software/Modelo de Análisis.md",
-    "Ingenieria de Software/Modelo de Casos de Uso.md",
-    "Z-Tasks/Untitled.md",
-    "Analisis y Modelamiento Numerico/Tópicos Selectos de Algebra Lineal.md",
-    "Analisis y Modelamiento Numerico/Solución de sistemas de ecuaciones lineales.md",
-    "Teoría de Autómatas, Lenguajes y Computación/Lenguajes formales.md",
-    "Teoría de Autómatas, Lenguajes y Computación/Introducción a la Teoría de la Computación.md",
+    "Artificial Intelligence/Neural Networks.md",
+    "Artificial Intelligence/Deep Learning/CNN (Convolutional Neural Networks).md",
+    "Ingenieria de Software/Casos de prueba.md",
+    "Ingenieria de Software/Testing.md",
+    "Introduccion a la Electricidad y Magnetismo/Corriente eléctrica y circuitos de corriente continua.md",
+    "Introduccion a la Electricidad y Magnetismo/Desplazamiento eléctrico.md",
+    "Introduccion a la Electricidad y Magnetismo/Dipolo eléctrico.md",
+    "Introduccion a la Electricidad y Magnetismo/Distribuciones continuas de carga y Ley de Gauss.md",
+    "Ingenieria de Software/Sigepat Frontend.md",
+    "Artificial Intelligence/Deep Learning",
+    "Git/Actividades usuales.md",
+    "Bases de Datos/Foreign key.md",
+    "Bases de Datos/Crear backup.md",
+    "Ingenieria de Software/sigepat.md",
+    "Administración de Redes/PC4-Redes (Mitchel Soto Cuya).md",
+    "Pasted image 20241201121124.png",
+    "Pasted image 20241201121022.png",
+    "Pasted image 20241130155424.png",
     "Ingenieria de Software/Introduccion a la Ingenieria  de Software.md",
-    "Ingenieria de Software/UML.md",
-    "Z-Tasks/Tasks.md",
-    "Java/Pílldoras Informáticas.md",
-    "Algebra Lineal/Determinate.md",
-    "Programación en Dispositivos Moviles/Librerías.md",
-    "Programación en Dispositivos Moviles/Android.md",
-    "Programación en Dispositivos Moviles/Kotlin/Funciones.md",
-    "Programación en Dispositivos Moviles/Kotlin/Fundamentos.md",
-    "Programación en Dispositivos Moviles/Kotlin/POO.md",
-    "Python/Types and Operations.md",
-    "Analisis y Modelamiento Numerico/Calculo de valores propios.md",
-    "Proyecto Rover/Ruta de aprendizaje.md",
-    "Artificial Intelligence/Machine Learning.md",
+    "Ingenieria de Software/Conceptos.md",
+    "Ingenieria de Software/Modelo de Casos de Uso.md",
+    "Ingenieria de Software/Modelos del proceso.md",
+    "Teoría de Autómatas, Lenguajes y Computación/Expresiones Regulares.md",
+    "Teoría de Autómatas, Lenguajes y Computación/Introducción a la Teoría de la Computación.md",
+    "Introduccion a la Electricidad y Magnetismo/Condensadores o capacitores.md",
+    "Introduccion a la Electricidad y Magnetismo/Carga y Campo Electrico.md",
+    "Pasted image 20241130155001.png",
+    "Artificial Intelligence/Transformers.md",
+    "Ingenieria de Software/SpringBoot.md",
+    "Git/Git.md",
+    "Proyecto Rover/ERC 2024 – TAREAS TEASER.md",
+    "Pasted image 20241117210443.png",
+    "Pasted image 20241027123132.png",
+    "Pasted image 20241101184255.png",
+    "Pasted image 20241101200009.png",
+    "Pasted image 20241101200042.png",
+    "Pasted image 20241117190110.png",
+    "Proyecto Rover/Untitled",
+    "Tareas",
+    "Leetcode",
     "Administración de Redes/Lecturas",
     "Untitled 2",
-    "Untitled",
     "Administración de Redes",
-    "Ingenieria de Software/imgs/ejemplo-clase-entidad.png",
-    "Ingenieria de Software/imgs/ejemplo-clase-controladora.png",
-    "Ingenieria de Software/imgs/ejemplo-clase-interfaz.png",
-    "Ingenieria de Software/imgs/Pasted image 20240919091909.png",
     "Ingenieria de Software/imgs",
-    "Programación en Dispositivos Moviles/imgs/verticalArrangement.gif",
     "Programación en Dispositivos Moviles/imgs",
-    "Ingenieria de Software/imgs/Pasted image 20240919104854.png",
-    "Ingenieria de Software/imgs/Pasted image 20240919103444.png",
-    "Ingenieria de Software/imgs/Pasted image 20240919093906.png",
-    "Ingenieria de Software/imgs/Pasted image 20240919093840.png",
     "Programación en Dispositivos Moviles",
-    "Java",
-    "Pasted image 20240909154054.png",
-    "Programación Paralela",
-    "Teoría de Autómatas, Lenguajes y Computación\\imgs",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
