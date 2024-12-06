@@ -1,6 +1,6 @@
-fAquí tienes una ruta de aprendizaje estructurada para adquirir los conocimientos necesarios en inteligencia artificial y robótica para participar en el European Rover Challenge (ERC):
+Aquí tienes una ruta de aprendizaje estructurada para adquirir los conocimientos necesarios en inteligencia artificial y robótica para participar en el European Rover Challenge (ERC):
 
-## Fase 1: Fundamentos de Programación y Matemáticas
+# Fase 1: Fundamentos de Programación y Matemáticas
 
 ### 1.1 Fundamentos de Programación
 - **Curso:** [CS50's Introduction to Computer Science](https://www.edx.org/course/cs50s-introduction-to-computer-science) en edX.
@@ -11,35 +11,120 @@ fAquí tienes una ruta de aprendizaje estructurada para adquirir los conocimient
 - **Cálculo:** [Calculus One](https://www.coursera.org/learn/calculus1) en Coursera.
 - **Estadística y Probabilidad:** [Introduction to Probability and Data](https://www.coursera.org/learn/probability-statistics) en Coursera.
 
-## Fase 2: Fundamentos de Inteligencia Artificial
+# Fase 2: Fundamentos de Inteligencia Artificial
 
-### 2.1 Introducción a la IA
+## 2.1 Introducción a la IA
 - [ ] **Curso:** [Introduction to Artificial Intelligence (AI)](https://www.coursera.org/learn/introduction-to-ai) en Coursera. 📅 2024-07-23 ⏫ 
 - [ ]  **Lectura:** "Artificial Intelligence: A Modern Approach" de Stuart Russell y Peter Norvig.
 
-### 2.2 Aprendizaje Automático (Machine Learning)
+## 2.2 Aprendizaje Automático (Machine Learning)
 - **Curso:** [Machine Learning](https://www.coursera.org/learn/machine-learning) por Andrew Ng en Coursera.
 
-#### Linear Regression with One Variable
-14. Visualization examples (Lab02)
-#### Training Linear Regression
-15. Gradient Descent
-16. Implementing Gradient Descent
-17. Gradient Descent Intuition
-18. Learning Rate
-19. Gradient Descent for Linear Regression
-20. Running Gradient Descent
-
-
-
-
-	- https://www.youtube.com/watch?v=12JrS1DeEa0&list=PLWD7QtH5pagQevEwjEOCQi1Cgqe3zKf2s
 	- https://www.youtube.com/playlist?list=PLkDaE6sCZn6FNC6YRfRQc_FbeQrF8BwGI
 	- https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification
+### Week 1: Introduction to Machine Learning
+#### Linear Regression with One Variable
+14. Visualization examples (Lab02)
+#### Videos
+
+##### Machine Learning
+- [x] 1. Welcome to machine Learning ✅ 2024-11-10
+- [x] 2. Applications of Machine Learning ✅ 2024-11-10
+
+##### Machine Learning Overview
+- [x] 3. What is Machine Learning? ✅ 2024-11-10
+- [x] 4. Supervised Learning Part 1 ✅ 2024-11-10
+- [x] 5. Supervised Learning Part 2 ✅ 2024-11-10
+- [x] 6. Unsupervised Learning Part 1 ✅ 2024-11-10
+- [x] 7. Unsupervised Learning Part 2 ✅ 2024-11-10
+- [x] 8. Jupyter Notebooks ✅ 2024-11-10
+
+##### Linear Regression with One Variable
+- [x] 9. Linear Regression Model Part 1 ✅ 2024-11-10
+- [x] 10. Linear Regression Model Part 2 ✅ 2024-11-10
+- [x] 11. Cost Function ✅ 2024-11-10
+- [x] 12. Cost Function Intuition ✅ 2024-11-10
+- [x] 13. Visualizing the Cost Function ✅ 2024-11-10
+- [x] 14. Visualization examples ✅ 2024-11-10
+
+##### Training Linear Regression
+- [x] 15. Gradient Descent ✅ 2024-11-10
+- [x] 16. Implementing Gradient Descent ✅ 2024-11-10
+- [x] 17. Gradient Descent Intuition ✅ 2024-11-10
+- [x] 18. Learning Rate ✅ 2024-11-10
+- [x] 19. Gradient Descent for Linear Regression ✅ 2024-11-10
+- [x] 20. Running Gradient Descent ✅ 2024-11-10
+
+#### Reading
+
+#### Assignments
+- [ ] Practice quiz: Supervised vs unsupervised learning (15 minutes)
+- [ ] Practice quiz: Regression (10 minutes)
+- [ ] Practice quiz: Train the model with gradient descent (10 minutes)
+
+#### Ungraded labs
+- [ ] Python and Jupyter Notebooks (60 minutes)
+- [ ] Optional lab: Model representation (60 minutes)
+- [ ] Optional lab: Cost function (60 minutes)
+- [ ] Optional lab: Gradient descent (60 minutes)
 
 
-- **Práctica:** Realizar proyectos básicos como clasificación de datos, regresión y clustering.
+### Week 2: Regression with multiple input variables
 
+#### Videos
+
+##### Linear Regression with Multiple Variables
+- [x] 21. Multiple Features ✅ 2024-11-10
+- [x] 22. Vectorization Part 1 ✅ 2024-11-10
+- [x] 23. Vectorization Part 2 (Talk about Lab Python, NumPy and Vectorization) ✅ 2024-11-10
+- [ ] 24. Gradient Descent for Multiple Regression
+- [ ] 25.
+- [ ] 26.
+- [ ] 27.
+- [ ] 28.
+- [ ] 29.
+- [ ] 30.
+
+#### Assignments
+- [ ] Practice quiz: Multiple linear regression (15 minutes)
+- [ ] Practice quiz: Gradient descent in practice (30 minutes)
+
+#### Programming assignment
+- [ ] Week 2 practice lab: Linear regression (180 minutes)
+
+#### Ungraded labs
+- [ ] Optional lab: Python, NumPy and vectorization (60 minutes)
+- [ ] Optional lab: Multiple linear regression (60 minutes)
+- [ ] Optional lab: Feature scaling and learning rate (60 minutes)
+- [ ] Optional lab: Feature engineering and Polynomial regression (60 minutes)
+- [ ] Optional lab: Linear regression with scikit-learn (60 minutes)
+
+
+### Week 3: Classification
+
+#### Videos
+- [ ] 31.
+
+
+#### Assignments
+- [ ] Practice quiz: Classification with logistic regression (30 minutes)
+- [ ] Practice quiz: Cost function for logistic regression (30 minutes)
+- [ ] Practice quiz: Gradient descent for logistic regression (30 minutes)
+- [ ] Practice quiz: The problem of overfitting (30 minutes)
+
+#### Programming assignment
+- [ ] Week 3 practice lab: logistic regression (180 minutes)
+
+#### Ungraded labs:
+- [ ] Optional lab: Classification (60 minutes)
+- [ ] Optional lab: Sigmoid function and logistic regression (60 minutes)
+- [ ] Optional lab: Decision boundary (60 minutes)
+- [ ] Optional lab: Logistic loss (60 minutes)
+- [ ] Optional lab: Cost function for logistic regression (60 minutes)
+- [ ] Optional lab: Gradient descent for logistic regression (60 minutes)
+- [ ] Optional lab: Logistic regression with scikit-learn (60 minutes)
+- [ ] Optional lab: Overfitting (60 minutes)
+- [ ] Optional lab: Regularization (60 minutes)
 ## Fase 3: Visión por Computadora y Procesamiento de Imágenes
 
 ### 3.1 Visión por Computadora
