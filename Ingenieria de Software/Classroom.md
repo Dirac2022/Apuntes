@@ -41,7 +41,10 @@
 
 # Semana 5
 
-- [ ] Interfaces gráficas de usuario con Figma 2 (videos)
+- [ ] Figma tutorial español Parte 1
+- [ ] Figma tutorial español Parte 2
+- [ ] Figma tutorial español Parte 3
+- [ ] Figma tutorial español Parte 4
 
 ## Lunes
 - [x] Modelo de Analisis-Pag41-Pag56 ✅ 2024-10-14
@@ -61,11 +64,44 @@
 
 # Semana 6
 
+## Lunes
+
 - [x] Diagrama de Clases de Analisis ✅ 2024-10-15
 - [x] Diagramas de Interacción ✅ 2024-10-15
 - [ ] Modelado-Condosa.drawio 
-- [ ] Realización de CU
+- [x] Realización de CU **leído una vez**
+
+## Jueves
+- [x] Modelo de Analisis-Pag41-Pag56
 
 
+# Semana 7
+
+## Lunes
+- [ ] Diagrama de Clases del Diseño - Cap 21 UML Craig Larman ⏳ 2024-10-29 
+- [ ] Modelado del Comportamiento en los Diagramas de Estado - Cap 33 UML Craig Larman ⏳ 2024-10-29 
+- [x] Caso Maquina Expendedora - Apéndice UML Craig Larman ⏳ 2024-10-29 ✅ 2024-10-29
+- [x] Video ⏳ 2024-10-29 ✅ 2024-11-10
+
+# Semana 9
+
+## Lunes
+- [ ] 01 Patrones GRASP
+- [ ] 02 PatronesDiseñoGof
+
+## Jueves
+- [ ] 1 Chapter 7 Architecture
+- [ ] 2 Capas de la Arquitectura - Craig Larman
+- [ ] sigcon
+- [ ] Modelado-Condosa.drawio
+
+
+# Semana 11
+
+## Lunes
+- [x] Video ⏳ 2024-11-20 ✅ 2024-11-20
+
+## Jueves
+- [ ] Video ⏳ 2024-11-20 
 
 
