@@ -1,6 +1,181 @@
 
+# Laboratorio 1 
+
+## Introducción a PostgreSQL
+Para instalar **PostgreSQL**
+```bash
+sudo apt update
+sudo apt upgrade
+
+sudo apt install postgresql
+```
+
+Para validar que **PostgreSQL** se haya instalado correctamente (en Ubuntu)
+```bash
+system status postgresql
+```
+Se escribe `q` para salir.
+
+Para cambiar del usuario root al usuario postgres
+```bash
+sudo -i -u postgres
+```
+
+**Bases de datos predeterminadas**
+- postgres
+- template0
+- template1
+Usuario predeterminado: postgres
+
+Ingresar al psql con el usuario postgres en la base de datos postgres (en Ubuntu)
+```bash
+sudo su
+su postgres
+psql -U postgres -d postgres
+```
+
+
+Para ver usuarios
+```postgresql
+\du
+```
+
+
+> [!important] Los comandos de creación o modificación deben terminar en punto y coma
+
+Estando en root@..
+Para iniciar postgres escribimos
+```bash
+sudo -i -u postgres
+```
+Con eso nos encontramos con el usuario predeterminado de postgres.
+
+## Inicio de laboratorio
+
+- Conexión a una base de datos con un usuario especificado
+- Crear un usuario con contraseña y permiso para crear base de datos
+- Eliminar un usuario
+- Atajo para salir de psql
+- Crear una base de datos
+- Renombrar una base de datos
+- Listar las bases de datos creadas
+- Conectarse a una base de datos
+- Eliminar una base de datos
+
+1. Conectarse a la base de datos template1 con el usuario postgres
+Estando en postgres@...: ~$
+```bash
+psql -U postgres -d template1
+```
+Ingresamos con el usuario postgres a la base de datos template1
+
+
+2. Procede a crear el usuario YOICHI y asignarle el password '12345'
+```postgresql
+create user yoichi wih password '12345';
+```
+
+3. Crear el usuario PIERO otorgándole el permiso para crear bases de datos y estableciendo su contraseña a 'goldennumber'
+```postgresql
+create user piero with createdb password 'goldennumber';
+```
+
+
+4. ¿Qué atajo se usa para abandonar la sesión de psql?
+```postgresql
+\q
+```
+
+5. Conectarse ahora a la base de datos template1 con el usuario YOICHI
+```postgresql
+psql -U yoichi -d template 1
+```
+
+6. Crear la base de datos bdsimple. Explique lo sucedido
+```postgresql
+create database bdsimple;
+```
+
+>[!error] usuario yoichi no tiene permiso para crear una base de datos, por lo tanto nos sale un error
+
+7. Conectarse a la base de datos template1 con el usuario PIERO
+```postgresql
+\q
+psql -U piero -d template 1
+```
+
+8. Crear las bases de datos bdsimple, personal con el nuevo usuario
+```postgresql
+create database bdsimple;
+create database personal;
+```
+
+9. ¿Qué atajo se usa para listar las bases de datos creadas?
+```postgresql
+\l
+\list
+```
+
+10. Conectarse a la base de datos bdsimple
+```postgresql
+\c bdsimple
+```
+
+11. Conectarse a la base de datos personal
+```postgresql
+\c personal
+```
+
+12. Eliminar la base de datos personal. Comente lo sucedido
+>[!error] No se puede eliminar la base de datos activa (personal)
+```postgresql
+\c
+drop database personal;
+```
+
+13. Eliminar la base de datos bdsimple
+```postgresql
+drop database bdsimple;
+```
+
+14. Conectarse ahora a la base de datos template1 con el usuario postgres
+```bash
+\q
+psql -U postgres -d template1
+```
+
+15. Procede a crear el usuario CYNTHIA asignándole el password 'qbit'
+```postgresql
+create user cynthia with password 'qbit';
+```
+
+16. Eliminar el usuario CYNTHIA
+```postgresql
+drop user cynthia;
+```
+
+17. Cambiar el nombre de la base de datos personal por rrhh
+```postgresql
+alter database personal rename to rrhh;
+```
+
+18. Conectarse ahora la base de datos rrhh
+```postgresql
+\c rrhh
+```
+
+19. Volver a renombrar la base de datos rrhh por personal. ¿Qué sucede?
+>[!error] No se puede renombrar la base de datos que se este ejecutando actualmente
+```postgresql
+\c postgres
+alter database rrhh rename to personal;
+```
+
+
 
 # Laboratorio 15 - 06/06/24
+
+## MongoDB
 Por supuesto, aquí tienes el texto sin los asteriscos:
 
 Para instalación de mongoDB
