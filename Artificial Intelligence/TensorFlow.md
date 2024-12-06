@@ -9,6 +9,10 @@ El aprendizaje profundo es una técnica de **aprendizaje automático** que se ba
 
 TensorFlow es útil porque automatiza gran parte de las operaciones matemáticas complejas detrás de estas redes neuronales. No necesitas escribir a mano todas las ecuaciones, porque TensorFlow ya tiene eso cubierto.
 
+#### ¿Qué es TensorFlow?
+
+TensorFlow es una **biblioteca de software** diseñada para construir y entrenar **modelos de aprendizaje automático**. Es como una **fábrica inteligente** que te ayuda a automatizar la tarea de aprender patrones a partir de datos, y luego usar esos patrones para hacer predicciones. Lo poderoso de TensorFlow es que maneja operaciones matemáticas complejas en segundo plano, permitiéndote enfocarte en el diseño y el entrenamiento de tus modelos.
+
 #### ¿Cómo funciona TensorFlow?
 
 TensorFlow utiliza un concepto llamado **"grafo computacional"**. Imagínate un grafo como un **mapa de instrucciones** que muestra cómo los datos fluyen a través de tu red neuronal. En lugar de hacer cada operación una a una, TensorFlow te permite definir todas las operaciones por adelantado en forma de grafo. Luego, ese grafo se ejecuta para entrenar el modelo.
@@ -83,17 +87,6 @@ model.evaluate(X_test, y_test)
 ```
 
 En este ejemplo, hemos creado una red neuronal con dos capas ocultas de 64 neuronas cada una, y una capa de salida de 10 neuronas (suponiendo que estamos clasificando en 10 categorías). Entrenamos el modelo en un conjunto de datos `X_train` y `y_train` y luego lo evaluamos en un conjunto de prueba `X_test` y `y_test`.
-
-### ¿Qué tan familiarizado estás con los siguientes conceptos?
-
-1. **Álgebra lineal:** matrices, vectores y cómo se aplican en transformaciones de datos.
-2. **Cálculo:** derivadas parciales y gradiente, ya que son clave para entender cómo se entrena una red neuronal.
-3. **Programación en Python:** TensorFlow se usa mayormente en Python, así que necesitarás algo de experiencia aquí.
-4. **Conceptos de Machine Learning:** ¿Te suenan términos como sobreajuste, gradiente descendente o validación cruzada?
-
-Si hay algo de lo anterior que no te suene mucho, ¡puedo explicártelo para que sigamos avanzando!
-
-¡Genial que ya estés familiarizado con los otros conceptos! Vamos a profundizar en **validación cruzada** para que entiendas cómo funciona y por qué es útil en el contexto de machine learning y TensorFlow.
 
 ### ¿Qué es la validación cruzada?
 
@@ -205,3 +198,25 @@ print(f'Precisión promedio en {k} folds: {np.mean(accuracy_scores)}')
 La validación cruzada es una técnica fundamental para asegurarse de que el modelo de aprendizaje automático no solo memorice los datos de entrenamiento, sino que también generalice bien a datos nuevos. Es particularmente útil cuando tienes una cantidad limitada de datos y no quieres desperdiciar información al dividir el conjunto de datos en solo dos partes (entrenamiento y prueba).
 
 ¿Te queda más claro el concepto de validación cruzada? ¿Te gustaría practicar con algún ejemplo específico o necesitas aclaración en algún detalle técnico?
+
+
+
+# Funciones de perdida (`loss`)
+
+La función de pérdida mide qué tan bien o mal está funcionando el modelo durante el entrenamiento. La idea es que el modelo intente minimizar esta pérdida en cada paso, lo que mejora su rendimiento.
+
+## `sparse_categorical_crossentropy`
+Esta es una función de pérdida especifica para problemas de clasificación multiclase, cuando las etiquetas (clases) están en formato de enteros (por ejemplo, 0, 1, 2, ...).
+Calcula la distancia entre la distribución de salida del modelo (que devuelve probabilidades para cada clase) y la clase verdadera. La `crossentropy` penaliza fuertemente las predicciones incorrectas y da menos penalización cuando la probabilidad asignada a la clase correcta es alta.
+
+### Diferencia con `categorical_crossentropy`
+Ambas se usan para clasificación multiclase, pero con `categorical_crossentropy`, las etiquetas deben estar en formato *one-hot-encoded* (vectores binarios como [1, 0, 0, ...]).
+
+
+# Optimizadores (`optimizer`)
+
+Este parámetro especifica el algoritmo que se usará para ajustar los pesos del modelo durante el entrenamiento. En redes neuronales, el optimizador es crucial porque determina cómo el modelo aprende a mejorar sus predicciones en cada paso de entrenamiento.
+## `adam`
+De **Adam** (Adaptive Moment Estimation) es un optimizador avanzado que combina las ventajas de otros optimizadores como **AdaGrad** y **RMSProp**.
+
+Adam adapta la tasa de aprendizaje individual para cada parámetro basándose en el promedio de los gradientes y la varianza (es decir, ajusta de acuerdo con cuán rápido cambia el error).
