@@ -57,7 +57,7 @@ $$
 ]\mathbf{x}, \mathbf{y}[ = \{ \mathbf{z} \in \mathbb{R}^n : \mathbf{z} = \lambda \mathbf{x} + (1 - \lambda) \mathbf{y}, \, 0 < \lambda < 1 \}
 $$
 # Conjunto Compacto
-Un conjunto $A \subseteq \mathbb{R}^n$ es compacto si es cerrado y acotado. La compacidad es una propiedad importante porque garantiza que cualquier función continua definida en un conjunto compacto alcanza sus valores máximo y mínimo.
+Un conjunto $A \subseteq \mathbb{R}^n$ es compacto **si es cerrado y acotado**. La compacidad es una propiedad importante porque garantiza que cualquier función continua definida en un conjunto compacto alcanza sus valores máximo y mínimo.
 
 # Frontera
 La frontera de un conjunto $A \subseteq \mathbb{R}^n$ es el conjunto de puntos que pueden ser aproximados tanto desde dentro como desde fuera de $A$. Formalmente, la frontera de $A$, denotada como $\partial A$, es el conjunto de puntos $\mathbf{x} \in \mathbb{R}^n$ tales que cualquier bola abierta centrada en $\mathbf{x}$ intersecta tanto $A$ como su complemento.
