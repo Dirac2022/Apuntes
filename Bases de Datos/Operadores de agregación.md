@@ -5,11 +5,11 @@ Los operadores de agregación son funciones que toman una colección de valores 
 - **Retorna** un solo valor. 
 - Usado solo en la lista *SELECT* y en la cláusula *HAVING*.
 - Acepta
-	- *DISTINC*, considera solo valores distintos del argumento de la expresión.
+	- *DISTINCT*, considera solo valores distintos del argumento de la expresión.
 	- *ALL*, considera todos los valores incluyendo todos los duplicados.
 
 Ejemplo:
-> SELECT COUNT (DISTINT nombre_columna);
+> SELECT COUNT (DISTINCT nombre_columna);
 
 # Tipos de operadores de agregación
 
