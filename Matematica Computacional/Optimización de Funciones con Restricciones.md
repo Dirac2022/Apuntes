@@ -57,7 +57,6 @@ $$ H (\phi_1, \dots \phi_m, x_1, \dots, x_n) =
 \end{pmatrix}
 $$
 
-
 $$ H (\phi_1, \dots \phi_m, x_1, \dots, x_n) =
 \begin{pmatrix}
 0 & \cdots & 0 & (\nabla \phi_{1})^T \\
@@ -151,12 +150,40 @@ Sea $(\lambda_0, x_0, y_0)$ un punto crítico de $\mathcal{L}(\lambda, x, y)$
 
 # Condiciones de Karush-Kuhn-Tucker
 
+Las **Condiciones de Karush-Kuhn-Tucker (KKT)** son un conjunto de condiciones necesarias para que un punto sea una solución óptima en problemas de optimización con restricciones. Estas condiciones son muy utilizadas en la optimización no lineal, especialmente cuando existen restricciones de igualdad y desigualdad.
+
+### Contexto
+
+Cuando se aborda un problema de optimización con restricciones, la idea básica es encontrar un punto donde una función objetivo $f(x)$ sea maximizada o minimizada, sujeto a ciertas restricciones que pueden ser de igualdad o desigualdad. Este tipo de problemas se pueden expresar de la siguiente forma:
+
+$$
+\text{Minimizar:} \quad f(x)
+$$
+
+$$
+\text{Sujeto a:} \quad g_i(x) \leq 0, \quad i = 1, 2, ..., p
+$$
+
+$$h_j(x) = 0, \quad j = 1, 2, ..., m
+$$
+Aquí, $g_i(x)$ son las restricciones de desigualdad y $h_j(x)$ son las restricciones de igualdad.
 
 
+## Condiciones de Karush-Kuhn-Tucker
+Si existe $x_0 \in \Omega$ , $\lambda  \in \mathbb{R}^m$ y $\mu \in \mathbb{R}^p_+$ tal que
+	
+Función de Lagrange
+$$
+ f(x) + \sum_{j=1}^m \lambda_j \, h_j \, (x) + \sum_{i=1}^p \mu_j \, g_i (x) = \theta_n
+$$
 
-
-
-
-
-
-
+### Condiciones
+$$
+\begin{aligned}
+\nabla f(x_0) + \sum_{j=1}^m \lambda_j \,\nabla h_j \, (x_0) + \sum_{i=1}^p \mu_j \,\nabla g_i (x_0) &= \theta_n  \\ \\
+h(x_0) &= \theta_m  \\ \\
+g(x_0) &\leq \theta_p \\ \\
+\mu \cdot g(x_0) &= 0
+\end{aligned}
+$$
+donde $\theta_k$ es el vector nulo de dimensión $k$. Entonces $x_0$ es un mínimo de $f$.
