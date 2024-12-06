@@ -4,7 +4,6 @@
 # Tipos de datos
 
 
-
 | Tipo    | Dato               | Ejemplo                      |
 | ------- | ------------------ | ---------------------------- |
 | String  | Texto              | "Va entre comillas"          |
@@ -75,7 +74,7 @@ Si son varios valores debes encerrarlos entre llaves, por ejemplo si queremos re
 
 # Estructuras de control
 
-## when
+## `when`
 La estructura **`when`** en Kotlin es una alternativa más poderosa y flexible al tradicional `switch` que existe en lenguajes como Java o C. Se utiliza para ejecutar diferentes bloques de código en función del valor de una expresión. Es más versátil que `switch` porque puede evaluar no solo números o constantes, sino también cualquier tipo de expresión, como variables, tipos de datos o incluso rangos.
 
 ### Sintaxis básica de `when`
@@ -198,6 +197,8 @@ println(result)  // Imprime: Dos
 
 Aquí, `when` devuelve un valor dependiendo del caso, y ese valor se asigna a la variable `result`.
 
+>[!important] Cuando se usa `when` como una expresión, siempre debemos incluir la sentencia `else` ya que se debe retornar siempre un valor
+
 #### 6. **Sin expresión de entrada**:
 No siempre necesitas pasar un valor a `when`. Puedes usarlo simplemente para evaluar condiciones directamente.
 
@@ -223,11 +224,173 @@ En este caso, `when` no está evaluando una expresión en particular, sino que a
 | Es opcional la expresión de entrada | No requiere una expresión de entrada para evaluar condiciones | `switch` siempre requiere una expresión de entrada |
 | Retorno de valores               | Puede devolver un valor (ser usado como expresión) | Solo ejecuta instrucciones            |
 
-### Resumen:
-
-- **`when`** es una estructura de control en Kotlin que permite ejecutar diferentes bloques de código en función de una expresión o varias condiciones.
-- Es más versátil que `switch` porque puede evaluar expresiones complejas, rangos, tipos de datos y devolver valores.
-- Puede usarse tanto con una expresión como sin ella, permitiendo mayor flexibilidad en la estructura del código.
-- `when` también se puede usar como una expresión que devuelve un valor, lo que permite asignar el resultado directamente a una variable.
+> [!important] Uso como expresión
+> `if` y `when`  pueden usarse como expresiones para almacenar un valor
 
 
+# Valores nulos
+
+- *Tipos anulables* son variables que pueden soportar valores nulos
+- *Tipos no nulos* son variables que no pueden soportar valores nulos.
+
+Un tipo es *anulable* si se le declara como `null` 
+```kotlin
+var message = null
+```
+
+Sin embargo, no podemos hacer esto:
+```kotlin
+var message = "Hola"
+message = null
+// Nos saldría un error: Null cannot be a value of a non-null type 'kotlin.String'.
+```
+
+**Declaración de una variable nullable**
+Debemos añadir el operador `?` al final de tipo
+```kotlin
+var name: type? = value
+```
+
+Ejemplo
+```kotlin
+var message : String? = "Hola"
+message = null
+```
+
+## Manejo de variables nulas
+
+### Usando el operador `?.`
+
+Si tenemos
+```kotlin
+var message: String? = "Hola"
+println(message.length)
+// Tenidramos este error:   
+// Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'kotlin.String?'
+```
+
+Obtendríamos un error ya que se intenta acceder a un miembro de una variable que se ha definido como *nullable*.
+
+**Podemos usar el operador `?.`** para acceder a métodos o propiedades de variables *nullables*.
+```kotlin
+<nullable_variable>?.<method/property>
+```
+
+Por ejemplo
+```kotlin
+var message: String? = "Hola"
+println(message?.length)
+// Obtenedrmos como resultado: 4,
+```
+
+>[!tip] Tambien podemos usar el operador `?.` el variables *no nullables* aunque su uso seria innecesarios ya que acceder a sus sus métodos o variables es siempre segura. 
+
+### Usando el operador de aserción `!!`
+**Sintaxis**
+```kotlin
+<nullableVariable>!!.<method/property>
+```
+
+Si se usa el operador *no null assertion* significa uno afirma que la variable no es de tipo `null` independientemente de si es del tipo o no. A su vez, el uso de este operador puede resultar en un error de tipo `NullPointerException` .
+
+**Ejemplo**
+```kotlin
+var message: String? = "Hola"
+println(message!!.length)
+// En vaso de que message sea nulo arrojaría un error de tipo NullPointerException
+```
+
+
+### Usando el condicional `if/else`
+
+La siguiente expresión arroja un booleano
+```kotlin
+<nullableVariable> != null // Expresion null check
+```
+
+Podemos usar una condicional `if/else` con la expresión anterior para validar un tipo `null`
+```kotlin
+if (null_check) {
+	body1
+} else {
+	body2
+}
+```
+
+**Ejemplo**
+```kotlin
+var message: String? = "Hola"
+
+if (message != null) {
+	println("La longitud del mensaje es ${message.lenght}")
+}
+```
+
+Tambien podemos usar `if/else` en expresiones
+```kotlin
+val <name>: <non-null-type> = if (null_check) {
+	body1
+} else {
+	body2
+}
+
+```
+
+
+### Usando el operador Elvis `?:`
+El operador Elvis `?:` se puede usar junto a `?.`  para añadir un valor por defecto cuando se llama a un método o propiedad del valor *nullable* si en efecto es de tipo `null`.
+
+**Sintaxis**
+```kotlin
+val <name> = <nullableVariable>?.<method/propoerty> ?: <default_value>
+```
+
+**Ejemplo**
+```kotlin
+var mmesage: String? = "Hola"
+val lenghtMessage = message?.length ?: 0
+print("La longitud del mensaje es $lengthMessage")
+```
+
+
+
+
+# by lazy
+En **Kotlin**, `by lazy` es una forma de **inicialización perezosa** (lazy initialization). Significa que una propiedad se inicializa solo la **primera vez que se accede a ella**, en lugar de hacerlo al momento de la creación del objeto que la contiene. Esto es útil cuando la inicialización de una propiedad es costosa en términos de recursos o no es necesaria de inmediato.
+
+### ¿Cómo funciona `by lazy`?
+Cuando declaras una propiedad con `by lazy`, la primera vez que accedes a ella, se ejecuta el bloque de código asignado y se almacena el resultado. Las siguientes veces que se accede a la propiedad, se devuelve el resultado ya calculado, sin volver a ejecutar el bloque.
+
+### Sintaxis:
+```kotlin
+val myProperty: Tipo by lazy {
+    // Código que se ejecuta solo la primera vez que se accede a myProperty
+    Tipo()
+}
+```
+
+### Características:
+1. **Inicialización diferida**: La propiedad no se inicializa hasta que se accede a ella por primera vez.
+2. **Hilo seguro por defecto**: La inicialización perezosa en Kotlin es **thread-safe** por defecto, lo que significa que es segura de usar en entornos multihilo.
+3. **Ideal para propiedades de inicialización costosa**: Si una propiedad requiere un procesamiento intensivo o depende de recursos externos, `by lazy` ayuda a diferir la carga hasta que realmente sea necesaria.
+
+### Ejemplo simple:
+```kotlin
+val mensaje: String by lazy {
+    println("Inicializando mensaje...")
+    "Hola, Kotlin!"
+}
+
+fun main() {
+    println("Antes de acceder a mensaje")
+    println(mensaje) // Aquí se inicializa y se imprime "Inicializando mensaje..."
+    println(mensaje) // Aquí solo se imprime "Hola, Kotlin!" ya que ya fue inicializada
+}
+```
+
+### Beneficios:
+- **Optimización de recursos**: La inicialización solo ocurre si se necesita, ahorrando memoria y tiempo de ejecución si nunca se accede a la propiedad.
+- **Código más limpio**: Ayuda a mantener el código simple y legible al no requerir inicialización explícita en el constructor u otros métodos.
+
+### Uso común:
+`by lazy` es útil en casos como la configuración de clientes de red, la carga de archivos grandes o la creación de objetos complejos que solo se deben inicializar si realmente se van a usar.
