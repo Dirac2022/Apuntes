@@ -1,4 +1,4 @@
-
+edge
 # Caso de uso
 Un **caso de uso** en el contexto de la ingeniería de software es una herramienta que se utiliza para describir cómo un usuario interactúa con un sistema o aplicación para lograr un objetivo específico. Es una manera estructurada de entender las necesidades del usuario y cómo el sistema debe responder para satisfacer esas necesidades.
 ### Elementos clave de un caso de uso:
@@ -281,10 +281,10 @@ En el modelado de negocio y en la ingeniería de software, **agregación** y **c
 
 ### Definiciones
 
-| Término       | Definición                                                                                                                                                                                                                                      | Características Clave                                                                                                               |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **Agregación**| Es una relación "débil" de todo a parte donde los objetos pueden existir independientemente entre sí. Representa que una clase contiene o agrupa objetos de otra clase, pero los objetos no dependen del ciclo de vida del objeto contenedor.        | - Representado por una línea con un rombo vacío en UML.<br>- Los objetos pueden existir sin su contenedor.                          |
-| **Composición**| Es una relación "fuerte" de todo a parte donde los objetos son dependientes entre sí. La vida del objeto dependiente (parte) está atada a la vida del objeto contenedor (todo). Si el todo es destruido, las partes también lo son.              | - Representado por una línea con un rombo relleno en UML.<br>- Los objetos parte no pueden existir sin el objeto contenedor.         |
+| Término         | Definición                                                                                                                                                                                                                                    | Características Clave                                                                                                        |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Agregación**  | Es una relación "débil" de todo a parte donde los objetos pueden existir independientemente entre sí. Representa que una clase contiene o agrupa objetos de otra clase, pero los objetos no dependen del ciclo de vida del objeto contenedor. | - Representado por una línea con un rombo vacío en UML.<br>- Los objetos pueden existir sin su contenedor.                   |
+| **Composición** | Es una relación "fuerte" de todo a parte donde los objetos son dependientes entre sí. La vida del objeto dependiente (parte) está atada a la vida del objeto contenedor (todo). Si el todo es destruido, las partes también lo son.           | - Representado por una línea con un rombo relleno en UML.<br>- Los objetos parte no pueden existir sin el objeto contenedor. |
 
 ---
 
@@ -399,11 +399,190 @@ Este ejemplo demuestra cómo las clases de control, interfaz y entidad trabajan 
    - **Generalización** es el proceso de definir una clase más genérica a partir de varias clases más específicas que comparten características comunes. Esto permite reducir la redundancia mediante la creación de una **superclase** que engloba los atributos y comportamientos comunes.
    - **Especialización** es el proceso inverso, en el cual se crean subclases a partir de una clase genérica, agregando características más específicas.
 
+
+
    | Concepto              | Descripción                                                                                   |
    |-----------------------|-----------------------------------------------------------------------------------------------|
    | **Generalización**     | Crear una clase general a partir de otras más específicas, capturando características comunes.|
    | **Especialización**    | Definir subclases a partir de una clase base, añadiendo atributos y métodos más específicos.   |
 
+
 Estos mecanismos de abstracción permiten que el diseño de sistemas complejos se maneje de manera eficiente y organizada, facilitando el análisis, la implementación y el mantenimiento del software. En los diagramas de clases de UML, se usan para representar relaciones entre objetos y clases, y cómo estas interacciones dan forma a la estructura del sistema.
 
-Si necesitas más detalles sobre alguno de estos conceptos o ejemplos prácticos, házmelo saber.
+
+
+# Inyección de dependencias
+
+### 1. **¿Qué es una inyección de dependencias? ¿Qué es una dependencia?**
+
+**Dependencia**: En programación, una dependencia es un objeto o componente que una clase o módulo necesita para funcionar. Por ejemplo, si una clase `A` necesita interactuar con una clase `B` para realizar su tarea, `B` se considera una dependencia de `A`. Tradicionalmente, en la programación orientada a objetos, la clase `A` crea la instancia de la clase `B` dentro de su código.
+
+**Inyección de Dependencias**: La **inyección de dependencias (DI)** es un patrón de diseño que permite reducir el acoplamiento entre clases al delegar la responsabilidad de crear las dependencias de una clase a un componente externo. En lugar de que una clase cree directamente sus dependencias, el contenedor de DI (en el caso de Spring, el _ApplicationContext_) se encarga de instanciarlas y "inyectarlas" en la clase cuando es necesario.
+
+### **¿Cómo funciona la inyección de dependencias en Spring?**
+
+Spring gestiona la creación y administración de objetos (instancias de clases) y las relaciones entre ellos a través de su contenedor de **Beans**. Cuando se inyectan dependencias, Spring se encarga de crear las instancias de las clases dependientes y las proporciona a las clases que las requieren (sin que ellas tengan que saber cómo crearlas). Esto reduce el acoplamiento entre clases y facilita las pruebas unitarias y el mantenimiento del código.
+
+Por ejemplo:
+
+- **Sin inyección de dependencias**: La clase `HotelService` tendría que crear una instancia de `HotelRepository` de manera explícita en su código.
+- **Con inyección de dependencias**: Spring se encarga de crear y pasar la instancia de `HotelRepository` cuando crea la instancia de `HotelService`.
+
+java
+
+Copiar código
+
+`@Autowired HotelRepository hotelRepository;`
+
+El código anterior indica que Spring debe inyectar automáticamente la instancia de `HotelRepository` en la clase `HotelService` en el momento en que se cree.
+
+
+# Consultas personalizadas en JPA
+
+### **¿Qué es una consulta personalizada en Spring Data JPA?**
+
+Cuando hablamos de consultas personalizadas en **Spring Data JPA**, nos referimos a la capacidad que tiene Spring de generar automáticamente las consultas SQL (o JPQL, que es la variante de JPA) basadas en el nombre de los métodos que defines en los repositorios. Este comportamiento está basado en **convenciones de nomenclatura** que Spring Data JPA interpreta y transforma en una consulta de base de datos.
+
+Por ejemplo, el método `findByCiudad` sigue una convención que Spring Data JPA puede entender para crear una consulta que busque los hoteles de una ciudad en particular. No necesitas escribir explícitamente la consulta SQL o JPQL, sino que Spring la genera automáticamente. Este comportamiento es una característica que hace que **Spring Data JPA** sea muy potente y que puedas acceder a la base de datos de manera declarativa y sin tener que escribir código SQL explícito.
+
+### **¿Cómo funciona la convención de Spring Data JPA?**
+
+Spring Data JPA sigue una convención de nomenclatura de los métodos que se interpreta de la siguiente manera:
+
+- **`findBy`**: Indica que este es un método de búsqueda.
+- **`Ciudad`**: Es el nombre del atributo que deseas usar para filtrar los resultados. En este caso, `Ciudad` es el nombre de la propiedad de la entidad `Hotel` que hace referencia a la ciudad en la que se encuentra el hotel. Spring Data JPA entiende que esta propiedad corresponde a una relación con la entidad `Ciudad`.
+
+#### Ejemplo:
+
+```java
+List<Hotel> findByCiudad(Ciudad ciudad);
+```
+
+Este método sigue la convención y se traduce automáticamente por Spring Data JPA en una consulta SQL o JPQL equivalente a algo como:
+
+- **SQL**:
+    
+    ```sql
+    SELECT * FROM hotel WHERE ciudad_id = ?;
+    ```
+    
+    Aquí, `ciudad_id` es la columna en la tabla `hotel` que hace referencia a la entidad `Ciudad` (como definimos en la entidad `Hotel` con la anotación `@JoinColumn`).
+    
+- **JPQL** (si se usara en lugar de SQL):
+    
+    ```jpql
+    SELECT h FROM Hotel h WHERE h.ciudad = :ciudad;
+    ```
+    
+    Este es el equivalente de la consulta en JPQL, que es un lenguaje de consultas orientado a objetos utilizado por JPA. El `:ciudad` es un parámetro que se usa para filtrar los resultados por la ciudad proporcionada.
+    
+
+### **¿Qué pasa si no sigues la convención?**
+
+Si no sigues la convención en el nombre del método, **Spring Data JPA no podrá generar la consulta automáticamente**. Spring necesita que el nombre del método esté bien estructurado según la convención de nomenclatura para entender qué tipo de consulta deseas realizar. Si no sigues la convención, tendrás que escribir una consulta personalizada explícitamente utilizando la anotación `@Query` o utilizando `Criteria API`.
+
+Por ejemplo, si en lugar de `findByCiudad` pusieras `obtenerHotelesPorCiudad`, Spring no podría generar la consulta automáticamente y **fallaría** a menos que se le indicara cómo hacerlo explícitamente.
+
+
+- **Spring Data JPA** interpreta el nombre de métodos como `findByCampo` y los traduce automáticamente en consultas SQL o JPQL. Esta traducción ocurre **sin necesidad de escribir el código SQL explícitamente**.
+- Si no sigues la convención de nomenclatura, **Spring no podrá generar la consulta automáticamente** y necesitarás escribir la consulta manualmente con `@Query`.
+
+---
+
+### **Ejemplo de un método con convención de Spring Data JPA:**
+
+Veamos un ejemplo detallado del funcionamiento de la convención con `findByCiudad`:
+
+#### La entidad `Hotel`:
+
+```java
+@Entity
+public class Hotel {
+    @ManyToOne
+    @JoinColumn(name="ciudad_id")
+    private Ciudad ciudad;
+}
+```
+
+#### La interfaz `HotelRepository`:
+
+```java
+@Repository
+public interface HotelRepository extends JpaRepository<Hotel, Long> {
+    // Spring generará una consulta para buscar todos los hoteles de una ciudad.
+    List<Hotel> findByCiudad(Ciudad ciudad);
+}
+```
+
+En este ejemplo, el método `findByCiudad` hace lo siguiente:
+
+1. **`findBy`**: Indica que estamos buscando (`find`) algo.
+2. **`Ciudad`**: Hace referencia al atributo de la entidad `Hotel` que representa la ciudad.
+    - Spring toma el nombre del atributo `ciudad` y lo usa para construir la consulta.
+
+El resultado es una consulta que seleccionará todos los hoteles de la base de datos que tengan una ciudad específica.
+
+#### ¿Qué hace Spring con este método?
+
+Cuando llamamos al método `findByCiudad`, Spring Data JPA:
+
+1. **Crea una consulta SQL**: Internamente, Spring crea una consulta SQL que selecciona todos los hoteles que corresponden a la ciudad proporcionada.
+    
+    - En SQL, la consulta generada podría ser algo como:
+        
+        ```sql
+        SELECT * FROM hotel WHERE ciudad_id = ?;
+        ```
+        
+    - Aquí, `ciudad_id` es la columna que hace referencia a la ciudad, y el `?` es el parámetro que se reemplazará con el valor de la ciudad que le pases al método.
+        
+2. **Ejecuta la consulta en la base de datos**: Spring ejecuta la consulta generada y mapea los resultados de la base de datos de vuelta a objetos `Hotel`.
+    
+
+---
+
+### **¿Y si no quiero seguir la convención?**
+
+Si deseas escribir una consulta que no sigue la convención o necesitas más flexibilidad, puedes usar la anotación `@Query` de Spring Data JPA para escribir la consulta de forma explícita. Aquí tienes un ejemplo:
+
+#### Usando `@Query` para consultas personalizadas:
+
+```java
+@Repository
+public interface HotelRepository extends JpaRepository<Hotel, Long> {
+
+    @Query("SELECT h FROM Hotel h WHERE h.ciudad = :ciudad")
+    List<Hotel> buscarHotelesPorCiudad(@Param("ciudad") Ciudad ciudad);
+}
+```
+
+- **`@Query`**: Define una consulta personalizada usando JPQL.
+- **`:ciudad`**: Es un parámetro que se reemplazará con el valor que se pase al método.
+- **`@Param("ciudad")`**: Especifica el nombre del parámetro en la consulta y lo vincula al parámetro del método.
+
+Este método hace lo mismo que `findByCiudad`, pero usando una consulta personalizada.
+
+
+# REST
+### ¿Qué es REST?
+
+**REST** (Representational State Transfer) es un estilo de arquitectura de software que se utiliza principalmente para diseñar servicios web. REST se basa en una serie de principios y restricciones que permiten la creación de aplicaciones distribuidas de manera escalable y sencilla. Un servicio RESTful utiliza los métodos estándar de HTTP (GET, POST, PUT, DELETE) para realizar operaciones sobre los recursos (entidades), que se representan generalmente en formato JSON o XML.
+
+En REST:
+
+- **Los recursos** son las entidades (como `Hotel`, `Ciudad`, etc.), identificadas por una URL.
+- **Las operaciones** sobre los recursos corresponden a las acciones estándar HTTP:
+    - **GET**: Obtener información de un recurso.
+    - **POST**: Crear un nuevo recurso.
+    - **PUT**: Actualizar un recurso.
+    - **DELETE**: Eliminar un recurso.
+
+**Ventajas de REST:**
+
+- **Escalabilidad**: Permite que el sistema se distribuya fácilmente.
+- **Simplicidad**: Utiliza los métodos HTTP estándar y no requiere complejos esquemas de comunicación.
+- **Estándares universales**: Basado en principios bien establecidos, por lo que es fácil de entender y usar en diferentes plataformas.
+
+
+
+
