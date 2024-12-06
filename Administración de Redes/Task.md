@@ -17,8 +17,8 @@
 
 
 ## Semana 5
-- [ ] ¿Qué es Jenkins y para que sirve? ⏳ 2024-10-03 
-- [ ] ¿Qué es Docker? ⏳ 2024-10-03 
+- [ ] ¿Qué es Jenkins y para que sirve? ⏳ 2024-10-03 **una leída**
+- [x] ¿Qué es Docker? Infografía ⏳ 2024-10-03 ✅ 2024-10-17
 
 
 ## Semana 6
