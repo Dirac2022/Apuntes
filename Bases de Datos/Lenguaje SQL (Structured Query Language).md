@@ -283,3 +283,11 @@ CREATE TABLE Ejemplo (
 - time
 - timestamp
 - interval
+- NUMERIC(precision, scale)
+
+
+# Eliminar una columna de una tabla
+
+```postgresql
+alter table nombre_tabla drop column nombre_campo;
+```
