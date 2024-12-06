@@ -1,4 +1,4 @@
-An artificial neural network is a collection of smaller units called neurons, which are computing units modeled on the way the human brain processes information
+	An artificial neural network is a collection of smaller units called neurons, which are computing units modeled on the way the human brain processes information
 
 > [!tip]
 > Una red neuronal es un aproximador de funciones
@@ -166,7 +166,12 @@ $$
 - ELU
 - Swish
 - Mish
-- Softmax: se usa para redes de clasificación
+## Softmax
+La función softmax se define como:
+$$ 
+\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}} 
+$$ 
+donde $x_i$ es el valor en la posición $i$ del vector y $n$ es el número total de elementos en el vector.
 
 
 # Tipos de redes neuronales
