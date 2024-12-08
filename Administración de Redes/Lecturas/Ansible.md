@@ -21,7 +21,7 @@ administradores de tecnología.
 # Playbook
 Un **playbook** es una lista de **plays** o **actos**. Un **play** es una lista de tareas que se aplican sobre un determinado conjunto de hosts. Si solo se tiene un conjunto de hosts, el playbook coincidirá con ese *play*. Cada tarea no es más que **una llamada a un módulo de Ansible**. 
 
-![][https://i0.wp.com/rawstorage.wordpress.com/wp-content/uploads/2019/07/image.png?resize=624%2C335&ssl=1]
+![Ansible Playbook Structure][https://i0.wp.com/rawstorage.wordpress.com/wp-content/uploads/2019/07/image.png?resize=624%2C335&ssl=1]
 
 
 # Ansible Tutorial: How Ansible Works?
@@ -69,6 +69,13 @@ Ansible works by connecting the server of the user through the [[Protocolos#SSH 
 The Ansible architecture consists of elements like modules, inventories, plugins, playbooks, and APIs. ==Ansible connects to the nodes and pushes out the ansible modules==. Modules refer to the small programs that the Ansible pushes out from the control machine to the remote hosts or nodes.
 
 The written programs act as resource models for the desirable state of a system. With the use of playbooks, the modules get executed and control the files, services, and packages. Ansible uses all the Ansible modules for installing different updates or performing all the required tasks. After the completion of the task, Ansible removes the modules. 
+
+Plugins are the extra codes that augment the functionality. All the nodes and control machines 
+used with Ansible are listed under inventories with databases, IP addresses, and servers. 
+Playbooks of the ansible architecture are like the instruction manuals for performing the tasks. 
+They are the simple YAML written files that make ansible more popular. The APIs help in 
+extending the connection types of Ansible, callbacks, and others.
+
 
 
 
