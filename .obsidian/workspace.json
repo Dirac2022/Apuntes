@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "aac61fe7b5b6dd52",
+        "id": "4f2e7c737a112142",
         "type": "tabs",
         "children": [
           {
-            "id": "0814db2f8c80ad3a",
+            "id": "7eee532d8246bd91",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Artificial Intelligence/Deep Learning/CNN (Convolutional Neural Networks).md",
+                "file": "Administración de Redes/Lecturas/Ansible.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CNN (Convolutional Neural Networks)"
+              "title": "Ansible"
             }
           }
         ]
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "SSH",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 301.5
+    "width": 301.5,
+    "collapsed": true
   },
   "right": {
     "id": "718557b829c5a8b8",
@@ -164,45 +165,46 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "0814db2f8c80ad3a",
+  "active": "7eee532d8246bd91",
   "lastOpenFiles": [
-    "Artificial Intelligence/Neural Networks.md",
-    "Artificial Intelligence/Deep Learning/CNN (Convolutional Neural Networks).md",
-    "Ingenieria de Software/Casos de prueba.md",
-    "Ingenieria de Software/Testing.md",
-    "Introduccion a la Electricidad y Magnetismo/Corriente eléctrica y circuitos de corriente continua.md",
-    "Introduccion a la Electricidad y Magnetismo/Desplazamiento eléctrico.md",
-    "Introduccion a la Electricidad y Magnetismo/Dipolo eléctrico.md",
-    "Introduccion a la Electricidad y Magnetismo/Distribuciones continuas de carga y Ley de Gauss.md",
-    "Ingenieria de Software/Sigepat Frontend.md",
+    "Administración de Redes/Lecturas/Docker.md",
+    "Administración de Redes/Lecturas/Ansible.md",
+    "Administración de Redes/YANG (Lab 10).md",
+    "Redes/Capa de transporte.md",
+    "Redes/Modelo TCP-IP.md",
+    "Redes/Protocolos.md",
+    "Administración de Redes/Ansible.md",
+    "Programación en Dispositivos Moviles/Jetpack Compose.md",
+    "Programación en Dispositivos Moviles/Algoritmos genéticos.md",
+    "Programación en Dispositivos Moviles/Kotlin/POO.md",
+    "Programación en Dispositivos Moviles/Kotlin/Fundamentos.md",
+    "Programación en Dispositivos Moviles/Kotlin/Funciones.md",
+    "Programación en Dispositivos Moviles/Librerías.md",
+    "Programación en Dispositivos Moviles/Otros conceptos.md",
+    "Programación en Dispositivos Moviles/Red Som.md",
+    "Administración de Redes/imgs/images base docker.png",
+    "Administración de Redes/imgs/Pasted image 20241130155001.png",
+    "Administración de Redes/Lecturas/Automatización de redes.md",
+    "Administración de Redes/imgs/Pasted image 20241130155424.png",
+    "Administración de Redes/imgs/Pasted image 20241201121124.png",
+    "Administración de Redes/imgs",
+    "Problemas.md",
+    "Matematica Computacional/Pasted image 20241117210443.png",
+    "Administración de Redes/imgs/Pasted image 20241201121022.png",
+    "Teoría de Autómatas, Lenguajes y Computación/Automatas.md",
+    "Python/Tipos de datos.md",
+    "Python/Serializacion.md",
+    "Python/Píldoras Informáticas.md",
+    "Python/Introduccion al lenguaje.md",
+    "Python/Funciones.md",
+    "Python/Estructuras de datos.md",
+    "Python/Classes and OOP.md",
+    "Python/Basics.md",
     "Artificial Intelligence/Deep Learning",
-    "Git/Actividades usuales.md",
-    "Bases de Datos/Foreign key.md",
-    "Bases de Datos/Crear backup.md",
-    "Ingenieria de Software/sigepat.md",
-    "Administración de Redes/PC4-Redes (Mitchel Soto Cuya).md",
-    "Pasted image 20241201121124.png",
-    "Pasted image 20241201121022.png",
-    "Pasted image 20241130155424.png",
-    "Ingenieria de Software/Introduccion a la Ingenieria  de Software.md",
-    "Ingenieria de Software/Conceptos.md",
-    "Ingenieria de Software/Modelo de Casos de Uso.md",
-    "Ingenieria de Software/Modelos del proceso.md",
-    "Teoría de Autómatas, Lenguajes y Computación/Expresiones Regulares.md",
-    "Teoría de Autómatas, Lenguajes y Computación/Introducción a la Teoría de la Computación.md",
-    "Introduccion a la Electricidad y Magnetismo/Condensadores o capacitores.md",
-    "Introduccion a la Electricidad y Magnetismo/Carga y Campo Electrico.md",
-    "Pasted image 20241130155001.png",
-    "Artificial Intelligence/Transformers.md",
-    "Ingenieria de Software/SpringBoot.md",
-    "Git/Git.md",
-    "Proyecto Rover/ERC 2024 – TAREAS TEASER.md",
-    "Pasted image 20241117210443.png",
     "Pasted image 20241027123132.png",
     "Pasted image 20241101184255.png",
     "Pasted image 20241101200009.png",
     "Pasted image 20241101200042.png",
-    "Pasted image 20241117190110.png",
     "Proyecto Rover/Untitled",
     "Tareas",
     "Leetcode",
@@ -211,7 +213,6 @@
     "Administración de Redes",
     "Ingenieria de Software/imgs",
     "Programación en Dispositivos Moviles/imgs",
-    "Programación en Dispositivos Moviles",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
