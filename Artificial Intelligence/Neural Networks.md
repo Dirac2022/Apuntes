@@ -194,3 +194,41 @@ donde $x_i$ es el valor en la posición $i$ del vector y $n$ es el número total
 Recurrent neural networks or RNNs, are recurrent because they perform the same task for every element of a sequence, with prior outputs feeding subsequent stage inputs. 
 **In a general neural network, an input is processed through a number of layers and an output is produced with an assumption that the two successive inputs are independent of each other, but that may not hold true in certain scenarios**. For example, when we need to consider the context in which a word has been spoken, in such scenarios, dependence on previous observations has to be considered to produce the output. 
 RNNs can make use of information in long sequences, each layer of the network representing the observation at a certain time
+
+
+# Neural Networks Architectures
+[Redes neuronales [A-Z] | Kaggle](https://www.kaggle.com/discussions/general/197078)
+
+
+![][https://onlinelibrary.wiley.com/cms/asset/2ddcd8f3-5c86-4579-a3b6-316ed3b16e8d/adma202208683-fig-0014-m.jpg]
+
+
+
+## Feed Forward Neural Networks (FF or FFNN) and Perceptrons (P)
+Are very straight forward, they feed information from the front to the back (input and output, respectively). Neural networks are often described as having layers, where each layer consists of either input hidden or output cells in parallel. The simplest somewhat practical network has two input cells and one output cell, which can be used to model logic gates. One usually trains FFNNs trough **back-propagation**, giving the network paired datasets of "what goes in" and "what we want to have coming out". The error being back-propagated is often some variation of the difference between the input and the output (like **MSE** or just the linear difference). Given that the network has enough hidden neurons, it can theoretically always model the relationship between the input and output. Practically their use is a lot more limited but they are popularly combined with other networks to form new networks.
+
+## Radial Basis Function (RBF)
+Are FFNNs with **radial basis functions** as activation functions. 
+
+>[!info]
+>La **Función de Base Radial (RBF)** es un tipo de función matemática utilizada en el aprendizaje automático, especialmente en redes neuronales y métodos de interpolación. Se caracteriza por depender únicamente de la distancia entre un punto de entrada y un centro predefinido, es decir, su valor solo depende de $\|x−c\|$, donde $x$ es el punto y ccc es el centro. 
+
+
+## Hopfield Network (HN)
+
+
+## Markov Chains (MC or discrete time Markov Chain, DTMC)
+
+## Boltzmann Machines (BM)
+
+
+## Restricted Boltzmann Machines (RBM)
+
+
+## Autoencoders (AE)
+
+
+## Support Vector Machines (SVM)
+
+## Kohonen Networks (KN) or Self Organizing (feature) Map (SOM, SOFM)
+Use competitive learning to classify data without supervision. Input is presented to the network, after with the network assesses which of its neurons most closely match that input. These neurons are then adjusted to match the input even better, dragging alone their neighbors in the process. How much the neighbors are moved depends on the distance of the neighbors to the best matching units.
