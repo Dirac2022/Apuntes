@@ -77,8 +77,8 @@ Aquí tienes una ruta de aprendizaje estructurada para adquirir los conocimiento
 - [x] 21. Multiple Features ✅ 2024-11-10
 - [x] 22. Vectorization Part 1 ✅ 2024-11-10
 - [x] 23. Vectorization Part 2 (Talk about Lab Python, NumPy and Vectorization) ✅ 2024-11-10
-- [ ] 24. Gradient Descent for Multiple Regression
-- [ ] 25.
+- [x] 24. Gradient Descent for Multiple Regression (Opcional Lab Multiple Variable Linear Regression) ✅ 2024-12-09
+- [ ] 25. Feature Scaling Part 1
 - [ ] 26.
 - [ ] 27.
 - [ ] 28.
