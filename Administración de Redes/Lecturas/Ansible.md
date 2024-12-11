@@ -21,9 +21,14 @@ administradores de tecnología.
 # Playbook
 Un **playbook** es una lista de **plays** o **actos**. Un **play** es una lista de tareas que se aplican sobre un determinado conjunto de hosts. Si solo se tiene un conjunto de hosts, el playbook coincidirá con ese *play*. Cada tarea no es más que **una llamada a un módulo de Ansible**. 
 
-![Ansible Playbook Structure][https://i0.wp.com/rawstorage.wordpress.com/wp-content/uploads/2019/07/image.png?resize=624%2C335&ssl=1]
-
-
+<div style="text-align:center">
+<figure>
+<img src="https://i0.wp.com/rawstorage.wordpress.com/wp-content/uploads/2019/07/image.png?resize=624%2C335&ssl=1" alt="">
+<figcaption>
+Ansible Playbook Structure
+</figcaption>
+</figure>
+</div>
 # Ansible Tutorial: How Ansible Works?
 
 Ansible se refiere a ==una plataforma o herramienta de automatización de código abierto que es útil para diferentes tareas de TI, como la gestión de configuraciones, orquestación entre servicios, despliegue de aplicaciones y aprovisionamiento==. La automatización es vital para gestionar entornos de TI complejos y simplificar las tareas complicadas de los desarrolladores. Ansible es una herramienta líder en automatización que ayuda a superar los desafíos de la automatización y garantiza una mejor productividad.
@@ -61,8 +66,13 @@ Ansible works by connecting the server of the user through the [[Protocolos#SSH 
 
 ## The process in which Ansible works include:
 
-
-![][https://miro.medium.com/v2/resize:fit:828/format:webp/1*ggZsV04skLhQNSV6cYH5ZQ.png]
+<div style="text-align:center">
+<figure>
+<img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*ggZsV04skLhQNSV6cYH5ZQ.png" alt="">
+<figcaption>
+</figcaption>
+</figure>
+</div>
 
 
 ### 1. Setting the Architecture
@@ -75,6 +85,35 @@ used with Ansible are listed under inventories with databases, IP addresses, and
 Playbooks of the ansible architecture are like the instruction manuals for performing the tasks. 
 They are the simple YAML written files that make ansible more popular. The APIs help in 
 extending the connection types of Ansible, callbacks, and others.
+
+### 2. SSH Keys
+SSH keys are an essential part of how Ansible works. Even though passwords are supported, the SSH keys are one of the best ways of accessing Ansible. 
+
+The authorized key to Ansible is an excellent way to use Ansible to control machines and access hosts. The authorization keys help in controlling the access of different modules to different users. The authorization keys come handy for varios IT systems 
+
+### 3. Managing Inventory
+Managing inventory is also an essential part of how Ansible works. Ansible represents all the 
+machines that it manages on a simple INI file. It puts all the managed machines into groups 
+according to the choice of the users. To add new machines, there is no requirement for 
+additional SSL signings. It helps in eliminating all the issues relating to DNS or NTP. The 
+elimination of SSL signing removes the hassle of linking a particular machine.
+
+Ansible also offers to plugin to other sources available on the user’s infrastructure. It can 
+easily plugin into groups, inventory, and other sources like OpenStack, EC2, Rackspace, and 
+more. After the listing of the inventory hosts, the variables can be easily assigned to the text 
+files in the inventory file. The use of dynamic inventory can help in pulling out the inventory 
+of the user from data sources like Rackspace, OpenStack, or EC2
+### 4. Using Ansible
+Knowing how Ansible works, then it is the use. On availing the instance, the users can directly 
+start using Ansible without any additional overhead. The users already have access to the 
+running commands as well as the resource modules. It helps in making the use more 
+straightforward. The modules of ansibles are very easy to write, and this makes the task 
+execution even simpler
+
+### 5. Ansible Playbooks
+Playbooks of ansible help in finely orchestrating the infrastructure topology of the users. The simplicity of automation with Ansible is a feature that makes it more demanding.
+
+
 
 
 
