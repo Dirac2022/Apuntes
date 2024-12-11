@@ -19,6 +19,40 @@ Este parámetro acepta un arreglo n dimensional existente, que servirá como ref
 - **order** : `'C' o 'F'` donde `'C'` se almacenan datos multidimensionales por fila y `F` se almacenan por columna. Esta en `C` por defecto
 - **like** : 
 
+# `np.savetxt`
+Es una función utilizada para guardar datos de un array en un archivo de texto. 
+
+```python
+np.savetxt(frame, X, fmt='%.18e', delimiter=' ', newline='\n', header='', footer='', comments='#', encoding=None)
+```
+
+| Parámetro   | Descripción                                                                      |
+| ----------- | -------------------------------------------------------------------------------- |
+| `fname`     | Nombre del archivo (puede incluir ruta) donde se guardarán los datos.            |
+| `X`         | Array de NumPy que se quiere guardar.                                            |
+| `fmt`       | Formato de las entradas (por defecto: `'%.18e'`, notación científica).           |
+| `delimiter` | Separador usado entre los valores (por defecto: espacio).                        |
+| `newline`   | Caracteres que separan las filas (por defecto: nueva línea `\n`).                |
+| `header`    | Texto que se añadirá como cabecera en el archivo.                                |
+| `footer`    | Texto que se añadirá al final del archivo.                                       |
+| `comments`  | Prefijo para las líneas de comentarios (por defecto: `'#'`).                     |
+| `encoding`  | Codificación del archivo (por defecto: `None`, usa la codificación del sistema). |
+
+# `np.loadtxt`
+Se usa para cargar datos desde un archivo de texto en un arreglo de NumPy.
+
+```python
+np.loadtxt(fname, dtype=<tipo>, delimiter=<separador>, skiprows=<saltos>, usecols=<columnas>, unpack=<booleano>, comments=<carácter>, encoding=<codificación>)
+```
+
+| Parámetro      | Descripción                                      | Valor por defecto |
+|----------------|--------------------------------------------------|-------------------|
+| `fname`        | Archivo de texto a leer                          | No tiene          |
+| `dtype`        | Tipo de dato de los elementos                    | `float`           |
+| `delimiter`    | Delimitador de los datos (ej. `,`, espacio)       | `None`            |
+| `skiprows`     | Número de filas a saltar al principio            | 0                 |
+| `usecols`      | Especifica las columnas a leer                   | `None`            |
+| `unpack`       | Si debe devolver los valores como arrays separados | `False`          |
 
 
 # Basado en Learn Python A Beginner's Guide to Python, NumPy, Pandas and Scipy
