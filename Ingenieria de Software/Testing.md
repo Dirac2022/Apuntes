@@ -52,6 +52,7 @@ Este método de casos de prueba usa los detalles procedimentales del programa. S
 	3. Error en una condición simple o compuesta
 	4. Error en un operador relacional
 	5. Error en una expresión aritmética
+
 ## Prueba de caja negra
 Se realiza con el fin de asegurar que el producto es operativo.
 
@@ -61,3 +62,23 @@ Este tipo de prueba se centra en los requisitos funcionales del software y permi
 3. Errores en estructuras de datos o en accesos a bases de datos externas.
 4. Errores de rendimiento.
 5. Errores de inicialización y terminación.
+
+
+# Pruebas alfa y beta
+- La prueba alfa es conducida por un cliente en el lugar de desarrollo.
+- La prueba beta se lleva a cabo en uno o más lugares de cliente por usuarios finales del software.
+
+
+
+
+| Sección                    | Descripción                                                                                                                                                                                                                                                                                          |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Objetivos                  | Establece las metas principales del proyecto, tanto técnicas como funcionales, por ejemplo: determinar si una imagen MRI contiene o no un tumor, reducir tiempos de diagnóstico y facilitar la integración con servicios en la nube.                                                                 |
+| Estado del Arte            | Resume de forma concisa las investigaciones previas sobre clasificación de tumores con técnicas de Machine Learning, redes neuronales de mapas autoorganizados (SOM), procesamiento de imágenes médicas e identificación de patrones en MRI.                                                         |
+| Metodología                | Explica el flujo de trabajo completo: obtención y preprocesamiento de las imágenes, selección y configuración de la red SOM, ajustes en la arquitectura, entrenamiento del modelo, validación, así como la preparación del modelo para ser consumido desde aplicaciones externas.                    |
+| Diseño del Modelo SOM      | Detalla la arquitectura de la red SOM (tamaño de la cuadrícula, función de vecindad, tasa de aprendizaje), justifica la elección de parámetros, las funciones de activación, y describe cómo se mapean las imágenes en el espacio topológico que la SOM construye.                                   |
+| Entrenamiento del Modelo   | Describe el proceso de entrenamiento sobre el conjunto de datos, el uso de métricas de rendimiento (precisión, recall, F1-score), las curvas de error a lo largo de las épocas, criterios para detener el entrenamiento y posibles estrategias de optimización.                                      |
+| Despliegue en Hugging Face | Explica paso a paso cómo se guardó el modelo entrenado, la creación del espacio en Hugging Face, la inclusión del archivo app.py con la lógica de inferencia, el dockerfile que contiene el entorno reproducible y el requirements.txt para las dependencias necesarias.                             |
+| Integración con Firebase   | Explica cómo se utiliza Firebase Storage para almacenar las imágenes enviadas desde la app móvil, cómo se emplea la Realtime Database para mantener referencias a estas imágenes, la obtención de las URLs de las imágenes y su posterior envío al servicio en Hugging Face.                         |
+| App Android (Kotlin)       | Describe la interfaz de la aplicación móvil, cómo se capturan o seleccionan imágenes desde el dispositivo, el flujo para subirlas a Firebase Storage, cómo se obtiene la URL resultante y se envía al backend en Hugging Face para obtener la predicción, y cómo se muestra la respuesta al usuario. |
+| Fuentes y Referencias      | Enumera la bibliografía, artículos científicos, documentación técnica, repositorios, frameworks y librerías utilizadas, así como los recursos consultados durante la implementación del proyecto.                                                                                                    |
