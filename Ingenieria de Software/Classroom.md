@@ -105,3 +105,20 @@
 - [ ] Video ⏳ 2024-11-20 
 
 
+# Semana 14
+
+
+## Lunes
+
+## Jueves
+
+
+
+# Semana 15
+
+## Lunes 
+
+## Jueves
+
+
+
