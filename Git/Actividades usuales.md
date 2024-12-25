@@ -185,3 +185,91 @@ Este comando forzará el cambio de rama y descartará cualquier cambio no confir
 Si el problema persiste, intenta cerrar la terminal de Git Bash, reiniciar tu computadora o intentar en otra terminal (como Git CMD o Terminal en VSCode) para asegurarte de que no haya ningún proceso bloqueando el archivo.
 
 Una vez que hayas resuelto el problema con el archivo bloqueado, podrás cambiar a la rama `deploy` y continuar con los pasos de `git reset --hard mitchel` para sobrescribir el contenido de esa rama con lo que tienes en `mitchel`.
+
+
+# Cambiar remote origin
+
+Si ya tienes configurado un remoto (`origin`) apuntando a otro repositorio y deseas cambiarlo para que apunte a `https://github.com/Dirac2022/sigepat-frontend.git`, sigue estos pasos:
+
+### **1. Verifica el remoto actual**
+
+Ya lo hiciste con:
+
+```bash
+git remote -v
+```
+
+Esto confirma que `origin` actualmente apunta a:
+
+```
+https://github.com/Zdm17y4/Sigepat-Frontend.git
+```
+
+---
+
+### **2. Elimina el remoto actual**
+
+Primero, elimina el remoto `origin` existente:
+
+```bash
+git remote remove origin
+```
+
+Puedes verificar que se eliminó correctamente ejecutando nuevamente:
+
+```bash
+git remote -v
+```
+
+No debería aparecer nada relacionado con `origin`.
+
+---
+
+### **3. Añade el nuevo remoto**
+
+Agrega el nuevo remoto apuntando a `https://github.com/Dirac2022/sigepat-frontend.git`:
+
+```bash
+git remote add origin https://github.com/Dirac2022/sigepat-frontend.git
+```
+
+Verifica que ahora apunta al repositorio correcto:
+
+```bash
+git remote -v
+```
+
+Deberías ver algo como esto:
+
+```
+origin  https://github.com/Dirac2022/sigepat-frontend.git (fetch)
+origin  https://github.com/Dirac2022/sigepat-frontend.git (push)
+```
+
+---
+
+### **4. Sube tus cambios al nuevo remoto**
+
+Si ya tienes _commits_ en tu repositorio local y deseas enviarlos al nuevo remoto, usa:
+
+```bash
+git push -u origin main
+```
+
+Esto configura `origin` y la rama `main` para futuras sincronizaciones.
+
+---
+
+### **Resumen de comandos**
+
+|Paso|Comando|
+|---|---|
+|Verificar remoto actual|`git remote -v`|
+|Eliminar remoto actual|`git remote remove origin`|
+|Agregar nuevo remoto|`git remote add origin https://github.com/Dirac2022/sigepat-frontend.git`|
+|Verificar nuevo remoto|`git remote -v`|
+|Subir cambios al nuevo remoto|`git push -u origin main`|
+
+---
+
+¿Tienes algún problema al seguir estos pasos o necesitas ayuda adicional? 😊
