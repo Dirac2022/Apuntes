@@ -63,7 +63,7 @@ Aquí tienes una ruta de aprendizaje estructurada para adquirir los conocimiento
 - [ ] Practice quiz: Train the model with gradient descent (10 minutes)
 
 #### Ungraded labs
-- [ ] Python and Jupyter Notebooks (60 minutes)
+- [x] Python and Jupyter Notebooks (60 minutes) ✅ 2024-12-15
 - [ ] Optional lab: Model representation (60 minutes)
 - [ ] Optional lab: Cost function (60 minutes)
 - [ ] Optional lab: Gradient descent (60 minutes)
