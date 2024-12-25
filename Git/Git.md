@@ -232,3 +232,261 @@ git commit -m "Cambio de nombre de dirac a archivo2" -a
 
 ### Uso de `git show`
 Se utiliza para mostrar información detallada sobre objetos en Git como commits, árboles o blobs.
+
+
+# Obtener las ramas de un repositorio remoto
+
+```git
+git fetch origin
+```
+
+
+# Descargar repo remoto de github
+
+Verificar si git esta configurado
+```git
+git --version
+```
+
+Clonar el repositorio
+```git
+git clone https://github.com/Dirac2022/sigepat.git
+```
+
+Posicionarse en la carpeta del repositorio clonado
+```git
+cd sigepat
+```
+
+Verificar el estado del repositorio
+```git
+git status
+```
+
+Configurar las credenciales
+```git
+git config --global user.name "Nombre"
+git config --global user.email "email"
+```
+
+
+# Commits
+
+### 1. **Convenciones generales de mensajes de _commit_**
+
+- Usa el idioma del proyecto (por lo general, inglés).
+- La primera línea debe ser breve (50 caracteres o menos) y describir el cambio de forma general.
+- Si necesitas más detalles, usa una línea en blanco y luego agrega una descripción más larga en el segundo párrafo (72 caracteres por línea como máximo).
+- Usa un tono imperativo (ejemplo: "Add", "Fix", "Update").
+
+---
+
+### 2. **Estructura básica de un mensaje de _commit_**
+
+Un mensaje típico sigue este formato:
+
+```
+[Tipo]: [Descripción breve]
+
+[Descripción detallada opcional]
+```
+
+#### Tipos comunes:
+
+|Tipo|Uso|
+|---|---|
+|`feat`|Para agregar una nueva característica (por ejemplo, una clase).|
+|`fix`|Para corregir un error en el código.|
+|`refactor`|Para mejorar el código sin cambiar su funcionalidad.|
+|`docs`|Para actualizar la documentación.|
+|`style`|Cambios de formato o estilo que no afectan la lógica del código.|
+|`test`|Para agregar o modificar pruebas.|
+|`chore`|Cambios menores que no afectan la lógica del proyecto.|
+
+---
+
+### 3. **Ejemplos de mensajes para casos comunes**
+
+#### a) **Crear una nueva clase**
+
+```plaintext
+feat: Add User class for handling user-related operations
+
+Created a new User class with basic attributes: username, email, and password.
+```
+
+#### b) **Modificar una clase (añadir un atributo o método)**
+
+```plaintext
+feat: Add 'lastLogin' attribute to User class
+
+Added 'lastLogin' to track the last login date of a user. Updated the constructor and added a method to update this attribute.
+```
+
+#### c) **Modificar un método existente**
+
+```plaintext
+fix: Update 'validatePassword' method in User class
+
+Improved the password validation logic to enforce stricter password policies.
+```
+
+#### d) **Eliminar un atributo o método**
+
+```plaintext
+refactor: Remove 'age' attribute from User class
+
+The 'age' attribute was redundant as it can be derived from the 'birthdate' attribute.
+```
+
+#### e) **Eliminar una clase completa**
+
+```plaintext
+refactor: Remove unused Admin class
+
+The Admin class was removed as it is no longer needed in the current system design.
+```
+
+#### f) **Actualizar la documentación**
+
+```plaintext
+docs: Update README to include User class details
+```
+
+---
+
+### 4. **¿Cuándo hacer _commit_ y _push_?**
+
+#### a) **Frecuencia de _commits_**
+
+- Haz un _commit_ después de completar una tarea lógica pequeña, por ejemplo:
+    - Crear una nueva clase.
+    - Añadir un método importante.
+    - Solucionar un problema específico.
+
+#### b) **Frecuencia de _push_**
+
+- Haz un _push_ al terminar una sección importante de trabajo o al final de tu jornada.
+- Mantén tu repositorio remoto sincronizado regularmente para evitar conflictos.
+
+---
+
+### 5. **Flujo de trabajo sugerido**
+
+|Paso|Comando|Ejemplo / Comentario|
+|---|---|---|
+|**Agregar cambios al _staging_**|`git add [archivo]` o `git add .`|`git add User.java` para añadir solo el archivo modificado.|
+|**Hacer un _commit_**|`git commit -m "[mensaje]"`|`git commit -m "feat: Add User class"`|
+|**Enviar cambios al remoto**|`git push origin [rama]`|`git push origin main`|
+
+---
+
+### 6. **Errores comunes y cómo evitarlos**
+
+|Error|Solución / Práctica recomendada|
+|---|---|
+|Mensajes vagos o genéricos|Escribe mensajes descriptivos (por ejemplo, evita "updated code").|
+|Mezclar cambios no relacionados|Divide los cambios en _commits_ separados por funcionalidad.|
+|No hacer _push_ regularmente|Haz _push_ al menos una vez al día o después de cambios significativos.|
+# Frequencia de commits
+### 1. **Relación entre _commits_ y _push_**
+
+- Un **commit** guarda cambios en el repositorio **local**. Puedes hacer tantos _commits_ como quieras mientras trabajas localmente.
+- Un **push** envía los _commits_ realizados a un repositorio **remoto** (por ejemplo, GitHub).
+
+Esto significa que puedes realizar múltiples _commits_ relacionados a diferentes cambios antes de enviarlos todos juntos con un solo _push_.
+
+---
+
+### 2. **Ventajas de varios _commits_ por _push_**
+
+|Ventaja|Descripción|
+|---|---|
+|**Historial claro**|Cada _commit_ representa un cambio lógico, lo que facilita entender el historial del proyecto.|
+|**Facilidad para revertir**|Si un cambio específico causa problemas, puedes revertir un solo _commit_ sin afectar los demás.|
+|**Colaboración eficiente**|Otros desarrolladores pueden ver exactamente qué cambios hiciste y por qué.|
+
+---
+
+### 3. **Ejemplo práctico: Varios _commits_ relacionados a un _push_**
+
+Supongamos que estás trabajando en una clase `User` y realizas estos cambios:
+
+#### a) **Primer cambio: Creas la clase base**
+
+```bash
+# Modificas el código
+git add User.java
+git commit -m "feat: Add base User class with essential attributes"
+```
+
+#### b) **Segundo cambio: Añades un método**
+
+```bash
+# Añades un nuevo método
+git add User.java
+git commit -m "feat: Add 'getFullName' method to User class"
+```
+
+#### c) **Tercer cambio: Corriges un error**
+
+```bash
+# Arreglas un error en el constructor
+git add User.java
+git commit -m "fix: Correct constructor logic in User class"
+```
+
+Finalmente, haces un **push** de todos estos _commits_ al repositorio remoto:
+
+```bash
+git push origin main
+```
+
+---
+
+### 4. **Cómo ver los _commits_ antes de hacer un _push_**
+
+Puedes revisar los _commits_ pendientes de enviar con el comando:
+
+```bash
+git log origin/main..HEAD
+```
+
+Esto mostrará los _commits_ en tu rama local que aún no están en el remoto.
+
+---
+
+### 5. **Buenas prácticas para varios _commits_**
+
+|Recomendación|Descripción|
+|---|---|
+|**Haz _commits_ pequeños y frecuentes**|Cada _commit_ debe ser un cambio lógico y coherente, no un "gran paquete".|
+|**Revisa tus mensajes**|Usa mensajes descriptivos y claros para cada _commit_.|
+|**Evita _push_ innecesarios**|No hagas _push_ después de cada _commit_ si los cambios aún no están listos.|
+|**Agrupa cambios relacionados**|Por ejemplo, todos los cambios en la clase `User` pueden ir en un solo _push_.|
+
+---
+
+### 6. **¿Cuándo hacer un solo _commit_ en lugar de varios?**
+
+En algunos casos, podrías preferir un solo _commit_ si:
+
+- El cambio es muy pequeño (por ejemplo, corregir un error tipográfico).
+- Los cambios son inseparables y pertenecen a una única tarea lógica.
+
+En estos casos, puedes agrupar los cambios antes de hacer un _commit_.
+
+```bash
+git add .
+git commit -m "feat: Complete User class with methods and attributes"
+```
+
+---
+
+### Resumen del flujo típico
+
+1. Realizas varios _commits_ localmente para registrar cambios pequeños y lógicos.
+2. Revisas los _commits_ pendientes con `git log`.
+3. Cuando los cambios están listos, haces un solo _push_ para enviarlos al remoto.
+
+¿Te gustaría practicar algún comando o explorar un caso particular?
