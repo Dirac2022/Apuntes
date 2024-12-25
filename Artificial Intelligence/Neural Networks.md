@@ -1,4 +1,4 @@
-	An artificial neural network is a collection of smaller units called neurons, which are computing units modeled on the way the human brain processes information
+An artificial neural network is a collection of smaller units called neurons, which are computing units modeled on the way the human brain processes information
 
 > [!tip]
 > Una red neuronal es un aproximador de funciones
