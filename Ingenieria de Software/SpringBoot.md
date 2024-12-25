@@ -14,7 +14,7 @@ Convierte una colección de entidades en una lista de objetos `HotelResponse`. S
 
 
 # `stream()`
-Convierte una colección es un flujo (stream), que permite procesar los elementos de la colección de manera funcional. Esto habilita el uso de métodos como `map()`, `filter()`, `reduce()`, entre otros, que operan sobre cada elemento de la colección de forma declarativa y eficiente.
+Convierte una colección en un flujo (stream), que permite procesar los elementos de la colección de manera funcional. Esto habilita el uso de métodos como `map()`, `filter()`, `reduce()`, entre otros, que operan sobre cada elemento de la colección de forma declarativa y eficiente.
 
 
 >[!info] **¿Qué es un stream?**
