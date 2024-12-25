@@ -931,12 +931,3 @@ create or replace function nombre_depa(codigo smallint)
 returns 
 ```
 
-```plsql
-
-```
-
-
-```plsql
-
-```
-
