@@ -1,7 +1,14 @@
 
->[!success] Completed tasks 
+>[!success] Completed tasks  Today
 >```tasks
-done after 2024-12-01 
+done today
+
+
+
+
+>[!success] Completed tasks this week
+>```tasks
+done this week
  
 
 
