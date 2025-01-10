@@ -270,6 +270,56 @@ Esto configura `origin` y la rama `main` para futuras sincronizaciones.
 |Verificar nuevo remoto|`git remote -v`|
 |Subir cambios al nuevo remoto|`git push -u origin main`|
 
----
 
-¿Tienes algún problema al seguir estos pasos o necesitas ayuda adicional? 😊
+# Primer commit
+
+```bash
+# 1. Inicializar el repositorio Git local
+git init
+
+# 2. Agregar el repositorio remoto
+git remote add origin https://github.com/DesarrolloDeAplicacion/Beta-App.git
+
+# 3. Verificar que se agregó correctamente
+git remote -v
+
+# 4. Agregar todos los archivos al staging
+git add .
+
+# 5. Realizar el primer commit
+git commit -m "Primer commit: Inicialización del proyecto Android"
+
+# 6. Cambiar a la rama principal (desde 2020 GitHub usa 'main' por defecto)
+# 1. Renombra la rama actual (tradicionalmente 'master') a 'main'
+# 2. Fuerza el cambio incluso si existe otra rama con ese nombre
+git branch -M main
+
+# 7. Subir los cambios al repositorio remoto
+git push -u origin main
+```
+
+```bash
+git branch -M main
+```
+
+| Comando | Significado                                                |
+| ------- | ---------------------------------------------------------- |
+| branch  | Comando para gestionar ramas                               |
+| -M      | Flag de "move/rename" forzado (mayúscula significa forzar) |
+| main    | Nuevo nombre de la rama                                    |
+
+```bash
+git push -u origin main
+```
+
+| Comando | Significado                         |
+| ------- | ----------------------------------- |
+| -u      | Flag de "upstream" (--set-upstream) |
+| origin  | Nombre del repositorio remoto       |
+| main    | Nombre de la rama a subir           |
+
+El flag `-u` es especialmente importante porque:
+
+1. Establece una relación de seguimiento entre tu rama local y la rama remota
+2. En futuros push, solo necesitarás escribir `git push` sin especificar origin main
+3. Te permite ver la relación entre ramas locales y remotas con `git branch -vv`
