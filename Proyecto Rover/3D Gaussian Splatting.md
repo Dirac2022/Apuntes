@@ -1,3 +1,18 @@
+- [What is 3D Gaussian Splatting?](https://www.youtube.com/watch?v=Tnij_xHEnXc)
+- [3D Gaussian Splatting! - Computerphile](https://www.youtube.com/watch?v=VkIJbpdTujE)
+- 
+
+# What is 3D Gaussian Splatting
+
+
+
+Es un método para crear una escena 3D compleja usando un video o serie de imágenes. Hace uso de los llamados **Radiance Fields** como **NeRF** con una particularidad. 3D GS es más rápido de entrenar y se pueden lograr un mayor nivel de detalle. 3D GS logra representaciones de escenas en tiempo real de forma increíblemente rápida.
+
+Comenzamos con un conjunto de imágenes (input) desde distintos ángulos de un objeto, o también un video. Usando un método matemático llamado **Structure-from-Motion SfM** las diferencias entre estas imágenes se calculan para formar la nube de puntos 3D. Podemos pensarlo como muchos puntos en el espacio 3D donde cada punto representa un punto de las fotos. Ahora en lugar de intentar crear un modelo detallado con polígonos, cada punto se convierte en un **gaussiano 3D** (un elipsoide) Los gaussianos 3D  tiene parámetros (transparencia, tamaño, color) que les permiten entrar en un proceso de optimización iterativo que les permite afinarlos hasta que coincidan con las fotos originales ajustando sus posiciones 3D, la opacidad del color y **como varian sus detalles desde diferentes direcciones**. El entrenamiento también utiliza un **Adaptative Density Control** (Control de densidad adaptativo), lo que significa que cuando un gaussiano es demasiado transparente, se elimina o cuando un gaussiano es demasiado grande para una parte detallada de la escena, se divide en dos.
+
+Para ver estos gaussianos usamos una técnica llamada **rasterization** que los proyecta sobre una superficie 2D. Se considera su distancia del espectador para la profundidad y luego para cada píxel se calcula cuánto contribuye cada gaussiano a ese pixel.
+
+![[Pipeline 3D GS.png]]
 
 - NeRF (Neural Radiance Fields 2020)
 - Paper de NeRF: NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis.
@@ -89,5 +104,18 @@ $$L_{\text{3DGS}}(x, y, z, \theta, \phi) = \sum_i G(x, y, z, \mu_i, \Sigma_i) \c
 
 donde $G$ es la función gaussiana con media $\mu_i$ y covarianza $\Sigma_i$, y $c$ representa el color dependiente de la vista.
 
+
+## 3 3D GAUSSIAN SPLATTING: PRINCIPLES
+
+Consideremos una escena representada por (millones de) gaussianas 3D optimizadas. El objetivo es generar una imagen desde una posición de cámara específica.
+
+Recordemos que NeRFs aborda esta tarea mediante el ray marching volumétrico computacionalmente exigente, muestreando puntos del espacio 3D por píxel. Tal paradigma tiene dificultades con la síntesis de imágenes de alta resolución, fallando en lograr un renderizado en tiempo real, especialmente para plataformas con recursos computacionales limitados [10].
+
+En contraste, el GS 3D comienza proyectando estas gaussianas 3D en un plano de imagen basado en píxeles, un proceso denominado "splatting" (ver Fig. 3b). Después, el GS 3D ordena estas gaussianas y calcula el valor para cada píxel. Como se muestra en la Fig. 3, el renderizado de NeRFs y GS 3D puede verse como un proceso inverso uno del otro.
+
+A continuación:
+1. Comenzamos con la definición de una gaussiana 3D, que es el elemento mínimo de la representación de escena en GS 3D
+2. Describimos cómo estas gaussianas 3D pueden usarse para renderizado diferenciable
+3. Introducimos la técnica de aceleración utilizada en GS 3D, que es la clave para el renderizado rápido
 
 
