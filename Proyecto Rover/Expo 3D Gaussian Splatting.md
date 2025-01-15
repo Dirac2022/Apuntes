@@ -138,7 +138,7 @@ Cada Gaussiano 3D se caracteriza por:
 
 ![[Pasted image 20250113171733.png]]
 
-#### Culling de Frustum
+#### Frustum Culling  
 Determina qué Gaussianos están fuera del frustum de la cámara para optimizar recursos.
 
 ![[frustum culling.gif]]
@@ -176,7 +176,6 @@ Donde:
 - $\alpha_n$: Opacidad aprendida
 - $c_n$: Color aprendido
 
-
 #### Tiles (Patches)
 - En lugar de procesar píxel por píxel, el sistema divide la imagen en cuadrados de 16×16 píxeles llamados "tiles"
 - Si un Gaussiano 3D proyectado cubre varios tiles, se crea una copia para cada tile afectado
@@ -194,7 +193,6 @@ Donde:
 
 
 ![[Pasted image 20250113165521.png]]
-
 
 ### Optimization of 3D Gaussian Splatting
 
@@ -230,7 +228,6 @@ Donde:
      - $\Sigma \to \Sigma'$
      - $\Sigma' \to α$
    - Para evitar el costo de la diferenciación automática, 3D GS deriva los gradientes para $q$ y $s$ para calcularlos directamente durante la optimización
-
 
 #### Density Control
 ##### Initialization
