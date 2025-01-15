@@ -411,3 +411,160 @@ print(f"Coeficiente de correlación: {r:.4f}")
 - El valor 0.7236 está cercano a 1, lo que sugiere una relación lineal relativamente fuerte
 
 ¿Te gustaría que profundicemos en la interpretación o en algún paso específico del cálculo?
+
+
+
+### (i) Coeficiente de correlación
+El coeficiente de correlación es r = 0.9459
+
+### (ii) Interpretación
+Este valor indica una correlación positiva muy fuerte entre la edad y la presión sanguínea sistólica. Esto significa que:
+- Existe una relación lineal muy fuerte donde la presión sanguínea aumenta con la edad
+- Aproximadamente el 89.47% (r² = 0.9459² = 0.8947) de la variabilidad en la presión puede explicarse por la edad
+
+## (b) Ecuación de Regresión
+
+La ecuación de regresión lineal es:
+$$p = 1.0540t + 69.3476$$
+
+Donde:
+- a = 69.3476 (intercepto)
+- b = 1.0540 (pendiente)
+
+## (c) Predicción para paciente de 50 años
+
+Sustituyendo t = 50 en la ecuación:
+`$$p = 1.0540(50) + 69.3476 = 122.05$$`
+
+La presión sanguínea sistólica estimada para un paciente de 50 años sería aproximadamente 122 mmHg.
+
+## (d) Explicación sobre paciente de 16 años
+
+No se debería utilizar la ecuación de regresión para predecir la presión de un paciente de 16 años por las siguientes razones:
+
+| Razón | Explicación |
+|-------|-------------|
+| Extrapolación | 16 años está fuera del rango de edades de la muestra (21-72 años) |
+| Validez del modelo | El modelo se construyó con datos de adultos, no de adolescentes |
+| Factores fisiológicos | La relación edad-presión puede ser diferente en adolescentes |
+| Confiabilidad | Las predicciones fuera del rango de datos son menos confiables |
+
+Observaciones sobre los cambios:
+1. El coeficiente de correlación aumentó significativamente (de 0.7236 a 0.9459)
+2. La pendiente de la recta aumentó (de 0.7868 a 1.0540)
+3. El intercepto disminuyó (de 76.6397 a 69.3476)
+4. La predicción para 50 años aumentó (de 116 a 122 mmHg)
+
+Estos cambios muestran una relación más fuerte entre edad y presión sanguínea con el valor corregido.
+
+¿Te gustaría que profundicemos en algún aspecto específico del análisis?
+
+
+# Resolución Corregida de Problema de Correlación y Regresión Lineal
+
+Vamos a recalcular todo con el valor correcto p = 132 mmHg para el último paciente.
+
+## (a) Cálculo del Coeficiente de Correlación de Pearson
+
+
+
+### (i) Coeficiente de correlación
+El coeficiente de correlación es r = 0.9459
+
+### (ii) Interpretación
+Este valor indica una correlación positiva muy fuerte entre la edad y la presión sanguínea sistólica. Esto significa que:
+- Existe una relación lineal muy fuerte donde la presión sanguínea aumenta con la edad
+- Aproximadamente el 89.47% (r² = 0.9459² = 0.8947) de la variabilidad en la presión puede explicarse por la edad
+
+## (b) Ecuación de Regresión
+
+La ecuación de regresión lineal es:
+`$$p = 1.0540t + 69.3476$$`
+
+Donde:
+- a = 69.3476 (intercepto)
+- b = 1.0540 (pendiente)
+
+## (c) Predicción para paciente de 50 años
+
+Sustituyendo t = 50 en la ecuación:
+`$$p = 1.0540(50) + 69.3476 = 122.05$$`
+
+La presión sanguínea sistólica estimada para un paciente de 50 años sería aproximadamente 122 mmHg.
+
+## (d) Explicación sobre paciente de 16 años
+
+No se debería utilizar la ecuación de regresión para predecir la presión de un paciente de 16 años por las siguientes razones:
+
+| Razón | Explicación |
+|-------|-------------|
+| Extrapolación | 16 años está fuera del rango de edades de la muestra (21-72 años) |
+| Validez del modelo | El modelo se construyó con datos de adultos, no de adolescentes |
+| Factores fisiológicos | La relación edad-presión puede ser diferente en adolescentes |
+| Confiabilidad | Las predicciones fuera del rango de datos son menos confiables |
+
+Observaciones sobre los cambios:
+1. El coeficiente de correlación aumentó significativamente (de 0.7236 a 0.9459)
+2. La pendiente de la recta aumentó (de 0.7868 a 1.0540)
+3. El intercepto disminuyó (de 76.6397 a 69.3476)
+4. La predicción para 50 años aumentó (de 116 a 122 mmHg)
+
+Estos cambios muestran una relación más fuerte entre edad y presión sanguínea con el valor corregido.
+
+¿Te gustaría que profundicemos en algún aspecto específico del análisis?
+
+
+# Cálculo de los Coeficientes de la Recta de Regresión
+
+Para encontrar los valores de a y b en la ecuación p = at + b, usamos las fórmulas de regresión lineal simple:
+
+## Fórmulas
+
+### Para la pendiente (a):
+$$a = \frac{\sum_{i=1}^{n} (t_i - \bar{t})(p_i - \bar{p})}{\sum_{i=1}^{n} (t_i - \bar{t})^2}$$
+
+### Para el intercepto (b):
+$$b = \bar{p} - a\bar{t}$$
+
+## Proceso Paso a Paso
+
+### 1. Datos y Medias
+Usando los valores que ya calculamos anteriormente:
+- $\bar{t} = 46$ (media de edades)
+- $\bar{p} = 117.833$ (media de presiones)
+
+### 2. Cálculo de la pendiente (a)
+
+Usando la tabla anterior:
+
+| i | ti | pi | ti - t̄ | pi - p̄ | (ti - t̄)(pi - p̄) | (ti - t̄)² |
+|---|-----|-----|---------|---------|-------------------|------------|
+| 1 | 40 | 105 | -6 | -12.833 | 76.998 | 36 |
+| 2 | 72 | 145 | 26 | 27.167 | 706.342 | 676 |
+| 3 | 35 | 100 | -11 | -17.833 | 196.163 | 121 |
+| 4 | 47 | 130 | 1 | 12.167 | 12.167 | 1 |
+| 5 | 21 | 95 | -25 | -22.833 | 570.825 | 625 |
+| 6 | 61 | 132 | 15 | 14.167 | 212.505 | 225 |
+
+$$a = \frac{1775}{1684} = 1.0540$$
+
+### 3. Cálculo del intercepto (b)
+
+Sustituyendo en la fórmula:
+$$\begin{align}
+b &= \bar{p} - a\bar{t} \\
+b &= 117.833 - 1.0540(46) \\
+b &= 117.833 - 48.484 \\
+b &= 69.3476
+\end{align}$$
+
+### 4. Ecuación final
+
+Por lo tanto, la ecuación de regresión es:
+$$p = 1.0540t + 69.3476$$
+
+### Interpretación de los coeficientes:
+- b = 1.0540: Por cada año que aumenta la edad, la presión sistólica aumenta en promedio 1.0540 mmHg
+- a = 69.3476: Es el valor teórico de la presión cuando t = 0 (aunque no tiene interpretación práctica en este contexto)
+
+¿Te gustaría que profundicemos en algún aspecto específico de estos cálculos?
