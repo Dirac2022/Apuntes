@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Proyecto Rover/Expo 3D Gaussian Splatting.md",
+                "file": "Estadistica y Probabilidades/Probabilidad.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Expo 3D Gaussian Splatting"
+              "title": "Probabilidad"
             }
           }
         ]
@@ -181,10 +181,13 @@
   },
   "active": "007d248bdca191b4",
   "lastOpenFiles": [
-    "Proyecto Rover/Notes Paper Surver 3D Gaussian Splatting.md",
+    "Pattern Recognition and Machine Learning/Probability Theory.md",
+    "Estadistica y Probabilidades/Probabilidad.md",
     "Proyecto Rover/Expo 3D Gaussian Splatting.md",
-    "Proyecto Rover/Arduino.md",
+    "Proyecto Rover/Percepción Visual en Rovers utilizando OpenCV y TensorFlow.md",
+    "Proyecto Rover/Notes Paper Surver 3D Gaussian Splatting.md",
     "Proyecto Rover/3D Gaussian Splatting.md",
+    "Proyecto Rover/Arduino.md",
     "Pasted image 20250114190547.png",
     "Pasted image 20250114190426.png",
     "Proyecto Rover/imgs/ray marching.gif",
@@ -207,8 +210,7 @@
     "Proyecto Rover/imgs/Sin confirmar 237294.crdownload",
     "Proyecto Rover/imgs/gaussian 3D.gif.crdownload",
     "Proyecto Rover/imgs/frustum culling.gif.crdownload",
-    "Estadistica/Probabilidad.md",
-    "Estadistica/Mínimos Cuadrados.md",
+    "Estadistica y Probabilidades/Mínimos Cuadrados.md",
     "Tutorias/Excel.md",
     "Git/Git.md",
     "Programación en Dispositivos Moviles/Kotlin/Colecciones.md",
@@ -225,7 +227,6 @@
     "Z-Tasks/Done.md",
     "Data Science/Data Science 1 - Sesión 03.md",
     "Data Science/Data Science 1 - Sesión 02.md",
-    "Data Science/Data Science 1 - Sesión 01.md",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
