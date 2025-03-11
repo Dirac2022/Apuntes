@@ -383,7 +383,7 @@ val mensaje: String by lazy {
 
 fun main() {
     println("Antes de acceder a mensaje")
-    println(mensaje) // Aquí se inicializa y se imprime "Inicializando mensaje..."
+    println(mensaje) // Aquí se inicializa y se imprime "Inicializando mensaje..." y    "Hola, Kotlin!"
     println(mensaje) // Aquí solo se imprime "Hola, Kotlin!" ya que ya fue inicializada
 }
 ```
@@ -394,3 +394,6 @@ fun main() {
 
 ### Uso común:
 `by lazy` es útil en casos como la configuración de clientes de red, la carga de archivos grandes o la creación de objetos complejos que solo se deben inicializar si realmente se van a usar.
+
+
+# DataClass
