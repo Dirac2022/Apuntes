@@ -5,10 +5,22 @@ import numpy as np
 ```
 
 
+
 # Parámetros comunes
 ### `like`
 Este parámetro acepta un arreglo n dimensional existente, que servirá como referencia. 
 
+## `np.arange()`
+Genera un array de valores espaciados uniformemente dentro de un rango específico.
+
+```python
+np.arange(start, stop, step, dtype=None)
+```
+
+- `start` (opcional) :  Valor inicial (incluido). Por defecto es 0.
+- `stop` (obligatorio) :  Valor final (no incluido).
+- `step` (opcional) : Incremento entre valores. Por defecto es 1.
+- `dtype` (opcional) : Tipo de dato del array (por ejemplo, `int`, `float`).
 # Arrays
 
 ## `np.zeros()`
@@ -54,6 +66,24 @@ np.loadtxt(fname, dtype=<tipo>, delimiter=<separador>, skiprows=<saltos>, usecol
 | `usecols`      | Especifica las columnas a leer                   | `None`            |
 | `unpack`       | Si debe devolver los valores como arrays separados | `False`          |
 
+# Boolean Indexing en Numpy
+
+El **boolean indexing** en NumPy permite filtrar elementos de un array usando condiciones lógicas. En lugar de acceder a los elementos por posición (`arr[0]`, `arr[1]`, etc.), se usa una máscara booleana, que es un array de valores `True`, `False`. 
+
+```python
+import numpy as np
+
+# Crear un array
+arr = np.array([10, 20, 30, 40, 50])
+
+# Crear una máscara boolena: elementos > 25
+mask = arr > 25
+print(mask) # [False, False, True, True, True]
+
+# Aplicar la máscara para filtrar los elementos
+filtered_arr = arr[mask]
+print(filtered_arr) # [30, 40, 50]
+```
 
 # Basado en Learn Python A Beginner's Guide to Python, NumPy, Pandas and Scipy
 
