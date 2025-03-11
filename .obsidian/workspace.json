@@ -4,24 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "436f2979a5297641",
+        "id": "39ebbae33f161b9e",
         "type": "tabs",
         "children": [
           {
-            "id": "007d248bdca191b4",
+            "id": "57e342a1df6ad972",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Estadistica y Probabilidades/Probabilidad.md",
+                "file": "Artificial Intelligence/OpenCV/Computer Vision Theory.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Probabilidad"
+              "title": "Computer Vision Theory"
+            }
+          },
+          {
+            "id": "4dbe33e56bcbec91",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Artificial Intelligence/OpenCV/OpenCV.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "OpenCV"
+            }
+          },
+          {
+            "id": "d9399130b768bf43",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/matplotlib/matplotlib.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "matplotlib"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -40,7 +69,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -52,7 +82,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Sobel",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -108,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algebra Lineal/Determinate.md",
+                "file": "Computación Gráfica/Semana 3.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +148,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Determinate"
+              "title": "Backlinks for Semana 3"
             }
           },
           {
@@ -154,10 +184,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Proyecto Rover/Expo 3D Gaussian Splatting.md"
+                "file": "Artificial Intelligence/OpenCV/OpenCV.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Expo 3D Gaussian Splatting"
+              "title": "Outline of OpenCV"
             }
           }
         ],
@@ -179,54 +212,53 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "007d248bdca191b4",
+  "active": "4dbe33e56bcbec91",
   "lastOpenFiles": [
-    "Pattern Recognition and Machine Learning/Probability Theory.md",
-    "Estadistica y Probabilidades/Probabilidad.md",
-    "Proyecto Rover/Expo 3D Gaussian Splatting.md",
+    "Artificial Intelligence/OpenCV/imgs/bgr channels image example.png",
+    "Artificial Intelligence/OpenCV/OpenCV.md",
+    "Artificial Intelligence/OpenCV/imgs",
+    "Artificial Intelligence/OpenCV/Computer Vision Theory.md",
+    "Computación Gráfica/Semana 2.md",
+    "Computación Gráfica/S1 Transformaciones de Intensidad.md",
+    "Computación Gráfica/S1 Resolución Espacial.md",
+    "Computación Gráfica/Semana 3.md",
+    "Python/matplotlib/matplotlib.md",
+    "Python/matplotlib/Quick start guide.md",
     "Proyecto Rover/Percepción Visual en Rovers utilizando OpenCV y TensorFlow.md",
-    "Proyecto Rover/Notes Paper Surver 3D Gaussian Splatting.md",
-    "Proyecto Rover/3D Gaussian Splatting.md",
-    "Proyecto Rover/Arduino.md",
-    "Pasted image 20250114190547.png",
-    "Pasted image 20250114190426.png",
-    "Proyecto Rover/imgs/ray marching.gif",
-    "Proyecto Rover/imgs/ray marching.gif.crdownload",
-    "Proyecto Rover/imgs/Structure from Motion - medium.webp",
-    "Proyecto Rover/imgs/Structure from Motion - medium.webp.crdownload",
-    "Bussiness Intelligence/Análisis de datos con Power BI.md",
-    "Bussiness Intelligence/Notes from Business Intelligence.md",
-    "Pasted image 20250113220606.png",
-    "Pasted image 20250113220548.png",
-    "Pasted image 20250113220512.png",
-    "Pasted image 20250113220455.png",
-    "Pasted image 20250113220418.png",
-    "Pasted image 20250113213838.png",
-    "Bussiness Intelligence",
-    "Proyecto Rover/imgs/Structure from Motion.gif.crdownload",
-    "Proyecto Rover/imgs/under-over reconstruction gaussians.webp.crdownload",
-    "Proyecto Rover/imgs/gaussian splatting demo.gif.crdownload",
-    "Proyecto Rover/imgs/Structure from Motion.bin",
-    "Proyecto Rover/imgs/Sin confirmar 237294.crdownload",
-    "Proyecto Rover/imgs/gaussian 3D.gif.crdownload",
-    "Proyecto Rover/imgs/frustum culling.gif.crdownload",
-    "Estadistica y Probabilidades/Mínimos Cuadrados.md",
-    "Tutorias/Excel.md",
-    "Git/Git.md",
-    "Programación en Dispositivos Moviles/Kotlin/Colecciones.md",
-    "Programación en Dispositivos Moviles/Kotlin/Funciones.md",
-    "Programación en Dispositivos Moviles/Android/Recycler view.md",
-    "Programación en Dispositivos Moviles/Android/Android.md",
-    "Programación en Dispositivos Moviles/Android/Unidades de medida.md",
-    "Desarrollo Web/JavaScript/Template Literals.md",
-    "Desarrollo Web/JavaScript/Array Methods.md",
-    "Programación en Dispositivos Moviles/Kotlin/Android Course.md",
-    "Programación en Dispositivos Moviles/Kotlin/Fundamentos.md",
-    "Git/Actividades usuales.md",
-    "Power BI/Tasks.md",
-    "Z-Tasks/Done.md",
-    "Data Science/Data Science 1 - Sesión 03.md",
-    "Data Science/Data Science 1 - Sesión 02.md",
+    "Artificial Intelligence/Conceptos.md",
+    "Artificial Intelligence/OpenCV",
+    "Programación Concurrente y Distribuida/S2 Programación Concurrente.md",
+    "Programación Concurrente y Distribuida/S2 Sistemas Distribuidos.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/About the course.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/Special Applications Face recognition and Neural Style Transfer.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/Object Detection.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/Deep Convolutional Models Case Studies.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/Foundations of Convolutional Neural Networks.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Structuring Machine Learning Projects/About the course.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Structuring Machine Learning Projects/ML Strategy 2.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Structuring Machine Learning Projects/ML Strategy.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc/About the course.md",
+    "Artificial Intelligence/Machine Learning Specialization - Coursera/Supervised Machine Learning Regression and Classification/About the course.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc/Hyperparameter Tuning, Batch Normalization and Programing Frameworks.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc/Optimization Algorithms.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc/Practical Aspects of Deep Learning.md",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Sequence Models",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Structuring Machine Learning Projects",
+    "Artificial Intelligence/Machine Learning Specialization - Coursera/imgs/Pasted image 20250204190435.png",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Neural Networks and Deep Learning",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera",
+    "Artificial Intelligence/Machine Learning Specialization - Coursera/imgs/Pasted image 20250307193707.png",
+    "Artificial Intelligence/Apuntes Universidad",
+    "Pasted image 20250307193516.png",
+    "Pasted image 20250228111115.png",
+    "Metodología de la Investigación/imgs/Pasted image 20250212210428.png",
+    "Metodología de la Investigación/imgs/Pasted image 20250212210626.png",
+    "Pasted image 20250305121148.png",
+    "Metodología de la Investigación/imgs/Pasted image 20250305224413.png",
+    "Metodología de la Investigación/imgs/Pasted image 20250305134758.png",
+    "Proyecto Rover/RULES.rar",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
