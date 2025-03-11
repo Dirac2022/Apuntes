@@ -17,3 +17,25 @@ Esto se deduce de escribir
 $$
 \|x + y\|_2^2 = \langle x + y, x + y \rangle = \langle x, x \rangle + \langle y, x \rangle + \langle x, y \rangle + \langle y, y \rangle = \|x\|_2^2 + \|y\|_2^2
 $$
+
+
+
+# Teorema de Representación de Riesz
+Sea $\mathbb{V}$ un espacio vectorial con producto interno. Si $w \in \mathbb{V}$, entonces
+$$
+\begin{align*}
+T_w : \mathbb{V} &\to \mathbb{R} \\
+v &\to T_w(v) = \langle v, w \rangle
+\end{align*}
+$$
+es un funcional lineal.
+
+## Teorema de representación de Riesz
+
+>[!tip] Dado un espacio vectorial de dimension finita con producto interno, si existe un funcional lineal que va desde el espacio vectorial, entonces existe un único vector que pertenece al espacio vectorial tal que el funcional lineal se calcula como el producto interno con este único vector.
+
+Dado un espacio vectorial $\mathbb{V}$ de dimensión finita con producto interno. Si $f: \mathbb{V} \to \mathbb{R}$ es un funcional lineal, entonces $\exists! \, w \in \mathbb{V}$, tal que
+$$
+f(v) = \langle v, w \rangle
+$$
+
