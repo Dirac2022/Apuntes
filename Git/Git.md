@@ -8,26 +8,26 @@ Tipos de jerarquía en git
 # Configuraciones básicas
 Configuraciones a nivel global
 
-```git
-git config --global user.name
+```shell
+git config --global user.name "nombre"
 ```
 
-```git
+```shell
 git config --global user.email "daronmitchel@gmail.com"
 ```
 
 Lista de configuraciones 
-```
+```shell
 git config --list
 ```
 
 Lista de configuraciones globales
-```git
+```shell
 git config --global --list
 ```
 
 Agregar editor de texto
-```git
+```shell
 git config --global core.editor "core --wait"
 ```
 
@@ -35,14 +35,23 @@ git config --global core.editor "core --wait"
 >[!tip] comando --wait
 > Espera a que se cierre la ventana para realizar los cambios, por ejemplo si se esta trabajando en un editor
 
-
-Para configurar el salto de línea y retorno de carro automático
-```git
-git config --global core.autocrlf true
+Activar el coloreado en la salida de la terminal, para que la información sea más legible
+```shell
+git config --global color.ui true
 ```
 
 
-## Areas
+Para configurar el salto de línea y retorno de carro automático (Windows)
+```shell
+git config --global core.autocrlf true
+```
+
+Para Linux/Mac
+```shell
+git config --global core.autocrlf input
+```
+
+# Areas
 ### Repositorio
 - **Definición:** Es el lugar donde Git almacena toda la información relacionada con tu proyecto, incluyendo el historial de cambios, configuraciones, y los commits.
 - **Características:**
@@ -78,25 +87,45 @@ git config --global core.autocrlf true
   - Ejemplos incluyen GitHub, GitLab, Bitbucket.
   - Se sincroniza con el repositorio local mediante comandos como `git push` y `git pull`.
 
+# Estados
+En Git, los archivos pasan por diferentes **estados** antes de ser guardados en el historial. Los 3 estados principales son
 
+#### Modified
+- Significa que has editado un archivo, pero Git aún no lo está rastreando para un commit.
+- Se muestra en `git status` como `modified`
+- No está listo para ser guardado en el historia
+ 
+#### Staged
+Preparado para un **commit** o "Indexado"
+- Significa que el archivo modificado ya está listo para ser guardado en el próximo commit.
+- Se logra con `git add <archivo>`
+- Se muestra en `git status` como `staged`
 
+#### Committed
+Archivo guardado en el historial
+- Significa que los cambios en el área de [[#Área de Preparación (Staging Area)|staging]] fueron guardados en el historial del repositorio
+- Se logra con `git commit -m "Mensaje del commit"`
+- Después de un commit, los cambios quedan seguros en el repositorio local
 # Crear repositorio
 
-```git
+```shell
 mkdir repo
 ```
 
-```git
+```shell
 cd repo
 ```
 
-
 Inicializar git dentro de la carpeta `repo`
-```git
+```shell
 git init
 ```
-Este comando convierte un directorio existente en un nuevo repositorio de Git, listo para el control de versiones.
+1. Crea un subdirectorio oculto llamada `.git`, don de se almacenan todos los archivos y configuraciones del repositorio
+2. Convierte la carpeta en un repositorio Git, lo que permite rastrear cambios en los archivos
+3. Si ya es un repositorio Git, `git init` lo reinicializa sin perder historial.
+
 ### Agregando un archivo al Staging Area
+
 Agregar el archivo creado `archivo.txt` al *Staging Area* 
 ```git
 git add archivo.txt
@@ -114,7 +143,7 @@ git add archivo.txt
 Se utiliza para obtener información sobre el estado actual del repositorio, mostrando los cambios que se han hecho, pero que aún no han sido confirmados, y cualquier archivo que no esté bajo control de versiones.
 
 Nos muestra información sobre nuestro directorio de trabajos y el area de preparación
-```git
+```shell
 git status
 ```
 
@@ -128,50 +157,61 @@ git status
 
 
 >[!info] Variaciones
-> - `git status -s` Nos muestra una salida más compacta y fácil de leer
-> 	-  M archivo modificado
-> 		-  Si esta en verde, esta agregado al *Staging* y esta listo para commit
-> 		- Si esta en rojo, no esta agregado al *Staging*
-> 	- A archivo agregado al área de preparación o *Staging*
-> 	- ?? Archivo no rastreado
-> - `git status -b` Muestra información adicional sobre la rama actual y su relación con la rama remota.
+> - `git status -s` : Nos muestra una salida más compacta y fácil de leer. -  Si esta en verde, esta agregado al *Staging* y esta listo para commit. Si esta en rojo, no esta agregado al *Staging*
+> 	-  `M`   : archivo modificado
+> 	- `A` : archivo agregado al área de preparación o *Staging*
+> 	- `??` : Archivo no rastreado
+> - `git status -b` : Muestra información adicional sobre la rama actual y su relación con la rama remota.
 > Si esta en verde, esta agregado al *Staging* y esta listo para commit
 > Si esta en rojo, no esta agregado al *Staging*
 
 
 Remover el archivo del *Staging Area*
-```git
+```shell
 git rm --cached archivo.txt
 ```
+Se usa para eliminar un archivo del área de **[[#Área de Preparación (Staging Area)|staging]]**, pero sin borrarlo físicamente del sistema de archivos.
+
+
+## `git commit`
+Este comando se usa para guardar los cambios en el historial del repositorio.
+
+Guarda solo los archivos que fueron agregaron a **[[#Área de Preparación (Staging Area)|staging]]** con `git add`
+```shell
+git commit -m "Mensaje"
+```
+
+Hace un commit de todos los archivos modificados y rastreados (tracked). No necesita `git add` pero no incluirá archivos nuevos (untracked).
+```shell
+git commit -m "mensaje" -a
+```
+
+### Ejemplo
 
 Para subir un archivo al repositorio 
 - Agregando un mensaje en el commit
-```git
+```shell
 git commit -m "Agregando los dos primeros archivos de texto"
 ```
 
 - Agregando un mensaje con el editor de texto
 Si tenemos un archivo adicional `archivob.txt`
-```git
+```shell
 git add archivob.txt
 ```
 
-```git
+```shell
 git commit
 ```
 
 Luego nos abriría automáticamente vscode por la configuración `git config --global core.editor "core --wait"` Agregamos un mensaje y cerramos el editor. Con esto se completara el commit.
-
 
 Pasar archivos del Working Directory al Repositorio
 ```git
 git commit -a 
 ```
 
-
-
 # Restore, checkout
-
 
 ## Eliminando un archivo del repositorio
 Eliminar archivo `archivob.txt` del repo
