@@ -19,30 +19,30 @@
 ### 2. Procesamiento de información
 
 2.1. **Procesamiento de tablas de datos usando los comandos de Excel de la cinta de opciones o menú principal**  
-- [ ] 2.1.1. Organización en registros y campos (Filas y Columnas).  
-- [ ] 2.1.2. Ordenar, separar textos en columnas, buscar y reemplazar textos, crear series, quitar duplicados.
-2.2. **Crear auto filtros.**  
-2.3. **Uso de caracteres comodín para casos complejos.**
+- [x] 2.1.1. Organización en registros y campos (Filas y Columnas). ✅ 2025-01-16
+- [x] 2.1.2. Ordenar, separar textos en columnas, buscar y reemplazar textos, crear series, quitar duplicados. ✅ 2025-01-16
+- [x] 2.2. **Crear auto filtros.** ✅ 2025-01-16
+- [x] 2.3. **Uso de caracteres comodín para casos complejos.** ✅ 2025-01-16
 
 ### 3. Fórmulas y funciones de Excel
 
 3.1. **Trabajo con fórmulas**  
-3.1.1. Fórmulas matemáticas, técnicas básicas de creación y uso utilizando operadores aritméticos, de texto (&) y de agrupamiento.  
-3.1.2. Referencias relativas, absolutas, mixtas y su interpretación en la creación de fórmulas.  
-3.1.3. Asignar nombres personalizados a celdas y rango.
+- [x] 3.1.1. Fórmulas matemáticas, técnicas básicas de creación y uso utilizando operadores aritméticos, de texto (&) y de agrupamiento. ✅ 2025-01-22
+- [x] 3.1.2. Referencias relativas, absolutas, mixtas y su interpretación en la creación de fórmulas. ✅ 2025-01-22
+- [x] 3.1.3. Asignar nombres personalizados a celdas y rango. ✅ 2025-01-22
 
-3.2. **Uso de funciones para cálculos matemáticos:** ALEATORIO, ALEATORIO ENTRE, SUMA, PRODUCTO, SUMAPRODUCTO, RESIDUO, ENTERO, RAIZ, POTENCIA, PROMEDIO, REDONDEAR, REDONDEAR.MAS, REDONDEAR.MENOS.
+- [x] 3.2. **Uso de funciones para cálculos matemáticos:** ALEATORIO, ALEATORIO ENTRE, SUMA, PRODUCTO, SUMAPRODUCTO, RESIDUO, ENTERO, RAIZ, POTENCIA, PROMEDIO, REDONDEAR, REDONDEAR.MAS, REDONDEAR.MENOS. ✅ 2025-01-28
 
-3.3. **Uso de funciones para cálculos estadísticos:** MAX, MIN, MODA, K.ESIMO.MAYOR, K.ESIMO.MENOR, CONTAR, CONTAR.SI.
+- [x] 3.3. **Uso de funciones para cálculos estadísticos:** MAX, MIN, MODA, K.ESIMO.MAYOR, K.ESIMO.MENOR, CONTAR, CONTAR.SI. ✅ 2025-02-09
 
-3.4. **Uso de funciones condicionales para aplicar cálculos basados en un conjunto de condiciones:** CONTAR SI CONJUNTO, SUMAR SI CONJUNTO, PROMEDIO SI CONJUNTO, MAX SI CONJUNTO, MIN SI CONJUNTO.
+- [ ] 3.4. **Uso de funciones condicionales para aplicar cálculos basados en un conjunto de condiciones:** CONTAR SI CONJUNTO, SUMAR SI CONJUNTO, PROMEDIO SI CONJUNTO, MAX SI CONJUNTO, MIN SI CONJUNTO.
 
 3.5. **Funciones lógicas**  
-3.5.1. Uso de lógica con operadores de comparación: igual, mayor, menor, mayor o igual, menor o igual, diferente.  
-3.5.2. Uso de lógica booleana con funciones: Y, O, NO, ES PAR, ES IMPAR, SI.  
-3.5.3. Utilización de operadores aritméticos en las expresiones lógicas: +, \*.  
-3.5.4. Anidamiento de funciones para controlar situaciones complejas: SI CONJUNTO.  
-3.5.5. Uso de funciones para el manejo de errores: ES ERROR, ES ERROR.TIPO.
+- [ ] 3.5.1. Uso de lógica con operadores de comparación: igual, mayor, menor, mayor o igual, menor o igual, diferente.  
+- [ ] 3.5.2. Uso de lógica booleana con funciones: Y, O, NO, ES PAR, ES IMPAR, SI.  
+- [ ] 3.5.3. Utilización de operadores aritméticos en las expresiones lógicas: +, \*.  
+- [ ] 3.5.4. Anidamiento de funciones para controlar situaciones complejas: SI CONJUNTO.  
+- [ ] 3.5.5. Uso de funciones para el manejo de errores: ES ERROR, ES ERROR.TIPO.
 
 3.6. **Uso de fórmulas y funciones con fechas:** HOY, AHORA, HORA, MINUTO, SEGUNDO, DIA, MES, AÑO, FECHA, SIFECHA, FECHA.MES, MES, DIASEM, TEXTO.
 
