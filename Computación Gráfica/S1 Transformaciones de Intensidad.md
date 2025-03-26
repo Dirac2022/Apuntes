@@ -138,11 +138,11 @@ negativo_nuevo = 255 - imagen
 Esto permite resaltar contornos y contrastes en imágenes con bajo nivel de detalle.
 
 
-# Umbralización
+# Thresholding
 
 La umbralización (Thresholding) es una técnica para segmentar una imagen, convirtiéndola en binaria (blanco y negro).
 
-### **Fórmula**
+### Fórmula
 
 $$
 \begin{cases} 
@@ -151,9 +151,9 @@ $$
 \end{cases}
 $$
 
-donde $ T $ es un umbral definido por el usuario.
+donde $T$ es un umbral definido por el usuario.
 
-Ejemplo de umbralización con umbral $ T = 150 $:
+Ejemplo de umbralización con umbral $T = 150$:
 
 $$
 \begin{bmatrix} 
@@ -170,6 +170,20 @@ $$
 255 & 255 & 255 
 \end{bmatrix}
 $$
+
+
+## Types of Thresholding
+
+| Type                  | Description                                                                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Simple Thresholding   | A single threshold value is used to separate pixels into black or white                                       |
+| Adaptive Thresholding | The threshold value varies depending on the local region of the image, useful for images with uneven lighting |
+| Otsu's Thresholding   | Automatically calculates an optimal threshold value using image histogram analysis                            |
+
+### Adaptive Thresholding
+Is a technique used when an image has varying lighting conditions. Instead of using a single threshold value for the entire image, it calculates different threshold values for different regions of the image.
+
+## Implementation
 
 En OpenCV, se implementa así:
 
