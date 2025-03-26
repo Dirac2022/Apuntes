@@ -1,4 +1,6 @@
 
+---
+
 En los capítulos 3 y 4, consideramos modelos para regresión y clasificación que comprenden combinaciones lineales de funciones base fijas. Vimos que tales modelos tienen propiedades analíticas y computacionales útiles, pero su aplicabilidad práctica está limitada por la maldición de la dimensionalidad. Para aplicar tales modelos a problemas a gran escala, es necesario adaptar las funciones base a los datos.
 
 Las máquinas de vectores de soporte (SVM), discutidas en el capítulo 7, abordan esto primero definiendo funciones base centradas en los puntos de datos de entrenamiento y luego seleccionando un subconjunto de estas durante el entrenamiento. Una ventaja de las SVM es que, aunque el entrenamiento implica una optimización no lineal, la función objetivo es convexa, por lo que la solución del problema de optimización es relativamente sencilla. El número de funciones base en los modelos resultantes es generalmente mucho menor que el número de puntos de entrenamiento, aunque a menudo sigue siendo relativamente grande y típicamente aumenta con el tamaño del conjunto de entrenamiento. La máquina de vectores relevantes, discutida en la sección 7.2, también elige un subconjunto de un conjunto fijo de funciones base y típicamente resulta en modelos mucho más dispersos. A diferencia de las SVM, también produce salidas probabilísticas, aunque esto es a expensas de una optimización no convexa durante el entrenamiento.
@@ -8,6 +10,8 @@ Un enfoque alternativo es fijar el número de funciones base de antemano pero pe
 Nuestro enfoque en este capítulo es en las redes neuronales como modelos eficientes para el reconocimiento estadístico de patrones. En particular, restringiremos nuestra atención a la clase específica de redes neuronales que han demostrado ser de mayor valor práctico, a saber, el perceptrón multicapa.
 
 Comenzamos considerando la forma funcional del modelo de red, incluyendo la parametrización específica de las funciones base, y luego discutimos el problema de determinar los parámetros de la red dentro de un marco de máxima verosimilitud, lo cual implica la solución de un problema de optimización no lineal. Esto requiere la evaluación de derivadas de la función de log-verosimilitud con respecto a los parámetros de la red, y veremos cómo se pueden obtener eficientemente utilizando la técnica de retropropagación del error. También mostraremos cómo el marco de retropropagación se puede extender para permitir que se evalúen otras derivadas, como las matrices Jacobiana y Hessiana. A continuación, discutimos varios enfoques para la regularización del entrenamiento de redes neuronales y las relaciones entre ellos. También consideramos algunas extensiones al modelo de red neuronal, y en particular describimos un marco general para modelar distribuciones de probabilidad condicionales conocidas como redes de densidad de mezcla. Finalmente, discutimos el uso de tratamientos bayesianos de redes neuronales. Se puede encontrar información adicional sobre modelos de redes neuronales en Bishop (1995a).
+
+---
 
 # 5.1. Funciones de Red de Propagación Directa
 
@@ -67,12 +71,12 @@ $$
 
 donde el conjunto de todos los parámetros de peso y sesgo se han agrupado en un vector $\mathbf{w}$. Así, el modelo de red neuronal es simplemente una función no lineal de un conjunto de variables de entrada $\{x_i\}$ a un conjunto de variables de salida $\{y_k\}$ controladas por un vector $\mathbf{w}$ de parámetros ajustables.
 
-<div style="text-align: center;">
-	<figure>
-    <img src="C:\Users\mitch\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Mi unidad\My Notes\My Notes\Pattern Recognition and Machine Learning\imgs\figure 5.1.png">
-    <figcaption></figcaption>
-    </figure>
-</div>
+
+
+
+![[figure 5.1.png]]
+
+
 
 Esta función puede representarse en la forma de un diagrama de red como se muestra en la   [[figure 5.1.png|Figura 5.1]]  El proceso de evaluación de [[Neural Network#^44dd50|(5.7)]]  puede interpretarse entonces como una *forward propagation* de información a través de la red. Debe enfatizarse que estos diagramas no representan modelos gráficos probabilísticos del tipo que se considerará en el Capítulo 8 porque los nodos internos representan variables deterministas en lugar de estocásticas. Por esta razón, hemos adoptado una notación gráfica ligeramente diferente para los dos tipos de modelo. Más adelante veremos cómo dar una interpretación probabilística a una red neuronal.
 
