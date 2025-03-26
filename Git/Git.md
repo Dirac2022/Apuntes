@@ -106,6 +106,9 @@ Archivo guardado en el historial
 - Significa que los cambios en el área de [[#Área de Preparación (Staging Area)|staging]] fueron guardados en el historial del repositorio
 - Se logra con `git commit -m "Mensaje del commit"`
 - Después de un commit, los cambios quedan seguros en el repositorio local
+
+
+
 # Crear repositorio
 
 ```shell
@@ -139,7 +142,7 @@ git add archivo.txt
 > Si solo se coloca `git add .` se agregan todos los archivos de la 
 > Si se tiene otro archivo, por ejemplo archivo2.txt se pueden agregar ambos archivos dejando un espacio entre ellos  `git add archivo.txt archivo2.txt`
 
-## Comando `git status`
+##  `git status`
 Se utiliza para obtener información sobre el estado actual del repositorio, mostrando los cambios que se han hecho, pero que aún no han sido confirmados, y cualquier archivo que no esté bajo control de versiones.
 
 Nos muestra información sobre nuestro directorio de trabajos y el area de preparación
@@ -198,9 +201,6 @@ git commit -m "Agregando los dos primeros archivos de texto"
 Si tenemos un archivo adicional `archivob.txt`
 ```shell
 git add archivob.txt
-```
-
-```shell
 git commit
 ```
 
@@ -215,35 +215,34 @@ git commit -a
 
 ## Eliminando un archivo del repositorio
 Eliminar archivo `archivob.txt` del repo
-```
+```shell
 rm archivob.txt
 ```
 
 Luego, tenemos dos opciones, usar `git add` para actualizar los cambios o `git restore` para descartar los cambios en el directorio de trabajo
 
 Agregamos la eliminación
-```git
+```shell
 git add archivob.txt
-```
-
-```git
-	git commit -m "eliminando archivo" -a
+git commit -m "eliminando archivo" -a
 ```
 
 ## Restaurar un archivo modificado o borrado
 Si se ha eliminado un archivo `archivo.txt` (por ejemplo manualmente) del directorio de trabajo
-```git
+```shell
 git restore archivo.txt
 ```
 
 Con esto restauras el archivo del área de preparación. También sirve para restaurar el archivo a la ultima versión en la que se hizo commit
 
+>[!warning] `git restore` no restaura el archivo si este no ha sido rastreado por git, es decir, si no se hizo un `git add` con el archivo en cuestión, si se llega a borrar, el comando `git restore` no lo podrá recuperar.
+
 Si hemos hecho un cambio en un determinado archivo `archivo.txt` y hemos guardado el archivo en cuestión, usando `checkout` podemos restaurar el archivo a la ultima versión en la que se le hizo commit
-```git
+```shell
 git checkout archivo.txt
 ```
 
-Para restaurar un archivo modificado y que se ha subido al area de *Staging* con `git add`
+Para restaurar un archivo modificado y que **se ha subido al area de *Staging* con `git add`**
 ```git
 git reset --hard
 ```
@@ -258,20 +257,237 @@ Esto realiza una restauración extrema donde se descartan los archivos agregados
 ## Cambiar nombre a un archivo
 
 Si queremos cambiar el archivo `dirac.txt` a `archivo2.txt`
-```git
+```shell
 git mv dirac.txt archivo2.txt
 ```
 Al usar el comando `status` saldrá un archivo al que se le ha renombrado y esta listo para el `commit`
-```git
+```shell
 git commit -m "Cambio de nombre de dirac a archivo2" -a
 ```
 
 > [!tip]
 > Si cambiamos el nombre de un archivo y hacemos `checkout` con el nombre anterior, el comando `checkout` reestablece este archivo anterior, mientras que el el archivo con el nuevo nombre permanece inalterado.
 
-
-### Uso de `git show`
+# `git show`
 Se utiliza para mostrar información detallada sobre objetos en Git como commits, árboles o blobs.
+
+Se puede usar para mostrar la información del archivo dado su ultimo commit
+```shell
+git show archivo.txt
+```
+
+# `git diff`
+Muestra las diferencias entre archivos en distintas etapas del repositorio
+- Archivos modificados pero no agregados al staging (`git diff`)
+- Archivos en staging comparados con el último commit (`git diff --staged`)
+- Diferencias entre dos commits específicos (`git diff commit1 commit2`)
+- Diferencias entre una rama y otra (`git diff main feature`)
+
+**Ejemplo** Ver diferencias entre commits específicos
+Supón que `archivo.txt` ha cambiado en diferentes commits y queremos ver cómo cambió entre dos versiones
+```shell
+git diff abc1234 def5678 -- archivo.txt
+```
+
+Salida esperada
+```shell
+diff --git a/archivo.txt b/archivo.txt
+index e69de29..83c99ab 100644
+--- a/archivo.txt
++++ b/archivo.txt
+@@ -1 +1 @@
+-Hola, este es un archivo de prueba.
++Hola, este es un documento de prueba.
+```
+
+Si en vez colocamos `git diff abc1234 def5678` nos muestra las diferencias entre los archivos que se actualizaron con los dos commits
+## `git diff --name-only`
+Muestra solo los nombres de los archivos que se han modificado que no se han agregado al staging area.
+
+**Ejemplo**
+Si modifico el archivo `archivo1.txt` y lo guardo. Al realizar
+```shell
+git diff --name-only
+```
+Me mostrara
+```shell
+archivo1.txt
+```
+
+
+## `git diff --word-diff`
+Comparar cambios palabra por palabra. El comando muestra diferencias a nivel de palabras en lugar de líneas completas.
+
+
+# `git log`
+Este comando muestra una lista detallada de los commits en el historial, incluyendo
+- Hash del commit
+- Autor del commit
+- Fecha y hora
+- Mensaje del commit
+
+```shell
+git log
+```
+
+**Ejemplo**
+![[git log.png]]
+
+
+## `git log --oneline`
+Ver el historial en una línea por commit
+
+**Ejemplo**
+
+![[git log --oneline.png]]
+
+## `git log -n <N>`
+Mostrar solo los últimos N commits
+
+**Ejemplo** Muestra solo los últimos 3 commits
+```shell
+git log -n 3
+```
+
+**Ejemplo** Muestra los últimos 5 commits en una línea
+```shell
+git log --oneline -n 5
+```
+
+
+## `git log --oneline --graph`
+Mostrar commits en forma de árbol
+```
+git log --oneline --graph
+```
+
+>[!tip] Util si hay ramas y fusiones
+
+
+# Modificar y Deshacer commits
+
+## `git commit --amend`
+Se usa para modificar el último commit, ya sea cambiando su mensaje, agregando archivos nuevos o eliminando archivos que no debían ser incluidos-
+```shell
+git commit --amend
+```
+
+**Ejemplo**: Si solo quieres cambiar el mensaje sin modificar los archivos incluidos
+```shell
+git commit --amend -m "Nuevo mensaje del commit"
+```
+
+### Ejemplo
+---
+Supongamos tenemos 2 archivos `archivo.txt` y `texto.txt` Y modificamos 4 veces `archivo.txt` con sus 4 commits correspondientes. Hacemos un quinto commit con `archivo.txt` y tenemos
+
+![[ejemplo git --amend 1.png]]
+
+Sin embargo, tenemos cambios sin guardar en `text.txt` y debimos agregarlo al quinto commit. Además hicimos una ultima modificación a `archivo.txt` y no queremos realizar otro commit. 
+
+![[ejemplo git --amend 2.png]]
+
+Hemos preparado los archivos para un nuevo commit, sin embargo, usando `git commit --amend` lo que hacemos es "agregarlos al quinto commit".
+
+
+![[ejemplo git --amend 4.png]]
+
+Al ejecutar el comando, se abre el editor:
+![[ejemplo git --amend 3.png]]
+
+Luego vemos que se ha "modificado" el quinto commit
+![[ejemplo git --amend 5.png]]
+- Antes: quinto commit ->be5cafb
+- Después: ultimo commit -> b0233d5
+
+>[!tip] En realidad es un commit distitnto (por el hash) ya que no se pueden moficar commits.
+
+---
+
+## `git rebase`
+Es u comando que reorganiza los commits, permitiendo modificar su historial de una manera más limpia y ordenada.
+
+### `git rebase -i HEAD~N`
+La opción `i` (interactiva) permite editar commits antes de moverlos.
+```shell
+git rebase -i HEAD~N
+```
+Donde `N` es el número de commits que deseas modificar.
+
+Por ejemplo, si ejecutamos `git rebase -i HEAD~3` nos podría salir
+```
+pick abc123 Primer commit
+pick def456 Segundo commit
+pick ghi789 Tercer commit
+```
+
+Aqui podemos:
+- `pick`: mantener el commit.
+- `reword`: editar el mensaje del commit
+- `edit`: modificar el contenido del commit
+- `squash (s)`: fusionar commits en uno solo
+- `drop`: eliminar el commit.
+
+
+### `git rebase --continue`
+Se usa para continuar el proceso de rebase después de resolver conflictos
+
+### `git rebase --abort`
+Este comando cancela el `rebase` y devuelve el repositorio al estado antes de iniciarlo.
+- Revierte todos los cambios realizados hasta el momento
+- Restablece la rama al estado en el que estaba antes de ejecutar `git rebase`
+
+
+### Ejemplo
+---
+Continuando con el ejemplo de [[#`git commit --amend`]]
+Supongamos que queremos eliminar el tercer commit (81ee28a)
+
+![[Pasted image 20250319115212.png]]
+
+Modificamos `pick` por `edit` en el tercer commit
+![[Pasted image 20250319115303.png]]
+Guardamos, cerramos y luego usamos el comando
+```shell
+git commit --amend
+```
+
+Esto nos abre un archivo, donde anteriormente estaba el mensaje "tercer commit", lo cambiamos por "commit modificado"
+
+![[Pasted image 20250319115725.png]]
+
+
+Vemos el historial con `log`
+![[Pasted image 20250319115833.png]]
+Se han borrado los commit a partir del tercer commit. Para restaurarlos tenemos que usar `git commit --continue`
+
+![[Pasted image 20250319120006.png]]
+Los commits posteriores al tercer commit se han "restaurado". Los commits cuarto y ultimo tienen diferente hash. 
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Obtener las ramas de un repositorio remoto
@@ -299,7 +515,7 @@ cd sigepat
 ```
 
 Verificar el estado del repositorio
-```git
+```shell
 git status
 ```
 
