@@ -4,53 +4,38 @@
     "type": "split",
     "children": [
       {
-        "id": "39ebbae33f161b9e",
+        "id": "752c030b08c7334b",
         "type": "tabs",
         "children": [
           {
-            "id": "57e342a1df6ad972",
+            "id": "1e95c71ea1f9a2b9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Artificial Intelligence/OpenCV/Computer Vision Theory.md",
+                "file": "Artificial Intelligence/Univerisdad/S1 Introducción a la Inteligencia Artificial.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Vision Theory"
+              "title": "S1 Introducción a la Inteligencia Artificial"
             }
           },
           {
-            "id": "4dbe33e56bcbec91",
+            "id": "7dd7b826a39ba2b7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Artificial Intelligence/OpenCV/OpenCV.md",
+                "file": "Artificial Intelligence/Univerisdad/About the course.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OpenCV"
-            }
-          },
-          {
-            "id": "d9399130b768bf43",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/matplotlib/matplotlib.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "matplotlib"
+              "title": "About the course"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Sobel",
+                "query": "IBM",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -121,8 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 390.5,
-    "collapsed": true
+    "width": 390.5
   },
   "right": {
     "id": "718557b829c5a8b8",
@@ -184,13 +168,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Artificial Intelligence/OpenCV/OpenCV.md",
+                "file": "Desarrollo de Software/Lectura1.md",
                 "followCursor": false,
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of OpenCV"
+              "title": "Outline of Lectura1"
             }
           }
         ],
@@ -212,53 +196,54 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "4dbe33e56bcbec91",
+  "active": "1e95c71ea1f9a2b9",
   "lastOpenFiles": [
-    "Artificial Intelligence/OpenCV/imgs/bgr channels image example.png",
-    "Artificial Intelligence/OpenCV/OpenCV.md",
-    "Artificial Intelligence/OpenCV/imgs",
-    "Artificial Intelligence/OpenCV/Computer Vision Theory.md",
-    "Computación Gráfica/Semana 2.md",
-    "Computación Gráfica/S1 Transformaciones de Intensidad.md",
-    "Computación Gráfica/S1 Resolución Espacial.md",
-    "Computación Gráfica/Semana 3.md",
-    "Python/matplotlib/matplotlib.md",
-    "Python/matplotlib/Quick start guide.md",
-    "Proyecto Rover/Percepción Visual en Rovers utilizando OpenCV y TensorFlow.md",
     "Artificial Intelligence/Conceptos.md",
-    "Artificial Intelligence/OpenCV",
-    "Programación Concurrente y Distribuida/S2 Programación Concurrente.md",
-    "Programación Concurrente y Distribuida/S2 Sistemas Distribuidos.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/About the course.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/Special Applications Face recognition and Neural Style Transfer.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/Object Detection.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/Deep Convolutional Models Case Studies.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks/Foundations of Convolutional Neural Networks.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Structuring Machine Learning Projects/About the course.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Structuring Machine Learning Projects/ML Strategy 2.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Structuring Machine Learning Projects/ML Strategy.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc/About the course.md",
+    "Artificial Intelligence/Univerisdad/S1 Introducción a la Inteligencia Artificial.md",
+    "Data Science/Data Science 1 - Sesión 01.md",
+    "Data Science/Data Science 1 - Sesión 02.md",
+    "Artificial Intelligence/Introduction.md",
+    "Artificial Intelligence/Machine Learning.md",
+    "Artificial Intelligence/Univerisdad/About the course.md",
     "Artificial Intelligence/Machine Learning Specialization - Coursera/Supervised Machine Learning Regression and Classification/About the course.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc/Hyperparameter Tuning, Batch Normalization and Programing Frameworks.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc/Optimization Algorithms.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc/Practical Aspects of Deep Learning.md",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Sequence Models",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Convolutional Neural Networks",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Structuring Machine Learning Projects",
-    "Artificial Intelligence/Machine Learning Specialization - Coursera/imgs/Pasted image 20250204190435.png",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Improving Deep Neural Networks Hyperparameter etc",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Neural Networks and Deep Learning",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera",
-    "Artificial Intelligence/Machine Learning Specialization - Coursera/imgs/Pasted image 20250307193707.png",
-    "Artificial Intelligence/Apuntes Universidad",
-    "Pasted image 20250307193516.png",
-    "Pasted image 20250228111115.png",
-    "Metodología de la Investigación/imgs/Pasted image 20250212210428.png",
-    "Metodología de la Investigación/imgs/Pasted image 20250212210626.png",
-    "Pasted image 20250305121148.png",
-    "Metodología de la Investigación/imgs/Pasted image 20250305224413.png",
-    "Metodología de la Investigación/imgs/Pasted image 20250305134758.png",
-    "Proyecto Rover/RULES.rar",
+    "Artificial Intelligence/Apuntes Universidad/Untitled.md",
+    "Desarrollo de Software/Lectura2.md",
+    "Desarrollo de Software/Miscelanea.md",
+    "Desarrollo de Software/About the course.md",
+    "Desarrollo de Software/Actividad1-CC3S2.md",
+    "Programación en Dispositivos Moviles/Librerías.md",
+    "Desarrollo Web/HTML/Cheat Sheet.md",
+    "Administración de Redes/Sockets.md",
+    "Administración de Redes/Lecturas/Kubernetes.md",
+    "Desarrollo de Software/Lectura1.md",
+    "Administración de Redes/Lecturas/Ansible.md",
+    "Programación Concurrente y Distribuida/Prueba de entrada.md",
+    "Programación Concurrente y Distribuida/S2 Programación Concurrente.md",
+    "Redes/Capa de transporte.md",
+    "Programación Concurrente y Distribuida/S3 Sockets.md",
+    "Programación Concurrente y Distribuida/S1 Programación Concurrente con Hilos.md",
+    "Programación Concurrente y Distribuida/About the course.md",
+    "Analisis y Diseño de Algoritmos/Complejidad.md",
+    "Analisis y Estructura de Datos Avanzado/Algoritmos.ipynb",
+    "Analisis y Estructura de Datos Avanzado",
+    "Desarrollo de Software",
+    "Proyecto Rover/FastSLAM",
+    "Pasted image 20250319120006.png",
+    "Pasted image 20250319120341.png",
+    "Git/imgs/Pasted image 20250319120006.png",
+    "Git/imgs/Pasted image 20250319115833.png",
+    "Git/imgs/Pasted image 20250319115725.png",
+    "Git/imgs/Pasted image 20250319115303.png",
+    "Git/imgs/Pasted image 20250319115212.png",
+    "Git/imgs/Pasted image 20250319120341.png",
+    "Pasted image 20250319115833.png",
+    "Pasted image 20250319115303.png",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/imgs",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Nueva carpeta",
+    "Artificial Intelligence/Deep Learning Specialization - Coursera/Nuevo acceso directo.lnk",
+    "Artificial Intelligence/Univerisdad",
+    "Artificial Intelligence/Reinforcement Learning",
+    "Git/imgs",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
