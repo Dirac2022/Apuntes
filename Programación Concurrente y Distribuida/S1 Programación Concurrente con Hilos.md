@@ -63,7 +63,7 @@ public class HelloRunnable implements Runnable {
 
 ```
 
-1. Crear una subclase de `Thread`. La clase `Thread` implementa por sí mismo la interfaz `Runnable`, aunque su método `run` no hace nada.
+2. Crear una subclase de `Thread`. La clase `Thread` implementa por sí mismo la interfaz `Runnable`, aunque su método `run` no hace nada.
 
 ```java
 public class HelloThread extends Thread {
