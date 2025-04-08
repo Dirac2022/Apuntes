@@ -9,6 +9,9 @@ En la programación concurrente hay dos unidades básicas de ejecución: hilos y
 
 
 >[!tip] Proceso
+>Los procesos tienen un entorno de ejecución autónomo. Un proceso generalmente tiene un conjunto completo y privado de recursos; en particular, cada proceso tiene su propio espacio de memoria.
+
+
 >Es una instancia en ejecución de un programa con su propio espacio de memoria y recursos. Los procesos son independientes entre sí y se comunican mediante mecanismos como **IPC**.
 
 >[!tip] Hilo
@@ -43,6 +46,104 @@ Desde el punto de vista de un programador de aplicaciones, empezamos con un úni
 
 
 # Objetos Thread
+
+## Thread
+- Un thread o hilo de ejecución es la ejecución secuencial de una serie de instrucciones dentro de un programa.
+- De forma simple se puede pensar que los threads son procesos ejecutados por un programa.
+- La mayoría de lenguajes de programación son single threaded.
+- El desarrollo del hardware ha llevado el concepto de thread a la CPU: **multinúcleo**.
+
+
+![[ejemplo thread.png]]
+
+## Multi-threading en la plataforma Java
+- Cada aplicación tiene un thread, llamado el thread principal. Este thread tiene la habilidad de crear threads adicionales.
+- La programación multi-thread es más compleja:
+	- acceso compartido de objetos.
+	- riesgo de condición de carrera.
+
+
+## Estados de un Thread
+
+- **Running**
+	- En curso de ejecución.
+	- En control de la CPU.
+- **Runnable** (Ready to run)
+	- Puede ejecutarse pero no se le ha dado la orden.
+- **Resumed**
+	- Ready to run después de haber estado suspendido o bloqueado.
+- **Suspended**
+	- Voluntariamente permite que otros threads se ejecuten.
+- **Blocked**
+	- Esperando por algún recurso o que ocurra un evento.
+
+
+
+![](https://codexplo.wordpress.com/wp-content/uploads/2012/10/thread-state-diagram.png)
+
+---
+La imagen muestra los diferentes estados por los que puede pasar un hilo a lo largo de su existencia:
+
+1. **Runnable (Ejecutable):**
+    - Este es el estado inicial de un hilo después de que se ha creado y se ha llamado al método `start()`.
+    - Un hilo en este estado está listo para ser ejecutado por el planificador (scheduler) del sistema operativo.
+    - Es importante notar que "Runnable" no significa que el hilo se esté ejecutando _activamente_ en ese momento, sino que está _disponible_ para serlo.
+2. **Running (Ejecutando):**
+    - Este es el estado en el que el hilo está actualmente ejecutando sus instrucciones.
+    - El planificador del sistema operativo es el que decide qué hilo pasa de "Runnable" a "Running".
+    - Un hilo puede permanecer en este estado hasta que:
+        - Complete su tarea (pase a "Dead").
+        - Ceda el control al planificador (pase a "Runnable" mediante `Thread.yield()`).
+        - Se bloquee esperando un recurso (pase a "Blocked I/O Synchronized").
+        - Se ponga en espera (pase a "Waiting" mediante `Object.wait()`).
+        - Se ponga a dormir (pase a "Sleeping" mediante `Thread.sleep()`).
+3. **Sleeping (Durmiendo):**
+    - Un hilo entra en este estado cuando se llama al método `Thread.sleep()`.
+    - Durante el tiempo especificado en `sleep()`, el hilo no ejecuta ninguna instrucción y no compite por recursos del CPU.
+    - Una vez que transcurre el tiempo de espera, el hilo vuelve al estado "Runnable".
+4. **Waiting (Esperando):**
+    - Un hilo entra en este estado cuando llama al método `Object.wait()`.
+    - Este método se utiliza para sincronizar hilos, permitiendo que un hilo espere a que otro hilo le notifique de un evento.
+    - Un hilo en "Waiting" solo puede volver a "Runnable" cuando otro hilo llama a `Object.notify()` o `Object.notifyAll()` para despertarlo.
+5. **Blocked I/O Synchronized (Bloqueado E/S Sincronizado):**
+    - Un hilo entra en este estado cuando está esperando a que se complete una operación de entrada/salida (I/O) o cuando está intentando acceder a una sección de código sincronizada que está siendo utilizada por otro hilo.
+    - Por ejemplo, un hilo puede bloquearse al intentar leer datos de un archivo o al esperar a que lleguen datos a través de una conexión de red.
+    - También puede ser que un hilo este intentando entrar a un bloque de código sincronizado, cuando otro hilo ya se encuentra dentro de este.
+    - Una vez que la operación de I/O se completa o se libera el bloqueo de la sección sincronizada, el hilo vuelve al estado "Runnable".
+6. **Dead (Muerto/Finalizado):**
+    - Un hilo entra en este estado cuando su método `run()` ha terminado de ejecutarse.
+    - Una vez que un hilo está en este estado, no puede volver a ejecutarse.
+
+**Transiciones entre Estados:**
+
+La imagen también muestra las transiciones entre los diferentes estados, indicando qué eventos o métodos provocan cada transición:
+
+- **`start()`:** Inicia la ejecución de un hilo, llevándolo de un estado inicial (no mostrado) a "Runnable".
+- **`Thread.sleep()`:** Pone un hilo en estado "Sleeping".
+- **`Object.wait()`:** Pone un hilo en estado "Waiting".
+- **`Object.notify()` / `Object.notifyAll()`:** Despiertan a un hilo que está en estado "Waiting", llevándolo a "Runnable".
+- **Scheduler swap (Cambio de planificador):** El planificador del sistema operativo puede cambiar el hilo que se está ejecutando, llevando un hilo de "Running" a "Runnable".
+- **`Thread.yield()`:** Un hilo cede voluntariamente el control al planificador, pasando de "Running" a "Runnable".
+- **Done (Hecho):** Indica que el hilo ha completado su ejecución y pasa a "Dead".
+- **Data / sync received (Datos/sincronización recibidos):** Indica que una operación de I/O se ha completado o que se ha liberado un bloqueo de sincronización, llevando un hilo de "Blocked I/O Synchronized" a "Runnable".
+- **Another Thread closed socket (Otro hilo cerró el socket):** Indica que otro hilo cerro el socket, ocacionando que el hilo pase a estado "Dead".
+
+**Conceptos Clave:**
+
+- **Planificador (Scheduler):** El componente del sistema operativo que decide qué hilo se ejecuta en cada momento.
+- **Sincronización:** El proceso de coordinar la ejecución de múltiples hilos para evitar condiciones de carrera y otros problemas de concurrencia.
+- **Entrada/Salida (I/O):** Operaciones que implican la transferencia de datos entre la memoria del ordenador y dispositivos externos, como discos, redes o periféricos.
+---
+
+## Prioridades de un Thread
+
+- Las prioridades determinan que thread recibe el control de la CPU y consiga ser ejecutado primero.
+- En Java viene definidas por un valor entero de 1 a 10.
+- A mayor valor de prioridad, mayor la oportunidad de ser ejecutado.
+- Si dos threads tienen la misma prioridad, la ejecución depende del sistema operativo.
+
+
+## Creación de hilos
 
 Cada hilo en Java se encuentra asociado con una instancia de la clase Thread. Hay 2 formas de definir e iniciar un hilo.
 
