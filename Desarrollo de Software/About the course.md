@@ -20,3 +20,26 @@
 	- Se combina con Terraform para aprovisionar entornos de desarrollo local o para crear CI/CD
 	- Docker)
 - Tener listo diapositiva y markdown
+
+
+# DevOps y el desarrollo moderno
+- [x] Lectura 1 DevOps✅ 2025-03-30
+- [x] Lectura 2 IaC ✅ 2025-03-30
+- [x] Actividad1-CC3S2 ✅ 2025-04-07
+- [ ] Actividad2-CC3S2
+- [x] Lectura 3 Intro a Nube ✅ 2025-04-07
+- [ ] Actividad3-CC3S2
+- [ ] 
+
+
+# Git
+- [x] Lectura 4 Introducción al funcionamiento de Git ✅ 2025-04-07
+- [x] Actividad4: Introducción a Git - conceptos básicos y operaciones esenciales ✅ 2025-04-07
+- [x] Lectura 5 Comunicación Git ✅ 2025-04-07
+- [ ] Lectura 6 Uso avanzado de Git para la colaboración en equipo
+- [ ] Actividad5: Explorando diferentes formas de fusionar en Git
+- [ ] [Pull Requests | Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/making-a-pull-request)
+- [ ] Lectura 7 Patrones para la gestión de ramas de código fuente
+# Propiedades de Git y BDD
+- [ ] Patrones de integración e integración contínua
+
