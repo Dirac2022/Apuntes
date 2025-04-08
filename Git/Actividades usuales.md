@@ -323,3 +323,10 @@ El flag `-u` es especialmente importante porque:
 1. Establece una relación de seguimiento entre tu rama local y la rama remota
 2. En futuros push, solo necesitarás escribir `git push` sin especificar origin main
 3. Te permite ver la relación entre ramas locales y remotas con `git branch -vv`
+
+# Cambiar nombre de una rama
+
+Nombre antiguo `master`, nuevo nombre `main`
+```sh
+git branch -m master main
+```
