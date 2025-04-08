@@ -14,22 +14,15 @@ VPC (Virtual Private Cloud)
 
 # AWS: Elastic Compute Cloud (EC2)
 
-#### Servicio informático bajo demanda y con la flexibilidad de un entorno virtual
-AWS EC2 ofrece capacidad informática bajo demanda a través de instancias virtuales, permitiendo a los usuarios lanzar servidores virtuales con diversas configuraciones según las necesidades específicas de recursos computacionales.
+Es un servicio de computación en la nube que permite crear y administrar servidores virtuales (instancias) bajo demanda. Se usa para hospedar aplicaciones, ejecutar bases de datos, realizar procesamiento de datos y más. 
 
-#### Configuración de instancias temporales 
-Las instancias en EC2 pueden ser configuradas como temporales, lo que significa que pueden iniciarse y detenerse según sea necesario. Esto proporciona flexibilidad para optimizar costos y recursos, especialmente en entornos de desarrollo y pruebas.
-#### Seguro, redimensionable y escalable.
-EC2 proporciona un entorno seguro mediante el uso de controles de acceso y configuraciones de seguridad configurables. Las instancias pueden escalar verticalmente (redimensionarse para más recursos) y horizontalmente (agregar más instancias) para manejar cargas de trabajo cambiantes y escalables.
-#### Máquinas virtuales preconfiguradas
-
-Las Amazon Machine Images (AMI) permiten a los usuarios lanzar instancias con sistemas operativos y software preconfigurados. Esto facilita la rápida implementación de entornos de aplicación sin la necesidad de configuraciones manuales extensas.
-#### Uso de VPC, Subredes y Seguridad
-
-EC2 utiliza Virtual Private Cloud (VPC) para proporcionar un entorno de red aislado y controlado por el usuario. Las subredes dentro de VPC permiten segmentar recursos y aplicar políticas de acceso específicas. La seguridad se gestiona mediante grupos de seguridad, que actúan como firewalls virtuales para controlar el tráfico de red hacia y desde las instancias EC2.
-#### Escalamiento en función del tráfico entrante de la aplicación
-
-EC2 es compatible con el Auto Scaling, lo que permite ajustar automáticamente la cantidad de instancias según el tráfico entrante. Esto asegura que la aplicación pueda manejar picos de carga sin intervención manual, mejorando la disponibilidad y la eficiencia de costos.
+Características: 
+- **Servicio informático bajo demanda y con la flexibilidad de un entorno virtual**. AWS EC2 ofrece capacidad informática bajo demanda a través de instancias virtuales, permitiendo a los usuarios lanzar servidores virtuales con diversas configuraciones según las necesidades específicas de recursos computacionales.
+- **Configuración de instancias temporales**. Las instancias en EC2 pueden ser configuradas como temporales, lo que significa que pueden iniciarse y detenerse según sea necesario. Esto proporciona flexibilidad para optimizar costos y recursos, especialmente en entornos de desarrollo y pruebas.
+- **Seguro, redimensionable y escalable**. EC2 proporciona un entorno seguro mediante el uso de controles de acceso y configuraciones de seguridad configurables. Las instancias pueden escalar verticalmente (redimensionarse para más recursos) y horizontalmente (agregar más instancias) para manejar cargas de trabajo cambiantes y escalables.
+- **Máquinas virtuales preconfiguradas**. Las Amazon Machine Images (AMI) permiten a los usuarios lanzar instancias con sistemas operativos y software preconfigurados. Esto facilita la rápida implementación de entornos de aplicación sin la necesidad de configuraciones manuales extensas.
+- **Uso de VPC, Subredes y Seguridad**. EC2 utiliza Virtual Private Cloud (VPC) para proporcionar un entorno de red aislado y controlado por el usuario. Las subredes dentro de VPC permiten segmentar recursos y aplicar políticas de acceso específicas. La seguridad se gestiona mediante grupos de seguridad, que actúan como firewalls virtuales para controlar el tráfico de red hacia y desde las instancias EC2.
+- **Escalamiento en función del tráfico entrante de la aplicación**. EC2 es compatible con el Auto Scaling, lo que permite ajustar automáticamente la cantidad de instancias según el tráfico entrante. Esto asegura que la aplicación pueda manejar picos de carga sin intervención manual, mejorando la disponibilidad y la eficiencia de costos.
 
 Estas características hacen de AWS EC2 una solución poderosa para desplegar y gestionar aplicaciones en la nube de manera flexible, segura y eficiente.
 
@@ -56,15 +49,20 @@ EBS permite optimizar costos al ofrecer diferentes tipos de volúmenes con disti
 - **Replicación:** AWS EBS soporta replicación entre zonas de disponibilidad (AZ) para mejorar la durabilidad y la disponibilidad de los datos.
 
 # AWS: Amazon Simple Storage Service (S3)
+Es un servicio de almacenamiento en la nube que permite guardar y recuperar cualquier tipo de archivo. Es altamente escalable y seguro, con diferentes opciones de almacenamiento según la frecuencia de acceso a los datos. 
 
-#### Servicio de almacenamiento simple de archivos de diferentes tipos, como fotos, audio y videos como objetos
-Amazon S3 permite almacenar y recuperar cualquier cantidad de datos en cualquier momento y desde cualquier lugar. Los datos se almacenan como objetos dentro de cubos (buckets). Cada objeto está compuesto por datos, metadatos y una clave única dentro del cubo.
-**Ejemplo:** Una empresa de medios puede almacenar fotos, archivos de audio y videos en S3. Cada archivo multimedia se guarda como un objeto en un cubo específico, lo que facilita su acceso y gestión a través de URLs únicas.
+Características
 
-#### Escalabilidad, seguridad y recuperación de información
-S3 es altamente escalable, lo que permite a las aplicaciones crecer sin necesidad de aprovisionar más infraestructura. Además, S3 ofrece una seguridad robusta con cifrado en reposo y en tránsito, y políticas de acceso detalladas para controlar quién puede acceder a qué datos. S3 también garantiza la durabilidad de los datos mediante la replicación en múltiples ubicaciones.
-**Ejemplo:** Una aplicación web que crece rápidamente puede seguir almacenando grandes volúmenes de datos de usuario en S3 sin preocuparse por la capacidad de almacenamiento. Además, puede aplicar cifrado a los datos para asegurar su confidencialidad y establecer permisos específicos para que solo ciertos usuarios o servicios puedan acceder a ellos.
+- **Servicio de almacenamiento simple de archivos de diferentes tipos, como fotos, audio y videos como objetos**. Amazon S3 permite almacenar y recuperar cualquier cantidad de datos en cualquier momento y desde cualquier lugar. Los datos se almacenan como objetos dentro de cubos (*buckets*). Cada objeto está compuesto por datos, metadatos y una clave única dentro del cubo.
+> **Ejemplo:** Una empresa de medios puede almacenar fotos, archivos de audio y videos en S3. Cada archivo multimedia se guarda como un objeto en un cubo específico, lo que facilita su acceso y gestión a través de URLs únicas.
 
+- **Escalabilidad, seguridad y recuperación de información**. S3 es altamente escalable, lo que permite a las aplicaciones crecer sin necesidad de aprovisionar más infraestructura. Además, S3 ofrece una seguridad robusta con ==cifrado en reposo y en tránsito==, y políticas de acceso detalladas para controlar quién puede acceder a qué datos. S3 también garantiza la durabilidad de los datos mediante la replicación en múltiples ubicaciones.
+> **Ejemplo:** Una aplicación web que crece rápidamente puede seguir almacenando grandes volúmenes de datos de usuario en S3 sin preocuparse por la capacidad de almacenamiento. Además, puede aplicar cifrado a los datos para asegurar su confidencialidad y establecer permisos específicos para que solo ciertos usuarios o servicios puedan acceder a ellos.
+
+
+>[!Note] Cifrado en reposo y tránsito
+>- **Cifrado en reposo**: Protege los datos cuando están almacenados, asegurando que, aunque alguien acceda físicamente al almacenamiento, no pueda leer la información sin la clave de cifrado.
+>- **Cifrado en tránsito**: Protege los datos mientras se transfieren entre redes, evitando que sean interceptados o modificados por terceros durante la transmisión.
 ### Usos
 
 #### Almacenamiento de datos
