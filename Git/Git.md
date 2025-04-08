@@ -383,7 +383,7 @@ Supongamos tenemos 2 archivos `archivo.txt` y `texto.txt` Y modificamos 4 veces 
 
 ![[ejemplo git --amend 1.png]]
 
-Sin embargo, tenemos cambios sin guardar en `text.txt` y debimos agregarlo al quinto commit. Además hicimos una ultima modificación a `archivo.txt` y no queremos realizar otro commit. 
+Sin embargo, tenemos cambios sin guardar en `texto.txt` y debimos agregarlo al quinto commit. Además hicimos una ultima modificación a `archivo.txt` y no queremos realizar otro commit. 
 
 ![[ejemplo git --amend 2.png]]
 
@@ -405,7 +405,7 @@ Luego vemos que se ha "modificado" el quinto commit
 ---
 
 ## `git rebase`
-Es u comando que reorganiza los commits, permitiendo modificar su historial de una manera más limpia y ordenada.
+Es un comando que reorganiza los commits, permitiendo modificar su historial de una manera más limpia y ordenada.
 
 ### `git rebase -i HEAD~N`
 La opción `i` (interactiva) permite editar commits antes de moverlos.
@@ -445,7 +445,7 @@ Supongamos que queremos eliminar el tercer commit (81ee28a)
 
 ![[Pasted image 20250319115212.png]]
 
-Modificamos `pick` por `edit` en el tercer commit
+Modificamos `pick` por `edit` en el ``tercer commit``
 ![[Pasted image 20250319115303.png]]
 Guardamos, cerramos y luego usamos el comando
 ```shell
@@ -465,19 +465,6 @@ Se han borrado los commit a partir del tercer commit. Para restaurarlos tenemos 
 Los commits posteriores al tercer commit se han "restaurado". Los commits cuarto y ultimo tienen diferente hash. 
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -739,10 +726,196 @@ git commit -m "feat: Complete User class with methods and attributes"
 
 ---
 
-### Resumen del flujo típico
+# Otros comandos
 
-1. Realizas varios _commits_ localmente para registrar cambios pequeños y lógicos.
-2. Revisas los _commits_ pendientes con `git log`.
-3. Cuando los cambios están listos, haces un solo _push_ para enviarlos al remoto.
+## ✅  `git cat-file`
 
-¿Te gustaría practicar algún comando o explorar un caso particular?
+`git cat-file` es un comando de bajo nivel en Git que te permite **ver información sobre objetos internos de Git**, como commits, blobs, árboles y tags.
+
+---
+
+### 🔍 Sintaxis básica
+
+```bash
+git cat-file -p <objeto>
+```
+
+- `-p` significa “pretty-print” (muestra el contenido de forma legible).
+    
+- `<objeto>` puede ser:
+    
+    - el **hash** de un commit,
+    - el hash de un **blob** (archivo),
+    - un **tag**,
+    - o un **árbol** (estructura de directorios).
+
+---
+
+### 📦 ¿Qué objetos puedo inspeccionar?
+
+1. **Commits**
+    ```bash
+    git cat-file -p <commit-hash>
+    ```
+    Muestra el contenido del commit: autor, fecha, mensaje y referencia al árbol de archivos.
+    
+2. **Blobs**
+    ```bash
+    git cat-file -p <blob-hash>
+    ```
+    Muestra el **contenido de un archivo en ese punto**, como si hicieras `cat archivo.txt`.
+    
+3. **Trees**
+    ```bash
+    git cat-file -p <tree-hash>
+    ```
+    Muestra los archivos y carpetas (como un `ls` interno de ese snapshot).
+
+
+---
+
+# Objetos en Git
+En Git, los objetos principales son **commit object**, **tree object**, **blob object** y **tag object**. Estos objetos forman la base del sistema de control de versiones de Git y están diseñados para almacenar y gestionar los datos de manera eficiente. A continuación, se explican en detalle cada uno de ellos, junto con ejemplos para ilustrar su funcionamiento.
+
+## Commit Object
+Un objeto *commit* representa un punto en el historial del repositorio. Es una "instantánea" de los cambios realizados en el proyecto y contiene información como:
+- El hash único del commit.
+- Un mensaje descriptivo sobre los cambios realizados.
+- La referencia al árbol (*tree object*) que describe la estructura del proyecto en ese momento.
+- Referencias a commits anteriores (padres).
+- Información del autor y fecha.
+
+**Ejemplo:**
+Cuando ejecutas `git commit -m "Added new feature"`, Git crea un objeto commit que incluye el mensaje "Added new feature", el estado actual del árbol de archivos y las referencias necesarias para conectar este commit con el anterior. Puedes inspeccionar un commit con `git log`, que muestra detalles como:
+
+```
+commit 09f4acd3f8836b7f6fc44ad9e012f82faf861803 (HEAD -> master)
+Author: John Doe 
+Date: Fri Mar 26 09:35:54 2021 +0100
+Updated index.html with a new line
+```
+
+Este commit apunta a un árbol que contiene la estructura de archivos en ese momento[1][5].
+
+## Tree Object
+Un objeto *tree* representa la estructura jerárquica de directorios y archivos en el repositorio. Cada árbol contiene referencias a otros árboles (subdirectorios) o blobs (archivos) junto con permisos y nombres.
+
+**Ejemplo:**
+Supongamos que tienes una estructura de directorios como esta:
+```
+/project
+  ├── src/
+  │   └── main.c
+  └── README.md
+```
+Cuando haces un commit, Git crea un árbol que describe esta estructura. Puedes inspeccionar un árbol con `git cat-file -p ` para ver algo como:
+```
+100644 blob a3c6e3 README.md
+040000 tree b7d9c2 src
+```
+Aquí, `README.md` es un archivo (blob) y `src` es un subdirectorio (otro árbol)[3][6].
+
+## Blob Object
+Un objeto *blob* almacena el contenido binario de los archivos. No incluye metadatos como nombres o ubicaciones; solo guarda los datos del archivo.
+
+**Ejemplo:**
+Si agregas un archivo llamado `example.txt` con `git add`, Git crea un blob para almacenar su contenido. Puedes inspeccionar el blob con `git cat-file -p ` y ver su contenido:
+```
+An example file
+```
+Si otro archivo tiene exactamente el mismo contenido, Git reutiliza el blob existente en lugar de crear uno nuevo, optimizando el almacenamiento[2][3][7].
+
+## Tag Object
+Un objeto *tag* es una referencia a un commit específico. Se usa para marcar puntos importantes en el historial, como versiones de lanzamiento. Existen dos tipos principales de tags:
+- **Ligero:** Solo apunta al hash del commit.
+- **Anotado:** Contiene metadatos adicionales como mensajes, autor y fecha.
+
+**Ejemplo:**
+Para crear un tag anotado llamado `v1.0.0`, puedes usar:
+```
+git tag -a v1.0.0 -m "Version 1.0 release"
+```
+Esto crea un objeto tag que apunta al commit actual y agrega información adicional. Los tags son útiles para identificar versiones específicas del proyecto
+
+---
+
+## Relación entre los objetos
+Estos objetos trabajan juntos para representar el estado del repositorio:
+1. Un *commit* apunta a un *tree*, que describe la estructura de archivos.
+2. Los *trees* contienen referencias a blobs (contenidos de archivos) y otros trees (subdirectorios).
+3. Los *tags* apuntan a commits específicos, permitiendo identificar versiones importantes.
+
+**Ejemplo general:**
+Imagina que haces cambios en varios archivos, los agregas al área de staging (`git add .`) y luego haces un commit (`git commit -m "Initial setup"`). Git crea:
+- Blobs para cada archivo modificado.
+- Un tree que organiza esos blobs según la estructura del proyecto.
+- Un commit que referencia ese tree.
+Más tarde, podrías marcar este commit con un tag (`git tag v1.0`) para señalarlo como la primera versión
+
+
+
+
+# 🔍 ¿Qué hace `git merge --squash otra-rama`?
+
+El comando:
+
+```bash
+git merge --squash otra-rama
+```
+
+**NO crea un commit de fusión automáticamente**. En lugar de eso, hace esto:
+
+1. **Toma todos los cambios acumulados de la rama `otra-rama`** (desde que divergieron).
+2. **Los aplica** _como si fueran un solo gran cambio_ en tu rama actual (por ejemplo `main` o `develop`).
+3. Pero **NO hace el commit por ti**.
+4. Y **NO conserva el historial de commits individuales** de la rama `otra-rama`.
+
+---
+
+### 🤔 ¿Y por qué necesito hacer `git add` y luego `git commit`?
+
+Después de hacer `git merge --squash`, Git **marca todos los cambios como "modificados"** (staged o unstaged, según el caso), pero **no los confirma** automáticamente.
+
+Entonces tienes que hacer esto manualmente:
+
+```bash
+git add .
+git commit -m "Merge changes from 'otra-rama' using squash"
+```
+
+Esto es necesario porque `--squash` _prepara los cambios pero te deja a ti la responsabilidad de decidir qué se incluye y qué se escribe en el commit final_.
+
+---
+
+### 🆚 ¿Cuál es la diferencia con `git merge` y `git merge --no-ff`?
+
+|Comando|Crea commit automáticamente|Conserva historial de commits de la rama|Requiere `add` y `commit` manual|
+|---|---|---|---|
+|`git merge`|✅ Sí (si es necesario)|✅ Sí|❌ No|
+|`git merge --no-ff`|✅ Sí (fuerza commit)|✅ Sí|❌ No|
+|`git merge --squash`|❌ No|❌ No (todo se aplasta en uno)|✅ Sí|
+
+---
+
+### 🧠 ¿Cuándo usar `git merge --squash`?
+
+Es útil cuando:
+
+- Quieres **fusionar cambios** pero sin agregar ruido al historial.
+- Quieres que todo aparezca como **un solo commit limpio** (ideal para ramas con muchos commits experimentales).
+- Estás trabajando solo y no necesitas conservar el historial detallado de la rama que fusionas.
+
+---
+
+### ✅ Ejemplo completo:
+
+```bash
+git checkout main
+git merge --squash otra-rama
+git add .
+git commit -m "Squash merge from 'otra-rama': implement feature XYZ"
+```
+
+---
+
+¿Quieres que te muestre esto en una práctica con pasos como la actividad anterior?
