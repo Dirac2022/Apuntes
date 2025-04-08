@@ -32,6 +32,9 @@ $$
 
 # Transformación de Intensidad: Negativo de una Imagen
 
+
+![bw-negative.jpg (1000×665)](https://www.guidetofilmphotography.com/photos/bw-negative.jpg)
+
 El negativo de una imagen invierte los valores de intensidad, transformando áreas claras en oscuras y viceversa.
 
 La fórmula para obtener el negativo es:  
