@@ -85,6 +85,29 @@ filtered_arr = arr[mask]
 print(filtered_arr) # [30, 40, 50]
 ```
 
+
+
+# `dtype`
+
+| **Tipo**              | **Dtype en NumPy** | **Bits** | **Rango o Precisión**                        |
+| --------------------- | ------------------ | -------- | -------------------------------------------- |
+| **Enteros con signo** | `'int8'`           | 8        | -128 a 127                                   |
+|                       | `'int16'`          | 16       | -32,768 a 32,767                             |
+|                       | `'int32'`          | 32       | -2,147,483,648 a 2,147,483,647               |
+|                       | `'int64'`          | 64       | -9.2e18 a 9.2e18                             |
+| **Enteros sin signo** | `'uint8'`          | 8        | 0 a 255                                      |
+|                       | `'uint16'`         | 16       | 0 a 65,535                                   |
+|                       | `'uint32'`         | 32       | 0 a 4.2e9                                    |
+|                       | `'uint64'`         | 64       | 0 a 1.8e19                                   |
+| **Punto flotante**    | `'float16'`        | 16       | Baja precisión                               |
+|                       | `'float32'`        | 32       | Precisión simple                             |
+|                       | `'float64'`        | 64       | Precisión doble (por defecto)                |
+|                       | `'float128'`       | 128      | Mayor precisión (si está disponible)         |
+| **Números complejos** | `'complex64'`      | 64       | `float32` + `float32`                        |
+|                       | `'complex128'`     | 128      | `float64` + `float64`                        |
+|                       | `'complex256'`     | 256      | `float128` + `float128` (si está disponible) |
+
+
 # Basado en Learn Python A Beginner's Guide to Python, NumPy, Pandas and Scipy
 
 - NumPy is a Python library
