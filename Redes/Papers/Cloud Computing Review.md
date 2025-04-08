@@ -1,9 +1,9 @@
-# RESUMEN
+# Resumen
 
 La computación en la nube es un tipo de computación donde los servicios informáticos como aplicaciones, almacenamiento, infraestructura y capacidad de procesamiento son alojados por algunos proveedores (proveedores de nube) a través de Internet y entregados a los usuarios según demanda. Una empresa puede beneficiarse de la computación en la nube en el sentido de que pueden alquilar acceso a cualquier cosa, desde aplicaciones hasta almacenamiento y capacidad de procesamiento, en lugar de poseer su propia infraestructura de TI. Al utilizar servicios de computación en la nube, las empresas pueden evitar los diversos costos y complejidades asociados con poseer y mantener su propia infraestructura de TI, ya que todo es atendido por los proveedores de servicios. La computación en la nube es un paradigma en el que tanto los usuarios como los proveedores de servicios se benefician. Los proveedores de servicios se benefician enormemente de la computación en la nube al proporcionar servicios en la nube a una amplia gama de clientes. **El objetivo principal de este documento es proporcionar una visión general de la computación en la nube, abarcando sus características, los pros y los contras de la computación en la nube y los desafíos que conlleva**. Además, este documento también presenta una lista de preocupaciones de seguridad en la computación en la nube que obstaculizan la adopción generalizada de la computación en la nube, lo que motiva a los investigadores a idear soluciones competentes para abordar estos problemas de seguridad en curso.
 Palabras clave: IaaS, proveedor de servicios en la nube, PaaS, SaaS, DoS.
 
-# I. INTRODUCCIÓN
+# Introducción
 
 La computación en la nube está ganando mucha popularidad entre diferentes empresas y tiene el potencial de cambiar la forma en que operan los negocios. Es la nueva tendencia y ha tomado el mercado por asalto. La computación en la nube ofrece aplicaciones y capacidades de TI como un servicio a través de Internet utilizando terceros. Los recursos (CPU, almacenamiento, etc.) se entregan como utilidades generales que son arrendadas y liberadas por el usuario a través de Internet en una base de pago según el uso y bajo demanda. Es muy atractivo para los propietarios de negocios que pueden comenzar desde pequeños y aumentar los recursos solo si hay un aumento en la demanda del servicio. Muchas empresas y organizaciones diferentes han adoptado el concepto de la computación en la nube. La computación en la nube permite a los consumidores y empresas utilizar aplicaciones sin necesidad de instalación y pueden acceder a sus archivos en cualquier computadora a través de Internet [1]. Actualmente, muchas empresas de Tecnologías de la Información (TI) como Google, Yahoo, Amazon, etc., están proporcionando servicios en la nube a los usuarios [2].
 
@@ -12,7 +12,7 @@ Hay algunos requisitos para los servicios en la nube:
 - Para proporcionar un recurso solicitado al usuario, debe haber un mapeo de políticas de acceso entre el CSP y las organizaciones con los recursos disponibles. Siempre existe la posibilidad de violar el mapeo de políticas. Por lo tanto, la aplicación de más políticas de acceso por parte de la organización es beneficiosa en lo que respecta al acceso seguro a los recursos.
 - El Propietario de Datos (DO) debe ofrecer todo tipo de servicios de datos a los consumidores [2].
 
-## 1) Características de la Computación en la Nube
+## Características de la Computación en la Nube
 
 - **Servicio bajo demanda**: los recursos informáticos como almacenamiento, potencia de procesamiento, aplicaciones, etc., se proporcionan a los usuarios cuando se necesitan y solo pagan por lo que usan.
 - **Trabajo desde cualquier lugar**: siempre que los usuarios tengan acceso a Internet, los usuarios de la nube pueden acceder a la nube y trabajar en ella desde cualquier ubicación.
@@ -20,7 +20,7 @@ Hay algunos requisitos para los servicios en la nube:
 - **Actualizaciones**: las actualizaciones de software y otros problemas técnicos ya no son un dolor de cabeza para los consumidores, ya que todo es atendido por los proveedores de servicios.
 - **Escalabilidad**: los servicios en la nube son altamente escalables y los consumidores pueden escalar sus recursos hacia arriba y hacia abajo según sea necesario según sus requisitos.
 
-## 2) Ventajas de la Computación en la Nube
+## Ventajas de la Computación en la Nube
 
 Los beneficios de usar la computación en la nube son:
 
@@ -31,13 +31,13 @@ Los beneficios de usar la computación en la nube son:
 - **Altamente escalable**: los servicios en la nube son altamente escalables, por lo que los consumidores pueden agregar recursos o descartarlos según sus necesidades.
 - **Alta confiabilidad**: la nube se ejecuta en múltiples servidores, por lo que incluso en el caso de que un servidor falle, se realiza fácilmente una copia de seguridad y los recursos se obtienen de otros servidores asegurando un funcionamiento suave e ininterrumpido.
 
-## 3) Desventajas de la Computación en la Nube
+## Desventajas de la Computación en la Nube
 - **Seguridad**: La seguridad de los datos y la privacidad es una de las principales desventajas de la computación en la nube. Al usar servicios en la nube, un usuario está almacenando todos sus datos en la nube, que básicamente es la computadora de otra persona. Algunos datos son demasiado sensibles para ser colocados en la nube, por lo que siempre existe una preocupación por la privacidad de los datos.
 - **Tiempo de inactividad**: esto significa el tiempo en que la nube está inactiva debido a que los proveedores de servicios enfrentan dificultades como pérdida de energía, problemas técnicos y mantenimiento del servidor.
 - **Dependencia de la conectividad**: la computación en la nube depende de la conexión a Internet y requiere que las empresas o usuarios tengan una conectividad a Internet estable para usar sus servicios. Además, cuando el proveedor de servicios experimenta pérdida de conectividad, no pueden tener lugar transacciones.
 - **Control limitado**: Cuando una empresa o un individuo trasladan sus datos a la nube, tienen un control limitado sobre ellos debido a que todas las actividades de backend son gestionadas por el proveedor de servicios y el usuario solo tiene control sobre el frontend de las aplicaciones.
 
-# II. MODELOS DE IMPLEMENTACIÓN EN LA NUBE
+# Modelos de implementación en la nube
 
 Generalmente, hay cuatro tipos de nubes; son nube privada, nube pública, nube híbrida y nube comunitaria. La implementación depende de quién controla la infraestructura y dónde reside.
 
@@ -87,7 +87,7 @@ La nube híbrida es una combinación de los modelos de implementación mencionad
 
 ![[Pasted image 20240505211744.png]]
 Figure 1. Comparative analysis on Cloud Deployment Models
-## III. MODELOS DE SERVICIO EN LA NUBE
+## Modelos de servicio en la nube
 
 Los modelos de nube son de tres tipos, a saber, SaaS (Software como Servicio), IaaS (Infraestructura como Servicio) y PaaS (Plataforma como Servicio). Cada uno de estos modelos tiene sus propios beneficios que pueden ser utilizados para satisfacer diferentes requerimientos empresariales.
 
@@ -128,7 +128,7 @@ Las ofertas de IaaS son recursos informáticos como procesamiento o almacenamien
 ![[Pasted image 20240505211721.png]]
 Figure 2. Types of Cloud Computing Service Models
 
-# IV. DESAFÍOS DE LA COMPUTACIÓN EN LA NUBE
+# Desafíos de la computación en la nube
 
 La computación en la nube es una tecnología muy popular y emergente hoy en día, adoptada por muchas empresas e individuos, pero tan popular como pueda ser, tiene su parte justa de desafíos. En esta sección abordamos los diversos desafíos enfrentados por la computación en la nube.
 
@@ -147,7 +147,7 @@ La portabilidad significa transferir las aplicaciones que se ejecutan en una pla
 ### Rendimiento:
 Cuando una empresa se traslada a la nube, se vuelve dependiente de los proveedores de servicios. Los siguientes desafíos prominentes de mudarse a la computación en la nube amplían esta asociación. Sin embargo, esta asociación a menudo proporciona a las empresas tecnologías innovadoras a las que de otro modo no podrían acceder. Por otro lado, el rendimiento del BI de la organización y otros sistemas basados en la nube también está vinculado al rendimiento del proveedor de la nube cuando falla. Cuando su proveedor está fuera de servicio, usted también lo está.
 
-# V. PROBLEMAS DE SEGURIDAD EN LA COMPUTACIÓN EN LA NUBE
+# Problemas de seguridad en la computación en la nube
 
 Cuando se trata de la nube, los datos se almacenan en el lado del proveedor de servicios y se accede a ellos a través de Internet. El usuario tiene un control limitado sobre sus datos y la visibilidad se vuelve restringida. También surge la pregunta de qué tan seguros están almacenados y gestionados estos datos. Los problemas de seguridad en la nube son compartidos tanto por el proveedor como por el cliente. El proveedor de servicios debe asegurarse de que los servicios proporcionados sean seguros, y el cliente debe asegurarse de que el servicio que está utilizando sea seguro.
 
@@ -168,6 +168,6 @@ A diferencia de otras formas de ataques que intentan secuestrar información sen
 ### Pérdida de Datos:
 La pérdida de datos es una situación en la que los sistemas de información que almacenan información son destruidos, lo que conduce a la pérdida de información vital. Los sistemas de información pueden ser destruidos como resultado de negligencia, manejo incorrecto, desastres naturales y ataques maliciosos o debido a un borrado de datos por parte del proveedor de servicios de manera intencional o no intencional. Esto podría afectar gravemente a las empresas que no tienen un plan de recuperación. Amazon sufrió pérdida de datos en 2011 al destruir mucha de la información de sus clientes. Google es otra organización que sufrió una pérdida masiva de datos cuando su red eléctrica fue alcanzada por un rayo.
 
-# VI. CONCLUSIÓN
+# Conclusión
 La computación en la nube es una de las áreas de más rápido crecimiento en el campo de la tecnología de la información hoy en día, ofreciendo enormes beneficios a clientes de todo tipo y tamaño. Es uno de los principales habilitadores para muchas empresas y organizaciones. La computación en la nube es tan popular hoy en día porque ofrece una amplia gama de servicios a tarifas asequibles y las soluciones en la nube son mucho más simples de adquirir, no requieren contratos a largo plazo y pueden escalarse según sea necesario. A pesar de todos los beneficios que ofrece, la computación en la nube también tiene sus propias desventajas y desafíos, y actualmente se están llevando a cabo investigaciones activas para abordar los diversos problemas que enfrenta.
 
