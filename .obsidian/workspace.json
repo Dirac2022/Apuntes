@@ -4,38 +4,67 @@
     "type": "split",
     "children": [
       {
-        "id": "752c030b08c7334b",
+        "id": "0ce4d90fc0b33bce",
         "type": "tabs",
         "children": [
           {
-            "id": "1e95c71ea1f9a2b9",
+            "id": "f9551f1e6ee55f8e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Artificial Intelligence/Univerisdad/S1 Introducción a la Inteligencia Artificial.md",
+                "file": "Desarrollo de Software/Lectura 6.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "S1 Introducción a la Inteligencia Artificial"
+              "title": "Lectura 6"
             }
           },
           {
-            "id": "7dd7b826a39ba2b7",
+            "id": "e033095aa463ea03",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Artificial Intelligence/Univerisdad/About the course.md",
+                "file": "Desarrollo de Software/Actividad5-CC3S2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "About the course"
+              "title": "Actividad5-CC3S2"
+            }
+          },
+          {
+            "id": "36517b5fd777d600",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Git/Git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Git"
+            }
+          },
+          {
+            "id": "f29464ba9b3d8c1c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Desarrollo de Software/Miscelanea.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Miscelanea"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -67,7 +96,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "IBM",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -106,7 +135,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 390.5
+    "width": 390.5,
+    "collapsed": true
   },
   "right": {
     "id": "718557b829c5a8b8",
@@ -168,13 +198,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Desarrollo de Software/Lectura1.md",
-                "followCursor": false,
+                "file": "Desarrollo de Software/Actividad5-CC3S2.md",
+                "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Lectura1"
+              "title": "Outline of Actividad5-CC3S2"
             }
           }
         ],
@@ -196,54 +226,55 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "1e95c71ea1f9a2b9",
+  "active": "e033095aa463ea03",
   "lastOpenFiles": [
-    "Artificial Intelligence/Conceptos.md",
-    "Artificial Intelligence/Univerisdad/S1 Introducción a la Inteligencia Artificial.md",
-    "Data Science/Data Science 1 - Sesión 01.md",
-    "Data Science/Data Science 1 - Sesión 02.md",
-    "Artificial Intelligence/Introduction.md",
-    "Artificial Intelligence/Machine Learning.md",
-    "Artificial Intelligence/Univerisdad/About the course.md",
-    "Artificial Intelligence/Machine Learning Specialization - Coursera/Supervised Machine Learning Regression and Classification/About the course.md",
-    "Artificial Intelligence/Apuntes Universidad/Untitled.md",
-    "Desarrollo de Software/Lectura2.md",
+    "Pasted image 20250408145435.png",
+    "Pasted image 20250408145357.png",
+    "Pasted image 20250408145339.png",
+    "Pasted image 20250408143706.png",
+    "Pasted image 20250408142227.png",
+    "Git/Git.md",
+    "Desarrollo de Software/Actividad5-CC3S2.md",
+    "Pasted image 20250408141017.png",
+    "Pasted image 20250408134837.png",
+    "Pasted image 20250408134606.png",
+    "Pasted image 20250408134533.png",
+    "Pasted image 20250408134457.png",
+    "Pasted image 20250408133505.png",
+    "Untitled.canvas",
+    "Desarrollo de Software/Lectura 6.md",
     "Desarrollo de Software/Miscelanea.md",
     "Desarrollo de Software/About the course.md",
+    "Git/Actividades usuales.md",
+    "Desarrollo de Software/Lectura 5.md",
     "Desarrollo de Software/Actividad1-CC3S2.md",
-    "Programación en Dispositivos Moviles/Librerías.md",
-    "Desarrollo Web/HTML/Cheat Sheet.md",
-    "Administración de Redes/Sockets.md",
-    "Administración de Redes/Lecturas/Kubernetes.md",
-    "Desarrollo de Software/Lectura1.md",
-    "Administración de Redes/Lecturas/Ansible.md",
-    "Programación Concurrente y Distribuida/Prueba de entrada.md",
-    "Programación Concurrente y Distribuida/S2 Programación Concurrente.md",
-    "Redes/Capa de transporte.md",
-    "Programación Concurrente y Distribuida/S3 Sockets.md",
-    "Programación Concurrente y Distribuida/S1 Programación Concurrente con Hilos.md",
-    "Programación Concurrente y Distribuida/About the course.md",
-    "Analisis y Diseño de Algoritmos/Complejidad.md",
-    "Analisis y Estructura de Datos Avanzado/Algoritmos.ipynb",
-    "Analisis y Estructura de Datos Avanzado",
-    "Desarrollo de Software",
-    "Proyecto Rover/FastSLAM",
-    "Pasted image 20250319120006.png",
-    "Pasted image 20250319120341.png",
-    "Git/imgs/Pasted image 20250319120006.png",
-    "Git/imgs/Pasted image 20250319115833.png",
-    "Git/imgs/Pasted image 20250319115725.png",
-    "Git/imgs/Pasted image 20250319115303.png",
-    "Git/imgs/Pasted image 20250319115212.png",
-    "Git/imgs/Pasted image 20250319120341.png",
-    "Pasted image 20250319115833.png",
-    "Pasted image 20250319115303.png",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/imgs",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Nueva carpeta",
-    "Artificial Intelligence/Deep Learning Specialization - Coursera/Nuevo acceso directo.lnk",
-    "Artificial Intelligence/Univerisdad",
-    "Artificial Intelligence/Reinforcement Learning",
-    "Git/imgs",
+    "Desarrollo de Software/Lectura 7.md",
+    "Desarrollo de Software/Actividad4-CC3S2.md",
+    "Desarrollo de Software/Lectura 4.md",
+    "Untitled 1.md",
+    "Desarrollo de Software/Actividad2-CC3S2.md",
+    "Desarrollo de Software/Actividad3-CC3S2.md",
+    "Desarrollo de Software/Lectura 2.md",
+    "Desarrollo de Software/Lectura 3.md",
+    "Desarrollo de Software/Lectura 1.md",
+    "Desarrollo de Software/diagrama-commits.drawio.crswap",
+    "Seguridad Informatica/Comandos.md",
+    "Desarrollo de Software/diagrama-commits.drawio",
+    "Desarrollo de Software/Diagrama sin título.drawio",
+    "Desarrollo de Software/imgs",
+    "Desarrollo de Software/Nueva carpeta",
+    "Seguridad Informatica/About the course.md",
+    "Seguridad Informatica/Lab 01.md",
+    "Seguridad Informatica/Semana 1.md",
+    "Teoría de Autómatas, Lenguajes y Computación/Expresiones Regulares.md",
+    "Etica/About the course.md",
+    "Redes/Topología de red.md",
+    "Redes/Tasks.md",
+    "Etica",
+    "Artificial Intelligence/Reinforcement Learning/Deep RL Course HF",
+    "Programación Concurrente y Distribuida/imgs",
+    "Seguridad Informatica",
+    "Artificial Intelligence/YOLO",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
