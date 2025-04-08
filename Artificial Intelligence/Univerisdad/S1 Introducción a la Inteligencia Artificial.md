@@ -77,6 +77,21 @@ Este enfoque ha sido influyente, aunque criticado. Por ejemplo, una máquina pod
 - **Test de Turing Total:** además del lenguaje, la máquina debe interactuar físicamente con el mundo.
 - **Pruebas basadas en tareas específicas:** en lugar de evaluar conversaciones generales, se usan tests en áreas como visión artificial o razonamiento lógico.
 
+>[!note] Clase
+> > Si una máquina puede actuar como humano, entonces podemos decir que es inteligente
+>Para pasar el Test de Turing debe tener la siguientes características
+>- Reconocimiento del lenguaje
+>- Razonamiento
+>- Aprendizaje
+>- Representación del conocimiento
+> 
+> **Test de Turing total**
+> - Visión artificial
+> - Robótica
+>
+> De acuerdo a Turing una máquina será inteligente si actúa y piensa como humano
+
+
 # La Sala China
 John Searle propuso en 1980 el experimento mental de la *Sala China* como una crítica al Test de Turing y a la IA simbólica.
 
