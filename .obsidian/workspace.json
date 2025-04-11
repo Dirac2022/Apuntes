@@ -4,63 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "0ce4d90fc0b33bce",
+        "id": "ce84ca2aa51134f0",
         "type": "tabs",
         "children": [
           {
-            "id": "f9551f1e6ee55f8e",
+            "id": "954024b9e11c6996",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Desarrollo de Software/Lectura 6.md",
+                "file": "Computación Gráfica/About the Course.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lectura 6"
+              "title": "About the Course"
             }
           },
           {
-            "id": "e033095aa463ea03",
+            "id": "aee6681642d808f1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Desarrollo de Software/Actividad5-CC3S2.md",
+                "file": "Computación Gráfica/Semana 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Actividad5-CC3S2"
-            }
-          },
-          {
-            "id": "36517b5fd777d600",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Git/Git.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Git"
-            }
-          },
-          {
-            "id": "f29464ba9b3d8c1c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Desarrollo de Software/Miscelanea.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Miscelanea"
+              "title": "Semana 2"
             }
           }
         ],
@@ -96,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "switch",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -135,8 +107,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 390.5,
-    "collapsed": true
+    "width": 390.5
   },
   "right": {
     "id": "718557b829c5a8b8",
@@ -198,13 +169,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Desarrollo de Software/Actividad5-CC3S2.md",
+                "file": "Desarrollo de Software/Prueba de entrada.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Actividad5-CC3S2"
+              "title": "Outline of Prueba de entrada"
             }
           }
         ],
@@ -226,55 +197,55 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "e033095aa463ea03",
+  "active": "aee6681642d808f1",
   "lastOpenFiles": [
-    "Pasted image 20250408145435.png",
-    "Pasted image 20250408145357.png",
-    "Pasted image 20250408145339.png",
-    "Pasted image 20250408143706.png",
-    "Pasted image 20250408142227.png",
-    "Git/Git.md",
-    "Desarrollo de Software/Actividad5-CC3S2.md",
-    "Pasted image 20250408141017.png",
-    "Pasted image 20250408134837.png",
-    "Pasted image 20250408134606.png",
-    "Pasted image 20250408134533.png",
-    "Pasted image 20250408134457.png",
-    "Pasted image 20250408133505.png",
-    "Untitled.canvas",
-    "Desarrollo de Software/Lectura 6.md",
-    "Desarrollo de Software/Miscelanea.md",
-    "Desarrollo de Software/About the course.md",
-    "Git/Actividades usuales.md",
+    "Computación Gráfica/Semana 3.md",
+    "Computación Gráfica/Semana 2.md",
+    "Computación Gráfica/About the Course.md",
     "Desarrollo de Software/Lectura 5.md",
-    "Desarrollo de Software/Actividad1-CC3S2.md",
-    "Desarrollo de Software/Lectura 7.md",
-    "Desarrollo de Software/Actividad4-CC3S2.md",
+    "Git/Git.md",
+    "Desarrollo de Software/Prueba de entrada.md",
+    "Git/Actividades usuales.md",
+    "Desarrollo de Software/Actividad5-CC3S2.md",
+    "diff-trivia-day2.png",
+    "blame-trivia-day2.png",
+    "blame-test_trivia-day2.png",
+    "Administración de Redes/imgs/Pasted image 20250409220528.png",
+    "Administración de Redes/imgs/Pasted image 20250409212027.png",
+    "Administración de Redes/imgs/Pasted image 20250329180434.png",
+    "Pasted image 20250410231223.png",
+    "Pasted image 20250410221904.png",
+    "Pasted image 20250410221855.png",
+    "Pasted image 20250410220602.png",
     "Desarrollo de Software/Lectura 4.md",
-    "Untitled 1.md",
-    "Desarrollo de Software/Actividad2-CC3S2.md",
-    "Desarrollo de Software/Actividad3-CC3S2.md",
+    "Java/Estructura de proyecto Java.md",
+    "Redes/Red Essentials.md",
+    "Desarrollo de Software/Actividad6-CC3S2.md",
+    "Desarrollo de Software/Actividad4-CC3S2.md",
+    "Desarrollo de Software/Miscelanea.md",
+    "Desarrollo de Software/Untitled.md",
+    "Administración de Redes/Lecturas/Docker.md",
+    "Programación en Dispositivos Moviles/Algoritmos genéticos.md",
+    "Artificial Intelligence/Univerisdad/Miscelanea.md",
+    "Analisis y Modelamiento Numerico/Chebyshev distance.md",
+    "Administración de Redes/Task.md",
     "Desarrollo de Software/Lectura 2.md",
+    "Desarrollo de Software/About the course.md",
+    "Redes/Papers/Cloud Computing Review.md",
     "Desarrollo de Software/Lectura 3.md",
-    "Desarrollo de Software/Lectura 1.md",
+    "Desarrollo de Software/Actividad7-CC3S2.md",
+    "Desarrollo de Software/Lectura 11.md",
+    "Untitled.canvas",
+    "Untitled 1.md~RFb715889.TMP",
     "Desarrollo de Software/diagrama-commits.drawio.crswap",
-    "Seguridad Informatica/Comandos.md",
     "Desarrollo de Software/diagrama-commits.drawio",
     "Desarrollo de Software/Diagrama sin título.drawio",
     "Desarrollo de Software/imgs",
     "Desarrollo de Software/Nueva carpeta",
-    "Seguridad Informatica/About the course.md",
-    "Seguridad Informatica/Lab 01.md",
-    "Seguridad Informatica/Semana 1.md",
-    "Teoría de Autómatas, Lenguajes y Computación/Expresiones Regulares.md",
-    "Etica/About the course.md",
-    "Redes/Topología de red.md",
-    "Redes/Tasks.md",
     "Etica",
     "Artificial Intelligence/Reinforcement Learning/Deep RL Course HF",
     "Programación Concurrente y Distribuida/imgs",
     "Seguridad Informatica",
-    "Artificial Intelligence/YOLO",
     "Algebra Lineal/Untitled.canvas"
   ]
 }
