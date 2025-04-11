@@ -54,7 +54,8 @@ Cada pantalla, impresora o cámara tiene un rango limitado de colores que puede 
 # RGB
 RGB (Red, Green, Blue) es un modelo de color basado en la **mezcla aditiva** de luz. Se usa en pantallas y dispositivos digitales. Cada color se representa con tres valores en un rango de 0 a 255.
 
-![Figure-11-The-Normalization-of-RGB-color-values80_W640.jpg (551×432)](https://www.researchgate.net/profile/Dr-Kashmar/publication/335504961/figure/fig1/AS:797662513217546@1567188971536/Figure-11-The-Normalization-of-RGB-color-values80_W640.jpg)
+
+<img src="https://www.researchgate.net/profile/Dr-Kashmar/publication/335504961/figure/fig1/AS:797662513217546@1567188971536/Figure-11-The-Normalization-of-RGB-color-values80_W640.jpg" width=600>
 
 
 # CMYK
