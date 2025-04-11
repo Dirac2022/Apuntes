@@ -42,7 +42,7 @@ Los beneficios de usar la computación en la nube son:
 Generalmente, hay cuatro tipos de nubes; son nube privada, nube pública, nube híbrida y nube comunitaria. La implementación depende de quién controla la infraestructura y dónde reside.
 
 ### Nube Privada:
-Una nube privada es una infraestructura en la nube que es propiedad y está operada por una sola organización. No está disponible para el público en general y solo la organización que la posee y sus miembros pueden acceder a sus recursos. También se llama nube interna/corporativa por esta razón. Una nube privada es más segura, confiable y mantiene la privacidad ya que solo las personas autorizadas pueden acceder a ella.
+Una nube privada es una infraestructura en la nube que es propiedad y ==está operada por una sola organización. No está disponible para el público en general y solo la organización que la posee y sus miembros pueden acceder a sus recursos==. También se llama nube interna/corporativa por esta razón. Una nube privada es más segura, confiable y mantiene la privacidad ya que solo las personas autorizadas pueden acceder a ella.
 
 **Ventajas:**
 - Altamente segura y confiable.
@@ -52,7 +52,7 @@ Una nube privada es una infraestructura en la nube que es propiedad y está oper
 - Para usar una nube privada, una empresa tiene que gastar considerables gastos en hardware, software y capacitación del personal.
 
 ### Nube Pública:
-Como su nombre lo sugiere, la nube pública está disponible para el público en general. En la nube pública, el proveedor de servicios en la nube proporciona los recursos, como la red, el servidor, etc. La infraestructura del servidor pertenece al proveedor y, por lo tanto, los usuarios/empresas no necesitan comprar y mantener su propio hardware individual. Aquí, los usuarios pueden pagar por la cantidad que han utilizado la nube pública. En la nube pública, los clientes o usuarios de muchas organizaciones están mezclados y utilizan la misma nube o red.
+Como su nombre lo sugiere, la nube pública está ==disponible para el público en general==. En la nube pública, el proveedor de servicios en la nube proporciona los recursos, como la red, el servidor, etc. La infraestructura del servidor pertenece al proveedor y, por lo tanto, los usuarios/empresas no necesitan comprar y mantener su propio hardware individual. Aquí, los usuarios pueden pagar por la cantidad que han utilizado la nube pública. ==En la nube pública, los clientes o usuarios de muchas organizaciones están mezclados y utilizan la misma nube o red==.
 
 **Ventajas:**
 - Es altamente escalable.
