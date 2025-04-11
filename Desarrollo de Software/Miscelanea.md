@@ -702,3 +702,187 @@ En entornos DevOps, el código completo es esencial para mantener flujos ágiles
 
 
 
+# Balanceadores de carga
+Un **balanceador de carga** (load balancer) es un componente que distribuye el tráfico de red o de solicitudes entre varios servidores. Su propósito es:
+
+- 🔄 Evitar que un solo servidor se sobrecargue.
+- ⚡ Mejorar el rendimiento.
+- 🛡️ Aumentar la disponibilidad y tolerancia a fallos.
+- 📈 Escalar aplicaciones fácilmente.
+
+> [!tip] Ejemplo
+> Imagina que tienes una aplicación web que recibe 1000 usuarios por segundo. Si solo tienes un servidor, puede colapsar. Pero si tienes 3 servidores, un balanceador de carga puede enviar ~333 usuarios a cada uno, manteniéndolo equilibrado.
+
+[Qué es un balanceador de carga y cómo mejora el rendimiento de la web](https://www.redeszone.net/tutoriales/servidores/balanceador-carga-load-balancer-que-es-funcionamiento/)
+
+### ¿Cómo funciona el balanceador de carga?
+
+Cuando un usuario accede a un sitio web, el balanceador de carga recibe la solicitud y decide a qué servidor enviarla. Utiliza diferentes algoritmos para determinar la distribución más eficiente de las solicitudes, teniendo en cuenta factores como la capacidad de procesamiento de cada servidor, la carga actual y la disponibilidad.
+
+Existen varios tipos de balanceadores de carga, como los balanceadores de carga basados en hardware, que son dispositivos físicos dedicados, y los balanceadores de carga basados en software, que se ejecutan en servidores virtuales. Independientemente del tipo, el balanceador de carga realiza las siguientes funciones:
+
+- **Recepción de solicitudes:** El balanceador de carga actúa como punto de entrada para las solicitudes de los usuarios. Recibe las peticiones y las redirige a los servidores disponibles.
+- **Distribución de carga:** Utilizando algoritmos de balanceo, el balanceador de carga decide a qué servidor enviar cada solicitud. Los algoritmos más comunes son el Round Robin, donde se asigna secuencialmente cada solicitud a un servidor, y el Least Connections, que envía las solicitudes al servidor con la menor carga actual.
+- **Monitorización de servidores:** El balanceador de carga supervisa constantemente el estado de los servidores. Si detecta que un servidor no responde o está sobrecargado, lo excluye temporalmente de la distribución de carga para evitar interrupciones en el servicio.
+- **Tolerancia a fallos:** En caso de que un servidor falle, el balanceador de carga redirige automáticamente las solicitudes a los servidores restantes. Esto asegura que el sitio web siga funcionando sin interrupciones, minimizando el impacto de cualquier problema en un servidor individual.
+- **Escalabilidad:** A medida que la carga de trabajo aumenta, es posible agregar nuevos servidores al grupo y configurar el balanceador de carga para que distribuya la carga de manera equitativa entre ellos. Esto permite escalar horizontalmente el sistema, aumentando la capacidad de procesamiento según sea necesario.
+- **Sesiones persistentes:** En algunos casos, es necesario mantener la conexión del usuario con el mismo servidor durante toda su sesión. El balanceador de carga puede configurarse para asignar una sesión persistente a un servidor específico, asegurando la continuidad de la experiencia del usuario.
+
+Por tanto, hay que tener claro que son varias las funcionalidades que debe cumplir con el objetivo de que se pueda dar un servicio de garantía a los servidores web de diferentes páginas.
+
+
+
+# 📦 `fastapi`
+
+**¿Qué es?**  
+FastAPI es un framework para construir APIs web modernas, rápidas y eficientes con Python. Está basado en **Starlette** para la parte web y en **Pydantic** para validación de datos.
+
+**¿Por qué es popular?**
+
+- Es **muy rápido** (casi tan rápido como Node.js o Go).
+    
+- Usa **async/await**, lo que permite manejar muchas peticiones al mismo tiempo sin bloquear el servidor.
+    
+- Tiene **documentación automática** (Swagger y ReDoc) apenas levantas el servidor.
+    
+
+🔧 Ejemplo:
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+```
+
+---
+
+# ⚡ `uvicorn`
+
+**¿Qué es?**  
+Uvicorn es un **servidor ASGI** (Asynchronous Server Gateway Interface). Es el que realmente ejecuta tu aplicación FastAPI y maneja las conexiones HTTP de forma asíncrona.
+
+**En resumen**: Es como el "motor" que arranca tu aplicación y recibe las peticiones de los usuarios.
+
+🛠️ Comando típico para correr tu app:
+
+```bash
+uvicorn main:app --reload
+```
+
+(`main` es el nombre del archivo Python, y `app` es la instancia de FastAPI)
+
+---
+
+# 🧵 `asyncpg`
+
+**¿Qué es?**  
+Es un **driver asíncrono** para conectarse a **PostgreSQL** desde Python. Es muy rápido y permite hacer consultas a la base de datos sin bloquear el servidor.
+
+**¿Por qué no usar psycopg2?**  
+Porque `psycopg2` es síncrono. Si estás trabajando con `async`/`await`, `asyncpg` es una mejor opción.
+
+---
+
+# 🛢️ `databases`
+
+**¿Qué es?**  
+Es una librería que sirve como **capa intermedia** para conectarse a bases de datos de forma asíncrona. Funciona con `asyncpg`, pero te da una interfaz más fácil para hacer queries, y además permite cambiar de motor fácilmente (por ejemplo, de PostgreSQL a SQLite o MySQL).
+
+**Ejemplo de uso con FastAPI y asyncpg:**
+
+```python
+from databases import Database
+
+database = Database("postgresql://user:password@localhost/dbname")
+await database.connect()
+```
+
+
+
+# Síncrono y asíncrono
+### 🎯 Concepto básico
+
+#### ✅ **Síncrono**:
+
+- Las tareas se ejecutan **una a la vez**, en **orden**.
+    
+- Cada operación **bloquea** el programa hasta que termina.
+    
+
+📦 Ejemplo:
+
+```python
+def fetch_data():
+    data = slow_database_call()  # esto puede tardar varios segundos
+    print("Datos obtenidos:", data)
+```
+
+➡️ Si `slow_database_call()` tarda 3 segundos, el programa **espera esos 3 segundos sin hacer nada más**.
+
+---
+
+#### ⚡ **Asíncrono**:
+
+- Las tareas **no bloquean** el flujo del programa.
+    
+- Usa `async` y `await` para decirle a Python: "esto puede tardar, pero mientras tanto puedes hacer otras cosas".
+    
+
+📦 Ejemplo:
+
+```python
+async def fetch_data():
+    data = await slow_database_call()
+    print("Datos obtenidos:", data)
+```
+
+➡️ Mientras espera a que `slow_database_call()` termine, Python puede manejar otras tareas (como responder a otras peticiones HTTP).
+
+---
+
+### 🧠 ¿Por qué importa en desarrollo web?
+
+Imagina que tienes una API que recibe muchas peticiones al mismo tiempo:
+
+#### Con un enfoque **síncrono**:
+
+- Cada petición **espera su turno**.
+    
+- Si una toma mucho tiempo (como una consulta a la base de datos o a una API externa), **las demás se quedan esperando**.
+    
+
+#### Con un enfoque **asíncrono**:
+
+- Puedes **atender múltiples peticiones al mismo tiempo**, incluso si algunas están esperando datos.
+    
+- Mejora **el rendimiento**, **la escalabilidad** y el **uso eficiente de recursos**.
+    
+
+---
+
+### 🏎️ Ejemplo visual
+
+Imagina que estás en una cafetería:
+
+- **Síncrono**: el barista solo atiende a un cliente a la vez. Si uno pide algo que tarda, los demás esperan.
+    
+- **Asíncrono**: el barista toma varios pedidos, pone a calentar el café de uno, sirve el té de otro mientras tanto, y va avanzando en paralelo.
+    
+
+---
+
+### 🔧 En resumen:
+
+|Característica|Síncrono|Asíncrono|
+|---|---|---|
+|Ejecución|Una cosa a la vez|Muchas tareas "en paralelo" (no bloqueantes)|
+|Recursos|Usa más CPU/RAM para muchas conexiones|Más eficiente con menos recursos|
+|Ideal para|Scripts simples, tareas pequeñas|APIs, servicios con muchas conexiones concurrentes|
+
+---
+
+Si estás construyendo una API que va a manejar **muchas conexiones simultáneas**, como una app móvil o web, ¡lo asíncrono es tu amigo!
