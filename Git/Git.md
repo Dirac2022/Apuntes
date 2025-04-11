@@ -28,7 +28,7 @@ git config --global --list
 
 Agregar editor de texto
 ```shell
-git config --global core.editor "core --wait"
+git config --global core.editor "code --wait"
 ```
 
 
@@ -918,4 +918,286 @@ git commit -m "Squash merge from 'otra-rama': implement feature XYZ"
 
 ---
 
-¿Quieres que te muestre esto en una práctica con pasos como la actividad anterior?
+
+# `git blame`
+## 🔍 ¿Para qué sirve `git blame`?
+
+### 🧠 Propósito principal:
+
+Saber **quién modificó una línea de un archivo**, **en qué commit**, y **cuándo lo hizo**.
+
+Esto te ayuda a:
+
+- Rastrear errores ("¿quién escribió esto y por qué?")
+    
+- Entender el contexto histórico de un cambio
+    
+- Saber a quién preguntarle si no entendés una parte del código
+    
+- Ver la evolución de una función o sección
+    
+
+---
+
+## 🧪 Ejemplo básico
+
+```bash
+git blame archivo.py
+```
+
+Ejemplo de salida:
+
+```
+a1b2c3d4 (Juan Pérez   2024-11-10 15:42:22 +0100  1) def calcular_total(pedido):
+e5f6g7h8 (Ana Martínez 2024-12-01 10:15:10 +0100  2)     return pedido.precio * pedido.cantidad
+```
+
+→ Eso te dice:
+
+- Qué commit introdujo cada línea
+    
+- Quién lo hizo
+    
+- Cuándo
+    
+- Qué línea exacta es
+    
+
+---
+
+## 🔧 Opciones útiles
+
+### ✅ Ver con menos info (solo autor y línea)
+
+```bash
+git blame -e archivo.py
+```
+
+Incluye email del autor.
+
+---
+
+### ✅ Ver desde una línea específica
+
+```bash
+git blame -L 10,20 archivo.py
+```
+
+→ Muestra solo las líneas 10 a 20.
+
+---
+
+### ✅ Ver blame de un commit pasado
+
+```bash
+git blame archivo.py  # último estado (HEAD)
+
+git blame HEAD~3 -- archivo.py
+```
+
+→ Para ver cómo estaba el archivo **hace 3 commits**.
+
+---
+
+### ✅ Saber qué línea cambió en qué commit, y ver el commit
+
+```bash
+git blame archivo.py
+# copia el hash, por ejemplo: a1b2c3d4
+
+git show a1b2c3d4
+```
+
+→ Así ves **todo el cambio que hizo esa persona** en ese commit.
+
+---
+
+## 🧼 Tip visual (si usás VS Code)
+
+En Visual Studio Code:
+
+- Click derecho en el archivo → `Blame`
+    
+- O instalá la extensión: **GitLens** → súper visual, te dice autores, cambios, tiempo, todo.
+    
+
+---
+
+## ⚠️ Consejo:
+
+No uses `git blame` para "culpar" a alguien. 🙅‍♂️ Usalo para **entender el contexto**, mejorar el código, y colaborar mejor.
+
+---
+
+¡Vamos con una clase completa de `git tag`! 🎯  
+Esta herramienta es esencial para marcar **puntos importantes en la historia de tu proyecto**, como versiones (`v1.0.0`, `v2.0`, etc).
+
+---
+
+
+
+
+
+# 🏷️  `git tag` 
+
+---
+
+## 🔍 ¿Qué es un tag en Git?
+
+Un **tag** (etiqueta) es como un “marcador” que apunta a un **commit específico**, generalmente usado para señalar **versiones estables** (ej: `v1.0.0`).
+
+📦 Muy usado en **deploys, releases, CI/CD, control de versiones, changelogs, etc.**
+
+---
+
+## 🧠 Tipos de tags
+
+ **1. Lightweight tag (etiqueta ligera)**
+- Es un puntero simple a un commit.
+- No tiene metadatos (ni mensaje, ni autor del tag).
+```bash
+git tag v1.0.0
+```
+
+**2. Annotated tag (etiqueta anotada) ✅ recomendada**
+- Se guarda como objeto Git.
+- Tiene mensaje, autor, fecha y puede firmarse con GPG.
+```bash
+git tag -a v1.0.0 -m "Versión 1.0.0 inicial"
+```
+
+---
+
+## 🚀 Crear un tag
+
+**Crear tag en el commit actual (HEAD)**
+```bash
+git tag -a v1.2.0 -m "Release v1.2.0"
+```
+
+**Crear tag en un commit específico**
+```bash
+git tag -a v1.1.0 1a2b3c4d -m "Versión antigua"
+```
+
+---
+
+## 📤 Subir tags al repositorio remoto (GitHub, GitLab...)
+
+**Subir un tag individual**
+```bash
+git push origin v1.2.0
+```
+
+
+**Subir todos los tags de golpe**
+```bash
+git push --tags
+```
+
+---
+
+## ❌ Borrar tags
+
+**Local**
+```bash
+git tag -d v1.2.0
+```
+
+**Remoto**
+```bash
+git push origin --delete tag v1.2.0
+```
+
+---
+
+## 📋 Listar todos los tags
+
+```bash
+git tag
+```
+
+
+
+## 🔎 Ver detalles de un tag
+
+```bash
+git show v1.2.0
+```
+
+---
+
+## 🔄 Checkout a un tag
+
+```bash
+git checkout v1.2.0
+```
+
+⚠️ Esto te deja en estado `detached HEAD`, es decir: estás viendo un commit del pasado, **no estás en una rama**.
+
+Si querés trabajar desde ahí:
+
+```bash
+git checkout -b hotfix/v1.2.1
+```
+
+---
+
+## 🧪 Caso práctico: flujo de versiones
+
+```bash
+git checkout main
+git pull origin main
+git tag -a v1.0.0 -m "Primera versión estable"
+git push origin v1.0.0
+```
+
+🎉 ¡Ya hiciste tu primer release!
+
+---
+
+## 🛠️ GitHub Release + Tags
+
+En GitHub:
+
+- Si subís un tag, podés crear una **release** desde la interfaz web.
+    
+- Las acciones (`GitHub Actions`) y muchos pipelines se activan con tags.
+    
+
+---
+
+## 🧠 Recap visual
+
+|Acción|Comando|
+|---|---|
+|Crear tag ligero|`git tag v1.0.0`|
+|Crear tag anotado|`git tag -a v1.0.0 -m "mensaje"`|
+|Ver tags|`git tag`|
+|Subir tag|`git push origin v1.0.0`|
+|Subir todos los tags|`git push --tags`|
+|Ver detalles|`git show v1.0.0`|
+|Eliminar tag local|`git tag -d v1.0.0`|
+|Eliminar tag remoto|`git push origin --delete tag v1.0.0`|
+|Checkout a un tag|`git checkout v1.0.0`|
+
+---
+
+## 📦 Bonus: Cómo usar tags con SemVer
+
+Tags suelen seguir la convención **SemVer (Semantic Versioning)**:
+
+```
+vMAJOR.MINOR.PATCH
+```
+
+Ejemplo:
+
+- `v1.0.0`: Primer release
+    
+- `v1.1.0`: Nuevas features compatibles
+    
+- `v1.1.1`: Bugfixes
+    
+
+---
