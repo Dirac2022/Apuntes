@@ -413,7 +413,7 @@ En algunos casos, las fusiones no son tan sencillas y pueden surgir conflictos q
 
 
 
-![[non-fast-forward-diagram.gif]]]
+![[non-fast-forward-diagram.gif]]
 
 #### Ejercicio: Comparar los historiales con git log después de diferentes fusiones
 
