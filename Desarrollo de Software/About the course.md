@@ -41,5 +41,7 @@
 - [ ] [Pull Requests | Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/making-a-pull-request)
 - [ ] Lectura 7 Patrones para la gestión de ramas de código fuente
 # Propiedades de Git y BDD
-- [ ] Patrones de integración e integración contínua
-
+- [ ] Lectura 8 Patrones de integración y integración continua
+- [ ] Lectura 11 Infraestructura interna de Git
+- [ ] Actividad6: Rebase, Cherry-Pick y CI/CD en un entorno ágil
+- [ ]  Actividad7: Pruebas BDD con behave en español
