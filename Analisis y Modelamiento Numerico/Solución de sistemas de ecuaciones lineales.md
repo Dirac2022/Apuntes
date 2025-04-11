@@ -133,12 +133,9 @@ $$ Lz = b \quad \quad \text{resuelve para } z$$
 $$ Ux = z \quad \quad \text{resuelve para } x$$
 **No toda matriz puede tiene una factorización LU**
 Comenzamos con una matriz $A_{n \times n}$ y buscamos matrices
-<div style="text-align: center;">
-	<figure>
-    <img src="C:/Users/mitch/OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA/Mi unidad/My Notes/My Notes/Analisis y Modelamiento Numerico/imgs/matrices-LU.png" alt="Texto alternativo de la imagen">
-    <figcaption>LU</figcaption>
-    </figure>
-</div>
+
+![](matrices-LU.png)
+
 tal que
 $$ A = LU $$
 Cuando es posible, decimos que $A$ tiene **descomposición $LU$**. Resulta que $L$ y $U$ no son únicas.
