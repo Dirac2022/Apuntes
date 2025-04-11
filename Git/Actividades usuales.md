@@ -330,3 +330,94 @@ Nombre antiguo `master`, nuevo nombre `main`
 ```sh
 git branch -m master main
 ```
+
+
+# Eliminar ramas
+## 🧹 Eliminar ramas **locales**
+
+### ✅ 1. Comando básico
+
+```bash
+git branch -d nombre_rama
+```
+
+Esto elimina la rama **localmente**, pero **solo si ya está mergeada** con otra (como `main` o `develop`).
+
+#### Ejemplo:
+
+```bash
+git branch -d feature/login
+```
+
+---
+
+### ⚠️ Forzar eliminación (aunque no esté mergeada)
+
+```bash
+git branch -D nombre_rama
+```
+
+Úsalo con cuidado. Esto borra la rama sin importar si tiene cambios pendientes o no.
+
+```bash
+git branch -D feature/experimental-bugfix
+```
+
+---
+
+## 🚀 Eliminar ramas **remotas**
+
+### ✅ 2. Comando clásico con `push`
+
+```bash
+git push origin --delete nombre_rama
+```
+
+#### Ejemplo:
+
+```bash
+git push origin --delete feature/login
+```
+
+Esto borra la rama del **repositorio remoto (GitHub, GitLab, etc.)**.
+
+---
+
+## 🕵️‍♂️ Ver todas tus ramas
+
+### Ramas locales:
+
+```bash
+git branch
+```
+
+### Ramas remotas:
+
+```bash
+git branch -r
+```
+
+---
+
+## 🧽 Limpiar referencias a ramas remotas eliminadas
+
+Cuando alguien borra una rama remota y vos seguís viendo `origin/feature/vieja`, podés limpiar eso con:
+
+```bash
+git fetch -p
+```
+
+(`-p` es de _prune_, podar)
+
+---
+
+## 🎯 Recap rápido
+
+|Acción|Comando|
+|---|---|
+|Borrar rama local|`git branch -d nombre_rama`|
+|Forzar borrado local|`git branch -D nombre_rama`|
+|Borrar rama remota|`git push origin --delete nombre_rama`|
+|Limpiar ramas remotas viejas|`git fetch -p`|
+
+---
