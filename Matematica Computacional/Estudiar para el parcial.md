@@ -1,0 +1,5 @@
+- [ ] T2PC2_MC
+- [ ] T3PC2_MC
+- [ ] T4PC2_MC
+- [ ] T5PC2_MC
+- [ ] Condiciones de Karush-Kuhn-Tucker

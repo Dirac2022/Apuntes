@@ -1,0 +1,13 @@
+- [ ] Lunes 20 (9:00 am a 10:30 am) 
+	- Ian - Prom
+	- Clase 7 (Ecuación de la recta  - Ecuaciones cuadráticas)
+	- Presencial
+	
+- [ ] Martes 21 (8:00 am a 9:30 am)
+	-  - 4to Secundaria
+	- Clase 5 (Inecuaciones cuadráticas)
+	- Presencial
+- [ ] Miércoles 22 (9:00 am a 10:30 am)
+	- Ian - Prom
+	- Clase 8 (Ecuaciones cuadráticas)
+	- Presencial
