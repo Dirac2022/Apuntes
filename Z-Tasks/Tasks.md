@@ -1,4 +1,15 @@
 
+
+>[!important]  Mayo
+>```tasks
+>priority is high
+>starts after 2025-04-30
+>not done
+>no scheduled date
+>no due date
+
+
+
 >[!important] Scheduled Abril
 >```tasks
 >scheduled after 2025-04-01
