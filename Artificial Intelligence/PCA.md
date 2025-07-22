@@ -150,7 +150,7 @@ $$
 
 **Notas importantes:**
 - $C$ es **simétrica** ($C^T = C$),
-- $C$ es **semi-definida positiva** (todos sus autovalores son \(\geq 0\)).
+- $C$ es **semi-definida positiva** (todos sus autovalores son $\geq 0$
 
 ---
 

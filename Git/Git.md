@@ -292,7 +292,7 @@ Es una herramienta fundamental para **inspeccionar qué ha cambiado antes de hac
 ---
 
 ```bash
-git diff                          # Cambios entre el working directory y el staging
+git diff                         # Cambios entre el working directory y el staging
 git diff --staged                # Cambios entre staging y el último commit (HEAD)
 git diff HEAD                    # Cambios entre working directory y el último commit
 git diff <commit1> <commit2>     # Diferencias entre dos commits
@@ -355,6 +355,52 @@ Significa: "¿Qué ha cambiado en `feature` que no está en `main`?"
 git diff main..feature
 ```
 
+
+## `git diff --quiet`
+
+Verifica si hay diferencias entre el área de stagin y el directorio de trabajo, o entre commits, **sin mostrar las diferencias en pantalla**.
+
+Retorna un código de salida:
+- `0`: No hay diferencias
+- `1`: Si hay diferencias.
+- `>1`: Se produjo un error.
+
+Ejemplo:
+
+```sh
+git diff --quiet
+if [ $? -eq 1 ]; then
+	echo "Hay cambios no guardados"
+fi
+```
+
+**Uso entre commits**
+
+```sh
+git diff --quiet HEAD~1 HEAD
+```
+
+
+**Verificar si uno o varios archivos ha cambiado**
+
+```sh
+git diff --quiet -- archivo1.txt archivo2.txt
+```
+
+`--`: es un separador que indica que lo que sigue son rutas.
+
+**Verificar si una carpeta (y su contenido ha cambiado)**
+
+```sh
+git diff --quiet -- src/
+```
+
+**Verificar si hay cambios entre el último commit y el archivo actual**
+
+```sh
+git diff --quiet HEAD -- archivo.txt
+```
+
 ---
 
 ## ⚠️ Sobre el uso de `A..B`
@@ -411,13 +457,14 @@ git diff --staged
 
 ## 🔧 Otras opciones útiles
 
-|Opción|¿Qué hace?|
-|---|---|
-|`--color`|Forzar color en la salida|
-|`--name-only`|Solo mostrar nombres de archivos modificados|
-|`--stat`|Mostrar resumen por archivo|
-|`--word-diff`|Mostrar diferencias por palabra|
-|`--cached`|Alias de `--staged`|
+| Opción        | ¿Qué hace?                                   |
+| ------------- | -------------------------------------------- |
+| `--color`     | Forzar color en la salida                    |
+| `--name-only` | Solo mostrar nombres de archivos modificados |
+| `--stat`      | Mostrar resumen por archivo                  |
+| `--word-diff` | Mostrar diferencias por palabra              |
+| `--cached`    | Alias de `--staged`                          |
+|               |                                              |
 
 Ejemplo:
 
@@ -454,53 +501,108 @@ git diff feature-branch..main
 
 → Qué hay en `main` que no está en `feature-branch`.
 
+
+#### 🧠 `git diff --quiet`: 
+
+El comando `git diff --quiet` se utiliza para **verificar si hay diferencias** entre archivos versionados en Git sin mostrar el contenido de esas diferencias. Es útil cuando se quiere actuar **en función de si hubo o no cambios**, especialmente en scripts, hooks o integraciones automáticas.
+
+**🧪 ¿Qué hace?**
+
+- **No imprime nada en consola.**
+    
+- Solo retorna un **código de salida**:
+    
+    - `0`: ✅ No hay diferencias.
+    - `1`: ⚠️ Sí hay diferencias.
+    - `>1`: ❌ Error al ejecutar el comando.
+
+**🛠️ Sintaxis**
+
+```bash
+git diff --quiet [<opciones>] [--] [<archivo(s) o carpeta(s)>]
+```
+
+- `--quiet`: Modo silencioso (sin salida).
+- `--`: Separador para distinguir rutas.
+- `<archivo(s)>` o `<carpeta(s)>`: Opcional. Puedes indicar rutas específicas a comparar.
+
+
+**✅ Ejemplos de uso**
+
+1. Verificar si todo el proyecto tiene cambios sin mostrar detalles
+
+```bash
+git diff --quiet
+```
+
+2. Verificar si un archivo específico ha cambiado
+
+```bash
+git diff --quiet -- archivo.txt
+```
+
+3. Verificar si una carpeta ha cambiado (recursivamente)
+
+```bash
+git diff --quiet -- src/
+```
+
+4. Verificar cambios entre dos commits
+
+```bash
+git diff --quiet HEAD~1 HEAD -- src/
+```
+
+5. Verificar solo lo que está en staging
+
+```bash
+git diff --cached --quiet -- archivo.txt
+```
+
+
+
+**🧩 Aplicaciones comunes**
+
+- **Scripts de CI/CD**: para evitar ejecutar tareas innecesarias si no hay cambios.
+- **Hooks de Git**: para cancelar un commit si no hay cambios relevantes.
+- **Automatización**: en despliegues, linters, pruebas, etc.
+
+
 ---
 
+### 💡 Ejemplo en un script Bash
 
+```bash
+#!/bin/bash
 
-# `git log`
-Este comando muestra una lista detallada de los commits en el historial, incluyendo
-- Hash del commit
-- Autor del commit
-- Fecha y hora
-- Mensaje del commit
-
-```shell
-git log
+if ! git diff --quiet -- src/; then
+    echo "Hay cambios en src/. Ejecutando pruebas..."
+    ./run_tests.sh
+else
+    echo "Sin cambios en src/. Saltando pruebas."
+fi
 ```
 
-**Ejemplo**
-![[git log.png]]
+---
+
+### 📋 Resumen visual
+
+|Comando|Significado|
+|---|---|
+|`git diff --quiet`|Verifica si hay cambios en todo el proyecto|
+|`git diff --quiet -- archivo`|Verifica si ese archivo cambió|
+|`git diff --cached --quiet`|Verifica cambios ya indexados (staged)|
+|Código de salida `0`|Sin diferencias|
+|Código de salida `1`|Hay diferencias|
+|Código de salida `>1`|Error al ejecutar el comando|
+
+---
+
+¿Deseas ahora que te genere un **hook `pre-commit` funcional** que use `git diff --quiet` para permitir commits solo si se modificaron archivos en una carpeta específica, como `src/`?
 
 
-## `git log --oneline`
-Ver el historial en una línea por commit
 
-**Ejemplo**
-
-![[git log --oneline.png]]
-
-## `git log -n <N>`
-Mostrar solo los últimos N commits
-
-**Ejemplo** Muestra solo los últimos 3 commits
-```shell
-git log -n 3
-```
-
-**Ejemplo** Muestra los últimos 5 commits en una línea
-```shell
-git log --oneline -n 5
-```
-
-
-## `git log --oneline --graph`
-Mostrar commits en forma de árbol
-```
-git log --oneline --graph
-```
-
->[!tip] Util si hay ramas y fusiones
+---
 
 
 # Modificar y Deshacer commits
@@ -567,6 +669,99 @@ Aqui podemos:
 - `squash (s)`: fusionar commits en uno solo
 - `drop`: eliminar el commit.
 
+---
+
+> [!tip ] **Ejemplo con `edit`**
+>
+   En un archivo agregue una clase pero por error la llamé `Graph` en vez de `Tree`
+>
+> ```python
+> # other line codes
+>
+> class Graph:
+>
+>    def __init__(self, root: Node=None):
+>        self.root = Node
+>
+># other line codes
+> ```
+>
+>
+> ```sh
+> dirac@ubuntu:~/Documents/DS/git-bisect$ git logall
+> * 81a97ae (HEAD -> main) feat: add Graph class
+> * 27778f9 feat: add set_value method in Node class
+> * 8c044d7 feat: add app.py
+> dirac@ubuntu:~/Documents/DS/git-bisect$ code .
+> dirac@ubuntu:~/Documents/DS/git-bisect$ git rebase -i HEAD~1
+> Stopped at 81a97ae...  feat: add Graph class
+> You can amend the commit now, with
+> 
+>   git commit --amend 
+> 
+> Once you are satisfied with your changes, run
+> 
+>   git rebase --continue
+> ```
+> 
+> Y en 
+> 
+> ```text
+> pick 81a97ae feat: add Graph class
+> ```
+> 
+> - Se cambia `pick` por `edit` (o reword en el caso de solo querer cambiar el mensaje).
+> - Se corrige el código `Graph` → `Tree`. Se guardan los cambios
+> 
+> ```sh
+> dirac@ubuntu:~/Documents/DS/git-bisect$ git commit --amend -m "feat: add Tree class"
+> [detached HEAD 42ea7be] feat: add Tree class
+>  Date: Sat May 24 12:02:07 2025 -0500
+>  1 file changed, 7 insertions(+)
+>  
+> dirac@ubuntu:~/Documents/DS/git-bisect$ git rebase --continue
+> You must edit all merge conflicts and then
+> mark them as resolved using git add
+> 
+> dirac@ubuntu:~/Documents/DS/git-bisect$ git logall
+> * 42ea7be (HEAD) feat: add Tree class
+> | * 81a97ae (main) feat: add Graph class
+> |/  
+> * 27778f9 feat: add set_value method in Node class
+> * 8c044d7 feat: add app.py
+> dirac@ubuntu:~/Documents/DS/git-bisect$ git branch
+> * (no branch, rebasing main)
+>   main
+> 
+> ```
+> 
+> Si embargo después de hacer `git rebase -i` creamos una rama divergente. Vemos que al hacer `git branch` `HEAD` apunta a `(no branch, rebasing main)`. Para resolverlo:
+> 
+> 
+> ```sh
+> dirac@ubuntu:~/Documents/DS/git-bisect$ git checkout main
+> M	app.py
+> Warning: you are leaving 1 commit behind, not connected to
+> any of your branches:
+> 
+>   42ea7be feat: add Tree class
+> 
+> If you want to keep it by creating a new branch, this may be a good time
+> to do so with:
+> git branch <new-branch-name\> 42ea7be
+>  Switched to branch 'main'
+> dirac@ubuntu:~/Documents/DS/git-bisect$ git reset --hard 42ea7be
+> HEAD is now at 42ea7be feat: add Tree class
+> dirac@ubuntu:~/Documents/DS/git-bisect$ git logall
+> * 42ea7be (HEAD -> main) feat: add Tree class
+> * 27778f9 feat: add set_value method in Node class
+> * 8c044d7 feat: add app.py
+> dirac@ubuntu:~/Documents/DS/git-bisect$ 
+> 
+> ```
+
+
+---
 
 ### `git rebase --continue`
 Se usa para continuar el proceso de rebase después de resolver conflictos
@@ -663,15 +858,15 @@ Un mensaje típico sigue este formato:
 
 #### Tipos comunes:
 
-|Tipo|Uso|
-|---|---|
-|`feat`|Para agregar una nueva característica (por ejemplo, una clase).|
-|`fix`|Para corregir un error en el código.|
-|`refactor`|Para mejorar el código sin cambiar su funcionalidad.|
-|`docs`|Para actualizar la documentación.|
-|`style`|Cambios de formato o estilo que no afectan la lógica del código.|
-|`test`|Para agregar o modificar pruebas.|
-|`chore`|Cambios menores que no afectan la lógica del proyecto.|
+| Tipo       | Uso                                                              |
+| ---------- | ---------------------------------------------------------------- |
+| `feat`     | Para agregar una nueva característica (por ejemplo, una clase).  |
+| `fix`      | Para corregir un error en el código.                             |
+| `refactor` | Para mejorar el código sin cambiar su funcionalidad.             |
+| `docs`     | Para actualizar la documentación.                                |
+| `style`    | Cambios de formato o estilo que no afectan la lógica del código. |
+| `test`     | Para agregar o modificar pruebas.                                |
+| `chore`    | Cambios menores que no afectan la lógica del proyecto.           |
 
 ---
 
@@ -2301,7 +2496,102 @@ git bisect reset
 
 ---
 
-¿Quieres que te cree un script `test_bug.sh` de ejemplo para usar con `git bisect run`? ¿O un diagrama para ilustrar la búsqueda binaria?
+
+
+
+> [!tip] Ejemplo
+>  El commit conflictivo es el commit `9982e29` (`eleventh commit`)
+>  
+>  ```sh
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ git logall
+>  * b8c1f7a (HEAD -> main) sixteenth commit
+>  * a4769b7 fifteenth commit
+>  * d0ce844 fourteenth commit
+>  * 22e7c72 thirteenth commit
+>  * a2c60d0 twelfth commit
+>  * 9982e29 eleventh commit
+>  * 41ca501 tenth commit
+>  * e073c3b ninth commit
+>  * cfe4371 eight commit
+>  * 5db8496 seventh commit
+>  * a929e9f sixth commit
+>  * 866865e fifth commit
+>  * 5726c0d fourth commit
+>  * 7cec269 third commit
+>  * 1b3c9ce second commit
+>  * 415e7ab first commit
+>  
+>  ```
+>  
+>  Proceso
+>  
+>  ```sh
+>  # Iniciar git bisect
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ git bisect start
+>  status: waiting for both good and bad commits
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ git branch
+>  * main
+>  ```
+>  
+>  - Asignamos el ultimo commit como bad
+>  - Asignamos el primer commit como good
+>  - Saltamos al commit `eight commit
+>  - Ejecutamos las validaciones (pruebas necesarias)
+>  
+>  ```sh
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ git bisect bad main
+>  status: waiting for good commit(s), bad commit known
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ git bisect good 415e7ab
+>  Bisecting: 7 revisions left to test after this (roughly 3 steps)
+>  [cfe4371133b776dbce748ddaec5b3db452d3b99d] eight commit
+>  ```
+>  
+>  - Ejecutamos las validaciones (pruebas necesarias) para el `eighth commit`
+>  - El commit `eighth commit` no es conflictivo
+>  ```sh
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ code .
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ git bisect good
+>  Bisecting: 3 revisions left to test after this (roughly 2 steps)
+>  [a2c60d03ef1a375110ebb00d7f1af015de7a2fae] twelfth commit
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ 
+>  
+>  ```
+>  
+>  - Ejecutamos las validaciones (pruebas necesarias) para el `eighth commit`
+>  - El commit `twelfth commit` es conflictivo
+>  
+>  ```sh
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ git bisect bad
+>  Bisecting: 1 revision left to test after this (roughly 1 step)
+>  \[41ca50179e462cd9e927d737ddfa409360a9b14d\] tenth commit
+>  ```
+>  
+>  - Ejecutamos las validaciones (pruebas necesarias) para el `tenth commit`
+>  - El commit `tenth commit` no es conflictivo
+>  
+>  ```sh
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ git bisect good
+>  Bisecting: 0 revisions left to test after this (roughly 0 steps)
+>  [9982e2965d8cd583f1a9178221ad2595d269a576] eleventh commit
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ 
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ 
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ code .
+>  ```
+>  
+>  - El ultimo commit por revisar es el commit conflictivo
+>  - Realizamos los cambios necesarios para resolver el error
+>  
+>  ```sh
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ git bisect reset
+>  Previous HEAD position was 9982e29 eleventh commit
+>  Switched to branch 'main'
+>  dirac@ubuntu:~/Documents/DS/bisect-project$ 
+>  ```
+>  
+>  - Aplicamos `git bisect reset` para salir del modo `bisect`
+
+
+---
 
 
 
@@ -2650,3 +2940,175 @@ Esto empuja todas las ramas, etiquetas y referencias locales al remoto, incluso 
 
 ---
 
+¡Perfecto! Vamos a hacer una clase **aún más completa y avanzada** sobre el comando `git log`, incluyendo **funciones menos conocidas** como `-L` y otras opciones avanzadas. Esta es una guía de nivel experto para sacarle el máximo provecho a `git log`.
+
+---
+
+# 🔍 `git log` 
+
+
+Es el comando que muestra el historial de commits. Pero con las opciones adecuadas, puede ser una **herramienta de análisis poderosa** para inspeccionar:
+
+- Cambios de un archivo o línea específica
+- Autoría y fechas
+- Historial visual
+- Filtros avanzados por contenido, fecha y autor
+
+---
+
+```bash
+git log [opciones] [rango_de_commits] [--] [archivo]
+```
+
+---
+
+## 📌 Opciones básicas
+
+| Opción       | Descripción                                               |
+| ------------ | --------------------------------------------------------- |
+| `--oneline`  | Muestra los commits en una sola línea                     |
+| `--graph`    | Muestra la estructura del historial en forma de árbol     |
+| `--decorate` | Añade nombres de ramas y etiquetas                        |
+| `--all`      | Incluye todas las ramas                                   |
+| `-n <N>`     | Muestra los últimos N commits                             |
+| `--stat`     | Muestra archivos modificados y líneas añadidas/eliminadas |
+| `-p`         | Muestra los cambios línea por línea                       |
+| `--patch`    | Igual que `-p`                                            |
+
+---
+
+## 📂 Filtro por archivos
+
+```bash
+git log archivo.py
+```
+
+Muestra los commits que modificaron `archivo.py`.
+
+```bash
+git log --follow archivo_renombrado.py
+```
+
+Sigue el historial incluso si el archivo cambió de nombre.
+
+---
+
+## 🧠 Filtro por autor, fecha y contenido
+
+```bash
+git log --author="estalin"
+git log --since="2024-01-01"
+git log --until="2024-12-31"
+git log --grep="arreglado"
+```
+
+Se pueden combinar:
+
+```bash
+git log --author="estalin" --since="2024-01-01" --grep="fix"
+```
+
+---
+
+## 🧩 Formato personalizado con `--pretty`
+
+```bash
+git log --pretty=format:"%h - %an, %ar : %s"
+```
+
+Formatos útiles:
+
+|Código|Significado|
+|---|---|
+|`%h`|Hash corto del commit|
+|`%an`|Nombre del autor|
+|`%ar`|Tiempo relativo|
+|`%s`|Mensaje del commit|
+
+---
+
+## 🔁 Rangos de commits
+
+```bash
+git log main..develop
+```
+
+→ Muestra commits que están en `develop` pero no en `main`.
+
+```bash
+git log HEAD~5..HEAD
+```
+
+→ Últimos 5 commits.
+
+---
+
+## 🧠 `git log -L`: _Historial de una función o rango de líneas_
+
+Esta opción rastrea la **historia de un fragmento de código**, incluso si cambia de contenido, nombre o posición.
+
+### 📌 Sintaxis:
+
+```bash
+git log -L <inicio>,<fin>:<archivo>
+git log -L :<función>:<archivo>
+```
+
+---
+
+### 🧪 Ejemplos:
+
+#### 🔢 Por líneas específicas
+
+```bash
+git log -L 10,20:main.py
+```
+
+→ Muestra cómo evolucionaron las líneas 10 a 20 de `main.py`.
+
+#### 🧩 Por función (nombre)
+
+```bash
+git log -L :procesar_datos:main.py
+```
+
+→ Muestra la historia completa de la función `procesar_datos`.
+
+> **Nota**: `-L` requiere que Git pueda analizar la sintaxis del archivo. Funciona mejor en lenguajes como C, Java, Python, etc.
+
+---
+
+## 🔬 Otras opciones menos conocidas
+
+|Opción|Qué hace|
+|---|---|
+|`--name-only`|Muestra solo los nombres de archivos modificados|
+|`--name-status`|Muestra archivos con estado (A/M/D)|
+|`--abbrev-commit`|Muestra hashes más cortos|
+|`--relative-date`|Muestra fechas relativas (ej: "2 weeks ago")|
+|`--reverse`|Muestra los commits desde el más antiguo|
+|`--first-parent`|Muestra solo el historial de la rama principal al hacer merge|
+|`--no-merges`|Oculta commits de merge|
+|`--merges`|Muestra solo commits de merge|
+
+---
+
+## 💡 Trucos útiles
+
+|Comando|Qué hace|
+|---|---|
+|`git log -S 'texto'`|Muestra commits que **añadieron o eliminaron** una cadena específica|
+|`git log -G 'regex'`|Muestra commits con **cambios que coincidan con una expresión regular**|
+|`git log -p -S 'config'`|Muestra los parches donde aparece el texto "config"|
+|`git log --all --grep='fix'`|Encuentra todos los commits que contienen la palabra "fix"|
+|`git log -L :main:main.cpp`|Rastrear la historia de una función `main` en `main.cpp`|
+
+---
+
+## 📜 Salida en archivo
+
+```bash
+git log --oneline --graph > historial.txt
+```
+
+---

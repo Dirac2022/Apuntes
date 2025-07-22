@@ -8,7 +8,7 @@ Las expresiones regulares son patrones que describen conjuntos de cadenas de tex
 Son caracteres normales que coinciden con ellos mismos.
 
 - Ejemplo:
-    - `/abc/` coincide con la cadena "abc".
+- `/abc/` coincide con la cadena "abc".
 
 **2. Metacaracteres**
 

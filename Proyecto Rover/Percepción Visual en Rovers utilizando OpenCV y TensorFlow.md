@@ -37,7 +37,7 @@ Este paso tiene como objetivo afinar los bordes detectados. Se examina cada pixe
 
 <div style="text-align: center;">
 	<figure>
-    <img src="C:\Users\mitch\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Mi unidad\My Notes\My Notes\Proyecto Rover\non-maximum supression.png">
+    <img src="https://docs.opencv.org/4.x/nms.jpg">
     <figcaption>El punto A está en el borde (en dirección vertical). La dirección del gradiente es perpendicular al borde. Los puntos B y C están en las direcciones del gradiente. Entonces, el punto A se compara con los puntos B y C para ver si forma un máximo local. Si es así, se considera para la siguiente etapa; de lo contrario, se suprime (se establece en cero).</figcaption>
     </figure>
 </div>

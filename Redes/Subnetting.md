@@ -53,7 +53,36 @@ Factores a tomar en cuenta:
 ![[Pasted image 20240505181311.png]]
 
 ### División basada en necesidad de subredes
-![[Pasted image 20240505183329.png]]
+
+Se tiene una dirección de red privada `172.18.0.0/22` se requiere dividir de tal forma que genere **14 subredes** como mínimo, ¿cuál es la máscara que debe usarse?
+
+<div>
+<span style="color:orange;"> IP: 172.18.0.0/22</span> <span>-> 10101100.00010010.00000000.00000000 </span>
+</div>
+<div>
+<span style="color:orange;">Máscara</span> <span>->11111111.11111111.11111100.00000000</span>
+</div>
+
+Entonces $2^n \geq 14$ siendo $n$ el número de bits que se tomarán de la porción de host, el valor $n=4$
+
+<div>
+<span style="color:orange;"> IP: 172.18.0.0/22</span>
+<span> -> 1 0 1 0 1 1 0 0 . 0 0 0 1 0 0 1 0 . 0 0 0 0 0 0</span>
+<span style="color:orange;">0 0 . 0 0</span>
+<span>0 0 0 0 0 0</span>
+</div>
+<div>
+<span style="color:orange;">Máscara</span>
+<span>->1 1 1 1 1 1 1 1 . 1 1 1 1 1 1 1 1 . 1 1 1 1 1 1</span>
+<span style="color:orange;">1 1 . 1 1</span>
+<span>0 0 0 0 0 0</span>
+</div>
+<div>
+<span style="color:orange;">Máscara</span>
+<span>-></span>
+<span style="color:orange;">255.255.255.192</span>
+</div>
+
 
 ### División basada en necesidad de host
 ![[Pasted image 20240505185317.png]]

@@ -402,3 +402,731 @@ Los actores de la amenaza generalmente realizan los siguientes pasos.
 
 Es un estándar definido en IEEE 802.1AE, específica
 
+
+
+# 16-05-2025
+
+
+## [[Protocolos#TCP (Transmission Control Protocol)|TCP]]
+
+**Problemas en Confiabilidad en la entrega de datos de la red**
+- No conocemos las condiciones de red (congestionado, fallos físicos, equipos intermedios).
+- Protocolo de máximo esfuerzo (IP).
+
+**TCP es un protocolo confiable**
+- Reenvía paquetes que se perdieron.
+- **Protocolo orientado a la conexión**
+- **Protocolo orientado al servicio de stream de bytes**
+- **Terminación de la conexión**
+
+![[Pasted image 20250516154025.png]]
+
+
+
+![[Pasted image 20250516154035.png]]
+
+
+
+<div style="width: 100%; max-width: 700px; margin: 0 auto; text-align: center; box-sizing: border-box; padding: 10px;">
+
+    <div style="margin-bottom: 20px;">
+        <div style="background-color: #4A86E8; padding: 10px 0; margin-bottom: 5px; font-weight: bold; border-radius: 5px;">
+            #Puerto
+        </div>
+        <div style="background-color: #4A86E8; padding: 10px 0; margin-bottom: 20px; font-weight: bold; border-size: 1px; border-style: solid; border-color: #4A86E8; border-radius: 5px;">
+            0-65535
+        </div>
+
+        <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 100px; background-color: #4A86E8; padding: 10px 0; border-radius: 5px; font-weight: bold;">
+                0-1023
+            </div>
+            <div style="flex: 1; min-width: 150px; background-color: #4A86E8; padding: 10px 0; border-radius: 5px; font-weight: bold;">
+                1024-49151
+            </div>
+            <div style="flex: 1; min-width: 150px; background-color: #4A86E8; padding: 10px 0; border-radius: 5px; font-weight: bold;">
+                49152-65535
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 5px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 150px; background-color: #4A86E8; padding: 8px 0; font-size: 0.9em; border-radius: 5px;">
+                Puertos de sistema /Puertos bien conocidos
+            </div>
+            <div style="flex: 1; min-width: 150px; background-color: #4A86E8; padding: 8px 0; font-size: 0.9em; border-radius: 5px;">
+                Puertos de usuarios /Puertos Registrados
+            </div>
+            <div style="flex: 1; min-width: 150px; background-color: #4A86E8; padding: 8px 0; font-size: 0.9em; border-radius: 5px;">
+                Puertos Dinámicos /Puertos Privados
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <div style="background-color: #CC0000; padding: 15px 0; margin-bottom: 5px; font-weight: bold; font-size: 1.2em; border-radius: 5px;">
+            Socket
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 100px; background-color: #CC0000; padding: 10px 0; border-radius: 5px; font-weight: bold;">
+                Dirección IP
+            </div>
+            <div style="flex: 1; min-width: 150px; background-color: #CC0000; padding: 10px 0; border-radius: 5px; font-weight: bold;">
+                Protocolo de Transporte
+            </div>
+            <div style="flex: 1; min-width: 100px; background-color: #CC0000; padding: 10px 0; border-radius: 5px; font-weight: bold;">
+                #Puerto
+            </div>
+        </div>
+    </div>
+
+</div>
+
+## Establecimiento de la conexión
+
+**¿Por qué necesitamos establecer la conexión?
+- Para determinar el estado en ambos hosts
+- Estado más importante: número de secuencia
+	- Cantidad de número de bytes que se han enviado
+	- Valor inicial elegido al azar.
+
+**Flags importantes del TCP (Cada uno 1 bit)**
+- SYN - sincronización, usado para establecer la conexión
+- ACK - acuse de recibo de los datos recibidos
+- FIN - Finalización, usado para finalizar la conexión
+
+![[Pasted image 20250516155208.png]]
+
+
+
+
+![[Pasted image 20250516160437.png]]
+
+
+
+![[Pasted image 20250516160512.png]]
+
+
+
+![[Pasted image 20250516161902.png]]
+
+
+
+## Denial of Service (DoS)
+
+El objetivo es detener el funcionamiento del servicio o los recursos sea inaccesible para los usuarios legítimos.
+
+- Negar el servicio a los usuarios legítimos
+- Suele ser un efecto temporal que pasa tan pronto como el ataque se detiene
+
+**¿Qué afecta? La disponibilidad**
+**¿Por qué preocuparse?**
+- Por lo general, no hay violación de los datos
+- No se utilizan en el servicio el ejército de bots
+- No hay acceso a root
+- No hay robo directo de dinero
+
+
+## DoS: ¿Qué es?
+
+
+```mermaid
+graph LR
+A[Attacker] --> B[Victim]
+```
+
+Intenta hacer colapsar a la víctima (aprovechar los fallos del software). Intenta agotar los recursos de la víctima
+
+- **Red: Ancho de banda**
+- **Host**
+	- Kernel: Tablas de estado de conexión TCP, etc.
+	- Aplicación: CPU, memoria, etc.
+	- A menudo se trata de ataques de alta intensidad, pero no siempre
+
+
+
+## Ejemplo DoS: TCP SYN Flood
+
+Cada llega de un SYN almacena el estad en el servidor
+
+- **Bloque de control TCP (TCB**)
+- **~ 280 bytes**
+	- FlowID, timer info, Sequence number, flow control status, out-of-band data, MSS, other options
+- **Ataque**
+	- Enviar paquetes TCP SYN con una dirección src falsa.
+	- Las entradas TCB semiabiertas existen hasta que se agota el tiempo de espera
+	- El kernel limita el número de TCBs
+
+
+
+
+## SYN Cookies
+
+No mantiene estado hasta la autentificación, se utiliza como defensa contra los ataques de inundación SYN
+
+- En respuesta a SYN enviar de vuelta un token autovalidante a la fuente que la fuente debe adjuntar al ACK
+
+<div style="text-align:center; background-color:white">
+<span style="color:red; font-weight:bold;">SYN -> SYN/ACK + token -> ACK + token</span>
+</div>
+
+- Verifica que la IP del receptor es válida
+
+Como hacer el Numero de secuencia!
+- 5 bits: contador de tiempo
+- 3 bits: codifica el MSS
+- 24 siguientes: F (IP del cliente, puerto, IP del servidor, puerto, t) ?
+
+
+
+## Distributed Denial of Service ([[Seguridad Informatica/Miscelanea#Ataque DDoS|DDoS]]) 
+
+**Motivación (desde la perspectiva del atacante)**
+
+- Para un simple DoS, el atacante debe ser más poderoso que la máquina objetivo
+
+> ¿Puede una máquina cliente generar suficiente trabajo para superar a un servidor potente?
+
+- La solicitud debe ser significativamente más ligera que la respuesta (por ejemplo, una inundación TCP SYN)
+
+> No siempre es el caso.
+
+**Solución**
+- El atacante utiliza muchas máquinas.
+
+
+## Evolución de DDoS (Tipos/Diversidad)
+
+
+- Ataque Point-to-point DoS
+	- TCP SYN flood, ping of death, etc.
+- Ataque Smurf (reflection)
+- Coordinado DoS
+- Multi-stage DDoS
+- P2P [[Seguridad Informatica/Miscelanea#botnet|botnets]]
+- Ataques de Amplificación (Vuelve el ataque smurf)
+
+> El tiempo va en el orden desde el primer item hasta el ultimo item
+
+## Tipos de Ataques
+
+### Ataques volumétricos
+Tienen como objetivo saturar el ancho de banda del recurso o servicio objetivo. Ejemplo: Amplificación de DNS, Inundación ICMP, Inundación UDP.
+
+### Ataques de protocolo
+Tienen como objetivo consumir y agotar los recursos reales de los servidores y equipamiento intermedio, Ping of Death, Ataque DDoS Smurf, Inundación SYN.
+
+### Ataques a la capa de aplicación
+Tienen como objetivo provocar una caída del servidor web con solicitud aparentemente legítimas. Ejemplo: Inundación HTTP, Low-and-slow
+
+![[Pasted image 20250516163956.png]]
+
+![[Pasted image 20250516164047.png]]
+
+
+## [[Seguridad Informatica/Miscelanea#Ataque Smurf|Ataque Smurf]]
+
+- El atacante localiza la dirección IP de la víctima
+- El atacante crea un paquete de datos falsificado
+- El atacante envía [[Protocolos#ICMP (Internet Control Message Protocol)|ICMP]] Echo o paquete dañado Request
+- La victima es inundado con respuestas [[Protocolos#ICMP (Internet Control Message Protocol)|ICMP]] o es saturada por los mensajes de error
+- La victima se sobrecarga
+- Inunda el objetivo final y desperdicia ancho de banda para ambas víctimas.
+
+
+
+<img src="https://www.indusface.com/wp-content/uploads/2022/08/Smurf-DDoS-Attack.png" >
+
+
+## ¿Por qué funciona el ataque smurf?
+
+El protocolo ICMP no incluye autenticación
+- No hay conexiones
+- Los receptores aceptan los mensajes sin verificar la fuente
+- Permite a los atacantes falsificar el origen de los mensajes
+
+El atacante se beneficia de un factor de un factor de amplificación.
+Factor de amplificación de smurf = \[número de servidores que responden al mensaje\]:1
+
+$$
+\text{factor de amplificacion} = \dfrac{\text{Size de la respuesta total}}{\text{Size de la solicitud}}
+$$
+
+## Ataques de Reflexión
+
+
+- Falsificar la dirección de origen
+- Enviar la consulta al servicio
+- La respuesta va a la victima
+- Si la respuesta >> consulta, "amplifica" el ataque
+- Oculta a la víctima el origen real del ataque
+- Amplificadores:
+	- Respuesta DNS (50 bytes de consulta 400 bytes de respuesta)
+	- ICMP a dirección de difusión (1 pkt 50 pkt) ("smurf")
+
+
+
+## [[Seguridad Informatica/Miscelanea#Ataque Fraggle|Ataque Fraggle]]
+Una variante del ataque smurf, el atacante envía una gran cantidad de tráfico UDP a una dirección IP de difusión, con la dirección IP de origen falsificada de la víctima.
+
+- Se envían paquetes UDP a los puertos 7 y 19.
+- Logra un menor factor de amplificación que el ataque Smurf, y es mucho menos popular.
+
+<img src="https://www.indusface.com/wp-content/uploads/2024/09/Fraggle-Attack-2-1.png" >
+
+
+
+## Ataques de reflexión/amplificación
+
+El ataque smurf es un ejemplo de ataque *DDoS* de reflexión o amplificación. El ataque *Flaggle* también se basa en las difusiones para amplificar Envía paquetes UDP falsos a direcciones UP de difusión en los puertos 7 (echo) y 13 (chargen)
+
+echo 1500 bytes/pkt de solicitud, respuestas de igual tamaño chargen 28 bytes/pkt de solicitud, respuestas de 10k-100k bytes de ASCII
+
+Factor Amplificación
+echo \[número de host que responden a la broadcast\]:1
+chargen \[número de hosts que responden a la broadcast\]\*360:1
+
+> [!tip] Explicación
+> Los ataques [[Seguridad Informatica/Miscelanea#Ataque Smurf|Ataque Smurf]] y [[Seguridad Informatica/Miscelanea#Ataque Fraggle|Ataque Fraggle]] son ejemplos clásicos de ataques DDoS que utilizan técnicas de reflexión y amplificación para saturar a la víctima con tráfico masivo. En estos ataques, el atacante envía paquete con direcciones IP falsificadas a direcciones de broadcast de redes vulnerables.
+>
+> - En el ataque Smurf, se envían paquetes ICMP (ping) a la dirección de broadcast, provocando que todos los hosts respondas a la víctima, amplificando el tráfico en función del número de hosts.
+> - En el ataque Fraggle, se envían paquetes UDP falsificados a direcciones de broadcast, específicamente a los puertos 7 (Echo) y 19 (Chargen). Estos servicios responden con datos que pueden ser mucho mayores que la solicitud inicial, amplificando el ataque.
+>
+> Por ejemplo, una solicitud de 28 bytes al puerto Chargen puede generar una respuesta de entre 10,000 y 100,000 bytes, lo que representa un factor de amplificación de hasta 360 veces por host que responde. La amplificación total depende del número de hosts en la red que responden a la dirección de broadcast.
+>
+>
+>
+> Estos ataques aprovechan configuraciones inseguras en redes y servicios que permiten el reenvío de tráfico a direcciones de broadcast o la respuesta a solicitudes UDP sin restricciones, lo que facilita la generación de grandes volúmenes de tráfico dirigidos a la víctima con un esfuerzo relativamente pequeño por parte del atacante.
+>
+>---
+>
+   Esta técnica es especialmente peligrosa porque permite a los atacantes maximizar el impacto de un ataque DDoS sin necesitar una infraestructura propia masiva, utilizando servidores y dispositivos legítimos como amplificadores involuntarios. Por ello, es fundamental que las redes bloqueen el reenvío de tráfico a direcciones de broadcast y limiten las respuestas a solicitudes UDP en puertos vulnerables.
+>
+>---
+>
+   
+
+
+---
+
+# Semana 11 - 06-06-2025 
+
+### Ataque Directory Traversal
+
+El path traversal, directory traversal es una vulnerabilidad se seguridad web, **permite a un atacante leer, en algunos casos escribir archivos en el servidor que ejecuta una aplicación**.
+
+**Vulnerabilidad**
+
+<div style="background-color:#0066ff; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+<span>
+http://www.mipagina.com/?getFile=reporte.pdf
+</span>
+</div>
+
+**Explotación**
+Se pueden utilizar comandos para acceder a un fichero del servidor.
+
+Para moverse de manera ascendente entre los directorios: `../../../`
+Para descargar el fichero `passwd` con las contraseñas del sistema: `/etc/passwd`
+
+### Ataque Directory Traversal - Payload
+
+**Básico**: La vulnerabilidad podría permitir al atacante reemplazar `reporte.pdf` en una URL con ruta relativa como `../../../../etc/passwd`.
+
+<div style="background-color:#0077ff; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+<span>
+http://www.mipagina.com/?getFile=../../../../etc/passwd
+</span>
+</div>
+
+**Avanzado**:
+
+<div style="background-color:#0066ff; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+<span>
+....//....//....//etc/passwd
+</span>
+</div>
+
+
+**Encodificación**:
+
+<div style="background-color:#0055ff; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+<span>
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc/passwd
+</span>
+</div>
+
+
+**Doble Encodificación**:
+
+<div style="background-color:#0044ff; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+<span>
+%252e%252e%252f%252e%252e%252fetc/passwd
+</span>
+</div>
+
+
+**Usando slaches y back skashes**:
+
+<div style="background-color:#0066ff; padding:10px; border-radius:8px">
+<span>
+..%2f..%2f..%5cetc%5cpasswd
+</span>
+</div>
+
+**Null Byte**:
+
+<div style="background-color:#0066ff; padding:10px; border-radius:8px">
+<span>
+../../etc/passwd%00.txt
+</span>
+</div>
+
+
+
+![[Pasted image 20250606153711.png]]
+
+
+
+### Cross Site Request Forgery
+
+Es un ataque donde un sitio web malicioso **engaña al navegador de una víctima** para que **realice acciones no deseadas** en otro sitio **donde está autenticado**.
+
+Induce a la víctima a **realizar una actividad que no pretende realizar**, la acción será **procesada en nombre del usuario logueado**. CSRF explota la confianza de un sitio web vulnerable.
+
+### Ataque CSRF
+
+Condiciones para ejecutarse un ataque CSRF:
+
+- **Victima autenticada**: La víctima debe haber iniciado sesión en el sitio vulnerable.
+- **Sesión activa**: La sesión (cookie/token) debe seguir válida en el navegador.
+- **Solicitud predecible**: El atacante debe conocer los parámetros para replicar la acción.
+- **No protección CSRF**: El sitio no usa tokens anti-CSRF, verificaciones de origen u otras defensas.
+- **Acción relevante**: La solicitud falsificada realiza algo de valor (ej. transferencia, cambio de contraseña).
+
+
+### Protegerse del ataque CSRF
+
+La solución es agregar parámetros impredecibles. Ejemplo: CSRF Tokens.
+
+**El CSRF Token** es un valor **único, secreto e impredecible** que genera la aplicación del lado del servidor y se transmite al cliente de tal manera que se incluye en la siguiente solicitud realizada por el cliente. Cuando se realiza la siguiente solicitud, la aplicación del lado del servidor la valida o la rechaza dependiendo de si incluye el token o no.
+
+Los CSRF Tokens previenen estos ataques dado que el atacante no puede predecir el valor del CSRF Token del usuario, no pueden construir una solicitud co todos los parámetros necesarios para que la aplicación cumpla con la solicitud.
+
+### Protegerse del ataque CSRF
+
+**Implementa CORS de manera adecuada**
+- Configura correctamente las políticas de CORS (Cross-Origin Resource Sharing) para limitar las solicitudes solo a los dominios específicos que deberían tener acceso a tu aplicación web.
+	
+- Utilizar encabezados como Origin y Access-Control-Allow-Origin para controlar las solicitudes cruzadas.
+
+**Utiliza el Encabezado `SameSite` para Cookies**
+- Configura las cookies de sesión con el atributo `<<SameSite>>` para limitar su acceso a solicitudes del mismo sitio. (Same-Site Cookies).
+	
+- Esto evita que las cookies se envíen en solicitudes cruzadas y ayuda a prevenir ataques CSRF.
+
+**Establece Cookies como `HttpOnly`**
+- Marca las cookies de sesión como  `<<HttpOnly>>` para que no puedan ser accedidas ni modificadas por JavaScript. Esto reduce la exposición de las cookies a ataques CSRF.
+
+**Valida el Origen de las Solicitudes**
+- Verifica que las solicitudes entrantes provengan de fuentes legítimas al comprobar el encabezado `Refer` y/o en encabezado `Origin`.
+
+**Implementa Protección de Tiempo**
+- Limita la validez de los tokens anti-CSRF en tiempo y asocia un periodo de tiempo limitado durante el cual un token es válido.
+	
+- Refresca o renueva los tokens regularmente para evitar la reutilización de tokens expirados.
+
+**Utiliza Autenticación de Doble Factor (2FA)**
+Implementa la autenticación de doble factor para ciertas acciones críticas o sensibles.
+
+
+
+![[Pasted image 20250606165424.png]]
+
+### XML External Entity
+
+Los ataques XXE explotan vulnerabilidades en el procesamiento de documentos XML, permitiendo a un atacante leer archivos locales, realizar solicitudes a servidores internos (SSRF) o incluso causar denegación de servicio (DoS). El atacante puede **interferir con el procesamiento de datos XML** de una aplicación.
+
+En XML, una entidad es una forma de representar datos, como variables. Las **entidades externas** son un tipo especial que carga su valor desde fuentes externas, como:
+
+- Archivos locales (`file://etc/passwd`).
+- URLs remotas (`http://ejemplo.com/data`).
+
+Se definen dentro de una DTD (Document Type Definition) usando SYSTEM.
+
+### Como se realizan los ataques XXE
+
+**Creación del XML malicioso**
+El atacante diseña un documento XML con una entidad externa que apunta a:
+- Archivos locales (``file:///etc/passwd`)
+- URLs internas (`http://localhost/admin`).
+
+**Procesamiento Vulnerable**
+- La aplicación recibe el XML y el **parser lo interpreta sin validar**.
+- Resuelve la entidad externa, accediendo a recursos sensibles sin autorización.
+
+**Impacto**
+- Leer archivos del sistema (ejemplo: contraseñas, configuraciones).
+- SSRF: Atacar servicios internos (bases de datos, APIs)
+- Exfiltrar: datos a servidores controlados por el atacante.
+
+
+![[Pasted image 20250606170645.png]]
+
+### XML external entity (XXE) injection
+
+La estructura básica implica la redefinición de una entidad XML
+
+```xml
+<?xml version='1.0'?>
+<!ENTITY mensahe "Hola">
+]>
+<respuesta>&mensaje</respuesta>
+```
+
+Acceder a un archivo privado del servidor
+
+```xml
+<?xml version='1.0'?>
+<!ENTITY SYSTEM "file:///etc/passwd">
+]>
+<respuesta>?mensaje</respuesta>
+```
+
+
+ejecución externa, como el monitoreo de los recursos de la red local
+
+```xml
+<?xml version='1.0'?>
+<!ENTITY SYSTEM "http://192.168.2.23/private">
+]>
+<respuesta>&mensaje</respuesta>
+```
+
+Construir una jerarquía compleja para realizar un ataque DoS
+
+```xml
+<?xml version='1.0'?>
+<!ENTITY ha "ha!">
+<!ENTITY ha2 "&ha; &ha;">
+<!ENTITY ha3 "&ha2; &ha2;">
+<!ENTITY ha4 "&h3; &ha3;">
+]>
+<respuesta>&mensaje</respuesta>
+```
+
+
+### Mitigar el riesgo de los ataques XXE
+
+**Validación de Entrada Robusta**
+Implica examinar los datos entrantes en busca de patrones maliciosos y asegurar que solo se procesen datos validados y saneados.
+
+**Deshabilitar el Procesamiento de Entidades Externas**
+Configurar el analizador XML para ignorar las entidades externas neutraliza efectivamente la amenaza, ya que las referencias maliciosas ya no se resuelven.
+
+**Emplear Bibliotecas de Análisis XML Seguras**
+Utilizar bibliotecas y analizadores que inherentemente mitiguen los riesgos XXE asegura que las aplicaciones sean menos susceptibles a estas vulnerabilidades.
+
+**Usar formatos más seguros** como JSON.
+
+
+![[Pasted image 20250606171706.png]]
+
+
+Descargar metasploit
+
+![[Pasted image 20250606171853.png]]
+ buscar en el univirtual
+
+> FIN DE LA CLASE
+---
+
+
+
+
+# 20-06-2025
+
+## Cifrado en bloque
+
+- El texto plano y el texto cifrado consisten en bloques de tamaño fijo por lo general de 8 o 16 bytes (64 o 128 bits)
+- El modo de cifrado por bloques independientes no se usará
+- El texto cifrado se obtiene del texto claro mediante la iteración de una función round
+- La entrada al afuncion round consite ...
+
+
+## Modo ECB Electronic CodeBook
+
+Cifra cada bloque con la clave $k$ de forma independiente. Divide el mensaje en bloques y los cifra en paralelo con acceso aleatorio a diferentes bloques.
+- Cuando se cifre un bloque con cierto valor, siempre se obtendrá el mismo resultado. Esto hace posible los ataques de diccionario.
+- Es posible que un atacante elimine ciertos bloques sin ser detectado, o que capture algunos bloques y los reenvíe más adelante.
+
+
+## Modo CBC - Cipher Block Chaining Mode
+
+- Es una extensión de ECB que añade cierta seguridad.
+- Divide el mensaje en bloques y usa XOR para combinar el cifrado del bloque anterior con el texto plano del bloque actual.
+- **El cifrado no puede ser paralelizado**.
+
+
+<div style="background-color:#FFFFFF">
+<img src="https://www.easefilter.com/images/CBC_encryption.png">
+</div>
+
+
+<div style="background-color:#FFFFFF">
+<img src="https://www.easefilter.com/images/CBC_decryption.png">
+</div>
+
+[Understand AES Encryption - EaseFilter](https://www.easefilter.com/kb/understand-aes-encryption.htm)
+
+
+
+## CTR - Counter Mode
+
+- CTR simula un cifrado de flujo, produce un flujo pseudo aleatorio cnocido como keystream.
+- El flujo se combina con el texto plano mediante XOR dando lugar al cifrado.
+- Para generar el keystream se cifra un contador combinado con un número aleatorio (nonce) mediante ECB y se va incrementando.
+
+
+![bernardoamc.com/4d9317e0640a84dba1dc08ad8adc3d8a/ctr_encryption.svg](https://bernardoamc.com/4d9317e0640a84dba1dc08ad8adc3d8a/ctr_encryption.svg)
+
+![bernardoamc.com/29ac27cd1818164196bfc06a1ca890f2/ctr_decryption.svg](https://bernardoamc.com/29ac27cd1818164196bfc06a1ca890f2/ctr_decryption.svg)
+
+
+[CTR mode introduction | Bernardo de Araujo](https://bernardoamc.com/ctr-mode-introduction/)
+
+
+
+## Cifrado de Bloques
+Un texto cifrado de bloques con llave simétrica cifra un bloque de n bits de texto claro o descifra un bloque de n bits de texto cifrado. El algoritmo de cifrado o descifrado utiliza una clave de k bits
+
+
+## Moderno Cifrado de Bloques
+
+
+
+## Componentes de un Cifrador de Bloques
+
+Los cifradores de bloques suelen ser cifradores de 
+
+
+## Cajas P
+
+**Invertibilidad**: Una caja P recta es invertible. Significa que podemos utilizar una caja P recta en el cifrado y su inversa en el descifrado.
+
+Las cajas P de compresión y expansión no tienen inversos.
+
+## Cajas S
+
+Pueden considerarse como un cifrado ...
+
+
+## Desplazamiento Circular
+
+
+## Swap
+
+La operación de intercambio ...
+
+## Dividir / Combinar
+
+La operación de **división** normalmente
+
+
+
+## Rondas
+
+Cada iteración se denomina **ronda**. El cifrado por bloques utiliza un **sistema de claves** o un **generador de claves** encargado de crear diferentes claves para cada ronda a partir de la **clave de cifrado**. En un cifrado de N rondas, el texto cifrado se encripta N veces;
+
+
+## Cifradores de Producto
+Todos los cifradores modernos de bloque son cifradores de producto, ellos se dividen en dos clases.
+
+**1. Cifrado Feistel: DES**
+- Se utiliza desde hace décadas.
+- Puede tener tres tipos de componentes: autoinvertibles, invertibles y no invertibles
+
+**2. Cifras no Feistel: AES**
+- Sólo utiliza componentes invertibles.
+- Un componente en el cifrado tiene su correspondiente componentes en el descifrado.
+
+
+## Primera Idea de Feistel
+
+
+
+imagen
+
+
+
+Combina elementos no invertibles en una unidad y usa la misma unidad para cifrar y descifrar (el mezclador es auto invertible).
+
+
+...
+
+
+Se desea que la función utilice parte del texto plano durante el cifrado y parte del texto cifrado durante el descifrado.
+Se divide el texto plano y el texto cifrado en dos bloques de igual longitud, izquierdo y derecho.
+
+
+## AES (Advanced Encryption Standard)
+
+En febrero de 2001, el NIST anuncia la publicación de un borrador de la Norma Federal de Procesamiento de la Información (FIPS) para la revisión y los comentarios públicos sobre una propuesta de cifrado. Finalmente, AES se publicó como FIPS 197 en el Registro Federal en Diciembre de 2001.
+
+Los criterios definidos por el NIST para seleccionar AES se dividen en  tres áreas:
+
+- Seguridad
+- costo
+- implantación
+
+
+
+## SubByte
+
+
+## ShiftRow
+
+## Mixing - Mezcla
+
+Necesitamos una transformación interbyte, cambia los bits dentro de un byte, basándose en los bits dentro de los butes vecinos. Necesitamos mezclar btytes para proporcionar difusion a nivel de bits.
+
+
+
+## AddRoundKey
+
+
+
+# 28-06-2025
+
+![[Pasted image 20250628153150.png]]
+
+### Compartir llaves
+
+Una llave vulnerada permite a los interceptores (*eavesdropper*) el poder descifrar cualquier texto cifrado que hayan obtenido.
+
+Solución para mitigar el daño
+- Cambiar las llaves con frecuencia para limitar los daños
+
+La distribución de llaves es un problema
+- Las llaves deben transmitirse de forma segura.
+	- ¿Utilizar mensajeros?
+	- ¿Distribuirlas en trozos por canales separados?
+
+
+
+![[Pasted image 20250628153602.png]]
+
+
+### Gestión de llaves
+
+Problema
+
+
+![[Pasted image 20250628153451.png]]
+
+
+
+![[Pasted image 20250628154328.png]]
+
+
+
+![[Pasted image 20250628160416.png]]

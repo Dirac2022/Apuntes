@@ -121,7 +121,7 @@ A continuación, se presentan ejemplos básicos que puedes usar como punto de pa
 
 ### Código de propósito único
 
-[[Desarrollo de Software/Miscelanea#Código de Propósito Único|Código de propósito único]]
+[[Miscelánea#Código de Propósito Único|Código de propósito único]]
 
 En el panorama en evolución del desarrollo de software, donde las prácticas ágiles y DevOps defienden la iteración rápida y la colaboración robusta, el principio de código de propósito único adquiere una importancia fundamental. Su influencia trasciende la estructura del código y se integra en la experiencia del desarrollador y en la comunicación en Git.
 
@@ -145,11 +145,11 @@ Como se señaló anteriormente, existe una sinergia profunda entre el código de
 
 - **Mensajes de commit claros:** Escribir código de propósito único resulta en mensajes de commit precisos. Un cambio en una función o módulo enfocado puede describirse de forma sucinta en Git, promoviendo la transparencia y claridad en la comunicación.
 	
-- **Revisiones de código simplificadas:** Las [[Desarrollo de Software/Miscelanea#Pull Request|pull requests]] en plataformas como GitHub son más sencillas cuando se centran en cambios enfocados, facilitando que los revisores entiendan la intención y verifiquen la implementación, lo que conduce a una retroalimentación más significativa y a una colaboración efectiva.
+- **Revisiones de código simplificadas:** Las [[Miscelánea#Pull Request|pull requests]] en plataformas como GitHub son más sencillas cuando se centran en cambios enfocados, facilitando que los revisores entiendan la intención y verifiquen la implementación, lo que conduce a una retroalimentación más significativa y a una colaboración efectiva.
 
 ### Código completo: Encontrando un equilibrio entre precisión y progreso
 
-[[Desarrollo de Software/Miscelanea#Código Completo|Código completo]]
+[[Miscelánea#Código Completo|Código completo]]
 
 En el ámbito del desarrollo de software existe una tensión antigua entre la necesidad de perfección y las demandas de progreso. Los desarrolladores a menudo se preguntan: ¿cuándo está listo mi código? En este contexto, se busca aclarar el concepto de *código completo*, una filosofía que enfatiza la producción de soluciones robustas y totalmente realizadas sin quedar atrapado en la búsqueda inalcanzable de la perfección.
 

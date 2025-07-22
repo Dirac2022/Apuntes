@@ -458,3 +458,13 @@ Cuando tienes archivos que ya están siendo rastreados por Git pero quieres igno
 - El comando `--cached` es crucial porque elimina los archivos solo del índice de Git, no de tu sistema de archivos.
 - Después de esto, los archivos no serán rastreados por Git pero seguirán existiendo en tu directorio de trabajo.
 - Si los archivos ya fueron confirmados en el historial de Git, necesitarás este proceso para dejar de rastrearlos en futuros commits.
+
+
+# Crear un alias
+
+```sh
+git config --global alias.<alias-name> "comandos" # No se coloca 'git' en los comandos
+
+# Ejemplo
+git config --global alias.logall "log --all --graph --oneline --decorate"
+```

@@ -83,7 +83,7 @@
 > - *ReplicaSet*: Garantiza que un número deseado de Pods estén en ejecución.
 
 
-[[Kubernetes]]
+[[Administración de Redes/Lecturas/Kubernetes]]
 
    - **Manifiestos en YAML**: Presentar la estructura básica (apiVersion, kind, metadata, spec) y los campos más relevantes (replicas, selector, template).  
 

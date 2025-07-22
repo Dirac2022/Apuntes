@@ -1,5 +1,113 @@
 
-# Comodines
+
+
+**Gestión de archivos y directorios**
+- [[#📁 `ls`]]
+- [[#🔍 `find`]]
+- [[#📄 `cat`]]
+- [[#💬 `echo`]]
+
+**Procesamiento de texto**
+- `sed` - Editor de flujo  
+- `sed 's/old/new/g'` - Reemplazo global  
+- `sed -n '5,10p'` - Muestra líneas 5-10  
+
+- `awk` - Procesamiento avanzado  
+- `awk '{print $1}'` - Muestra primera columna  
+- `awk 'NR==100'` - Muestra línea 100  
+
+- `sort`/`uniq` - Ordenar y filtrar únicos  
+- `uniq -d`: Muestra duplicados  
+- `uniq -u`: Muestra únicos  
+
+- [[#🔍 `grep`]]
+- [[#🔁 `uniq`]]
+- [[#✂️ `sed`]]
+- [[#🧑‍💻 `read`]]
+- [[#✂️ `cut`]]
+- [[#📥`tail`]]
+
+**Redirecciones y tuberías**
+- `>` - Sobrescribe archivo  
+- `>>` - Añade al final  
+- `2>` - Redirige errores  
+- `|` - Conecta comandos  
+- `cat log.txt | grep "error" | wc -l`  
+
+
+**Comprensión/Archivos**
+- `tar` - Archivos .tar  
+- `-xvf`: Extraer  
+- `-cvf`: Crear  
+- `unzip` - Archivos ZIP  
+- `gzip`/`gunzip` - Compresión gzip  
+
+- [[#📦 `tar`]]
+- [[#🗜️ `unzip`]]
+ 
+
+
+**Permisos y usuarios**
+- `chmod` - Cambia permisos  
+- `chmod 755 archivo`  
+- `chown` - Cambia dueño  
+- `sudo` - Ejecutar como root  
+- `sudo -u usuario comando`  
+
+**Redes y conexiones**
+- `curl` - Transferencia web  
+- `curl -H "Header: valor" URL`  
+- `curl -X POST -d "data" URL`  
+- `wget` - Descargas web  
+- `ssh` - Conexión remota  
+- `ssh -i clave.pem user@host -p 2222`  
+- `scp` - Copia segura  
+- `scp -P 2222 archivo user@host:/ruta`  
+
+- [[#🌐 `curl`]]
+
+
+
+**Variables y entorno**
+- `env` - Muestra variables  
+- `export` - Crea variables  
+- `printenv` - Lista variables  
+
+**Procesos y sistema**
+- `ps` - Procesos activos  
+- `ps aux | grep proceso`  
+- `top`/`htop` - Monitor sistema  
+- `kill` - Terminar procesos  
+- `kill -9 PID`  
+
+
+**Herramientas especiales**
+- `base64` - Codificación Base64  
+- `base64 -d` para decodificar  
+- `xxd` - Hexdump  
+- `xxd -r` para revertir hex  
+- `file` - Identifica tipo archivo  
+- `strings` - Extrae texto de binarios  
+
+- [[#🧵 `strings`]]
+- [[#🔧 `xxd`]]
+- [[#🔧 `file`]]
+- [[#🔧 `base64`]]
+
+**Comandos para pentesting**
+- `hydra` - Fuerza bruta  
+- `hydra -l user -P dicc.txt ssh://host`  
+- `john` - Crackeo hashes  
+- `john --format=md5crypt hash.txt`  
+- `exiftool` - Metadatos imágenes  
+- `binwalk` - Análisis de binarios  
+
+
+**Otros**
+
+- [[#🛠️ `diff`]]
+- [[#🛠️ `exiftool`]]
+## Comodines
 - `*` : El comodín asterisco representa cualquier carácter de cualquier longitud
 - ``?`` : El comodín interrogación representa un solo carácter
 - ``[ ]`` : El comodín corchete es utilizado para un intervalo de caracteres
@@ -7,10 +115,8 @@
 - ``touch`` : Puede ser utilizado para crear archivos vacíos
 - ``cat`` : Muestra el contenido de un archivo binario o texto.
 
- 
 
-# Gestión de archivos y directorios
-## `ls`
+## 📁 `ls`
 
 Lista los archivos de un directorio
 
@@ -23,7 +129,7 @@ Lista los archivos de un directorio
 - `-R` : Lista subdirectorios de manera recursiva
 
 
-## 🔧 `find`
+## 🔍 `find`
 
 `find` es una herramienta de búsqueda muy poderosa en Unix/Linux que permite:
 
@@ -228,7 +334,7 @@ find . -type f -size +100M -exec mv {} /ruta/de/respaldo/ \;
 
 
 
-## 🔧 `cat`
+## 📄 `cat`
 
 `cat` significa **concatenate** (concatenar). Es una herramienta básica y poderosa que se usa en Unix/Linux para:
 
@@ -382,7 +488,7 @@ cat > nuevo.txt
 
 
 
-## 🔧 `echo`
+## 💬 `echo`
 
 `echo` es un **comando simple pero muy útil en Unix/Linux** que sirve para:
 
@@ -523,23 +629,6 @@ echo "Hoy es: $(date)"
 Si necesitas que te lo adapte a un caso de uso real (por ejemplo, dentro de un CTF o script), dime y te doy un ejemplo concreto 💻
 
 
-
-
-# Procesamiento de texto
-
-
-
-- `sed` - Editor de flujo  
-  - `sed 's/old/new/g'` - Reemplazo global  
-  - `sed -n '5,10p'` - Muestra líneas 5-10  
-
-- `awk` - Procesamiento avanzado  
-  - `awk '{print $1}'` - Muestra primera columna  
-  - `awk 'NR==100'` - Muestra línea 100  
-
-- `sort`/`uniq` - Ordenar y filtrar únicos  
-  - `uniq -d`: Muestra duplicados  
-  - `uniq -u`: Muestra únicos  
 
 
 
@@ -736,7 +825,7 @@ grep --color=auto "palabra" archivo.txt
 
 
 
-## 🔧 `uniq`
+## 🔁 `uniq`
 
 `uniq` es un comando en Unix/Linux que se utiliza para **eliminar duplicados de una lista** o **mostrar solo los valores que aparecen una vez**. Funciona generalmente con la entrada ordenada, ya que solo detecta duplicados consecutivos.
 
@@ -891,7 +980,7 @@ echo -e "line1\nline1\nline2\nline3\nline3" | uniq
 
 
 
-## 🔧  `sed`
+## ✂️  `sed`
 
 `sed` significa **Stream Editor**. Es una herramienta muy poderosa en Unix/Linux que sirve para:
 
@@ -1158,10 +1247,7 @@ continúa
 
 
 
-
-
-
-## 🔧 `read`
+## 🧑‍💻 `read`
 
 `read` es un **comando interno de Bash** que se utiliza para **leer una línea de entrada desde el teclado (stdin)** o desde un archivo línea por línea. Se usa frecuentemente en scripts para capturar datos ingresados por el usuario o para recorrer archivos línea a línea.
 
@@ -1311,19 +1397,364 @@ read -r linea
 
 	
 
-# Redirecciones y tuberías
-- `>` - Sobrescribe archivo  
-- `>>` - Añade al final  
-- `2>` - Redirige errores  
-- `|` - Conecta comandos  
-  - `cat log.txt | grep "error" | wc -l`  
 
-# Compresión/archivos
-- `tar` - Archivos .tar  
-  - `-xvf`: Extraer  
-  - `-cvf`: Crear  
-- `unzip` - Archivos ZIP  
-- `gzip`/`gunzip` - Compresión gzip  
+
+## ✂️ `cut`
+
+`cut` es un comando de línea de comandos en Linux/Unix que se utiliza para **extraer secciones específicas de cada línea de un archivo o entrada estándar (stdin)**, como por ejemplo **campos delimitados por un carácter** o **ciertos rangos de caracteres o bytes**.
+
+🧰 **Sintaxis básica**
+
+```bash
+cut [opciones] [archivo]
+```
+
+También puede leer de `stdin`:
+
+```bash
+echo "texto" | cut [opciones]
+```
+
+---
+
+**🔑 Opciones más comunes**
+
+|Opción|Significado|
+|---|---|
+|`-b` N|Selecciona el byte número N (o rango de bytes)|
+|`-c` N|Selecciona el carácter número N (o rango de caracteres)|
+|`-f` N|Selecciona el campo número N (usado con `-d`)|
+|`-d` DELIM|Define el delimitador de campos (por defecto es tabulador `\t`)|
+|`--complement`|Muestra lo que **no** fue seleccionado|
+|`--output-delimiter=DELIM`|Cambia el delimitador de salida entre campos seleccionados|
+
+---
+
+### 📌 Ejemplos detallados
+
+**1. 🔤 Extraer ciertos *caracteres***
+
+```bash
+echo "abcdef" | cut -c 1-3
+```
+
+📤 **Salida:** `abc`
+
+✅ Extrae del carácter 1 al 3.
+
+---
+
+**2. 🔢 Extraer ciertos *bytes***
+
+```bash
+echo "áéíóú" | cut -b 1-3
+```
+
+⚠️ Los caracteres con tilde ocupan más de un byte. Esto puede generar cortes incorrectos.
+
+---
+
+**3. 📊 Extraer *campos* de un archivo delimitado por comas**
+
+Supongamos que `datos.csv` contiene:
+
+```
+Juan,25,Perú
+Ana,30,Chile
+Luis,28,Argentina
+```
+
+```bash
+cut -d ',' -f 1 datos.csv
+```
+
+📤 **Salida:**
+
+```
+Juan
+Ana
+Luis
+```
+
+✅ Extrae el **primer campo** usando coma como delimitador.
+
+---
+
+**4. 🧩 Extraer *múltiples campos**
+
+```bash
+cut -d ',' -f 1,3 datos.csv
+```
+
+📤 **Salida:**
+
+```
+Juan,Perú
+Ana,Chile
+Luis,Argentina
+```
+
+---
+
+**5. 👇 Usar entrada estándar**
+
+```bash
+echo "uno:dos:tres" | cut -d ':' -f 2
+```
+
+📤 **Salida:** `dos`
+
+---
+
+**6. 🧪 Complemento (inverso)**
+
+```bash
+echo "123456789" | cut -c 1-3 --complement
+```
+
+📤 **Salida:** `456789`
+
+✅ Excluye los caracteres 1 al 3.
+
+
+### 📚 Tips adicionales
+
+- No puedes combinar `-b`, `-c` y `-f` al mismo tiempo.
+    
+- Si el archivo no tiene el delimitador que defines con `-d`, la línea entera se muestra tal cual.
+    
+- Si estás trabajando con archivos CSV complejos (con campos entrecomillados o con comas dentro del campo), `cut` **no es suficiente**. Es mejor usar `awk` o `csvkit`.
+    
+
+
+### 📌 Resumen visual
+
+| ¿Qué quieres extraer? | Opción que usas |
+| --------------------- | --------------- |
+| Bytes                 | `-b`            |
+| Caracteres            | `-c`            |
+| Campos delimitados    | `-f -d`         |
+
+---
+
+
+
+
+
+
+¡Claro! Aquí tienes una **explicación completa, clara y práctica del comando `tail`** en Linux/Ubuntu, siguiendo el mismo estilo estructurado:
+
+---
+
+## 📥`tail`
+
+`tail` es un comando en Linux que se utiliza para **mostrar las últimas líneas de un archivo de texto o entrada estándar**. Es muy útil para monitorear **logs en tiempo real**, ver el final de archivos grandes o depurar salidas.
+
+---
+
+**Sintaxis básica**
+
+```bash
+tail [opciones] [archivo]
+```
+
+O con `stdin`:
+
+```bash
+comando | tail [opciones]
+```
+
+
+
+**🔑 Opciones más comunes**
+
+|Opción|Descripción|
+|---|---|
+|`-n N`|Muestra las últimas **N líneas** (por defecto son 10 líneas)|
+|`-f`|**Sigue** el archivo en tiempo real (útil para logs)|
+|`-F`|Igual que `-f`, pero **reabre** el archivo si se renombra o reemplaza|
+|`-c N`|Muestra los últimos **N bytes** del archivo|
+|`--pid=PID`|Termina `-f` cuando finalice el proceso con ese PID|
+|`--retry`|Vuelve a intentar abrir archivos que no existen inicialmente|
+
+---
+
+### 📌 Ejemplos prácticos
+
+**1. 📄 Ver las últimas 10 líneas de un archivo (por defecto)**
+
+```bash
+tail archivo.txt
+```
+
+---
+
+**2. 🔢 Ver las últimas 20 líneas**
+
+```bash
+tail -n 20 archivo.txt
+```
+
+✅ Útil si solo te interesa el final de un archivo de logs.
+
+---
+
+**3. 🧪 Ver los últimos 100 *bytes***
+
+```bash
+tail -c 100 archivo.txt
+```
+
+---
+
+**4. 🧵 Seguir un archivo en *tiempo real***
+
+```bash
+tail -f /var/log/syslog
+```
+
+📤 Esto imprimirá las nuevas líneas que se agreguen al final del archivo.
+
+---
+
+**5. 🧠 Seguir un archivo que podría ser reemplazado (como logs de rotación)**
+
+```bash
+tail -F /var/log/nginx/access.log
+```
+
+✅ A diferencia de `-f`, `-F` **reabre** el archivo si es reemplazado.
+
+---
+
+**6. 📡 Leer salida de otro comando**
+
+```bash
+dmesg | tail -n 5
+```
+
+✅ Muestra las últimas 5 líneas del buffer del kernel.
+
+---
+
+**🚀 Tip útil: Combinación con otros comandos**
+
+Ver logs de un servicio en vivo
+
+```bash
+journalctl -u nginx.service -f
+```
+
+_(Aunque este no es `tail`, hace algo similar usando `-f`)_
+
+---
+
+### 📚 Resumen visual
+
+|Quieres...|Comando|
+|---|---|
+|Ver últimas 10 líneas|`tail archivo.txt`|
+|Ver últimas N líneas|`tail -n N archivo.txt`|
+|Ver últimos N bytes|`tail -c N archivo.txt`|
+|Ver en tiempo real|`tail -f archivo.txt`|
+|Seguir y reabrir archivo|`tail -F archivo.txt`|
+
+---
+
+
+
+¡Claro! Aquí tienes la explicación del comando `head` en Linux/Ubuntu:
+
+---
+
+## 🔼 `head`
+
+`head` es un comando que se usa para **mostrar las primeras líneas de un archivo o entrada estándar (stdin)**. Por defecto, muestra las primeras 10 líneas.
+
+
+**🧰 Sintaxis básica**
+
+```bash
+head [opciones] [archivo]
+```
+
+También se puede usar con tuberías:
+
+```bash
+comando | head [opciones]
+```
+
+
+
+**🔑 Opciones más comunes**
+
+|Opción|Descripción|
+|---|---|
+|`-n N`|Muestra las **primeras N líneas** del archivo|
+|`-c N`|Muestra los **primeros N bytes** del archivo|
+|`-q`|No imprime los nombres de archivo (en múltiples)|
+|`-v`|Siempre imprime los nombres de archivo|
+
+---
+
+### 📌 Ejemplos prácticos
+
+**1. 📄 Mostrar las primeras 10 líneas de un archivo (por defecto)**
+
+```bash
+head archivo.txt
+```
+
+---
+
+**2. 🔢 Mostrar las primeras 5 líneas**
+
+```bash
+head -n 5 archivo.txt
+```
+
+---
+
+**3. 📦 Mostrar los primeros 50 bytes**
+
+```bash
+head -c 50 archivo.txt
+```
+
+---
+
+**4. 📂 Usar con varios archivos**
+
+```bash
+head archivo1.txt archivo2.txt
+```
+
+✅ Muestra el encabezado de cada archivo por separado.
+
+---
+
+**5. 📡 Leer salida de otro comando**
+
+```bash
+ls -l | head -n 3
+```
+
+✅ Muestra las primeras 3 líneas de la salida del comando `ls -l`.
+
+---
+
+**📚 Resumen visual**
+
+|Quieres...|Comando|
+|---|---|
+|Ver primeras 10 líneas|`head archivo.txt`|
+|Ver primeras N líneas|`head -n N archivo.txt`|
+|Ver primeros N bytes|`head -c N archivo.txt`|
+
+---
+
+
+
 
 
 ## 📦 `tar`
@@ -1518,7 +1949,7 @@ curl -s http://sitio.com/archivo.tar.gz | tar -tzf -
 
 
 
-## 🔧 `unzip`
+## 🗜️ `unzip`
 
 `unzip` es un comando en Linux que se usa para **extraer archivos de un archivo `.zip`**.
 
@@ -1685,23 +2116,6 @@ sudo dnf install unzip
 ```
 
 ---
-
-# Permisos y usuarios
-- `chmod` - Cambia permisos  
-  - `chmod 755 archivo`  
-- `chown` - Cambia dueño  
-- `sudo` - Ejecutar como root  
-  - `sudo -u usuario comando`  
-
-# Red y conexiones
-- `curl` - Transferencia web  
-  - `curl -H "Header: valor" URL`  
-  - `curl -X POST -d "data" URL`  
-- `wget` - Descargas web  
-- `ssh` - Conexión remota  
-  - `ssh -i clave.pem user@host -p 2222`  
-- `scp` - Copia segura  
-  - `scp -P 2222 archivo user@host:/ruta`  
 
 
 ## 🌐 `curl`
@@ -1913,25 +2327,6 @@ curl -o respuesta.json http://localhost/api/info
 ¿Te gustaría ahora ver ejemplos para cada método HTTP (`GET`, `POST`, `PUT`, `DELETE`) usando `curl`?
 
 
-# Variables y entorno
-- `env` - Muestra variables  
-- `export` - Crea variables  
-- `printenv` - Lista variables  
-
-# Procesos y sistema
-- `ps` - Procesos activos  
-  - `ps aux | grep proceso`  
-- `top`/`htop` - Monitor sistema  
-- `kill` - Terminar procesos  
-  - `kill -9 PID`  
-
-# Herramientas especiales
-- `base64` - Codificación Base64  
-  - `base64 -d` para decodificar  
-- `xxd` - Hexdump  
-  - `xxd -r` para revertir hex  
-- `file` - Identifica tipo archivo  
-- `strings` - Extrae texto de binarios  
 
 
 ## 🧵 `strings`
@@ -2082,7 +2477,7 @@ strings archivo | grep -Ei "user|password|flag"
 
 
 
-## 🔧 `xxd`
+## 🔬 `xxd`
 
 El comando `xxd` en Linux es una herramienta para crear una **representación hexadecimal** de un archivo binario, o bien para convertir de hexadecimal a binario. Es muy útil para inspeccionar archivos en formato binario y para depuración o análisis de datos.
 
@@ -2204,7 +2599,7 @@ xxd -s 100 archivo.bin
 ---
 
 
-## 🔧 `file`
+## 📄 `file`
 
 **`file`** permite identificar el tipo de un archivo basándose en el contenido de dicho archivo, no solo en su extensión. Es útil porque a veces los archivos pueden tener extensiones incorrectas o no tenerlas, y aún así el comando puede decirte qué tipo de datos contienen.
 
@@ -2268,7 +2663,7 @@ Si el archivo realmente es un archivo comprimido en formato ZIP, el comando te l
 
 ---
 
-## 🔧 `base64`
+## 🔐 `base64`
 
 El comando `base64` es una herramienta en sistemas Unix/Linux que se utiliza para **codificar y decodificar datos en formato Base64**. Este formato es comúnmente utilizado para representar datos binarios (como imágenes o archivos) en un formato textual que puede ser fácilmente transmitido a través de medios que solo aceptan texto, como correos electrónicos o algunas APIs.
 
@@ -2432,15 +2827,10 @@ Esto convierte la imagen en un archivo de texto que puedes enviar. La persona qu
 
 `base64` es muy útil para la transmisión de datos binarios en entornos que solo admiten texto, como correos electrónicos o servicios que no permiten adjuntos binarios.
 
-# Comandos para pentesting
-- `hydra` - Fuerza bruta  
-  - `hydra -l user -P dicc.txt ssh://host`  
-- `john` - Crackeo hashes  
-  - `john --format=md5crypt hash.txt`  
-- `exiftool` - Metadatos imágenes  
-- `binwalk` - Análisis de binarios  
 
-## 11. Ejemplos clave
+
+## Ejemplos clave
+
 ```bash
 # Buscar archivos modificados hace +1 año
 find / -type f -mtime +365 -exec ls -lh {} \; 2>/dev/null
@@ -2459,13 +2849,14 @@ echo "U2VjcmV0QDEyMw==" | base64 -d
 ssh -L 9001:localhost:80 user@host -p 2222
 ```
 
-## 12. Consejos adicionales
+## Consejos adicionales
 1. Usar `man comando` para ver manuales  
 2. `command --help` muestra ayuda rápida  
 3. `history` muestra últimos comandos  
 4. `!!` repite último comando  
 5. `Ctrl+R` busca en historial  
-6. Usar `tab` para autocompletar  
+6. Usar `tab` para autocompletar 
+
 ```
 
 Este bloque unificado contiene todos los comandos organizados por categorías, con sus opciones más útiles y ejemplos prácticos. ¿Necesitas que profundice en alguna sección en particular?
@@ -2473,12 +2864,7 @@ Este bloque unificado contiene todos los comandos organizados por categorías, c
 
 
 
-# Otros
-
-
----
-
-## 🛠️ `diff`
+## 📊 `diff`
 
 `diff` es un comando en Unix/Linux que se utiliza para **comparar línea por línea dos archivos** (o directorios) y mostrar sus diferencias.
 
@@ -2658,7 +3044,7 @@ for file in *.txt; do diff -q carpeta1/$file carpeta2/$file; done
 
 ---
 
-## 🛠️ `exiftool`
+## 🧰 `exiftool`
 
 `exiftool` es una poderosa herramienta de línea de comandos usada para **leer, escribir y editar metadatos** en archivos multimedia, especialmente imágenes. Es compatible con muchos formatos como JPG, PNG, MP4, PDF, entre otros.
 

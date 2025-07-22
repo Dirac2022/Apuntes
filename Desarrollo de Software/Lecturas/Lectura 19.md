@@ -33,7 +33,7 @@ Un pipeline robusto de testing en DevOps, incluso sin depender de plataformas es
 > - Finalmente, se corren **pruebas end-to-end** (E2E) con Cypress que simulan la interacción completa del usuario desde el frontend hasta el backend.
 
 
-2. **Optimización del tiempo**: uso de [[Desarrollo de Software/Miscelanea#Caching|caching]], paralelización y [[Desarrollo de Software/Miscelanea#Matrices de entorno|matrices de entornos]] para mejorar la eficiencia.
+2. **Optimización del tiempo**: uso de [[Miscelánea#Caching|caching]], paralelización y [[Miscelánea#Matrices de entorno|matrices de entornos]] para mejorar la eficiencia.
 
 > [!tip] Ejemplo de un proyecto en JavaScript que usa GitHub Actions
 > - **Caching**: guarda las dependencias (`node_modules/`) para no volver a instalarlas en cada ejecución.
@@ -45,7 +45,7 @@ Un pipeline robusto de testing en DevOps, incluso sin depender de plataformas es
 
 > [!tip] Conceptos tratados
 
-> - **Regla de protección de ramas**: Se define que nadie puede subir cambios directamente a ramas críticas como `main o release`. Todo cambio debe pasar por un proceso de revisión (pull/merge request) y su validación automática (test, [[Desarrollo de Software/Miscelanea#Linting|linters]], [[Desarrollo de Software/Miscelanea#Análisis de código (SAST y DAST)|análisis estático]] , etc-)
+> - **Regla de protección de ramas**: Se define que nadie puede subir cambios directamente a ramas críticas como `main o release`. Todo cambio debe pasar por un proceso de revisión (pull/merge request) y su validación automática (test, [[Miscelánea#Linting|linters]], [[Miscelánea#Análisis de código (SAST y DAST)|análisis estático]] , etc-)
 
 
 4. **Trazabilidad completa**: manejo de artefactos, análisis de cobertura y reportes de ejecución como elementos de auditoría.

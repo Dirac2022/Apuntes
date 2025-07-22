@@ -190,20 +190,16 @@ async def test_async(mocker):
 
 ## Buenas prácticas y anti-patrones
 
-### Evita el sobre-mocking
-
+**Evita el sobre-mocking**
 Mocks excesivos hacen tests frágiles y difíciles de mantener. Prefiere **fakes** o stubs escritos a mano cuando haya múltiples tests que compartan la misma sustitución ([Enterprise Craftsmanship](https://enterprisecraftsmanship.com/posts/stubs-vs-mocks/?utm_source=chatgpt.com "Stubs vs Mocks - Enterprise Craftsmanship")).
 
-### Nombres descriptivos
-
+**Nombres descriptivos**
 Usar `name='email_svc'` facilita la lectura de errores de tests.
 
-### Verifica solo lo relevante
-
+**Verifica solo lo relevante**
 No asserts en llamadas internas irrelevantes; céntrate en la **interfaz pública** del módulo.
 
-### Agrupa configuraciones comunes en fixtures
-
+**Agrupa configuraciones comunes en fixtures**
 En pytest, define fixtures que preparen tus stubs/mocks para evitar duplicación.
 
 ---

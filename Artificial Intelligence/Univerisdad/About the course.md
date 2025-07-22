@@ -18,6 +18,12 @@
 ## Semana 03
 - [ ] Clase 3
 
+## Semana 13
+
+- [x] Semana 12 - Complemento de la teoría ⏫ 📅 2025-06-22 ✅ 2025-06-22
+- [x] Semana 12 - 2025-I PD ⏫ 📅 2025-06-22 ✅ 2025-06-22
+- [ ] Autoencoders🛫 2025-06-22 ⏫ 📅 2025-06-29 
+
 # 26-03-2025
 
 ## ¿Por qué el interés en la IA?
@@ -357,3 +363,12 @@ A --> D["Funcion de evaluación"]
 # Poda alfa beta
 
 ![[Pasted image 20250507221406.png]]
+
+
+# 04/06/2025
+
+Estudiar
+- Retropopagación
+- Autoencoders
+- Maquina de Boltzman
+- 

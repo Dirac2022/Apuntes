@@ -109,9 +109,39 @@ El proceso de integración (merge) en Git también cuenta con técnicas específ
      Donde deberías ver un único commit de merge que indica la fusión octopus.
 
 
-  Este tipo de fusión está diseñado para escenarios en los que las ramas se pueden fusionar sin conflictos. Si Git detecta conflictos en alguna de las ramas, la operación fallará y no se completará el merge octopus. En ese caso, es recomendable fusionar las ramas de forma individual o resolver los conflictos previamente.
+  Este tipo de fusión está diseñado para escenarios en los que las ramas se pueden fusionar sin conflictos. ==Si Git detecta conflictos en alguna de las ramas, la operación fallará y no se completará el merge octopus==. En ese caso, es recomendable fusionar las ramas de forma individual o resolver los conflictos previamente.
 
   ==El merge octopus es ideal cuando se tienen múltiples ramas pequeñas e independientes que se desean integrar de una vez. No es adecuado para situaciones en las que la resolución de conflictos es necesaria, ya que Git no permite la intervención manual en este tipo de merge==.
+
+----
+
+**Ejemplo**
+
+```sh
+dirac@ubuntu:~/Documents/Desarrollo de Software/octopus-merge$ git merge --no-ff feature1 feature2 feature3 -m "Octopus merge: fusiona feature1, feature2 y feature3"
+Trying simple merge with feature1
+Trying simple merge with feature2
+Merge made by the 'octopus' strategy.
+ feature1.txt | 1 +
+ feature2.txt | 2 ++
+ 2 files changed, 3 insertions(+)
+ create mode 100644 feature1.txt
+ create mode 100644 feature2.txt
+dirac@ubuntu:~/Documents/Desarrollo de Software/octopus-merge$ 
+dirac@ubuntu:~/Documents/Desarrollo de Software/octopus-merge$ git logall
+*-.   eb5372d (HEAD -> feature3) Octopus merge: fusiona feature1, feature2 y feature3
+|\ \  
+| | * a678d0f (feature2) Agrega feature2
+| * | eaad0b6 (feature1) Agrega feature1
+| |/  
+* / 262acd2 Agrega feature3
+|/  
+* 53c9631 (main) feat: add app.py
+dirac@ubuntu:~/Documents/Desarrollo de Software/octopus-merge$ 
+
+```
+
+---
 
 ### 3. Herramientas de diagnóstico y exploración de historia
 
@@ -133,7 +163,7 @@ Ejemplo de uso:
 git log --graph --decorate --oneline
 ```
 
-#### git blame
+#### [[Git#🕵️‍♀️ `git blame`|git blame]] 
 
 El comando `git blame` asocia cada línea de un archivo a su commit correspondiente. Esto facilita enormemente la identificación de cuándo y por qué se introdujo un cambio, especialmente en archivos de gran tamaño o complejidad.
 
@@ -144,7 +174,7 @@ git blame archivo.txt
 
 Con este comando, se puede visualizar la autoría de cada línea, lo que ayuda a rastrear errores o a entender la evolución de ciertas funcionalidades.
 
-#### git bisect
+#### [[Git#🔍 `git bisect`|git bisect]]
 
 El comando `git bisect` emplea una búsqueda binaria para localizar el commit que introdujo un error determinado. Este proceso involucra los siguientes pasos:
 
@@ -239,7 +269,7 @@ git blame auth.c -L 100,150
 ```
   
 Esto generará una salida similar a:
-```
+```sh
 89abcdef (Kapu Mota 2025-03-01 14:22:12 +0100  102)    if (usuario_valido(usuario)) {
 89abcdef (Kapu Mota 2025-03-01 14:22:12 +0100  103)        // Cambio crítico que introdujo el error
 ...

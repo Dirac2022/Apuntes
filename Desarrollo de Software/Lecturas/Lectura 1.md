@@ -112,11 +112,11 @@ Con el aumento de la velocidad de despliegue que caracteriza a DevOps, la seguri
 
 #### La necesidad de la integración temprana
 
-En los modelos tradicionales, ==la seguridad se consideraba un paso final en el proceso de desarrollo, lo que a menudo llevaba a la detección tardía de vulnerabilidades==. ==DevSecOps propone integrar herramientas y prácticas de seguridad desde el inicio==, realizando [[Desarrollo de Software/Miscelanea#Escáneres de vulnerabilidades|análisis de vulnerabilidades]] , pruebas de penetración y revisiones de código de forma automatizada en cada fase del pipeline de CI/CD.
+En los modelos tradicionales, ==la seguridad se consideraba un paso final en el proceso de desarrollo, lo que a menudo llevaba a la detección tardía de vulnerabilidades==. ==DevSecOps propone integrar herramientas y prácticas de seguridad desde el inicio==, realizando [[Miscelánea#Escáneres de vulnerabilidades|análisis de vulnerabilidades]] , pruebas de penetración y revisiones de código de forma automatizada en cada fase del pipeline de CI/CD.
 
 #### Herramientas y automatización en la seguridad
 
-==La automatización es clave en DevSecOps==. Herramientas de [[Desarrollo de Software/Miscelanea#Análisis de código (SAST y DAST)|análisis estático y dinámico]], [[Desarrollo de Software/Miscelanea#Escáneres de vulnerabilidades|escáneres de vulnerabilidades]] y sistemas de monitorización de seguridad se integran en el flujo de trabajo para garantizar que cada cambio se evalúe no solo por su funcionalidad, sino también por su adherencia a las mejores prácticas de seguridad. Esta integración permite detectar y corregir anomalías de forma temprana, reduciendo el riesgo de incidentes en producción.
+==La automatización es clave en DevSecOps==. Herramientas de [[Miscelánea#Análisis de código (SAST y DAST)|análisis estático y dinámico]], [[Miscelánea#Escáneres de vulnerabilidades|escáneres de vulnerabilidades]] y sistemas de monitorización de seguridad se integran en el flujo de trabajo para garantizar que cada cambio se evalúe no solo por su funcionalidad, sino también por su adherencia a las mejores prácticas de seguridad. Esta integración permite detectar y corregir anomalías de forma temprana, reduciendo el riesgo de incidentes en producción.
 
 
 Asimismo, la colaboración entre desarrolladores y expertos en seguridad se fortalece mediante la capacitación en técnicas de codificación segura y la implementación de políticas de seguridad que se adapten a las necesidades específicas de cada proyecto. La creación de entornos de pruebas seguros y la simulación de ataques controlados (red teaming) son prácticas adicionales que ayudan a robustecer la postura de seguridad de las aplicaciones.

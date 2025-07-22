@@ -20,6 +20,16 @@ $$
 
 
 
+
+## Proyección vectorial
+
+Sea $v$, $u$ dos vectores en $\mathbb{R}^n$. La proyección de $u$ sobre $v$ es:
+
+$$
+\text{proy}_v u = \dfrac{\langle u, v \rangle}{\|v\|^2} v
+$$
+
+
 # Teorema de Representación de Riesz
 Sea $\mathbb{V}$ un espacio vectorial con producto interno. Si $w \in \mathbb{V}$, entonces
 $$

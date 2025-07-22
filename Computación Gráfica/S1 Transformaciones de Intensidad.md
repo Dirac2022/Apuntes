@@ -177,11 +177,11 @@ $$
 
 ## Types of Thresholding
 
-| Type                  | Description                                                                                                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Simple Thresholding   | A single threshold value is used to separate pixels into black or white                                       |
-| Adaptive Thresholding | The threshold value varies depending on the local region of the image, useful for images with uneven lighting |
-| Otsu's Thresholding   | Automatically calculates an optimal threshold value using image histogram analysis                            |
+| Type                  | Description                                                                                                                 |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Simple Thresholding   | A single threshold value is used to separate pixels into black or white                                                     |
+| Adaptive Thresholding | The threshold value varies depending on the local region of the image, useful for images with uneven (iluminación) lighting |
+| Otsu's Thresholding   | Automatically calculates an optimal threshold value using image histogram analysis                                          |
 
 ### Adaptive Thresholding
 Is a technique used when an image has varying lighting conditions. Instead of using a single threshold value for the entire image, it calculates different threshold values for different regions of the image.

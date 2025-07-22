@@ -1,4 +1,4 @@
-	## **Regex para git hooks, configuración CI, AAA y RGR**
+## **Regex para git hooks, configuración CI, AAA y RGR**
 
 ### Expresiones regulares en Git Hooks
 

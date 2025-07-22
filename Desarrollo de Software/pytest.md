@@ -88,7 +88,7 @@ def test_add_two_positive_numbers():
     assert result == 5
 ```
 
-**¿Qué ocurre si falla?** pytest recruye tu `assert` para desglosar la expresión y mostrar los valores intermedios, por ejemplo:
+**¿Qué ocurre si falla?** pytest reconstruye tu `assert` para desglosar la expresión y mostrar los valores intermedios, por ejemplo:
 
 ```
 E   assert 4 == 5
@@ -433,10 +433,11 @@ Además de `pytest` básico, estas opciones te ayudan a filtrar, depurar y optim
 - `pytest --collect-only`: muestra qué pruebas se descubrirían sin ejecutarlas.
 - `pytest --fixtures`: lista fixtures disponibles.
 - `pytest --durations=5`: reporta los 5 tests más lentos.
-- `pytest -x`: detiene al primer fallo (-`exitfirst`).
+- `pytest -x`: detiene al primer fallo (`--exitfirst`).
 - `pytest --lf`: vuelve a ejecutar solo los tests fallidos en la última ejecución.
 - `pytest -n 4`: ejecuta tests en paralelo usando 4 procesos (`xdist`).
 - `pytest --cov=src --cov-report=html`: mide cobertura y genera reporte HTML (`pytest-cov`).
+- `pytest --random-order`: para ejecutar las pruebas en un orden aleatorio.
 
 Cada opción puede combinarse para construir pipelines de CI rápidas y claras.
 
@@ -451,3 +452,657 @@ Cada opción puede combinarse para construir pipelines de CI rápidas y claras.
 - **Mide rendimiento** con `--durations`.
 - **Automatiza en CI**: añade `pytest --cov` en tu pipeline.
 - **Genera reportes** (`pytest-html`) para revisiones de equipo.
+
+
+¡Perfecto! Siguiendo tu razonamiento y preferencia por un enfoque **profundo, explicativo y bien documentado**, te presento la clase con un nuevo título adecuado y un enfoque **educativo, técnico y claro**, paso a paso.
+
+---
+
+## 🎓 Pruebas Parametrizadas con `@pytest.mark.parametrize`
+
+
+Las pruebas parametrizadas son una técnica para **ejecutar una misma función de prueba múltiples veces** con **diferentes entradas y salidas esperadas**.
+
+Esto **evita escribir funciones repetidas** como:
+
+```python
+def test_suma_1(): assert sumar(1, 2) == 3
+def test_suma_2(): assert sumar(2, 3) == 5
+...
+```
+
+En lugar de eso, se **define una sola función** y se pasa una tabla de casos de prueba.
+
+---
+
+**¿Qué problema resuelven?**
+
+✔️ Eliminan **duplicación de código**  
+✔️ Hacen el test **más claro y mantenible**  
+✔️ Aumentan la **cobertura** al probar más casos  
+✔️ Son más **explícitas y legibles**
+
+---
+
+**Sintaxis general**
+
+```python
+@pytest.mark.parametrize("arg1, arg2, ..., expected", [
+    (valor1, valor2, ..., esperado),
+    ...
+])
+def test_func(arg1, arg2, ..., expected):
+    assert funcion(arg1, arg2, ...) == expected
+```
+
+- Los nombres de los parámetros entre comillas deben **coincidir exactamente** con los argumentos de la función de test.
+    
+- Cada **tupla** en la lista representa **un caso de prueba**.
+    
+- `pytest` ejecutará la función de test **una vez por cada fila** de datos.
+    
+
+---
+
+### Ejemplo
+
+Supongamos que queremos testear esta función:
+
+ 📄 `calculadora.py`
+
+```python
+def sumar(a, b):
+    """
+    Retorna la suma de dos números.
+    """
+    return a + b
+```
+
+
+Ahora veamos cómo se testea esa función usando pruebas parametrizadas.
+
+📄 `test_calculadora.py`
+
+```python
+import pytest  # Importamos pytest
+from calculadora import sumar  # Importamos la función que vamos a testear
+
+# 🔽 Aquí empieza la prueba parametrizada
+# Declaramos los parámetros que usará el test: a, b y resultado esperado
+# Cada tupla del segundo argumento representa un caso de prueba
+
+@pytest.mark.parametrize("a, b, esperado", [
+    (1, 2, 3),        # 1 + 2 = 3
+    (0, 0, 0),        # caso trivial con ceros
+    (-1, 1, 0),       # suma con negativo
+    (100, 200, 300),  # números grandes
+    (-5, -5, -10),    # ambos negativos
+])
+def test_sumar(a, b, esperado):
+    """
+    Este test será ejecutado 5 veces, una por cada combinación (a, b, esperado).
+    """
+    # 💡 Pytest pasa automáticamente los valores de cada tupla a los parámetros
+    resultado = sumar(a, b)  # Ejecutamos la función a testear con los parámetros actuales
+
+    # 📌 Comprobamos que el resultado es igual al esperado
+    assert resultado == esperado
+```
+
+---
+
+### 🧠 Flujo de ejecución interno en Pytest
+
+**¿Qué hace Pytest al encontrar `@pytest.mark.parametrize`?**
+
+1. ✅ Cuando detecta este decorador, **Pytest expande la función de test** en **varias instancias**, una por cada conjunto de datos.
+    
+2. ✅ Cada instancia es ejecutada como un test separado.
+    
+3. ✅ Si una falla, solo esa combinación aparece como fallida, lo que ayuda a **diagnosticar problemas concretos**.
+    
+4. ✅ Pytest genera un **nombre automático para cada caso**, como:
+    
+    ```
+    test_sumar[1-2-3]
+    test_sumar[0-0-0]
+    ...
+    ```
+    
+
+---
+
+**¿Cómo sabe Pytest qué valores usar?**
+
+Gracias a la combinación:
+
+```python
+@pytest.mark.parametrize("a, b, esperado", [(1, 2, 3), ...])
+```
+
+Pytest:
+
+- Lee `"a, b, esperado"` como **nombres de argumentos**.
+    
+- Lee `[(1, 2, 3), ...]` como **valores de entrada/salida esperada**.
+    
+- Por cada tupla, **llama a `test_sumar` con esos valores**.
+    
+
+---
+
+### Casos avanzados
+
+**Parametrización con un solo argumento**
+
+```python
+@pytest.mark.parametrize("x", [1, 2, 3])
+def test_es_positivo(x):
+    assert x > 0
+```
+
+➡️ Ejecuta `test_es_positivo(1)`, `test_es_positivo(2)`, `test_es_positivo(3)`.
+
+---
+
+**Usar `ids` para nombrar los tests**
+
+```python
+@pytest.mark.parametrize("a, b, esperado", [
+    (1, 2, 3),
+    (0, 0, 0),
+], ids=["caso_simple", "caso_ceros"])
+def test_sumar(a, b, esperado):
+    assert sumar(a, b) == esperado
+```
+
+➡️ Pytest mostrará los nombres personalizados como:
+
+```
+test_sumar[caso_simple]
+test_sumar[caso_ceros]
+```
+
+---
+
+**Parametrizar varias veces (producto cartesiano)**
+
+```python
+@pytest.mark.parametrize("x", [1, 2])
+@pytest.mark.parametrize("y", [10, 20])
+def test_producto(x, y):
+    assert x * y >= 0
+```
+
+➡️ Genera 4 combinaciones:
+
+- x=1, y=10
+- x=1, y=20
+- x=2, y=10
+- x=2, y=20
+
+---
+
+### Errores comunes
+
+| Error                                   | Explicación                                                     |
+| --------------------------------------- | --------------------------------------------------------------- |
+| ❌ Faltan parámetros en la función       | `parametrize("a,b", [(1,2)])` pero `def test(a):`               |
+| ❌ Olvidar que la lista necesita tuplas  | `[(1,2)]` ✅ vs `[1,2]` ❌                                        |
+| ❌ Nombres incorrectos                   | `"x,y"` pero la función recibe `def test(a,b)`                  |
+| ❌ Usar `=` en lugar de `==` en `assert` | Python permite `assert x == y`, pero `assert x = y` lanza error |
+
+---
+
+###  🧼 Buenas prácticas
+
+✅ Nombra bien tus parámetros  
+✅ Usa `ids` para mayor claridad  
+✅ Evita probar muchos casos en un solo test (divide si es necesario)  
+✅ Mantén los valores alineados con el objetivo del test  
+✅ Documenta cada caso (comentarios al lado de cada tupla)
+
+---
+
+---
+---
+
+## `mocker.patch` en Pytest con `pytest-mock`
+
+
+### 🧠 `pytest-mock`
+
+`pytest-mock` es **un plugin para pytest** que te da un _fixture_ llamado `mocker`.  
+Este fixture **simplifica** el uso de `unittest.mock` (que forma parte de la librería estándar).
+
+> 🔧 Con `mocker`, puedes hacer **mocks**, **patches**, **spies**, etc., de manera más sencilla, sin tener que usar decoradores como `@patch()` o context managers como `with patch(...)`.
+
+---
+
+### 🧪`mocker`
+
+Es un **fixture de pytest** (como `tmp_path`, `monkeypatch`, `caplog`, etc.) que se inyecta automáticamente si lo pones como argumento en tu test:
+
+```python
+def test_algo(mocker):  # mocker se pasa automáticamente gracias a pytest-mock
+    ...
+```
+
+Detrás de escena, `mocker` es un **wrapper** alrededor de `unittest.mock` y te permite usar:
+
+- `mocker.patch()`
+- `mocker.Mock()`
+- `mocker.spy()`
+
+---
+
+### 🧩 ¿Qué hace `mocker.patch()`?
+
+La función `mocker.patch("modulo.objeto")` reemplaza **temporalmente** un objeto (una función, clase, variable, método, etc.) por un **mock**, **durante la ejecución del test**.
+
+Es como decir:
+
+> “Durante esta prueba, quiero que cuando se llame a `objeto`, en lugar de ejecutar el original, se use este falso”.
+
+---
+
+**Sintaxis**
+
+```python
+mocker.patch("ruta.al.objeto.que.quieres.parchear")
+```
+
+📌 Esta ruta debe ser una **cadena de texto (string)** que indique:
+
+```
+"módulo.donde_se_usa.objeto"
+```
+
+✅ No es donde se **define** el objeto.  
+✅ Es donde se **usa** (importa y se llama).
+
+---
+
+### ⚠️ Ejemplos
+
+Supongamos esto:
+
+---
+
+ 📄 `calculadora.py`
+
+```python
+from math import sqrt  # <--- Importas sqrt aquí
+
+def raiz_cuadrada(x):
+    return sqrt(x)
+```
+
+Ahora, quieres testear `raiz_cuadrada(x)`, pero simular que `sqrt(x)` devuelve siempre 999, sin importar lo que se le pase.
+
+**❌ Error común:**
+
+```python
+# INCORRECTO: parchar "math.sqrt" directamente NO FUNCIONA
+mocker.patch("math.sqrt", return_value=999)
+```
+
+Porque **calculadora.py no usa `math.sqrt`**, usa la versión ya importada `sqrt`.
+
+---
+
+**✅ Correcto:**
+
+```python
+# CORRECTO: parcheas donde se USA: en calculadora.sqrt
+mocker.patch("calculadora.sqrt", return_value=999)
+```
+
+---
+
+## 🧪 Test completo con mocker
+
+### 📄 `test_calculadora.py`
+
+```python
+import pytest
+from calculadora import raiz_cuadrada
+
+def test_raiz_cuadrada_mock(mocker):
+    # 🔧 Parchar la función 'sqrt' que se usa dentro del módulo 'calculadora'
+    mock_sqrt = mocker.patch("calculadora.sqrt", return_value=999)
+
+    resultado = raiz_cuadrada(4)
+
+    assert resultado == 999
+    mock_sqrt.assert_called_once_with(4)  # Verifica que se llamó con el argumento correcto
+```
+
+---
+
+### 🧠 ¿Qué está haciendo mocker.patch internamente?
+
+1. Lee la cadena `"calculadora.sqrt"` y encuentra el objeto que debe reemplazar.
+    
+2. Reemplaza **temporalmente** ese objeto con un **mock**.
+    
+3. Devuelve el mock para que puedas configurar o inspeccionar (como `mock.return_value`, `mock.assert_called()`).
+    
+4. Al terminar la prueba, restaura el objeto original.
+    
+
+---
+
+## 🧠 ¿Qué pasa si quiero parchear una función de Python como `open`, `input`, `print`?
+
+### Debes usar `"builtins.open"` porque `open` está en el módulo `builtins`.
+
+```python
+mocker.patch("builtins.open")
+```
+
+✅ Esto hace que **cualquier uso de `open()`** en el código que estás testeando sea reemplazado por un mock.
+
+---
+
+## 🔍 Ejemplo: testear función que lee un archivo
+
+### 📄 `lector.py`
+
+```python
+def leer_archivo(nombre):
+    with open(nombre, "r") as f:
+        return f.read()
+```
+
+### 📄 `test_lector.py`
+
+```python
+def test_leer_archivo(mocker):
+    # Creamos un mock para open()
+    mock_open = mocker.patch("builtins.open", mocker.mock_open(read_data="contenido"))
+
+    resultado = leer_archivo("archivo.txt")
+
+    assert resultado == "contenido"
+    mock_open.assert_called_once_with("archivo.txt", "r")
+```
+
+---
+
+## 🧠 ¿Qué diferencia hay entre `patch` (de `unittest.mock`) y `mocker.patch`?
+
+|Característica|`unittest.mock.patch()`|`mocker.patch()`|
+|---|---|---|
+|Parte del estándar|✅ Sí|❌ No, requiere instalar `pytest-mock`|
+|Se usa como decorador o `with`|✅ Sí|❌ No (solo llamado directo)|
+|Devuelve mock|✅ Sí|✅ Sí|
+|Se integra con fixtures de `pytest`|❌ No|✅ Sí|
+|Requiere `import patch`|✅ Sí|❌ No, solo `mocker`|
+
+---
+
+
+### 🧠 Cómo usar correctamente `mocker.patch()` — Casos prácticos reales
+
+> **Siempre parcheas el objeto en el módulo donde se USA, no donde se DEFINE.**
+
+---
+
+#### 📦 CASO 1 — Función importada directamente
+
+### 📄 `modulo.py`
+
+```python
+from math import sqrt
+
+def calcular_raiz(x):
+    return sqrt(x)
+```
+
+**❌ Incorrecto:**
+
+```python
+# No funciona porque sqrt fue importado directamente.
+mocker.patch("math.sqrt", return_value=0)
+```
+
+
+ **✅ Correcto:**
+
+```python
+# Porque se usa sqrt en modulo.py
+mocker.patch("modulo.sqrt", return_value=0)
+```
+
+---
+
+#### 📦 CASO 2 — Función usada sin importación directa
+
+** 📄 `modulo.py`**
+
+```python
+import math
+
+def calcular_raiz(x):
+    return math.sqrt(x)
+```
+
+✅ En este caso **sí puedes** parchear `"math.sqrt"`:
+
+```python
+mocker.patch("math.sqrt", return_value=123)
+```
+
+O también:
+
+```python
+mocker.patch("modulo.math.sqrt", return_value=123)
+```
+
+Ambos funcionan porque **`modulo` accede a `sqrt` como atributo de `math`**, no como una función importada directamente.
+
+---
+
+#### 📦 CASO 3 — Parchear `open()` (función integrada de Python)
+
+📄 `lector.py`
+
+```python
+def leer(nombre_archivo):
+    with open(nombre_archivo) as f:
+        return f.read()
+```
+
+✅ Correcto:
+
+```python
+mocker.patch("builtins.open", mocker.mock_open(read_data="hola"))
+```
+
+Porque `open()` es parte del módulo **`builtins`**, que contiene funciones nativas como `open`, `input`, `print`.
+
+---
+
+#### 📦 CASO 4 — Parchear `input()` para evitar interacción humana
+
+ 📄 `usuario.py`
+
+```python
+def preguntar_nombre():
+    nombre = input("¿Cómo te llamas? ")
+    return nombre.upper()
+```
+
+**✅ Correcto:**
+
+```python
+mocker.patch("builtins.input", return_value="Mitchel")
+```
+
+---
+
+#### 📦 CASO 5 — Parchear `datetime.now()` (clase y método)
+
+📄 `fechas.py`
+
+```python
+from datetime import datetime
+
+def obtener_hora():
+    return datetime.now()
+```
+
+**❌ Incorrecto:**
+
+```python
+# No funciona si se importó directamente
+mocker.patch("datetime.datetime.now", ...)  # ❌
+```
+
+**✅ Correcto:**
+
+```python
+mocker.patch("fechas.datetime", autospec=True)
+```
+
+O más específico:
+
+```python
+mocker.patch("fechas.datetime.now", return_value=fake_datetime)
+```
+
+> 🔍 Porque se importó directamente `from datetime import datetime`, debes parchar `fechas.datetime`.
+
+---
+
+#### 📦 CASO 6 — Parchear método de clase
+
+📄 `auth.py`
+
+```python
+class AuthService:
+    def login(self, user, password):
+        # ... lógica real de autenticación
+        return True
+```
+
+📄 `main.py`
+
+```python
+from auth import AuthService
+
+def ejecutar_login():
+    servicio = AuthService()
+    return servicio.login("admin", "1234")
+```
+
+**✅ Correcto (parcheas método dentro de la clase):**
+
+```python
+mocker.patch("auth.AuthService.login", return_value=False)
+```
+
+➡️ Esto hace que _cualquier instancia_ de `AuthService` retorne `False` al llamar `login`.
+
+---
+
+#### 📦 CASO 7 — Parchear función en un submódulo
+
+**Estructura de archivos:**
+
+```
+miapp/
+├── api/
+│   └── cliente.py
+└── servicios/
+    └── procesador.py
+```
+
+ 📄 `api/cliente.py`
+
+```python
+def obtener_datos():
+    return {"data": "real"}
+```
+
+📄 `servicios/procesador.py`
+
+```python
+from api.cliente import obtener_datos
+
+def procesar():
+    datos = obtener_datos()
+    return datos["data"].upper()
+```
+
+**❌ Esto fallará:**
+
+```python
+mocker.patch("api.cliente.obtener_datos")  # ❌
+```
+
+**✅ Lo correcto es:**
+
+```python
+mocker.patch("servicios.procesador.obtener_datos", return_value={"data": "mock"})
+```
+
+> Porque `procesador.py` importó directamente la función.
+
+---
+
+**📦 CASO 8 — Simular una excepción**
+
+📄 `archivo.py`
+
+```python
+def abrir(nombre):
+    with open(nombre, "r") as f:
+        return f.read()
+```
+
+**✅ Parchar para simular que el archivo no existe:**
+
+```python
+mocker.patch("builtins.open", side_effect=FileNotFoundError)
+```
+
+---
+
+### 🧠 Resumen
+
+| Código fuente                       | Cómo se usa en el código | ¿Qué debes poner en `mocker.patch()`? |
+| ----------------------------------- | ------------------------ | ------------------------------------- |
+| `from x import y`                   | Usas `y()` directamente  | `"modulo_donde_se_usa.y"`             |
+| `import x`                          | Usas `x.y()`             | `"x.y"` o `"modulo.x.y"`              |
+| Función de Python (`open`, `input`) | `open(...)`              | `"builtins.open"`                     |
+| Método de clase                     | `obj.metodo()`           | `"modulo.Clase.metodo"`               |
+| Clase importada                     | `Clase()`                | `"modulo.Clase"`                      |
+
+---
+
+
+# **setup.cfg**
+
+Este es un archivo de configuración para pytest y coverage, que personaliza cómo se ejecutan las pruebas y cómo se recopila el informe de cobertura de código. 
+
+- `[tool:pytest]` Esto indica que las configuraciones que siguen son para la herramienta pytest, el marco de pruebas en Python.
+
+- `addopts = -v --tb=short --cov=stack --cov-report=term-missing`
+    - `-v`: Ejecuta pytest en modo detallado (verbose mode), lo que proporciona información adicional sobre qué pruebas están siendo ejecutadas y sus resultados.
+    - `--tb=short`: Muestra solo el rastro de la pila acortado (short traceback) cuando se produce un error. Esto es útil para evitar la salida excesiva de texto en caso de errores o fallos de pruebas.
+    - `--cov=stack`: Indica que pytest debe calcular la cobertura de código para el módulo o archivo stack.py. stack es el nombre del archivo o paquete para el cual se recopilará la cobertura.
+    - `--cov-report=term-missing`: Muestra el informe de cobertura en la terminal e incluye las líneas faltantes que no están siendo cubiertas por las pruebas. Esto es útil para identificar qué partes del código no han sido probadas.
+- `[coverage:run]` Este bloque contiene configuraciones específicas para el comando coverage run, que ejecuta las pruebas y recopila datos de cobertura.
+
+  - `branch = True`: Esta opción indica que el análisis de cobertura debe incluir la cobertura de ramas (branch coverage), no solo de líneas de código. Esto asegura que se analicen todas las ramas condicionales (por ejemplo, si tienes un if en tu código, se verifica si ambas ramas —verdadera y falsa— han sido cubiertas por las pruebas).
+  - `omit =`: Este parámetro especifica qué archivos o directorios omitir del informe de cobertura. En este caso:
+
+    - */tests/*: Omite cualquier archivo o directorio bajo un directorio llamado tests.
+    - */test_*: Omite archivos que comiencen con test_. Esto es útil para excluir los propios archivos de prueba del análisis de cobertura, ya que no es necesario incluirlos en el informe de cobertura de código.
+- `[coverage:report]`Este bloque define cómo se debe generar el informe de cobertura de código después de ejecutar las pruebas.
+
+    - `show_missing = True` Esta opción asegura que el informe muestre qué líneas de código están faltando en la cobertura, es decir, aquellas que no fueron ejecutadas por las pruebas. Esto te ayuda a identificar fácilmente las partes del código que no han sido probadas y donde podrías necesitar agregar más casos de prueba.
+
+Este tipo de configuración es útil para obtener información clara sobre qué partes del código han sido probadas, y al mismo tiempo te permite ver qué partes del código aún requieren más cobertura de pruebas.
