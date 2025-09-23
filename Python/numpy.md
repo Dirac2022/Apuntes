@@ -50,21 +50,42 @@ np.savetxt(frame, X, fmt='%.18e', delimiter=' ', newline='\n', header='', footer
 | `comments`  | Prefijo para las líneas de comentarios (por defecto: `'#'`).                     |
 | `encoding`  | Codificación del archivo (por defecto: `None`, usa la codificación del sistema). |
 
-# `np.loadtxt`
-Se usa para cargar datos desde un archivo de texto en un arreglo de NumPy.
+
+# `np.loadtxt()`
+Reads numerical data from simple text files. Handles structured and uniform formats.
 
 ```python
-np.loadtxt(fname, dtype=<tipo>, delimiter=<separador>, skiprows=<saltos>, usecols=<columnas>, unpack=<booleano>, comments=<carácter>, encoding=<codificación>)
+numpy.loadtxt(fname, dtype=float, comments='#', delimiter=None, converters=None, skiprows=0, usecols=None, unpack=False, ndmin=0, encoding='bytes')
 ```
 
-| Parámetro      | Descripción                                      | Valor por defecto |
-|----------------|--------------------------------------------------|-------------------|
-| `fname`        | Archivo de texto a leer                          | No tiene          |
-| `dtype`        | Tipo de dato de los elementos                    | `float`           |
-| `delimiter`    | Delimitador de los datos (ej. `,`, espacio)       | `None`            |
-| `skiprows`     | Número de filas a saltar al principio            | 0                 |
-| `usecols`      | Especifica las columnas a leer                   | `None`            |
-| `unpack`       | Si debe devolver los valores como arrays separados | `False`          |
+**Main parameters:**
+- `fname`: File or path to read (e.g., 'data.txt')
+- `dtype`: Data type (e.g., float, int, str)
+- `delimiter`: Column separator (e.g., ',', ';', '\t')
+- `skiprows`: Rows to skip at start (e.g., 1, `[0,2]`)
+- `usecols`: Columns to read (e.g., `[0, 2]`, `(1, 3)`)
+- `unpack`: If True, transposes the result
+
+**Returns:** `ndarray` with read data
+
+# `np.genfromtxt()`
+
+Reads text data with missing value handling and more flexibility.
+
+```python
+numpy.genfromtxt(fname, dtype=float, comments='#', delimiter=None, skip_header=0, skip_footer=0, converters=None, missing_values=None, filling_values=None, usecols=None, names=None, encoding='bytes')
+```
+
+**Main parameters:**
+- `fname`: File or path to read
+- `dtype`: Data type (e.g., float, 'i4,f8,U10')
+- `delimiter`: Column separator (e.g., ',')
+- `missing_values`: Values treated as missing (e.g., `['NA', 'NaN']`)
+- `filling_values`: Replacement values for missing data (e.g., `[0, 999]`)
+- `names`: Column names (e.g., `['col1', 'col2']`)
+- `usecols`: Columns to read (e.g., `[0, 2]`)
+
+**Returns:** Structured `ndarray` (with column names if specified)
 
 # Boolean Indexing en Numpy
 
@@ -106,6 +127,98 @@ print(filtered_arr) # [30, 40, 50]
 | **Números complejos** | `'complex64'`      | 64       | `float32` + `float32`                        |
 |                       | `'complex128'`     | 128      | `float64` + `float64`                        |
 |                       | `'complex256'`     | 256      | `float128` + `float128` (si está disponible) |
+
+
+## `numpy.random.choice`
+
+`numpy.random.choice` is a method used to randomly select elements from a given 1-D array or from a range of integers if an integer is provided. It allows sampling with or without replacement.
+
+---
+
+**Signature**
+
+```python
+numpy.random.choice(a, size=None, replace=True, p=None)
+```
+
+This method has **4 parameters** (so we explain them all).
+
+---
+
+**Parameters**
+
+* **a**:
+
+  * If an integer, it defines the range `np.arange(a)` from which elements are chosen.
+  * If an array-like, elements are sampled from the given array.
+
+* **size**:
+
+  * The output shape.
+  * If `None`, a single value is returned.
+  * If an integer, it specifies the number of samples.
+  * If a tuple, it specifies the shape of the output.
+
+* **replace**:
+
+  * Boolean, default `True`.
+  * If `True`, sampling is with replacement (elements can be repeated).
+  * If `False`, sampling is without replacement (no repetitions).
+
+* **p**:
+
+  * Array of probabilities associated with each entry in `a`.
+  * Must be the same size as `a` and sum to 1.
+  * If `None`, the sampling is uniform.
+
+---
+
+**Returns**
+
+* A single value or an array of values chosen randomly from `a`, depending on the `size` parameter.
+
+---
+
+**Example 1: Sampling integers from a range**
+
+```python
+import numpy as np
+
+# Choose 5 integers from range(10) without replacement
+sample = np.random.choice(10, size=5, replace=False)
+print(sample)
+```
+
+Output could be:
+
+```
+[2 7 0 5 3]
+```
+
+---
+
+**Example 2: Sampling from a custom array with probabilities**
+
+```python
+import numpy as np
+
+# Define elements and probabilities
+elements = ['red', 'blue', 'green']
+probs = [0.7, 0.2, 0.1]
+
+# Choose 4 samples with replacement
+sample = np.random.choice(elements, size=4, replace=True, p=probs)
+print(sample)
+```
+
+Output could be:
+
+```
+['red' 'red' 'blue' 'red']
+```
+
+
+
 
 
 # Basado en Learn Python A Beginner's Guide to Python, NumPy, Pandas and Scipy

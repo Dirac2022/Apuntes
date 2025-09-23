@@ -1,6 +1,4 @@
 
-
-
 # Vistas
 
 Dos objetivos principales de las vistas:

@@ -1,2 +1,0 @@
-
-![[array methods javascript.png]]

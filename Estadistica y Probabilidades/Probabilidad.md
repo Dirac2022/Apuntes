@@ -50,9 +50,9 @@ La **covarianza** mide la relación lineal entre dos variables aleatorias $X$ e 
 - **Cero**: Si no hay una relación lineal clara entre $X$ e $Y$.  
 
 **Fórmula de la covarianza:**
-\[
+$$
 \text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^n \left( X_i - \mu_X \right) \left( Y_i - \mu_Y \right),
-\]  
+$$  
 donde:  
 - $X_i, Y_i$: Valores individuales de las variables $X$ e $Y$.  
 - $\mu_X, \mu_Y$: Medias de las variables $X$ e $Y$.  

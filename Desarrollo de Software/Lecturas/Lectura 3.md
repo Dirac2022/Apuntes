@@ -11,7 +11,7 @@ La computación en la nube es un paradigma que permite el ==acceso on-demand a r
 
 #### Amazon Web Services (AWS)
 
-AWS es uno de los proveedores pioneros en la adopción de la nube. Ofrece un extenso catálogo de servicios que abarca desde máquinas virtuales [[AWS#AWS Elastic Compute Cloud (EC2)|(EC2)]] , almacenamiento [[AWS#AWS Amazon Simple Storage Service (S3)|(S3)]] y bases de datos, hasta servicios *serverless* (Lambda) y herramientas de inteligencia artificial.  
+AWS es uno de los proveedores pioneros en la adopción de la nube. Ofrece un extenso catálogo de servicios que abarca desde máquinas virtuales [[Redes/AWS#AWS Elastic Compute Cloud (EC2)|(EC2)]] , almacenamiento [[Redes/AWS#AWS Amazon Simple Storage Service (S3)|(S3)]] y bases de datos, hasta servicios *serverless* (Lambda) y herramientas de inteligencia artificial.  
 - **Infraestructura como servicio (IaaS):** Servicios como EC2 y Elastic Load Balancer permiten aprovisionar y gestionar recursos informáticos con alta disponibilidad y escalabilidad.
 - **Plataforma como servicio (PaaS):** AWS Elastic Beanstalk y AWS Fargate facilitan el despliegue de aplicaciones sin la necesidad de administrar la infraestructura subyacente.
 - **Seguridad y gestión:** Herramientas como AWS IAM, AWS Security Hub y CloudTrail permiten gestionar políticas de acceso, monitorear actividades y cumplir con normativas de seguridad.

@@ -407,3 +407,19 @@ plt.show()
 ```
 
 
+
+
+# Scatter plot
+
+
+**With `fig, ax = plt.subplots()`**
+
+```python
+fig, ax = plt.subplots()
+
+ax.scatter(x, y, s=None, c=None, marker=None, cmap=None, alpha=None, linewidths=None, edgecolors=None, ... )
+ax.set_xlabel('label X')
+ax.set_ylabel('label Y')
+plt.show()
+```
+

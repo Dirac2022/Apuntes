@@ -2130,7 +2130,7 @@ curl [opciones] [URL]
 
 ### 🔩 Opciones y expresiones más usadas en `curl`
 
-#### `-X` — definir el método HTTP
+**`-X` — definir el método HTTP**
 
 ```bash
 curl -X POST http://localhost/api
@@ -2140,7 +2140,7 @@ curl -X POST http://localhost/api
 
 ---
 
-#### `-d` — enviar datos en el cuerpo de la solicitud
+**`-d` — enviar datos en el cuerpo de la solicitud**
 
 ```bash
 curl -X POST -d "nombre=Ana&edad=20" http://localhost/registro
@@ -2150,7 +2150,7 @@ curl -X POST -d "nombre=Ana&edad=20" http://localhost/registro
 
 ---
 
-#### `-H` — agregar cabeceras HTTP
+**`-H` — agregar cabeceras HTTP**
 
 ```bash
 curl -H "Content-Type: application/json" http://localhost
@@ -2160,7 +2160,7 @@ curl -H "Content-Type: application/json" http://localhost
 
 ---
 
-#### `-A` — definir el User-Agent
+**`-A` — definir el User-Agent**
 
 ```bash
 curl -A "Mozilla/5.0" http://localhost
@@ -2178,7 +2178,7 @@ curl -A "PARADISE" http://localhost/waiting.php
 
 ---
 
-#### `-o` — guardar la salida en un archivo
+**`-o` — guardar la salida en un archivo**
 
 ```bash
 curl -o salida.html http://localhost
@@ -2188,7 +2188,7 @@ curl -o salida.html http://localhost
 
 ---
 
-#### `-s` — modo silencioso
+**`-s` — modo silencioso**
 
 ```bash
 curl -s http://localhost
@@ -2198,7 +2198,7 @@ curl -s http://localhost
 
 ---
 
-#### `-v` — modo verbose (detallado)
+**`-v` — modo verbose (detallado)**
 
 ```bash
 curl -v http://localhost
@@ -2208,7 +2208,7 @@ curl -v http://localhost
 
 ---
 
-#### `-L` — seguir redirecciones
+**`-L` — seguir redirecciones**
 
 ```bash
 curl -L http://acortador.com/x123
@@ -2218,7 +2218,7 @@ curl -L http://acortador.com/x123
 
 ---
 
-#### `-u` — autenticación básica
+**`-u` — autenticación básica**
 
 ```bash
 curl -u usuario:clave http://localhost/privado
@@ -2230,7 +2230,7 @@ curl -u usuario:clave http://localhost/privado
 
 ### 💾 Usos comunes
 
-#### ✅ 1. **Hacer una solicitud GET simple**
+✅ 1. **Hacer una solicitud GET simple**
 
 ```bash
 curl http://localhost/index.html
@@ -2240,7 +2240,7 @@ curl http://localhost/index.html
 
 ---
 
-#### ✅ 2. **Enviar datos con POST**
+✅ 2. **Enviar datos con POST**
 
 ```bash
 curl -X POST -d "usuario=juan" http://localhost/login
@@ -2250,7 +2250,7 @@ curl -X POST -d "usuario=juan" http://localhost/login
 
 ---
 
-#### ✅ 3. **Consumir una API con JSON**
+✅ 3. **Consumir una API con JSON**
 
 ```bash
 curl -X POST -H "Content-Type: application/json" \
@@ -2261,7 +2261,7 @@ curl -X POST -H "Content-Type: application/json" \
 
 ---
 
-#### ✅ 4. **Simular otro navegador con `-A`**
+✅ 4. **Simular otro navegador con `-A`**
 
 ```bash
 curl -A "Mozilla/5.0" http://localhost
@@ -2271,7 +2271,7 @@ curl -A "Mozilla/5.0" http://localhost
 
 ---
 
-#### ✅ 5. **Usar un User-Agent personalizado (por ejemplo, en CTFs)**
+✅ 5. **Usar un User-Agent personalizado (por ejemplo, en CTFs)**
 
 ```bash
 curl -A "PARADISE" http://localhost/waiting.php
@@ -2281,7 +2281,7 @@ curl -A "PARADISE" http://localhost/waiting.php
 
 ---
 
-#### ✅ 6. **Descargar un archivo con su nombre original**
+✅ 6. **Descargar un archivo con su nombre original**
 
 ```bash
 curl -O http://localhost/archivo.zip
@@ -2293,7 +2293,7 @@ curl -O http://localhost/archivo.zip
 
 ### 🧠 Trucos y combinaciones
 
-#### ✅ 1. **Ver solo el código de estado HTTP**
+✅ 1. **Ver solo el código de estado HTTP**
 
 ```bash
 curl -s -o /dev/null -w "%{http_code}\n" http://localhost
@@ -2303,7 +2303,7 @@ curl -s -o /dev/null -w "%{http_code}\n" http://localhost
 
 ---
 
-#### ✅ 2. **Enviar cabeceras y datos con POST**
+✅ 2. **Enviar cabeceras y datos con POST**
 
 ```bash
 curl -X POST -H "Content-Type: application/json" \
@@ -2314,7 +2314,7 @@ curl -X POST -H "Content-Type: application/json" \
 
 ---
 
-#### ✅ 3. **Descargar y guardar el resultado directamente**
+✅ 3. **Descargar y guardar el resultado directamente**
 
 ```bash
 curl -o respuesta.json http://localhost/api/info
@@ -2323,8 +2323,6 @@ curl -o respuesta.json http://localhost/api/info
 📌 Guarda la respuesta JSON en un archivo.
 
 ---
-
-¿Te gustaría ahora ver ejemplos para cada método HTTP (`GET`, `POST`, `PUT`, `DELETE`) usando `curl`?
 
 
 
