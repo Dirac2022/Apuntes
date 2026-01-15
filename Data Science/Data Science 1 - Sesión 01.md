@@ -69,6 +69,9 @@ Audio, videos, etc
 
 Se tiene data con etiquetas, eso se introduce al algoritmo de machine learning, este algoritmo de alguna manera halla la relación entre los datos y las etiquetas, de modo que cuando se le proporcione data nueva, este halla la etiqueta correspondiente.
 
+![slide_9.jpg (1920×1080)](https://files.speakerdeck.com/presentations/0051590d28db4b06ac23b10e3aa43f46/slide_9.jpg)
+
+
 
 - Es una rama de la inteligencia artificial. El termino se usa desde 1959
 - Es la capacidad de las máquinas para aprender a partir de los datos de manera automatizada.
@@ -240,9 +243,22 @@ Es significativamente útil cuando los errores grandes son particularmente indes
 
 
 #### Mean absolute percentage error (MAPE)
-	$$ \dfrac{100\%}{n} y \sum \left| \dfrac{y - \hat{y}}{y} \right| $$
+
+$$
+\text{MAPE} = \frac{100%}{n} \sum_{t=1}^{n} \left| \frac{y_t - \hat{y}_t}{y_t} \right|  
+$$
 
 Similar al MAE pero normalizado.
+
+
+Donde:
+
+- $y_t$ = valor real
+- $hat{y}_t$ = valor predicho
+- $n$ = número total de observaciones
+
+**Interpretación:** mide el error promedio en porcentaje; mientras más bajo el MAPE, mejor la precisión del modelo.
+
 
 #### Métrica $R^2$
 $$ 1 - \dfrac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \overline{y}_i)^2} $$

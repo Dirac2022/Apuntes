@@ -1,10 +1,7 @@
 
 # Exploratory Data Analysis in Python
 
-
-
 ## Getting to know a Dataset
-
 
 ### Initial exploration
 
@@ -286,7 +283,7 @@ print(salaries['Designation'].nunique())
 So much categories from 'Designation' columns
 
 <h5>Extracting value from categories</h5>
-- Current formato limits out ability to generate insights
+- Current format limits out ability to generate insights
 - `pandas.Series.str.contains()` : Search a column for a specific string or multiple strings. Returns a Series of booleans
 
 **For example**
@@ -366,7 +363,7 @@ divorce.dtypes
 ```
 
 ```python
-divorce = pd.read_csv("divorce.csv", parse_dates=["marriage_dae"])
+divorce = pd.read_csv("divorce.csv", parse_dates=["marriage_date"])
 divorce.dtypes
 # marriage_date         datetime64[ns] 
 # marriage_duration     float64    
@@ -672,5 +669,7 @@ pd.cut(x, bins, right=True, labels=None, include_lowest=False, duplicates='raise
 - **`include_lowest`** → if `True`, includes the lowest value in the first bin.
 - **`duplicates`** → `'raise'` (default) or `'drop'` for handling duplicate edges.
 
----
 
+
+
+### Generating hypotheses

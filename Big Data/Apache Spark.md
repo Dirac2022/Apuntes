@@ -1,4 +1,4 @@
-
+![[Pasted image 20251007214600.png]]
 
 
 <div style="text-align:center">

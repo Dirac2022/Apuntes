@@ -20,7 +20,7 @@ Dos objetivos principales de las vistas:
 ```sql
 create view nombreDeVista <expresion de consulta>
 ```
-Donde < expresion de consulta> es cualquier expresión de consulta válida en SQL.
+Donde `<expresion de consulta>` es cualquier expresión de consulta válida en SQL.
 
 - Proyecto (codProy, tipo, descripcion)
 - ProyectoEmpleado (codProy, codEmp, fechaInicial, fechaFinal)

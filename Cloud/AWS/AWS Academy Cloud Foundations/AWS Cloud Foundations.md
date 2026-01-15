@@ -223,10 +223,12 @@ The **AWS Management Console** provides a web-based user interface for accessing
 
 # Networking and Content Delivery
 
+[[Lab 2 Build your VPC and Launch a Web Server]]
+
 
 # Compute
 
-
+[[Lab 3 Introduction to Amazon EC2]]
 ## Compute services overview
 
 ![1*8_jlyMlLsWJQ8WjOYkLVow.png (986×572)](https://miro.medium.com/v2/resize:fit:1400/1*8_jlyMlLsWJQ8WjOYkLVow.png)
@@ -296,7 +298,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides virtual machines where you ca
 
 # Storage
 
-
+[[Lab 4 Working with EBS]]
 ## Amazon Elastic Block Store (Amazon EBS)
 
 Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances.

@@ -228,3 +228,28 @@ psql "postgresql://sigepat-bd_owner:Ulxwnb3rj8Rz@ep-orange-bird-a5o6nkrk.us-east
 ```
 
 
+# Cambiar tipo de dato
+
+```sql
+ALTER TABLE <nombre_tabla>
+ALTER COLUMN <nombre_columna> TYPE <nuevo_tipo>
+USING <nombre_columna>::<nuevo_tipo>;
+```
+
+Ejemplo
+
+- Tabla: capitulo
+- Columna: descripcion (tipo INT)
+
+Convertir a VARCHAR(255)
+
+```sql
+ALTER TABLE capitulo
+ALTER COLUMN descripcion TYPE VARCHAR(255)
+USING descripcion::VARCHAR(255);
+```
+
+> [!tip]
+> `USING descripcion::VARCHAR(255)` le dice a PostgreSQL cómo convertir los valores actuales. Es obligatorio cuando el tipo anterior y el nuevo no son compatibles.
+> Si tuvieras datos, PostgreSQL intentaría convertir los valores automáticamente `(123 -> '123')`
+

@@ -1,8 +1,6 @@
 
 
-## ✅ Introducción
-
-### ¿Qué es `requests`?
+## ¿Qué es `requests`?
 
 `requests` es una **biblioteca HTTP** en Python diseñada para que puedas enviar **solicitudes HTTP/1.1** de forma **sencilla, legible y humana**.
 
@@ -11,13 +9,9 @@
 Es ampliamente usada en:
 
 - Consumo de APIs REST.
-    
 - Web scraping.
-    
 - Automatización de interacciones con servicios web.
-    
 - Testing de endpoints HTTP.
-    
 
 ### Instalación
 
@@ -27,16 +21,15 @@ pip install requests
 
 ---
 
-## 🧠 Fundamentos del protocolo HTTP
+## Fundamentos del protocolo HTTP
 
 Antes de usar `requests`, es vital entender qué es HTTP:
 
 - HTTP (HyperText Transfer Protocol) es un protocolo de **cliente-servidor**.
-    
 - Los **clientes** envían solicitudes al **servidor**, que responde con datos.
     
 
-### Métodos HTTP más comunes
+<h5>Métodos HTTP más comunes</h5>
 
 |Método|Descripción|
 |---|---|
@@ -47,9 +40,9 @@ Antes de usar `requests`, es vital entender qué es HTTP:
 |PATCH|Actualiza parcialmente un recurso|
 |HEAD|Igual que GET, pero sin el cuerpo de respuesta|
 
----
 
-## 🔧 Primeros pasos con `requests`
+
+## Primeros pasos con `requests`
 
 Importamos el módulo:
 
@@ -59,7 +52,7 @@ import requests
 
 ---
 
-## 📘 Ejemplo 1: Solicitud GET simple
+### 📘 Ejemplo 1: Solicitud GET simple
 
 ```python
 import requests  # Importamos el módulo requests
@@ -74,7 +67,7 @@ print("Código de estado:", response.status_code)
 print("Cuerpo de respuesta:", response.text)
 ```
 
-### 🔍 ¿Qué pasó aquí?
+**¿Qué pasó aquí?**
 
 - `requests.get(url)`: envía una solicitud `GET`.
     
@@ -87,7 +80,7 @@ print("Cuerpo de respuesta:", response.text)
 
 ---
 
-## 📘 Ejemplo 2: GET con parámetros (query strings)
+### Ejemplo 2: GET con parámetros (query strings)
 
 ```python
 import requests
@@ -108,14 +101,13 @@ print("URL generada:", response.url)
 print("Respuesta JSON:", response.json())  # La respuesta ya es un diccionario
 ```
 
-### ℹ️ `.json()`
+ #### `.json()`
 
 - Si el servidor devuelve una respuesta en formato JSON (como hacen las APIs), puedes usar `response.json()` para convertirlo directamente a un diccionario de Python.
-    
 
 ---
 
-## 📘 Ejemplo 3: POST con datos (formulario)
+### Ejemplo 3: POST con datos (formulario)
 
 ```python
 import requests
@@ -133,16 +125,15 @@ response = requests.post("https://httpbin.org/post", data=data)
 print("Respuesta JSON:", response.json())
 ```
 
-### 📌 Diferencias:
+**Diferencias:**
 
 - `GET`: envía los datos en la **URL**.
-    
 - `POST`: los envía en el **cuerpo** de la solicitud (más seguro).
-    
+	
 
 ---
 
-## 📘 Ejemplo 4: Enviar encabezados personalizados (headers)
+### Ejemplo 4: Enviar encabezados personalizados (headers)
 
 ```python
 import requests
@@ -350,4 +341,3 @@ print(response.json()["bio"])
 
 El módulo `requests` es una herramienta poderosa, simple y versátil para trabajar con HTTP en Python. Es **imprescindible** para cualquier desarrollador backend, analista de datos o entusiasta de la automatización de tareas web.
 
-¿Te gustaría que preparemos un mini-proyecto práctico usando `requests`, como un **cliente para una API REST pública** o un **web scraper simple**?

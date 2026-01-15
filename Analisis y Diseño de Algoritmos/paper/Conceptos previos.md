@@ -245,14 +245,14 @@ La distancia de Manhattan es una métrica simple pero poderosa que mide la dista
 
 #### Parámetros de Dcore
 
-- **Radio Esférico \( r_1 \) y \( r_2 \)**: Definen el alcance de los núcleos de densidad.
-- **Umbral de Densidad \( t_1 \) y \( t_2 \)**: Determinan la densidad mínima requerida para que un conjunto de puntos se considere un núcleo de densidad.
-- **Radio de Escaneo \( r \)**: Utilizado para escanear el espacio de datos y encontrar puntos que pertenecen a los núcleos de densidad.
+- **Radio Esférico $r_1$ y $r_2$**: Definen el alcance de los núcleos de densidad.
+- **Umbral de Densidad $t_1$ y $t_2$**: Determinan la densidad mínima requerida para que un conjunto de puntos se considere un núcleo de densidad.
+- **Radio de Escaneo $r$**: Utilizado para escanear el espacio de datos y encontrar puntos que pertenecen a los núcleos de densidad.
 
 #### Proceso del Algoritmo Dcore
 
 1. **Cálculo de la Densidad Local**: Se calcula la densidad local de cada punto en el conjunto de datos, similar a otros métodos basados en densidad.
-2. **Identificación de Núcleos de Densidad**: Utilizando los parámetros \( r_1 \), \( r_2 \), \( t_1 \) y \( t_2 \), se identifican los núcleos de densidad. Estos son puntos donde la densidad local excede los umbrales especificados.
+2. **Identificación de Núcleos de Densidad**: Utilizando los parámetros $r_1$, $r_2$, $t_1$ y $t_2$, se identifican los núcleos de densidad. Estos son puntos donde la densidad local excede los umbrales especificados.
 3. **Clasificación de Puntos**: Los puntos se clasifican en núcleos, bordes y valores atípicos basándose en su densidad local y su proximidad a los núcleos de densidad.
 4. **Formación de Clústeres**: Los núcleos de densidad forman el corazón de los clústeres, y los puntos de borde se asignan a los clústeres basados en su proximidad a los núcleos.
 
@@ -324,10 +324,10 @@ DBSCAN agrupa puntos en base a la densidad de puntos en el espacio de datos. Uti
    - Un punto es un punto central si hay al menos MinPts puntos (incluyendo el mismo) dentro de su radio ε.
 
 2. **Punto Alcanzable por Densidad**:
-   - Un punto \( p \) es alcanzable por densidad desde un punto central \( q \) si \( p \) está dentro del radio ε de \( q \).
+   - Un punto $p$ es alcanzable por densidad desde un punto central $q$ si $p$ está dentro del radio ε de $q$.
 
 3. **Punto Conectado por Densidad**:
-   - Un punto \( p \) es conectado por densidad a un punto \( q \) si existe una cadena de puntos centrales donde cada punto es alcanzable por densidad desde el anterior.
+   - Un punto $p$ es conectado por densidad a un punto $q$ si existe una cadena de puntos centrales donde cada punto es alcanzable por densidad desde el anterior.
 
 4. **Punto de Ruido**:
    - Un punto que no es ni un punto central ni alcanzable por densidad desde cualquier punto central. Estos puntos se consideran puntos de ruido o atípicos.
@@ -392,14 +392,14 @@ LDP-MST es un algoritmo de clustering basado en la densidad que utiliza picos de
 
 #### Conceptos Básicos
 
-1. **Densidad Local**: Medida que indica cuán "denso" es el entorno alrededor de un punto. Se calcula contando los puntos en un vecindario definido por un radio o por los \( k \) vecinos más cercanos.
+1. **Densidad Local**: Medida que indica cuán "denso" es el entorno alrededor de un punto. Se calcula contando los puntos en un vecindario definido por un radio o por los $k$ vecinos más cercanos.
 2. **Picos de Densidad Local**: Puntos con mayor densidad local que sus vecinos más cercanos. Actúan como centros de clústeres.
 3. **Distancia Basada en Vecinos Compartidos**: Distancia entre picos de densidad local que considera no solo la distancia euclidiana sino también la cantidad de vecinos compartidos.
 
 #### Pasos del Algoritmo LDP-MST
 
 1. **Calcular Densidad Local**:
-    - Para cada punto en el conjunto de datos, se calcula la densidad local en función de sus \( k \) vecinos más cercanos.
+    - Para cada punto en el conjunto de datos, se calcula la densidad local en función de sus $k$ vecinos más cercanos.
 
 2. **Identificar Picos de Densidad Local**:
     - Comparar la densidad local de cada punto con la de sus vecinos más cercanos.

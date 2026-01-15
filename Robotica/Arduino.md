@@ -257,3 +257,46 @@ void loop() {
 ```
 
 ![[Pasted image 20250912185538.png]]
+
+
+# Laboratorio 3
+
+### Problema 1
+
+**Instalar libreria**
+
+[PhoenixSmaug/AFMotor-Shield-R4-Compatible: A drop-in replacement library for the Adafruit Motor Shield v1 API, bringing support to Arduino Uno R4 and other non-AVR boards.](https://github.com/PhoenixSmaug/AFMotor-Shield-R4-Compatible)
+
+
+```cpp
+#include <AFMotor_R4.h>
+
+AF_DCMotor motor(4);
+
+const int portPin(A0);
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  motor.setSpeed(0); // Inicialmente el motoro está detenido
+  motor.run(FORWARD); // Dirección inicial
+
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int portValue=analogRead(portPin);
+  int speed=map(portValue, 0, 1023, 0, 255);
+  motor.setSpeed(speed); // Ajustamos la velocidad del motor
+  // Mostramos valores en el monitor serial
+  Serial.print("Potenciometro: ");
+  Serial.print(portValue);
+  Serial.print("  Velocidad motor: ");
+  Serial.println(speed); // De 0 a 255
+  delay(250); // Pequeña pausa para darle estabilidad
+
+}
+```
+
+

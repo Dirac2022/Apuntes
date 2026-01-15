@@ -1,0 +1,2 @@
+
+As the name implies, it's a method of 'scraping' or extracting data from webpages. Anything you can see on the internet with your browser, including this tutorial, can be scraped onto your local hard drive.

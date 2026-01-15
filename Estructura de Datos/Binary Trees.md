@@ -171,7 +171,7 @@ Analyzing the node $K$ in the three trees in the figure:
 **Balanced trees allow faster operations than unbalanced trees**
 
 ## AVL TREES
-An AVL tree ) is one in which the height of the left and right subtrees of every node differ by at most one. Numbers in the nodes indicate the **balance factors** that are the differences between the heights of the left and right subtrees. A **balance factor** is the height of the right subtree minus the height of the left subtree.
+An AVL tree is one in which the height of the left and right subtrees of every node differ by at most one. Numbers in the nodes indicate the **balance factors** that are the differences between the heights of the left and right subtrees. A **balance factor** is the height of the right subtree minus the height of the left subtree.
 
 ![[Pasted image 20231214191225.png]]
 

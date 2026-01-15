@@ -333,6 +333,14 @@
 
 
 - [x] Building Conversations with the OpenAI API (Working with the OpenAI API - Datacamp) 🔼 🛫 2025-09-21 ✅ 2025-09-21
+
+
+# Octubre
+
+
+## 08-10-2025
+
+- [x] Completar Guía Beautiful Soup [[Beautiful Soup: Build a Web Scraper With Python – Real Python](https://realpython.com/beautiful-soup-web-scraper-python/)] ✅ 2025-10-08
 - [ ] Recurrent Neural Networks Labos ([Sequence Models - Recurrent Neural Networks - Week 1 | Coursera](https://www.coursera.org/learn/nlp-sequence-models/home/module/1)) 🛫 2025-08-02 ⏫ 
 - [ ] Natural Language Processing & Word Embeddings Labos ([Sequence Models - Natural Language Processing & Word Embeddings - Week 2 | Coursera](https://www.coursera.org/learn/nlp-sequence-models/home/module/2)) 🔼 🛫 2025-08-03
 - [ ] Deep Neural Networks ([Neural Networks and Deep Learning - Deep Neural Networks - Week 4 | Coursera](https://www.coursera.org/learn/neural-networks-deep-learning/home/module/4)) 🛫 2025-08-06 🔼 
@@ -348,3 +356,44 @@
 - [ ] Module 6 ([AWS Academy Cloud Foundations [133539]](https://awsacademy.instructure.com/courses/133539)) 🛫 2025-09-21 ⏫ 
 - [ ] Module 7 ([AWS Academy Cloud Foundations [133539]](https://awsacademy.instructure.com/courses/133539)) 🛫 2025-09-21 ⏫ 
 
+
+
+
+## 23-10-2025
+
+- [x] Foundations of AI Agents (Introduction to AI Agents - Datacamp) 🛫 2025-10-23 ✅ 2025-10-24
+
+## 25-10-2025
+
+- [x] Agentic Design Patterns & Architectures (Introduction to AI Agents - Datacamp) 🛫 2025-10-23 ✅ 2025-10-25
+
+
+## 26-10-2025
+
+- [x] Building and Using AI Agents Responsibly (Introduction to AI Agents - Datacamp) 🛫 2025-10-23 ✅ 2025-10-25
+
+
+# Noviembre
+## 03-11-2025
+
+
+- [x] Actividad: AWS Lambda / AWS Elastic Beanstalk  (Infraestructuras de Computación) ⏫ 🛫 2025-11-03 ✅ 2025-11-03
+- [x] Estudiar Naive Bayes (Minería de Datos) 🛫 2025-11-03 ✅ 2025-11-03
+
+## 04-11-2025
+
+- [x] Lesson 3: A Gentle Introduction to Stationarity (Coursera - Introduction to Time Series) 🛫 2025-11-03 ✅ 2025-11-04
+- [ ] TODO: #1 Crear una function para agregarla al demo.cpp ( no trivial ) (Algoritmos y Estructura de Datos Avanzado) 🛫 2025-11-03 
+- [ ] TODO: #2 Agregarle un Trait (prueba git) ( no trivial ) (Algoritmos y Estructura de Datos Avanzado) 🛫 2025-11-03 
+- [ ] TODO: #3 crear un iterator ( no trivial ) (Algoritmos y Estructura de Datos Avanzado) 🛫 2025-11-03 
+- [ ] TODO: #4 integrarlo al recorrer ( no trivial ) (Algoritmos y Estructura de Datos Avanzado) 🛫 2025-11-03 
+- [ ] TODO: #5 replace int, long by types such as size_t (Algoritmos y Estructura de Datos Avanzado) 🛫 2025-11-03 
+- [ ] TODO: #6 change by Invoke (Algoritmos y Estructura de Datos Avanzado)🛫 2025-11-03 
+- [ ] TODO: #7 ForEach must be a template inside this template (Algoritmos y Estructura de Datos Avanzado) 🛫 2025-11-03 
+- [ ] TODO: #8 You may reduce these two function by using Invoke (Algoritmos y Estructura de Datos Avanzado)🛫 2025-11-03 
+- [ ] TODO: #9 change by size_t (Algoritmos y Estructura de Datos Avanzado) 🛫 2025-11-03 
+- [ ] TODO: #10 size_t (Algoritmos y Estructura de Datos Avanzado) 🛫 2025-11-03 
+- [ ] TODO: #32 to \#37change int by size_t (Algoritmos y Estructura de Datos Avanzado) 🛫 2025-11-03 
+- [ ] Avanzar Proyecto Traductor de Señas (Interacción Humano Computador) 🛫 2025-11-03 
+- [ ] Estudiar CART (Minería de Datos) 🛫 2025-11-03 
+- [ ] Estudiar Random Forest (Minería de Datos) 🛫 2025-11-03 

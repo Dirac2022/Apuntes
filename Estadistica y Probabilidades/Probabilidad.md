@@ -72,9 +72,9 @@ La magnitud de la covarianza depende de las unidades de medida de $X$ e $Y$, lo 
 La **correlación** es una medida adimensional que cuantifica la intensidad y dirección de la relación lineal entre dos variables. Normaliza la covarianza dividiéndola entre los productos de las desviaciones estándar de $X$ e $Y$.  
 
 **Fórmula de la correlación (Coeficiente de Pearson):**
-\[
+$$
 \rho(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y},
-\]  
+$$  
 donde:  
 - $\text{Cov}(X, Y)$: Covarianza entre $X$ e $Y$.  
 - $\sigma_X, \sigma_Y$: Desviaciones estándar de $X$ e $Y$.  

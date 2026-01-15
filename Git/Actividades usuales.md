@@ -468,3 +468,40 @@ git config --global alias.<alias-name> "comandos" # No se coloca 'git' en los co
 # Ejemplo
 git config --global alias.logall "log --all --graph --oneline --decorate"
 ```
+
+
+# Actualizar fork
+
+**1. Traer los cambios y ramas nuevas del principal**
+
+```sh
+git fetch upstream
+```
+
+**2. Actualizar tu rama main local**
+
+```sh
+git checkout main
+git pull upstream main
+```
+
+**3. Para ramas que ya tienes localmente**
+
+```sh
+git checkout <rama>
+git pull upstream <rama>
+```
+
+**4. Para ramas nuevas que solo existen en upstream**
+```sh
+git checkout -b <rama> upstream/<rama>
+```
+
+**5. (Opcional) subir esas ramas también a tu fork**
+
+```sh
+git push origin <rama>
+```
+
+From https://github.com/ecuadros/2025-II-Alg-y-EDA
+ * [new branch]      11-BTree   -> upstream/11-BTree

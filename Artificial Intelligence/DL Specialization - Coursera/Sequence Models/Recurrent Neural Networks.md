@@ -292,13 +292,14 @@ In the literature
 $$
 \begin{aligned}
 \tilde{c}^{<t>} &= tanh(W_c [a^{<t-1>}, x^{<t>}] + b_c) \\ \\
-\Gamma_u &= \sigma(W_u [a^{<t-1>}, x^{<t>}] + b_u) \\ \\
 \Gamma_f &= \sigma(W_f [a^{<t-1>}, x^{<t>}] + b_f) \\ \\
+\Gamma_u &= \sigma(W_u [a^{<t-1>}, x^{<t>}] + b_u) \\ \\
 \Gamma_o &= \sigma(W_o [a^{<t-1>}, x^{<t>}] + b_o) \\ \\
 c^{<t>} &= \Gamma_u * \tilde{c}^{<t>} + \Gamma_f * c^{<t-1>} \\ \\
 a^{<t>} &= \Gamma_o * tanh(c^{<t>})
 \end{aligned}
 $$
+
 
 ![[Pasted image 20250802124211.png]]
 
